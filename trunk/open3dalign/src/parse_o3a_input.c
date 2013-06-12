@@ -1098,14 +1098,6 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
       }
       if ((parameter = get_args(od, "attribute"))) {
         if (!strncasecmp(parameter, "training", 8)) {
-          if ((list_type & (1 << OBJECT_LIST))
-            && (od->valid & COSMOTHERM_BIT)) {
-            tee_error(od, run_type, overall_line_num,
-              E_STRUCT_ATTRIBUTE_ONLY, "TRAINING",
-              SET_FAILED);
-            fail = !(run_type & INTERACTIVE_RUN);
-            continue;
-          }
           attr = ACTIVE_BIT;
           state = 1;
         }
@@ -1114,14 +1106,6 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
           state = 0;
         }
         else if (!strncasecmp(parameter, "test", 4)) {
-          if ((list_type & (1 << OBJECT_LIST))
-            && (od->valid & COSMOTHERM_BIT)) {
-            tee_error(od, run_type, overall_line_num,
-              E_STRUCT_ATTRIBUTE_ONLY, "TEST",
-              SET_FAILED);
-            fail = !(run_type & INTERACTIVE_RUN);
-            continue;
-          }
           attr = PREDICT_BIT;
           state = 1;
         }
@@ -1716,7 +1700,7 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
         }
       }
       else {
-        od->valid &= (SDF_BIT | COSMOTHERM_BIT);
+        od->valid &= SDF_BIT;
       }
     }  
     else if (!strcasecmp(arg->me[0], "remove_y_vars")) {
@@ -2925,14 +2909,11 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
           if (!strncasecmp(parameter, "multi", 5)) {
             od->align.type |= ALIGN_MULTICONF_TEMPLATE_BIT;
           }
-          else if (!strncasecmp(parameter, "iter", 4)) {
-            od->align.type |= ALIGN_ITERATIVE_TEMPLATE_BIT;
-          }
           else if (strncasecmp(parameter, "sing", 4)) {
             tee_error(od, run_type, overall_line_num,
               "The only allowed values for the \"template\" "
-              "parameter are \"SINGLE\", \"MULTIPLE\" "
-              "and \"ITERATIVE\".\n%s", ALIGN_FAILED);
+              "parameter are \"SINGLE\" and \"MULTIPLE\".\n%s",
+              ALIGN_FAILED);
             fail = !(run_type & INTERACTIVE_RUN);
             continue;
           }
@@ -2945,36 +2926,6 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
         if ((parameter = get_args(od, "fast"))) {
           if (!strncasecmp(parameter, "y", 1)) {
             od->align.type |= ALIGN_TOGGLE_LOOP_BIT;
-          }
-        }
-        od->align.gold = ALIGN_GOLD_COEFFICIENT;
-        if ((parameter = get_args(od, "gold"))) {
-          sscanf(parameter, "%lf", &(od->align.gold));
-          if (od->align.gold < 0.0) {
-            tee_error(od, run_type, overall_line_num,
-              E_POSITIVE_NUMBER, "gold parameter", ALIGN_FAILED);
-            fail = !(run_type & INTERACTIVE_RUN);
-            continue;
-          }
-        }
-        od->align.max_iter = DEFAULT_MAX_ITER_ALIGN;
-        if ((parameter = get_args(od, "max_iter"))) {
-          sscanf(parameter, "%d", &(od->align.max_iter));
-          if (od->align.max_iter < 0) {
-            tee_error(od, run_type, overall_line_num,
-              E_POSITIVE_NUMBER, "max_iter parameter", ALIGN_FAILED);
-            fail = !(run_type & INTERACTIVE_RUN);
-            continue;
-          }
-        }
-        od->align.max_fail = DEFAULT_MAX_FAIL_ALIGN;
-        if ((parameter = get_args(od, "max_fail"))) {
-          sscanf(parameter, "%d", &(od->align.max_fail));
-          if (od->align.max_fail < 0) {
-            tee_error(od, run_type, overall_line_num,
-              E_POSITIVE_NUMBER, "max_fail parameter", ALIGN_FAILED);
-            fail = !(run_type & INTERACTIVE_RUN);
-            continue;
           }
         }
         if ((parameter = get_args(od, "print_rmsd"))) {
@@ -3326,7 +3277,7 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
             O3_ERROR_PRINT(&(od->task));
             return PARSE_INPUT_ERROR;
           }
-          result = ((od->align.type & ALIGN_ITERATIVE_TEMPLATE_BIT) ? align_iterative(od) : align(od));
+          result = align(od);
         }
         gettimeofday(&end, NULL);
         elapsed_time(od, &start, &end);
@@ -3619,7 +3570,6 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
         }
         memcpy(&od_comp, od, sizeof(O3Data));
         od_comp.al.mol_info = NULL;
-        od_comp.al.cosmo_list = NULL;
         od_comp.pymol.use_pymol = 0;
         result = open_temp_dir(&od_comp, NULL, "comp_mol_dir", od_comp.field.mol_dir);
         if (result) {
@@ -3825,8 +3775,6 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
         tee_flush(od);
         free_array(od_comp.al.mol_info);
         od_comp.al.mol_info = NULL;
-        free_array(od_comp.al.cosmo_list);
-        od_comp.al.cosmo_list = NULL;
         remove_recursive(od_comp.field.mol_dir);
       }
     }
