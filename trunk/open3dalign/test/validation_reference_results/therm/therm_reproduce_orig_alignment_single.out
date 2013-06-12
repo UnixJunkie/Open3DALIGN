@@ -1,0 +1,525 @@
+
+Open3DALIGN version 2.21
+Copyright (C) 2010-2012 Paolo Tosco, Thomas Balle
+Licensed under the terms of GPLv3
+Report bugs to <paolo.tosco@unito.it>
+
+
+System information
+------------------
+Hostname: iron
+x86_64 Linux 2.6.28 #2 SMP Wed Jan 14 08:12:26 CET 2009
+This machine has 8 CPUs.
+
+The number of CPUs used by Open3DALIGN has been set to 8.
+
+The nice value has been set to 20.
+
+The directory for temporary storage is:
+/tmp
+
+The current working directory is:
+/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite
+
+OpenBabel binaries are in:
+/home/ptosco/open3dtools/bin
+The path to OpenBabel binaries can be changed through the O3_BABEL_PATH environment variable or by the "env babel_path" keyword.
+
+TINKER binaries are in:
+/home/ptosco/open3dtools/bin
+The path to TINKER binaries can be changed through the O3_TINKER_PATH environment variable or by the "env tinker_path" keyword.
+
+The PHARAO binary is:
+/home/ptosco/open3dtools/bin/pharao
+The path to PHARAO can be changed through the O3_PHARAO environment variable or by the "env pharao" keyword.
+
+PyMOL will not be used.
+The path to PyMOL can be set through the O3_PYMOL environment variable or by the "env pymol" keyword.
+
+Job started on Sat Sep  8 14:11:16 2012
+
+BGN COMMAND #00.0001 - IMPORT SDF tool was invoked as follows:
+> import type=sdf file=therm/therm_3dqsar_canonical.sdf
+
+
+Elapsed time: 0.0231 seconds.
+
+
+Number of fields:      0
+
+Number of objects:   76
+
+Number of Y variables:   0
+
+-----------------------------------------------------------------------------------
+                                                                                   
+    N   ID  Str    Object name                         Attribute             Weight
+-----------------------------------------------------------------------------------
+    1    1    1    ace_ohleu_agnh2                     TRAINING SET          1.0000
+    2    2    2    bzsag                               TRAINING SET          1.0000
+    3    3    3    c6pltnme                            TRAINING SET          1.0000
+    4    4    4    ch3coch2co_fagnh2                   TRAINING SET          1.0000
+    5    5    5    cltzncrys                           TRAINING SET          1.0000
+    6    6    6    dah51                               TRAINING SET          1.0000
+    7    7    7    dah52                               TRAINING SET          1.0000
+    8    8    8    dah53                               TRAINING SET          1.0000
+    9    9    9    nhohbzmagnh2                        TRAINING SET          1.0000
+   10   10   10    nhohbzmagoh                         TRAINING SET          1.0000
+   11   11   11    ohbzmagnh2                          TRAINING SET          1.0000
+   12   12   12    zala                                TRAINING SET          1.0000
+   13   13   13    zapola                              TRAINING SET          1.0000
+   14   14   14    zfgnh2                              TRAINING SET          1.0000
+   15   15   15    zfpola                              TRAINING SET          1.0000
+   16   16   16    zgglnhoh                            TRAINING SET          1.0000
+   17   17   17    zgg_d_lnhoh                         TRAINING SET          1.0000
+   18   18   18    zglnh2                              TRAINING SET          1.0000
+   19   19   19    zglnhoh                             TRAINING SET          1.0000
+   20   20   20    zgly                                TRAINING SET          1.0000
+   21   21   21    zgpcla                              TRAINING SET          1.0000
+   22   22   22    zgpclf                              TRAINING SET          1.0000
+   23   23   23    zgpclg                              TRAINING SET          1.0000
+   24   24   24    zgpcllzncrys                        TRAINING SET          1.0000
+   25   25   25    zgpla                               TRAINING SET          1.0000
+   26   26   26    zgplf                               TRAINING SET          1.0000
+   27   27   27    zgplg                               TRAINING SET          1.0000
+   28   28   28    zgpllzncrys                         TRAINING SET          1.0000
+   29   29   29    zgpola                              TRAINING SET          1.0000
+   30   30   30    zgpolf                              TRAINING SET          1.0000
+   31   31   31    zgpollzncrys                        TRAINING SET          1.0000
+   32   32   32    zgpolnh2                            TRAINING SET          1.0000
+   33   33   33    zg_d_lnhoh                          TRAINING SET          1.0000
+   34   34   34    zlgnh2                              TRAINING SET          1.0000
+   35   35   35    zlpola                              TRAINING SET          1.0000
+   36   36   36    z_d_apola                           TRAINING SET          1.0000
+   37   37   37    z_d_fpla                            TRAINING SET          1.0000
+   38   38   38    z_d_fpola                           TRAINING SET          1.0000
+   39   39   39    z_nh_glnhoh                         TRAINING SET          1.0000
+   40   40   40    c6poltnme                           TRAINING SET          1.0000
+   41   41   41    cho_ohleu_agnh2                     TRAINING SET          1.0000
+   42   42   42    dah50                               TRAINING SET          1.0000
+   43   43   43    nhohmalagnh2                        TRAINING SET          1.0000
+   44   44   44    paaoh                               TRAINING SET          1.0000
+   45   45   45    ppheoh                              TRAINING SET          1.0000
+   46   46   46    ppphe                               TRAINING SET          1.0000
+   47   47   47    po3_fagnh2                          TRAINING SET          1.0000
+   48   48   48    p_ophe_ome_leunh2                   TRAINING SET          1.0000
+   49   49   49    zglnmeoh                            TRAINING SET          1.0000
+   50   50   50    zgplnh2                             TRAINING SET          1.0000
+   51   51   51    zgpolg                              TRAINING SET          1.0000
+   52   52   52    c6pcltnme                           TRAINING SET          1.0000
+   53   53   53    dah55                               TRAINING SET          1.0000
+   54   54   54    hoch2co_fagnh2                      TRAINING SET          1.0000
+   55   55   55    nhohibmagnh2                        TRAINING SET          1.0000
+   56   56   56    plfoh                               TRAINING SET          1.0000
+   57   57   57    pnhet                               TRAINING SET          1.0000
+   58   58   58    p_ile_aoh                           TRAINING SET          1.0000
+   59   59   59    r_thiorphan                         TRAINING SET          1.0000
+   60   60   60    so3_fagnh2                          TRAINING SET          1.0000
+   61   61   61    zfplazncrys                         TRAINING SET          1.0000
+   62   62   62    zgpclnh2                            TRAINING SET          1.0000
+   63   63   63    z_d_lpola                           TRAINING SET          1.0000
+   64   64   64    cbzphe                              TRAINING SET          1.0000
+   65   65   65    ch3o2s_fagnh2                       TRAINING SET          1.0000
+   66   66   66    dah54                               TRAINING SET          1.0000
+   67   67   67    nhohbzmagna                         TRAINING SET          1.0000
+   68   68   68    nhohbzmoet                          TRAINING SET          1.0000
+   69   69   69    nhohleu                             TRAINING SET          1.0000
+   70   70   70    phosphoramidon                      TRAINING SET          1.0000
+   71   71   71    pleunh2                             TRAINING SET          1.0000
+   72   72   72    s02p_fagnh2                         TRAINING SET          1.0000
+   73   73   73    s_thiorphan                         TRAINING SET          1.0000
+   74   74   74    zggnhoh                             TRAINING SET          1.0000
+   75   75   75    zygnh2                              TRAINING SET          1.0000
+   76   76   76    z_nh_glnh2                          TRAINING SET          1.0000
+
+This set of molecules fits in a grid box whose bottom left, top right cooordinates (no outgap) are at least:
+[(-5.3020,-13.3870,-8.4450), (11.5460,6.9060,5.8010)]
+
+END COMMAND #00.0001 - IMPORT SDF tool succeeded.
+BGN COMMAND #00.0002 - ALIGN tool was invoked as follows:
+> align type=random align_dir=therm/therm_align_random
+
+The align_dir directory where input, output and log files will be put is:
+"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/therm/therm_align_random"
+
+The align_scratch directory is:
+/tmp/O3A.31826.align_scratch.lsnICS
+
+
+Elapsed time: 0.9296 seconds.
+
+END COMMAND #00.0002 - ALIGN tool succeeded.
+BGN COMMAND #00.0003 - ALIGN tool was invoked as follows:
+> align type=mixed merge=y object_list=5,16,24,28,31,57,61,70,71 keep_best_template=y align_dir=therm/therm_align_mixed_single file=therm/therm_align_random/0001-0076_random.sdf
+
+The objects which will be used as alignment templates are the following:
+5, 16, 24, 28, 31, 57, 61, 70, 71
+
+The align_dir directory where input, output and log files will be put is:
+"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/therm/therm_align_mixed_single"
+
+The align_scratch directory is:
+/tmp/O3A.31826.align_scratch.RUxYKL
+
+Template      ID       Conformer           O3A_SCORE
+----------------------------------------------------
+       5       5               1            11952.34
+      16      16               1             7570.17
+      24      24               1            13000.37
+      28      28               1            13439.12
+      31      31               1            13311.32
+      57      57               1             4977.48
+      61      61               1            11893.03
+      70      70               1            12644.54
+      71      71               1             8304.65
+----------------------------------------------------
+
+Best template combination score:            16418.58
+
+
+Elapsed time: 13.3147 seconds.
+
+END COMMAND #00.0003 - ALIGN tool succeeded.
+BGN COMMAND #00.0004 - ALIGN tool was invoked as follows:
+> align type=atom object_list=5,16,24,28,31,57,61,70,71 keep_best_template=y align_dir=therm/therm_align_atom_single file=therm/therm_align_random/0001-0076_random.sdf
+
+The objects which will be used as alignment templates are the following:
+5, 16, 24, 28, 31, 57, 61, 70, 71
+
+The align_dir directory where input, output and log files will be put is:
+"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/therm/therm_align_atom_single"
+
+The align_scratch directory is:
+/tmp/O3A.31826.align_scratch.Bv1AEh
+
+Template      ID       Conformer           O3A_SCORE
+----------------------------------------------------
+       5       5               1            11933.47
+      16      16               1             7470.37
+      24      24               1            12923.44
+      28      28               1            13244.70
+      31      31               1            13243.24
+      57      57               1             4937.15
+      61      61               1            11749.73
+      70      70               1            12602.38
+      71      71               1             8294.18
+----------------------------------------------------
+
+Best template combination score:            16408.70
+
+
+Elapsed time: 8.8729 seconds.
+
+END COMMAND #00.0004 - ALIGN tool succeeded.
+BGN COMMAND #00.0005 - ALIGN tool was invoked as follows:
+> align type=pharao merge=y object_list=5,16,24,28,31,57,61,70,71 keep_best_template=y align_dir=therm/therm_align_pharao_single file=therm/therm_align_random/0001-0076_random.sdf
+
+The objects which will be used as alignment templates are the following:
+5, 16, 24, 28, 31, 57, 61, 70, 71
+
+The align_dir directory where input, output and log files will be put is:
+"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/therm/therm_align_pharao_single"
+
+The align_scratch directory is:
+/tmp/O3A.31826.align_scratch.zfJKnd
+
+Template      ID       Conformer     PHARAO_TANIMOTO
+----------------------------------------------------
+       5       5               1               20.54
+      16      16               1               19.05
+      24      24               1               26.05
+      28      28               1               27.34
+      31      31               1               26.80
+      57      57               1               18.79
+      61      61               1               22.09
+      70      70               1               16.84
+      71      71               1               23.79
+----------------------------------------------------
+
+Best template combination score:               42.25
+
+
+Elapsed time: 5.3248 seconds.
+
+END COMMAND #00.0005 - ALIGN tool succeeded.
+BGN COMMAND #00.0006 - COMPARE tool was invoked as follows:
+> compare type=block file=therm/therm_align_mixed_single/0001-0076_on_best_template.sdf aligned=therm/therm_align_mixed_single/0001-0076_on_best_template_aligned_on_original.sdf
+
+
+Number of objects:   76
+
+---------------------------------------------------------------------------------------------
+    N    Reference name                      Name                                        RMSD
+---------------------------------------------------------------------------------------------
+    1    ace_ohleu_agnh2                     ace_ohleu_agnh2                           1.0016
+    2    bzsag                               bzsag                                     0.4116
+    3    c6pltnme                            c6pltnme                                  0.7860
+    4    ch3coch2co_fagnh2                   ch3coch2co_fagnh2                         0.8520
+    5    cltzncrys                           cltzncrys                                 0.2328
+    6    dah51                               dah51                                     0.2508
+    7    dah52                               dah52                                     0.2507
+    8    dah53                               dah53                                     0.4412
+    9    nhohbzmagnh2                        nhohbzmagnh2                              0.8074
+   10    nhohbzmagoh                         nhohbzmagoh                               0.6920
+   11    ohbzmagnh2                          ohbzmagnh2                                0.7942
+   12    zala                                zala                                      0.5176
+   13    zapola                              zapola                                    0.1824
+   14    zfgnh2                              zfgnh2                                    4.5332
+   15    zfpola                              zfpola                                    0.1825
+   16    zgglnhoh                            zgglnhoh                                  0.2510
+   17    zgg_d_lnhoh                         zgg_d_lnhoh                               0.4036
+   18    zglnh2                              zglnh2                                    0.4011
+   19    zglnhoh                             zglnhoh                                   0.3665
+   20    zgly                                zgly                                      0.5582
+   21    zgpcla                              zgpcla                                    0.2573
+   22    zgpclf                              zgpclf                                    0.1850
+   23    zgpclg                              zgpclg                                    0.2358
+   24    zgpcllzncrys                        zgpcllzncrys                              0.1903
+   25    zgpla                               zgpla                                     0.3148
+   26    zgplf                               zgplf                                     0.2154
+   27    zgplg                               zgplg                                     0.3004
+   28    zgpllzncrys                         zgpllzncrys                               0.1898
+   29    zgpola                              zgpola                                    0.3023
+   30    zgpolf                              zgpolf                                    0.1959
+   31    zgpollzncrys                        zgpollzncrys                              0.1895
+   32    zgpolnh2                            zgpolnh2                                  0.1915
+   33    zg_d_lnhoh                          zg_d_lnhoh                                0.3841
+   34    zlgnh2                              zlgnh2                                    8.6977
+   35    zlpola                              zlpola                                    0.1971
+   36    z_d_apola                           z_d_apola                                 0.2292
+   37    z_d_fpla                            z_d_fpla                                  0.1926
+   38    z_d_fpola                           z_d_fpola                                 0.1684
+   39    z_nh_glnhoh                         z_nh_glnhoh                               0.2934
+   40    c6poltnme                           c6poltnme                                 0.2614
+   41    cho_ohleu_agnh2                     cho_ohleu_agnh2                           0.8314
+   42    dah50                               dah50                                     0.4240
+   43    nhohmalagnh2                        nhohmalagnh2                              0.7713
+   44    paaoh                               paaoh                                     0.3585
+   45    ppheoh                              ppheoh                                    0.2901
+   46    ppphe                               ppphe                                     6.4946
+   47    po3_fagnh2                          po3_fagnh2                                0.1253
+   48    p_ophe_ome_leunh2                   p_ophe_ome_leunh2                         0.6632
+   49    zglnmeoh                            zglnmeoh                                  0.6314
+   50    zgplnh2                             zgplnh2                                   0.2721
+   51    zgpolg                              zgpolg                                    0.3777
+   52    c6pcltnme                           c6pcltnme                                 0.2359
+   53    dah55                               dah55                                     0.2657
+   54    hoch2co_fagnh2                      hoch2co_fagnh2                            0.7086
+   55    nhohibmagnh2                        nhohibmagnh2                              0.8240
+   56    plfoh                               plfoh                                     0.2866
+   57    pnhet                               pnhet                                     0.1542
+   58    p_ile_aoh                           p_ile_aoh                                 0.3388
+   59    r_thiorphan                         r_thiorphan                               0.5842
+   60    so3_fagnh2                          so3_fagnh2                                0.2689
+   61    zfplazncrys                         zfplazncrys                               0.1736
+   62    zgpclnh2                            zgpclnh2                                  0.2166
+   63    z_d_lpola                           z_d_lpola                                 0.2390
+   64    cbzphe                              cbzphe                                    6.1731
+   65    ch3o2s_fagnh2                       ch3o2s_fagnh2                             0.3526
+   66    dah54                               dah54                                     0.2886
+   67    nhohbzmagna                         nhohbzmagna                               0.7203
+   68    nhohbzmoet                          nhohbzmoet                                0.6820
+   69    nhohleu                             nhohleu                                   0.8631
+   70    phosphoramidon                      phosphoramidon                            0.2293
+   71    pleunh2                             pleunh2                                   0.1713
+   72    s02p_fagnh2                         s02p_fagnh2                               0.2759
+   73    s_thiorphan                         s_thiorphan                               0.4365
+   74    zggnhoh                             zggnhoh                                   2.3170
+   75    zygnh2                              zygnh2                                    4.3807
+   76    z_nh_glnh2                          z_nh_glnh2                                0.3436
+---------------------------------------------------------------------------------------------
+                                             Average                                   0.7879
+---------------------------------------------------------------------------------------------
+
+Elapsed time: 1.1026 seconds.
+
+END COMMAND #00.0006 - COMPARE tool succeeded.
+BGN COMMAND #00.0007 - COMPARE tool was invoked as follows:
+> compare type=block file=therm/therm_align_atom_single/0001-0076_on_best_template.sdf aligned=therm/therm_align_atom_single/0001-0076_on_best_template_aligned_on_original.sdf
+
+
+Number of objects:   76
+
+---------------------------------------------------------------------------------------------
+    N    Reference name                      Name                                        RMSD
+---------------------------------------------------------------------------------------------
+    1    ace_ohleu_agnh2                     ace_ohleu_agnh2                           0.9758
+    2    bzsag                               bzsag                                     0.3892
+    3    c6pltnme                            c6pltnme                                  0.7441
+    4    ch3coch2co_fagnh2                   ch3coch2co_fagnh2                         0.8308
+    5    cltzncrys                           cltzncrys                                 0.2456
+    6    dah51                               dah51                                     0.2500
+    7    dah52                               dah52                                     0.3023
+    8    dah53                               dah53                                     0.5059
+    9    nhohbzmagnh2                        nhohbzmagnh2                              0.7727
+   10    nhohbzmagoh                         nhohbzmagoh                               0.6504
+   11    ohbzmagnh2                          ohbzmagnh2                                0.7548
+   12    zala                                zala                                      0.5735
+   13    zapola                              zapola                                    0.1983
+   14    zfgnh2                              zfgnh2                                    4.5137
+   15    zfpola                              zfpola                                    0.1962
+   16    zgglnhoh                            zgglnhoh                                  0.2997
+   17    zgg_d_lnhoh                         zgg_d_lnhoh                               0.4183
+   18    zglnh2                              zglnh2                                    0.4146
+   19    zglnhoh                             zglnhoh                                   0.4308
+   20    zgly                                zgly                                      0.6153
+   21    zgpcla                              zgpcla                                    0.2398
+   22    zgpclf                              zgpclf                                    0.1473
+   23    zgpclg                              zgpclg                                    0.2091
+   24    zgpcllzncrys                        zgpcllzncrys                              0.2068
+   25    zgpla                               zgpla                                     0.3919
+   26    zgplf                               zgplf                                     0.1388
+   27    zgplg                               zgplg                                     0.2942
+   28    zgpllzncrys                         zgpllzncrys                               0.2073
+   29    zgpola                              zgpola                                    0.3080
+   30    zgpolf                              zgpolf                                    0.2427
+   31    zgpollzncrys                        zgpollzncrys                              0.2077
+   32    zgpolnh2                            zgpolnh2                                  0.2710
+   33    zg_d_lnhoh                          zg_d_lnhoh                                0.4437
+   34    zlgnh2                              zlgnh2                                    1.1264
+   35    zlpola                              zlpola                                    0.2025
+   36    z_d_apola                           z_d_apola                                 0.2509
+   37    z_d_fpla                            z_d_fpla                                  0.2129
+   38    z_d_fpola                           z_d_fpola                                 0.1912
+   39    z_nh_glnhoh                         z_nh_glnhoh                               0.3731
+   40    c6poltnme                           c6poltnme                                 0.2796
+   41    cho_ohleu_agnh2                     cho_ohleu_agnh2                           0.8119
+   42    dah50                               dah50                                     0.4877
+   43    nhohmalagnh2                        nhohmalagnh2                              0.7060
+   44    paaoh                               paaoh                                     0.3920
+   45    ppheoh                              ppheoh                                    0.2819
+   46    ppphe                               ppphe                                     6.4966
+   47    po3_fagnh2                          po3_fagnh2                                0.1455
+   48    p_ophe_ome_leunh2                   p_ophe_ome_leunh2                         0.6303
+   49    zglnmeoh                            zglnmeoh                                  0.6619
+   50    zgplnh2                             zgplnh2                                   0.2577
+   51    zgpolg                              zgpolg                                    0.3356
+   52    c6pcltnme                           c6pcltnme                                 0.2605
+   53    dah55                               dah55                                     0.3115
+   54    hoch2co_fagnh2                      hoch2co_fagnh2                            0.6538
+   55    nhohibmagnh2                        nhohibmagnh2                              0.7874
+   56    plfoh                               plfoh                                     0.2510
+   57    pnhet                               pnhet                                     0.1705
+   58    p_ile_aoh                           p_ile_aoh                                 0.3778
+   59    r_thiorphan                         r_thiorphan                               0.5718
+   60    so3_fagnh2                          so3_fagnh2                                0.2470
+   61    zfplazncrys                         zfplazncrys                               0.2026
+   62    zgpclnh2                            zgpclnh2                                  0.1873
+   63    z_d_lpola                           z_d_lpola                                 0.2188
+   64    cbzphe                              cbzphe                                    6.1409
+   65    ch3o2s_fagnh2                       ch3o2s_fagnh2                             0.3226
+   66    dah54                               dah54                                     0.3383
+   67    nhohbzmagna                         nhohbzmagna                               0.7441
+   68    nhohbzmoet                          nhohbzmoet                                0.7008
+   69    nhohleu                             nhohleu                                   0.8959
+   70    phosphoramidon                      phosphoramidon                            0.2488
+   71    pleunh2                             pleunh2                                   0.1946
+   72    s02p_fagnh2                         s02p_fagnh2                               0.3253
+   73    s_thiorphan                         s_thiorphan                               0.4209
+   74    zggnhoh                             zggnhoh                                   2.2362
+   75    zygnh2                              zygnh2                                    4.3596
+   76    z_nh_glnh2                          z_nh_glnh2                                0.3895
+---------------------------------------------------------------------------------------------
+                                             Average                                   0.6946
+---------------------------------------------------------------------------------------------
+
+Elapsed time: 1.1563 seconds.
+
+END COMMAND #00.0007 - COMPARE tool succeeded.
+BGN COMMAND #00.0008 - COMPARE tool was invoked as follows:
+> compare type=block file=therm/therm_align_pharao_single/0001-0076_on_best_template.sdf aligned=therm/therm_align_pharao_single/0001-0076_on_best_template_aligned_on_original.sdf
+
+
+Number of objects:   76
+
+---------------------------------------------------------------------------------------------
+    N    Reference name                      Name                                        RMSD
+---------------------------------------------------------------------------------------------
+    1    ace_ohleu_agnh2                     ace_ohleu_agnh2                           3.9486
+    2    bzsag                               bzsag                                     9.0840
+    3    c6pltnme                            c6pltnme                                  0.5894
+    4    ch3coch2co_fagnh2                   ch3coch2co_fagnh2                         8.3782
+    5    cltzncrys                           cltzncrys                                 0.3532
+    6    dah51                               dah51                                     0.4783
+    7    dah52                               dah52                                     0.3356
+    8    dah53                               dah53                                     0.4627
+    9    nhohbzmagnh2                        nhohbzmagnh2                              1.3132
+   10    nhohbzmagoh                         nhohbzmagoh                               1.2811
+   11    ohbzmagnh2                          ohbzmagnh2                                5.3180
+   12    zala                                zala                                      0.4237
+   13    zapola                              zapola                                    0.4008
+   14    zfgnh2                              zfgnh2                                    5.1115
+   15    zfpola                              zfpola                                    0.3710
+   16    zgglnhoh                            zgglnhoh                                  0.5198
+   17    zgg_d_lnhoh                         zgg_d_lnhoh                               0.7704
+   18    zglnh2                              zglnh2                                    7.0475
+   19    zglnhoh                             zglnhoh                                   2.2057
+   20    zgly                                zgly                                      0.4473
+   21    zgpcla                              zgpcla                                    0.4059
+   22    zgpclf                              zgpclf                                    0.5249
+   23    zgpclg                              zgpclg                                    0.4738
+   24    zgpcllzncrys                        zgpcllzncrys                              0.3486
+   25    zgpla                               zgpla                                     0.5660
+   26    zgplf                               zgplf                                     0.4777
+   27    zgplg                               zgplg                                     0.3860
+   28    zgpllzncrys                         zgpllzncrys                               0.3495
+   29    zgpola                              zgpola                                    0.3984
+   30    zgpolf                              zgpolf                                    0.5977
+   31    zgpollzncrys                        zgpollzncrys                              0.3451
+   32    zgpolnh2                            zgpolnh2                                  0.6412
+   33    zg_d_lnhoh                          zg_d_lnhoh                                2.2179
+   34    zlgnh2                              zlgnh2                                    3.9103
+   35    zlpola                              zlpola                                    0.3841
+   36    z_d_apola                           z_d_apola                                 0.3235
+   37    z_d_fpla                            z_d_fpla                                  0.3813
+   38    z_d_fpola                           z_d_fpola                                 0.4241
+   39    z_nh_glnhoh                         z_nh_glnhoh                               2.2231
+   40    c6poltnme                           c6poltnme                                 0.7903
+   41    cho_ohleu_agnh2                     cho_ohleu_agnh2                           4.0430
+   42    dah50                               dah50                                     0.5736
+   43    nhohmalagnh2                        nhohmalagnh2                              0.6508
+   44    paaoh                               paaoh                                     2.6665
+   45    ppheoh                              ppheoh                                    1.3033
+   46    ppphe                               ppphe                                     5.4102
+   47    po3_fagnh2                          po3_fagnh2                                0.9648
+   48    p_ophe_ome_leunh2                   p_ophe_ome_leunh2                         1.6968
+   49    zglnmeoh                            zglnmeoh                                  6.8693
+   50    zgplnh2                             zgplnh2                                   0.3916
+   51    zgpolg                              zgpolg                                    0.3620
+   52    c6pcltnme                           c6pcltnme                                 0.4482
+   53    dah55                               dah55                                     0.4129
+   54    hoch2co_fagnh2                      hoch2co_fagnh2                            7.4426
+   55    nhohibmagnh2                        nhohibmagnh2                              0.9099
+   56    plfoh                               plfoh                                     0.5743
+   57    pnhet                               pnhet                                     0.3067
+   58    p_ile_aoh                           p_ile_aoh                                 0.8861
+   59    r_thiorphan                         r_thiorphan                               7.6407
+   60    so3_fagnh2                          so3_fagnh2                                0.9816
+   61    zfplazncrys                         zfplazncrys                               0.3066
+   62    zgpclnh2                            zgpclnh2                                  0.5943
+   63    z_d_lpola                           z_d_lpola                                 0.3988
+   64    cbzphe                              cbzphe                                    1.7777
+   65    ch3o2s_fagnh2                       ch3o2s_fagnh2                             2.3917
+   66    dah54                               dah54                                     0.6197
+   67    nhohbzmagna                         nhohbzmagna                               1.0075
+   68    nhohbzmoet                          nhohbzmoet                                7.5975
+   69    nhohleu                             nhohleu                                   0.5311
+   70    phosphoramidon                      phosphoramidon                            0.3369
+   71    pleunh2                             pleunh2                                   0.3633
+   72    s02p_fagnh2                         s02p_fagnh2                               0.7618
+   73    s_thiorphan                         s_thiorphan                               7.3568
+   74    zggnhoh                             zggnhoh                                   2.1243
+   75    zygnh2                              zygnh2                                    5.3873
+   76    z_nh_glnh2                          z_nh_glnh2                                2.3613
+---------------------------------------------------------------------------------------------
+                                             Average                                   1.8876
+---------------------------------------------------------------------------------------------
+
+Elapsed time: 1.1286 seconds.
+
+END COMMAND #00.0008 - COMPARE tool succeeded.
+
+
+Job finished on Sat Sep  8 14:11:48 2012
+
+Successful completion.

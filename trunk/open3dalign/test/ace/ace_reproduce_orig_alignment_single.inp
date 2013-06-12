@@ -1,0 +1,17 @@
+import type=sdf file=ace/ace_3dqsar_canonical.sdf
+align type=random align_dir=ace/ace_align_random
+align type=mixed object_list=3,8,71 keep_best_template=y \
+	align_dir=ace/ace_align_mixed_single \
+	file=ace/ace_align_random/0001-0114_random.sdf
+align type=atom object_list=3,8,71 keep_best_template=y \
+	align_dir=ace/ace_align_atom_single \
+	file=ace/ace_align_random/0001-0114_random.sdf
+align type=pharao object_list=3,8,71 keep_best_template=y \
+	align_dir=ace/ace_align_pharao_single \
+	file=ace/ace_align_random/0001-0114_random.sdf
+compare type=block file=ace/ace_align_mixed_single/0001-0114_on_best_template.sdf \
+	aligned=ace/ace_align_mixed_single/0001-0114_on_best_template_aligned_on_original.sdf
+compare type=block file=ace/ace_align_atom_single/0001-0114_on_best_template.sdf \
+	aligned=ace/ace_align_atom_single/0001-0114_on_best_template_aligned_on_original.sdf
+compare type=block file=ace/ace_align_pharao_single/0001-0114_on_best_template.sdf \
+	aligned=ace/ace_align_pharao_single/0001-0114_on_best_template_aligned_on_original.sdf

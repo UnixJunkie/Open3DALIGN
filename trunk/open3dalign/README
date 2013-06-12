@@ -1,0 +1,52 @@
+Open3DALIGN
+-----------
+
+An open-source software aimed at unsupervised molecular alignment
+
+Paolo Tosco (a,*), Thomas Balle (b)
+
+a) Department of Drug Science and Technology,
+   University of Turin, via Pietro Giuria 9, 10125 Torino, Italy;
+   e-mail: paolo.tosco@unito.it
+
+b) Department of Medicinal Chemistry,
+   The Faculty of Pharmaceutical Sciences, University of Copenhagen,
+   2 Universitetsparken, 2100 Copenhagen, Denmark
+
+http://open3dalign.org
+
+
+
+
+Open3DALIGN is a command-line tool aimed at unsupervised molecular
+alignment.  The usual workflow is:
+
+   1. a dataset is imported as SDF file
+   2. for each compound of the dataset a quenched molecular dynamics (QMD)
+      conformational search is carried out to find the most stable
+      conformers in a user-defined energy range from the global minimu
+   3. a number of template compounds are chosen with different criteria,
+      and the whole dataset is best-aligned to the template compounds.
+      Since each compound is actually a collection of conformers, the whole
+      dataset is best-aligned (i.e., the best-fitting conformer is aligned)
+      to every conformer of the template. This gives rise to a number of
+      datasets which are aligned to a certain template conformer.
+
+
+The QMD search is accomplished by calling two programs belonging to the
+TINKER molecular mechanics suite. Open3DALIGN sorts out diverse
+conformations in a user-specified range from the global minimum and saves
+them in SDF databases for later use. Once these conformational databases
+have been obtained, Open3DALIGN finds the best alignments to user-selected
+templates choosing the best-fitting conformers out of the available
+conformational pool. Alignments are computed using Pharao as a
+pharmacophore-based alignment engine.  High computational performance is
+attained through multi-threaded algorithms.
+
+Open3DALIGN is written in C; while pre-built binaries are available for
+mainstream operating systems (Windows 32/64-bit, Linux 32/64-bit, Solaris
+x86 32/64-bit, FreeBSD 32/64-bit, Intel Mac OS X 32/64-bit), source
+code is portable and can be compiled under any platform supporting POSIX
+threads. The modular nature of the code allows for easy implementation
+of new features, so that the core application can be customized to meet
+individual needs.

@@ -1,0 +1,192 @@
+Open3DALIGN's ChangeLog
+-----------------------
+
+*** February 17, 2012: release of Open3DALIGN 2.105 ***
+
+  Changes with respect to the previous version include:
+
+  - The "box" keyword now supports also "[x,y,z]_nodes" parameters as
+    alternative to "[x,y,z]_end"
+
+
+*** January 12, 2012: release of Open3DALIGN 2.104 ***
+
+  Changes with respect to the previous version include:
+
+  - Open3DALIGN was linked with the updated versions of ATLAS (3.8.4) and
+    LAPACK (3.4.0) libraries
+
+
+*** October 22, 2011: release of Open3DALIGN 2.103 ***
+
+  Changes with respect to the previous version include:
+
+  - Fixed a bug connected with different CR/LF handling on the Windows
+    platform
+
+
+*** October 15, 2011: release of Open3DALIGN 2.102 ***
+
+  Changes with respect to the previous version include:
+
+  - Fixed a bug which prevented restoring the default terminal color on
+    exit on *NIX platforms
+  - Added the "--term" command line switch to toggle terminal mode; this
+    results in default terminal colors to be used for text and, on Windows,
+    in preventing a new CMD window from being spawned on start
+
+
+*** September 19, 2011: release of Open3DALIGN 2.101 ***
+
+  Changes with respect to the previous version include:
+
+  - Replaced the dependency from the obsolete termcap library with the one
+    from the ubiquitous curses library on Linux, Solaris, Mac OS X and
+    FreeBSD platforms
+
+
+*** September 1, 2011: release of Open3DALIGN 2.1 ***
+
+  Changes with respect to the previous version include:
+
+  - The "filter" keyword was implemented to allow template filtering/
+    selection before carrying out multiple template alignment
+
+
+*** August 30, 2011: release of Open3DALIGN 2.043 ***
+
+  Changes with respect to the previous version include:
+
+  - A regression introduced in version 2.042 which caused the "qmd" command
+    to fail with a segmentation fault was fixed
+
+
+*** August 26, 2011: release of Open3DALIGN 2.042 ***
+
+  Changes with respect to the previous version include:
+
+  - A regression introduced in version 2.0 which caused the "qmd" command
+    to fail to discard identical conformations when they are characterized
+    by a high degree of symmetry was fixed
+  - A bug in the compare() function which caused it to yield slightly
+    incorrect RMSD values when using the option type=BLOCK was fixed
+  - Minor reorganization of the code tree
+
+
+*** August 23, 2011: release of Open3DALIGN 2.041 ***
+
+  Changes with respect to the previous version include:
+
+  - Temporary files created in the scratch folder by the "align" command
+    are removed immediately after use
+
+
+*** August 20, 2011: release of Open3DALIGN 2.04 ***
+
+  Changes with respect to the previous version include:
+
+  - A bug which caused a crash in the Windows version upon resizing the
+    program window on start followed by pressing "arrow up" was fixed
+  - A bug which caused duplicate command-line history entries to disappear
+    in the Windows version was fixed
+  - A bug which might cause the Windows version to crash when using
+    multiple CPUs was fixed
+  - A regression introduced in version 2.02 which caused the "qmd" command
+    to fail under many instances was fixed
+  - More robust error handling was implemented
+
+
+*** August 2, 2011: release of Open3DALIGN 2.03 ***
+
+  Changes with respect to the previous version include:
+
+  - The "remove_y_vars" keyword was added
+
+
+*** July 26, 2011: release of Open3DALIGN 2.021 ***
+
+  Changes with respect to the previous version include:
+
+  - Fixed a bug which caused "align type=MIXED" to fail with an error
+    message when dealing with large datasets
+
+
+*** July 24, 2011: release of Open3DALIGN 2.02 ***
+
+  Changes with respect to the previous version include:
+
+  - Implementation of a more robust Y variable import procedure both in the
+    "import type=SDF" and in the "import type=DEPENDENT" modules; for this
+    purpose, the "y_var_list" parameter was replaced by the "y_var_name"
+    parameter
+  - Fixed a bug which caused sudden logout from the interactive program
+    shell under particular conditions
+
+
+*** June 29, 2011: release of Open3DALIGN 2.01 ***
+
+  Changes with respect to the previous version include:
+
+  - Implementation of a more robust check of OpenBabel/PHARAO functionality
+    on program start
+  - Fixed a bug connected with the "align" keyword when single-conformation
+    PHAR and MIXED types were chosen
+  - By default, QMD temporary folders are not deleted anymore after QMD; to
+    force their removal the "remove_qmd_folder=YES" parameter must be
+    included in the command line
+
+
+*** June 4, 2011: release of Open3DALIGN 2.0 ***
+
+  Changes with respect to the previous version include:
+
+  - Implementation of two additional alignment algorithms (atom-based and
+    mixed) in addition to the original, pharmacophore-based one relying on
+    Pharao
+  - Single and multi-conformational alignment can now be accomplished,
+    incorporating flexibility either in alignment candidates only, or in
+    templates only, or in both templates and candidates
+  - The capability to restart QMD searches and alignment tasks from the
+    point from which they had been interrupted was implemented
+  - More efficient parallelization was achieved
+  - "n_cpus" is not a parameter to parallel-enabled computations anymore;
+    instead, a new "O3_N_CPUS" environment variable (as well as a new
+    "n_cpus" parameter to the "env" keyword) has been added which is valid
+    for all parallel-enabled computations
+  - A bug which under certain conditions might cause a segmentation fault
+    on start due to buffer overflow was fixed
+  - Minor bugfixes all over
+
+
+*** April 9, 2011: release of Open3DALIGN 1.03 ***
+
+  Changes with respect to the previous version include:
+
+  - More robust error-checking was implemented concerning the availability
+    of external software
+  - A bug which under certain conditions might cause a segmentation fault
+    on start due to buffer overflow was fixed
+  - A bug concerning object numbers vs object IDs was fixed
+  - Minor bugfixes all over
+
+
+*** March 7, 2011: release of Open3DALIGN 1.02 ***
+
+  Changes with respect to the previous version include:
+
+  - The "box", "remove_box", "remove_object", "load" and "save" keywords
+    have been added
+
+
+*** February 16, 2011: release of Open3DALIGN 1.01 ***
+
+  Changes with respect to the previous version include:
+
+  - More efficient integration with OpenBabel, which results in faster
+    loading and visualization in PyMOL of imported molecules, particularly
+    on Windows
+  - Fixed some issues in the superpose_conf() routine which might cause
+    small numeric discrepancies across different platforms
+
+
+*** January 31, 2011: release of Open3DALIGN 1.0 ***

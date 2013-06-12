@@ -1,0 +1,17 @@
+import type=sdf file=gpb/gpb_3dqsar_canonical.sdf
+align type=random align_dir=gpb/gpb_align_random
+align type=mixed object_list=56 keep_best_template=y \
+	align_dir=gpb/gpb_align_mixed_single \
+	file=gpb/gpb_align_random/0001-0066_random.sdf
+align type=atom object_list=56 keep_best_template=y \
+	align_dir=gpb/gpb_align_atom_single \
+	file=gpb/gpb_align_random/0001-0066_random.sdf
+align type=pharao object_list=56 keep_best_template=y \
+	align_dir=gpb/gpb_align_pharao_single \
+	file=gpb/gpb_align_random/0001-0066_random.sdf
+compare type=block file=gpb/gpb_align_mixed_single/0001-0066_on_best_template.sdf \
+	aligned=gpb/gpb_align_mixed_single/0001-0066_on_best_template_aligned_on_original.sdf
+compare type=block file=gpb/gpb_align_atom_single/0001-0066_on_best_template.sdf \
+	aligned=gpb/gpb_align_atom_single/0001-0066_on_best_template_aligned_on_original.sdf
+compare type=block file=gpb/gpb_align_pharao_single/0001-0066_on_best_template.sdf \
+	aligned=gpb/gpb_align_pharao_single/0001-0066_on_best_template_aligned_on_original.sdf
