@@ -1,0 +1,17 @@
+import type=sdf file=thr/thr_3dqsar_canonical.sdf
+align type=random align_dir=thr/thr_align_random
+align type=mixed object_list=30 keep_best_template=y \
+	align_dir=thr/thr_align_mixed_single \
+	file=thr/thr_align_random/0001-0088_random.sdf
+align type=atom object_list=30 keep_best_template=y \
+	align_dir=thr/thr_align_atom_single \
+	file=thr/thr_align_random/0001-0088_random.sdf
+align type=pharao object_list=30 keep_best_template=y \
+	align_dir=thr/thr_align_pharao_single \
+	file=thr/thr_align_random/0001-0088_random.sdf
+compare type=block file=thr/thr_align_mixed_single/0001-0088_on_best_template.sdf \
+	aligned=thr/thr_align_mixed_single/0001-0088_on_best_template_aligned_on_original.sdf
+compare type=block file=thr/thr_align_atom_single/0001-0088_on_best_template.sdf \
+	aligned=thr/thr_align_atom_single/0001-0088_on_best_template_aligned_on_original.sdf
+compare type=block file=thr/thr_align_pharao_single/0001-0088_on_best_template.sdf \
+	aligned=thr/thr_align_pharao_single/0001-0088_on_best_template_aligned_on_original.sdf

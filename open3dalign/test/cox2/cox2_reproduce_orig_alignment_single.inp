@@ -1,0 +1,17 @@
+import type=sdf file=cox2/cox2_3dqsar_canonical.sdf
+align type=random align_dir=cox2/cox2_align_random
+align type=mixed object_list=150 keep_best_template=y \
+	align_dir=cox2/cox2_align_mixed_single \
+	file=cox2/cox2_align_random/0001-0322_random.sdf
+align type=atom object_list=150 keep_best_template=y \
+	align_dir=cox2/cox2_align_atom_single \
+	file=cox2/cox2_align_random/0001-0322_random.sdf
+align type=pharao object_list=150 keep_best_template=y \
+	align_dir=cox2/cox2_align_pharao_single \
+	file=cox2/cox2_align_random/0001-0322_random.sdf
+compare type=block file=cox2/cox2_align_mixed_single/0001-0322_on_best_template.sdf \
+	aligned=cox2/cox2_align_mixed_single/0001-0322_on_best_template_aligned_on_original.sdf
+compare type=block file=cox2/cox2_align_atom_single/0001-0322_on_best_template.sdf \
+	aligned=cox2/cox2_align_atom_single/0001-0322_on_best_template_aligned_on_original.sdf
+compare type=block file=cox2/cox2_align_pharao_single/0001-0322_on_best_template.sdf \
+	aligned=cox2/cox2_align_pharao_single/0001-0322_on_best_template_aligned_on_original.sdf

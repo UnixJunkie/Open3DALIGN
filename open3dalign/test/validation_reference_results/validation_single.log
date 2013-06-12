@@ -1,0 +1,43 @@
+
+Single-conformation validation:
+------------------------------
+
+Dataset                 Mixed           Atom            Pharao          
+
+ACE
+RMSD (angstrom)         0.4288          0.6178          2.4269          
+Time (HH:MM:SS)         00:00:05        00:00:02        00:00:02        
+
+ACHE
+RMSD (angstrom)         0.1529          0.1499          0.3566          
+Time (HH:MM:SS)         00:00:04        00:00:02        00:00:02        
+
+BZR
+RMSD (angstrom)         0.1450          0.3367          0.4037          
+Time (HH:MM:SS)         00:00:05        00:00:01        00:00:03        
+
+COX2
+RMSD (angstrom)         0.1170          0.1170          0.1891          
+Time (HH:MM:SS)         00:00:12        00:00:04        00:00:09        
+
+DHFR
+RMSD (angstrom)         0.4067          0.5759          0.6371          
+Time (HH:MM:SS)         00:00:23        00:00:12        00:00:13        
+
+GPB
+RMSD (angstrom)         0.3369          0.3369          0.3331          
+Time (HH:MM:SS)         00:00:08        00:00:00        00:00:07        
+
+THERM
+RMSD (angstrom)         0.7879          0.6946          1.8876          
+Time (HH:MM:SS)         00:00:13        00:00:08        00:00:05        
+
+THR
+RMSD (angstrom)         0.2136          0.2136          0.4386          
+Time (HH:MM:SS)         00:00:06        00:00:01        00:00:05        
+
+Overall time
+(HH:MM:SS)              00:01:16        00:00:30        00:00:46        
+
+Validation succeeded.
+

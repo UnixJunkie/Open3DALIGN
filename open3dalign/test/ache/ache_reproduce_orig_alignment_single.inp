@@ -1,0 +1,17 @@
+import type=sdf file=ache/ache_3dqsar_canonical.sdf
+align type=random align_dir=ache/ache_align_random
+align type=mixed object_list=34 keep_best_template=y \
+	align_dir=ache/ache_align_mixed_single \
+	file=ache/ache_align_random/0001-0111_random.sdf
+align type=atom object_list=34 keep_best_template=y \
+	align_dir=ache/ache_align_atom_single \
+	file=ache/ache_align_random/0001-0111_random.sdf
+align type=pharao object_list=34 keep_best_template=y \
+	align_dir=ache/ache_align_pharao_single \
+	file=ache/ache_align_random/0001-0111_random.sdf
+compare type=block file=ache/ache_align_mixed_single/0001-0111_on_best_template.sdf \
+	aligned=ache/ache_align_mixed_single/0001-0111_on_best_template_aligned_on_original.sdf
+compare type=block file=ache/ache_align_atom_single/0001-0111_on_best_template.sdf \
+	aligned=ache/ache_align_atom_single/0001-0111_on_best_template_aligned_on_original.sdf
+compare type=block file=ache/ache_align_pharao_single/0001-0111_on_best_template.sdf \
+	aligned=ache/ache_align_pharao_single/0001-0111_on_best_template_aligned_on_original.sdf

@@ -1,0 +1,1788 @@
+
+Open3DALIGN version 2.21
+Copyright (C) 2010-2012 Paolo Tosco, Thomas Balle
+Licensed under the terms of GPLv3
+Report bugs to <paolo.tosco@unito.it>
+
+
+System information
+------------------
+Hostname: iron
+x86_64 Linux 2.6.28 #2 SMP Wed Jan 14 08:12:26 CET 2009
+This machine has 8 CPUs.
+
+The number of CPUs used by Open3DALIGN has been set to 8.
+
+The nice value has been set to 20.
+
+The directory for temporary storage is:
+/tmp
+
+The current working directory is:
+/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite
+
+OpenBabel binaries are in:
+/home/ptosco/open3dtools/bin
+The path to OpenBabel binaries can be changed through the O3_BABEL_PATH environment variable or by the "env babel_path" keyword.
+
+TINKER binaries are in:
+/home/ptosco/open3dtools/bin
+The path to TINKER binaries can be changed through the O3_TINKER_PATH environment variable or by the "env tinker_path" keyword.
+
+The PHARAO binary is:
+/home/ptosco/open3dtools/bin/pharao
+The path to PHARAO can be changed through the O3_PHARAO environment variable or by the "env pharao" keyword.
+
+PyMOL will not be used.
+The path to PyMOL can be set through the O3_PYMOL environment variable or by the "env pymol" keyword.
+
+Job started on Sat Sep  8 14:09:50 2012
+
+BGN COMMAND #00.0001 - IMPORT SDF tool was invoked as follows:
+> import type=sdf file=dhfr/dhfr_3dqsar_canonical.sdf
+
+
+Elapsed time: 0.2261 seconds.
+
+
+Number of fields:      0
+
+Number of objects:   397
+
+Number of Y variables:   0
+
+-----------------------------------------------------------------------------------
+                                                                                   
+    N   ID  Str    Object name                         Attribute             Weight
+-----------------------------------------------------------------------------------
+    1    1    1    7-4                                 TRAINING SET          1.0000
+    2    2    2    7-5                                 TRAINING SET          1.0000
+    3    3    3    1-98535                             TRAINING SET          1.0000
+    4    4    4    1-107146                            TRAINING SET          1.0000
+    5    5    5    1-117356                            TRAINING SET          1.0000
+    6    6    6    1-131463                            TRAINING SET          1.0000
+    7    7    7    1-144698                            TRAINING SET          1.0000
+    8    8    8    1-233903                            TRAINING SET          1.0000
+    9    9    9    1-233904                            TRAINING SET          1.0000
+   10   10   10    9-12c                               TRAINING SET          1.0000
+   11   11   11    9-12d                               TRAINING SET          1.0000
+   12   12   12    9-12e                               TRAINING SET          1.0000
+   13   13   13    9-12g                               TRAINING SET          1.0000
+   14   14   14    9-12j                               TRAINING SET          1.0000
+   15   15   15    9-12k                               TRAINING SET          1.0000
+   16   16   16    9-12n                               TRAINING SET          1.0000
+   17   17   17    9-12p                               TRAINING SET          1.0000
+   18   18   18    9-12r                               TRAINING SET          1.0000
+   19   19   19    9-12f                               TRAINING SET          1.0000
+   20   20   20    1-235791                            TRAINING SET          1.0000
+   21   21   21    9-12i                               TRAINING SET          1.0000
+   22   22   22    9-12m                               TRAINING SET          1.0000
+   23   23   23    9-12q                               TRAINING SET          1.0000
+   24   24   24    11-GR92754                          TRAINING SET          1.0000
+   25   25   25    12-4c                               TRAINING SET          1.0000
+   26   26   26    12-4a                               TRAINING SET          1.0000
+   27   27   27    1-232965                            TRAINING SET          1.0000
+   28   28   28    1-235777                            TRAINING SET          1.0000
+   29   29   29    12-4d                               TRAINING SET          1.0000
+   30   30   30    12-4b                               TRAINING SET          1.0000
+   31   31   31    1-122870                            TRAINING SET          1.0000
+   32   32   32    14-28                               TRAINING SET          1.0000
+   33   33   33    14-29                               TRAINING SET          1.0000
+   34   34   34    9-16b                               TRAINING SET          1.0000
+   35   35   35    16-11                               TRAINING SET          1.0000
+   36   36   36    13-14                               TRAINING SET          1.0000
+   37   37   37    15-3                                TRAINING SET          1.0000
+   38   38   38    15-11                               TRAINING SET          1.0000
+   39   39   39    15-5                                TRAINING SET          1.0000
+   40   40   40    15-6                                TRAINING SET          1.0000
+   41   41   41    15-7                                TRAINING SET          1.0000
+   42   42   42    15-10                               TRAINING SET          1.0000
+   43   43   43    15-14                               TRAINING SET          1.0000
+   44   44   44    10-4a                               TRAINING SET          1.0000
+   45   45   45    10-6a                               TRAINING SET          1.0000
+   46   46   46    13-10                               TRAINING SET          1.0000
+   47   47   47    10-11a                              TRAINING SET          1.0000
+   48   48   48    13-17                               TRAINING SET          1.0000
+   49   49   49    15-4                                TRAINING SET          1.0000
+   50   50   50    15-13                               TRAINING SET          1.0000
+   51   51   51    15-15                               TRAINING SET          1.0000
+   52   52   52    10-5a                               TRAINING SET          1.0000
+   53   53   53    6-7                                 TRAINING SET          1.0000
+   54   54   54    6-14                                TRAINING SET          1.0000
+   55   55   55    6-15                                TRAINING SET          1.0000
+   56   56   56    6-16                                TRAINING SET          1.0000
+   57   57   57    6-21                                TRAINING SET          1.0000
+   58   58   58    6-22                                TRAINING SET          1.0000
+   59   59   59    6-23                                TRAINING SET          1.0000
+   60   60   60    6-1                                 TRAINING SET          1.0000
+   61   61   61    6-26                                TRAINING SET          1.0000
+   62   62   62    10-18a                              TRAINING SET          1.0000
+   63   63   63    19-1                                TRAINING SET          1.0000
+   64   64   64    19-2                                TRAINING SET          1.0000
+   65   65   65    19-5                                TRAINING SET          1.0000
+   66   66   66    19-6                                TRAINING SET          1.0000
+   67   67   67    19-9                                TRAINING SET          1.0000
+   68   68   68    19-12                               TRAINING SET          1.0000
+   69   69   69    19-13                               TRAINING SET          1.0000
+   70   70   70    19-14                               TRAINING SET          1.0000
+   71   71   71    19-15                               TRAINING SET          1.0000
+   72   72   72    19-19                               TRAINING SET          1.0000
+   73   73   73    20-5a                               TRAINING SET          1.0000
+   74   74   74    20-5c                               TRAINING SET          1.0000
+   75   75   75    20-5e                               TRAINING SET          1.0000
+   76   76   76    20-5f                               TRAINING SET          1.0000
+   77   77   77    20-5g                               TRAINING SET          1.0000
+   78   78   78    20-5i                               TRAINING SET          1.0000
+   79   79   79    20-5j                               TRAINING SET          1.0000
+   80   80   80    20-5k                               TRAINING SET          1.0000
+   81   81   81    19-8                                TRAINING SET          1.0000
+   82   82   82    19-11                               TRAINING SET          1.0000
+   83   83   83    19-20                               TRAINING SET          1.0000
+   84   84   84    20-5d                               TRAINING SET          1.0000
+   85   85   85    20-5m                               TRAINING SET          1.0000
+   86   86   86    19-7                                TRAINING SET          1.0000
+   87   87   87    20-9a                               TRAINING SET          1.0000
+   88   88   88    20-9b                               TRAINING SET          1.0000
+   89   89   89    14-8                                TRAINING SET          1.0000
+   90   90   90    14-9                                TRAINING SET          1.0000
+   91   91   91    21-4                                TRAINING SET          1.0000
+   92   92   92    21-7                                TRAINING SET          1.0000
+   93   93   93    21-8                                TRAINING SET          1.0000
+   94   94   94    21-10                               TRAINING SET          1.0000
+   95   95   95    21-11                               TRAINING SET          1.0000
+   96   96   96    21-12                               TRAINING SET          1.0000
+   97   97   97    21-13                               TRAINING SET          1.0000
+   98   98   98    21-14                               TRAINING SET          1.0000
+   99   99   99    21-16                               TRAINING SET          1.0000
+  100  100  100    21-18                               TRAINING SET          1.0000
+  101  101  101    21-19                               TRAINING SET          1.0000
+  102  102  102    21-21                               TRAINING SET          1.0000
+  103  103  103    21-23                               TRAINING SET          1.0000
+  104  104  104    21-27                               TRAINING SET          1.0000
+  105  105  105    21-38                               TRAINING SET          1.0000
+  106  106  106    21-40                               TRAINING SET          1.0000
+  107  107  107    21-42                               TRAINING SET          1.0000
+  108  108  108    21-43                               TRAINING SET          1.0000
+  109  109  109    22-6                                TRAINING SET          1.0000
+  110  110  110    22-7                                TRAINING SET          1.0000
+  111  111  111    22-11                               TRAINING SET          1.0000
+  112  112  112    22-15                               TRAINING SET          1.0000
+  113  113  113    22-10                               TRAINING SET          1.0000
+  114  114  114    22-18                               TRAINING SET          1.0000
+  115  115  115    22-13                               TRAINING SET          1.0000
+  116  116  116    14-5                                TRAINING SET          1.0000
+  117  117  117    14-10                               TRAINING SET          1.0000
+  118  118  118    21-5                                TRAINING SET          1.0000
+  119  119  119    22-16                               TRAINING SET          1.0000
+  120  120  120    21-9                                TRAINING SET          1.0000
+  121  121  121    21-15                               TRAINING SET          1.0000
+  122  122  122    21-22                               TRAINING SET          1.0000
+  123  123  123    21-44                               TRAINING SET          1.0000
+  124  124  124    22-4                                TRAINING SET          1.0000
+  125  125  125    22-8                                TRAINING SET          1.0000
+  126  126  126    22-12                               TRAINING SET          1.0000
+  127  127  127    22-14                               TRAINING SET          1.0000
+  128  128  128    21-34                               TRAINING SET          1.0000
+  129  129  129    22-22                               TRAINING SET          1.0000
+  130  130  130    22-23                               TRAINING SET          1.0000
+  131  131  131    8-3                                 TRAINING SET          1.0000
+  132  132  132    24-5b                               TRAINING SET          1.0000
+  133  133  133    14-22                               TRAINING SET          1.0000
+  134  134  134    9-13b                               TRAINING SET          1.0000
+  135  135  135    9-13d                               TRAINING SET          1.0000
+  136  136  136    9-13f                               TRAINING SET          1.0000
+  137  137  137    9-13g                               TRAINING SET          1.0000
+  138  138  138    9-13h                               TRAINING SET          1.0000
+  139  139  139    9-13i                               TRAINING SET          1.0000
+  140  140  140    9-13j                               TRAINING SET          1.0000
+  141  141  141    9-13l                               TRAINING SET          1.0000
+  142  142  142    9-13m                               TRAINING SET          1.0000
+  143  143  143    9-13r                               TRAINING SET          1.0000
+  144  144  144    9-13u                               TRAINING SET          1.0000
+  145  145  145    9-14a                               TRAINING SET          1.0000
+  146  146  146    9-14b                               TRAINING SET          1.0000
+  147  147  147    9-14c                               TRAINING SET          1.0000
+  148  148  148    9-14k                               TRAINING SET          1.0000
+  149  149  149    9-14m                               TRAINING SET          1.0000
+  150  150  150    9-15b                               TRAINING SET          1.0000
+  151  151  151    9-15c                               TRAINING SET          1.0000
+  152  152  152    9-16d                               TRAINING SET          1.0000
+  153  153  153    25-12                               TRAINING SET          1.0000
+  154  154  154    25-14                               TRAINING SET          1.0000
+  155  155  155    25-16                               TRAINING SET          1.0000
+  156  156  156    25-19                               TRAINING SET          1.0000
+  157  157  157    25-20                               TRAINING SET          1.0000
+  158  158  158    25-21                               TRAINING SET          1.0000
+  159  159  159    25-23                               TRAINING SET          1.0000
+  160  160  160    25-24                               TRAINING SET          1.0000
+  161  161  161    25-25                               TRAINING SET          1.0000
+  162  162  162    26-10                               TRAINING SET          1.0000
+  163  163  163    27-6                                TRAINING SET          1.0000
+  164  164  164    27-7                                TRAINING SET          1.0000
+  165  165  165    27-9                                TRAINING SET          1.0000
+  166  166  166    27-10                               TRAINING SET          1.0000
+  167  167  167    27-13                               TRAINING SET          1.0000
+  168  168  168    27-14                               TRAINING SET          1.0000
+  169  169  169    27-16                               TRAINING SET          1.0000
+  170  170  170    10-2b                               TRAINING SET          1.0000
+  171  171  171    28-3                                TRAINING SET          1.0000
+  172  172  172    28-4                                TRAINING SET          1.0000
+  173  173  173    23-4b                               TRAINING SET          1.0000
+  174  174  174    24-2a                               TRAINING SET          1.0000
+  175  175  175    24-2b                               TRAINING SET          1.0000
+  176  176  176    24-2c                               TRAINING SET          1.0000
+  177  177  177    24-2d                               TRAINING SET          1.0000
+  178  178  178    24-2e                               TRAINING SET          1.0000
+  179  179  179    24-3a                               TRAINING SET          1.0000
+  180  180  180    24-4c                               TRAINING SET          1.0000
+  181  181  181    24-5a                               TRAINING SET          1.0000
+  182  182  182    9-14h                               TRAINING SET          1.0000
+  183  183  183    25-11                               TRAINING SET          1.0000
+  184  184  184    27-11                               TRAINING SET          1.0000
+  185  185  185    28-10                               TRAINING SET          1.0000
+  186  186  186    8-6                                 TRAINING SET          1.0000
+  187  187  187    25-13                               TRAINING SET          1.0000
+  188  188  188    25-22                               TRAINING SET          1.0000
+  189  189  189    26-8                                TRAINING SET          1.0000
+  190  190  190    28-5                                TRAINING SET          1.0000
+  191  191  191    28-8                                TRAINING SET          1.0000
+  192  192  192    28-9                                TRAINING SET          1.0000
+  193  193  193    30-3                                TRAINING SET          1.0000
+  194  194  194    30-4                                TRAINING SET          1.0000
+  195  195  195    32-9                                TRAINING SET          1.0000
+  196  196  196    34-2                                TRAINING SET          1.0000
+  197  197  197    34-7                                TRAINING SET          1.0000
+  198  198  198    38-12                               TRAINING SET          1.0000
+  199  199  199    38-13                               TRAINING SET          1.0000
+  200  200  200    33-2                                TRAINING SET          1.0000
+  201  201  201    34-9                                TRAINING SET          1.0000
+  202  202  202    38-6                                TRAINING SET          1.0000
+  203  203  203    34-4                                TRAINING SET          1.0000
+  204  204  204    34-6                                TRAINING SET          1.0000
+  205  205  205    35-4                                TRAINING SET          1.0000
+  206  206  206    35-5                                TRAINING SET          1.0000
+  207  207  207    35-6                                TRAINING SET          1.0000
+  208  208  208    38-11                               TRAINING SET          1.0000
+  209  209  209    38-10                               TRAINING SET          1.0000
+  210  210  210    40-4                                TRAINING SET          1.0000
+  211  211  211    40-9                                TRAINING SET          1.0000
+  212  212  212    40-table2-1                         TRAINING SET          1.0000
+  213  213  213    16-10                               TRAINING SET          1.0000
+  214  214  214    36-6a                               TRAINING SET          1.0000
+  215  215  215    41-4d                               TRAINING SET          1.0000
+  216  216  216    41-7b                               TRAINING SET          1.0000
+  217  217  217    41-7c                               TRAINING SET          1.0000
+  218  218  218    40-table2-3                         TRAINING SET          1.0000
+  219  219  219    16-12                               TRAINING SET          1.0000
+  220  220  220    41-5b                               TRAINING SET          1.0000
+  221  221  221    43-7                                TRAINING SET          1.0000
+  222  222  222    43-8                                TRAINING SET          1.0000
+  223  223  223    43-9                                TRAINING SET          1.0000
+  224  224  224    43-10                               TRAINING SET          1.0000
+  225  225  225    43-11                               TRAINING SET          1.0000
+  226  226  226    43-16                               TRAINING SET          1.0000
+  227  227  227    43-17                               TRAINING SET          1.0000
+  228  228  228    43-14                               TRAINING SET          1.0000
+  229  229  229    44-2                                TRAINING SET          1.0000
+  230  230  230    44-8                                TRAINING SET          1.0000
+  231  231  231    44-9                                TRAINING SET          1.0000
+  232  232  232    44-10                               TRAINING SET          1.0000
+  233  233  233    44-12                               TRAINING SET          1.0000
+  234  234  234    44-17                               TRAINING SET          1.0000
+  235  235  235    44-3                                TRAINING SET          1.0000
+  236  236  236    44-6                                TRAINING SET          1.0000
+  237  237  237    44-22                               TRAINING SET          1.0000
+  238  238  238    7-6                                 TRAINING SET          1.0000
+  239  239  239    9-12o                               TRAINING SET          1.0000
+  240  240  240    1-137545                            TRAINING SET          1.0000
+  241  241  241    10-2d                               TRAINING SET          1.0000
+  242  242  242    1-152737                            TRAINING SET          1.0000
+  243  243  243    1-233910                            TRAINING SET          1.0000
+  244  244  244    1-241522                            TRAINING SET          1.0000
+  245  245  245    9-12h                               TRAINING SET          1.0000
+  246  246  246    9-12s                               TRAINING SET          1.0000
+  247  247  247    9-12t                               TRAINING SET          1.0000
+  248  248  248    9-12u                               TRAINING SET          1.0000
+  249  249  249    12-4e                               TRAINING SET          1.0000
+  250  250  250    1-233912                            TRAINING SET          1.0000
+  251  251  251    6-48                                TRAINING SET          1.0000
+  252  252  252    11-AH2503                           TRAINING SET          1.0000
+  253  253  253    11-AH2504                           TRAINING SET          1.0000
+  254  254  254    12-4g                               TRAINING SET          1.0000
+  255  255  255    10-12a                              TRAINING SET          1.0000
+  256  256  256    15-12                               TRAINING SET          1.0000
+  257  257  257    10-3a                               TRAINING SET          1.0000
+  258  258  258    1-Trimetrexate                      TRAINING SET          1.0000
+  259  259  259    1-184692                            TRAINING SET          1.0000
+  260  260  260    9-16c                               TRAINING SET          1.0000
+  261  261  261    16-9a                               TRAINING SET          1.0000
+  262  262  262    1-351521                            TRAINING SET          1.0000
+  263  263  263    13-11                               TRAINING SET          1.0000
+  264  264  264    10-1a                               TRAINING SET          1.0000
+  265  265  265    6-28                                TRAINING SET          1.0000
+  266  266  266    6-3                                 TRAINING SET          1.0000
+  267  267  267    6-2                                 TRAINING SET          1.0000
+  268  268  268    6-13                                TRAINING SET          1.0000
+  269  269  269    6-20                                TRAINING SET          1.0000
+  270  270  270    18-5                                TRAINING SET          1.0000
+  271  271  271    18-6                                TRAINING SET          1.0000
+  272  272  272    19-4                                TRAINING SET          1.0000
+  273  273  273    19-10                               TRAINING SET          1.0000
+  274  274  274    20-5b                               TRAINING SET          1.0000
+  275  275  275    19-3                                TRAINING SET          1.0000
+  276  276  276    20-5h                               TRAINING SET          1.0000
+  277  277  277    20-9c                               TRAINING SET          1.0000
+  278  278  278    21-3                                TRAINING SET          1.0000
+  279  279  279    21-6                                TRAINING SET          1.0000
+  280  280  280    21-24                               TRAINING SET          1.0000
+  281  281  281    21-41                               TRAINING SET          1.0000
+  282  282  282    22-5                                TRAINING SET          1.0000
+  283  283  283    22-9                                TRAINING SET          1.0000
+  284  284  284    22-19                               TRAINING SET          1.0000
+  285  285  285    22-20                               TRAINING SET          1.0000
+  286  286  286    21-20                               TRAINING SET          1.0000
+  287  287  287    22-17                               TRAINING SET          1.0000
+  288  288  288    22-21                               TRAINING SET          1.0000
+  289  289  289    22-25                               TRAINING SET          1.0000
+  290  290  290    21-36                               TRAINING SET          1.0000
+  291  291  291    18-4                                TRAINING SET          1.0000
+  292  292  292    8-7                                 TRAINING SET          1.0000
+  293  293  293    8-8                                 TRAINING SET          1.0000
+  294  294  294    23-6a                               TRAINING SET          1.0000
+  295  295  295    25-10                               TRAINING SET          1.0000
+  296  296  296    25-15                               TRAINING SET          1.0000
+  297  297  297    26-7                                TRAINING SET          1.0000
+  298  298  298    28-11                               TRAINING SET          1.0000
+  299  299  299    28-7                                TRAINING SET          1.0000
+  300  300  300    23-6b                               TRAINING SET          1.0000
+  301  301  301    24-4a                               TRAINING SET          1.0000
+  302  302  302    9-13s                               TRAINING SET          1.0000
+  303  303  303    9-13t                               TRAINING SET          1.0000
+  304  304  304    9-15a                               TRAINING SET          1.0000
+  305  305  305    25-26                               TRAINING SET          1.0000
+  306  306  306    26-9                                TRAINING SET          1.0000
+  307  307  307    27-15                               TRAINING SET          1.0000
+  308  308  308    10-2c                               TRAINING SET          1.0000
+  309  309  309    29-2-piritrexim                     TRAINING SET          1.0000
+  310  310  310    24-3c                               TRAINING SET          1.0000
+  311  311  311    24-3e                               TRAINING SET          1.0000
+  312  312  312    9-13e                               TRAINING SET          1.0000
+  313  313  313    30-2                                TRAINING SET          1.0000
+  314  314  314    26-5                                TRAINING SET          1.0000
+  315  315  315    18-3                                TRAINING SET          1.0000
+  316  316  316    10-18c                              TRAINING SET          1.0000
+  317  317  317    28-12                               TRAINING SET          1.0000
+  318  318  318    32-8                                TRAINING SET          1.0000
+  319  319  319    32-10                               TRAINING SET          1.0000
+  320  320  320    32-11                               TRAINING SET          1.0000
+  321  321  321    34-3                                TRAINING SET          1.0000
+  322  322  322    35-3                                TRAINING SET          1.0000
+  323  323  323    35-7                                TRAINING SET          1.0000
+  324  324  324    33-1                                TRAINING SET          1.0000
+  325  325  325    35-10                               TRAINING SET          1.0000
+  326  326  326    38-8                                TRAINING SET          1.0000
+  327  327  327    41-4f                               TRAINING SET          1.0000
+  328  328  328    40-3                                TRAINING SET          1.0000
+  329  329  329    40-5                                TRAINING SET          1.0000
+  330  330  330    40-table2-2                         TRAINING SET          1.0000
+  331  331  331    40-table-2-6                        TRAINING SET          1.0000
+  332  332  332    36-6c                               TRAINING SET          1.0000
+  333  333  333    36-6e                               TRAINING SET          1.0000
+  334  334  334    37-1c                               TRAINING SET          1.0000
+  335  335  335    37-1d                               TRAINING SET          1.0000
+  336  336  336    41-7a                               TRAINING SET          1.0000
+  337  337  337    42-8                                TRAINING SET          1.0000
+  338  338  338    43-13                               TRAINING SET          1.0000
+  339  339  339    43-15                               TRAINING SET          1.0000
+  340  340  340    44-7                                TRAINING SET          1.0000
+  341  341  341    44-21                               TRAINING SET          1.0000
+  342  342  342    44-11                               TRAINING SET          1.0000
+  343  343  343    44-14                               TRAINING SET          1.0000
+  344  344  344    44-16                               TRAINING SET          1.0000
+  345  345  345    44-18                               TRAINING SET          1.0000
+  346  346  346    44-19                               TRAINING SET          1.0000
+  347  347  347    44-20                               TRAINING SET          1.0000
+  348  348  348    44-23                               TRAINING SET          1.0000
+  349  349  349    7-1                                 TRAINING SET          1.0000
+  350  350  350    7-3                                 TRAINING SET          1.0000
+  351  351  351    28-6                                TRAINING SET          1.0000
+  352  352  352    33-5                                TRAINING SET          1.0000
+  353  353  353    37-1e                               TRAINING SET          1.0000
+  354  354  354    34-5                                TRAINING SET          1.0000
+  355  355  355    40-6                                TRAINING SET          1.0000
+  356  356  356    40-7                                TRAINING SET          1.0000
+  357  357  357    40-8                                TRAINING SET          1.0000
+  358  358  358    16-8a                               TRAINING SET          1.0000
+  359  359  359    36-6b                               TRAINING SET          1.0000
+  360  360  360    37-1a                               TRAINING SET          1.0000
+  361  361  361    37-1b                               TRAINING SET          1.0000
+  362  362  362    38-14                               TRAINING SET          1.0000
+  363  363  363    41-4e                               TRAINING SET          1.0000
+  364  364  364    41-4i                               TRAINING SET          1.0000
+  365  365  365    7-2                                 TRAINING SET          1.0000
+  366  366  366    1-236642                            TRAINING SET          1.0000
+  367  367  367    9-12l                               TRAINING SET          1.0000
+  368  368  368    1-127977                            TRAINING SET          1.0000
+  369  369  369    1-235776                            TRAINING SET          1.0000
+  370  370  370    10-18d                              TRAINING SET          1.0000
+  371  371  371    10-17a                              TRAINING SET          1.0000
+  372  372  372    10-18b                              TRAINING SET          1.0000
+  373  373  373    23-7                                TRAINING SET          1.0000
+  374  374  374    23-8b                               TRAINING SET          1.0000
+  375  375  375    23-8                                TRAINING SET          1.0000
+  376  376  376    33-3                                TRAINING SET          1.0000
+  377  377  377    33-6                                TRAINING SET          1.0000
+  378  378  378    35-2                                TRAINING SET          1.0000
+  379  379  379    36-7a                               TRAINING SET          1.0000
+  380  380  380    36-7b                               TRAINING SET          1.0000
+  381  381  381    36-7c                               TRAINING SET          1.0000
+  382  382  382    36-7d                               TRAINING SET          1.0000
+  383  383  383    36-7e                               TRAINING SET          1.0000
+  384  384  384    38-3                                TRAINING SET          1.0000
+  385  385  385    38-9                                TRAINING SET          1.0000
+  386  386  386    38-16                               TRAINING SET          1.0000
+  387  387  387    38-17                               TRAINING SET          1.0000
+  388  388  388    40-table-2-4                        TRAINING SET          1.0000
+  389  389  389    40-table-2-5                        TRAINING SET          1.0000
+  390  390  390    36-6d                               TRAINING SET          1.0000
+  391  391  391    41-4c                               TRAINING SET          1.0000
+  392  392  392    41-4g                               TRAINING SET          1.0000
+  393  393  393    41-4h                               TRAINING SET          1.0000
+  394  394  394    41-5a                               TRAINING SET          1.0000
+  395  395  395    42-9                                TRAINING SET          1.0000
+  396  396  396    42-10                               TRAINING SET          1.0000
+  397  397  397    42-11                               TRAINING SET          1.0000
+
+This set of molecules fits in a grid box whose bottom left, top right cooordinates (no outgap) are at least:
+[(8.7180,-0.2930,1.5720), (22.1220,12.6610,17.4730)]
+
+END COMMAND #00.0001 - IMPORT SDF tool succeeded.
+BGN COMMAND #00.0002 - ALIGN tool was invoked as follows:
+> align type=random align_dir=dhfr/dhfr_align_random
+
+The align_dir directory where input, output and log files will be put is:
+"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/dhfr/dhfr_align_random"
+
+The align_scratch directory is:
+/tmp/O3A.31709.align_scratch.sow43p
+
+
+Elapsed time: 3.7131 seconds.
+
+END COMMAND #00.0002 - ALIGN tool succeeded.
+BGN COMMAND #00.0003 - ALIGN tool was invoked as follows:
+> align type=mixed object_list=30,200 keep_best_template=y align_dir=dhfr/dhfr_align_mixed_single file=dhfr/dhfr_align_random/0001-0397_random.sdf
+
+The objects which will be used as alignment templates are the following:
+30, 200
+
+The align_dir directory where input, output and log files will be put is:
+"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/dhfr/dhfr_align_mixed_single"
+
+The align_scratch directory is:
+/tmp/O3A.31709.align_scratch.Q28L8o
+
+Template      ID       Conformer           O3A_SCORE
+----------------------------------------------------
+      30      30               1            66333.35
+     200     200               1            60842.20
+----------------------------------------------------
+
+Best template combination score:            70599.38
+
+
+Elapsed time: 23.4270 seconds.
+
+END COMMAND #00.0003 - ALIGN tool succeeded.
+BGN COMMAND #00.0004 - ALIGN tool was invoked as follows:
+> align type=atom object_list=30,200 keep_best_template=y align_dir=dhfr/dhfr_align_atom_single file=dhfr/dhfr_align_random/0001-0397_random.sdf
+
+The objects which will be used as alignment templates are the following:
+30, 200
+
+The align_dir directory where input, output and log files will be put is:
+"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/dhfr/dhfr_align_atom_single"
+
+The align_scratch directory is:
+/tmp/O3A.31709.align_scratch.YK90pu
+
+Template      ID       Conformer           O3A_SCORE
+----------------------------------------------------
+      30      30               1            65220.02
+     200     200               1            60098.02
+----------------------------------------------------
+
+Best template combination score:            69897.65
+
+
+Elapsed time: 12.5518 seconds.
+
+END COMMAND #00.0004 - ALIGN tool succeeded.
+BGN COMMAND #00.0005 - ALIGN tool was invoked as follows:
+> align type=pharao object_list=30,200 keep_best_template=y align_dir=dhfr/dhfr_align_pharao_single file=dhfr/dhfr_align_random/0001-0397_random.sdf
+
+The objects which will be used as alignment templates are the following:
+30, 200
+
+The align_dir directory where input, output and log files will be put is:
+"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/dhfr/dhfr_align_pharao_single"
+
+The align_scratch directory is:
+/tmp/O3A.31709.align_scratch.TcoRea
+
+Template      ID       Conformer     PHARAO_TANIMOTO
+----------------------------------------------------
+      30      30               1              160.94
+     200     200               1              122.53
+----------------------------------------------------
+
+Best template combination score:              169.01
+
+
+Elapsed time: 13.6134 seconds.
+
+END COMMAND #00.0005 - ALIGN tool succeeded.
+BGN COMMAND #00.0006 - COMPARE tool was invoked as follows:
+> compare type=block file=dhfr/dhfr_align_mixed_single/0001-0397_on_best_template.sdf aligned=dhfr/dhfr_align_mixed_single/0001-0397_on_best_template_aligned_on_original.sdf
+
+
+Number of objects:   397
+
+---------------------------------------------------------------------------------------------
+    N    Reference name                      Name                                        RMSD
+---------------------------------------------------------------------------------------------
+    1    7-4                                 7-4                                       0.3715
+    2    7-5                                 7-5                                       0.3501
+    3    1-98535                             1-98535                                   0.4456
+    4    1-107146                            1-107146                                  0.4424
+    5    1-117356                            1-117356                                  0.4983
+    6    1-131463                            1-131463                                  0.1218
+    7    1-144698                            1-144698                                  0.1314
+    8    1-233903                            1-233903                                  0.1192
+    9    1-233904                            1-233904                                  0.1240
+   10    9-12c                               9-12c                                     0.2604
+   11    9-12d                               9-12d                                     0.1620
+   12    9-12e                               9-12e                                     0.1379
+   13    9-12g                               9-12g                                     0.1369
+   14    9-12j                               9-12j                                     0.1397
+   15    9-12k                               9-12k                                     0.1221
+   16    9-12n                               9-12n                                     0.1377
+   17    9-12p                               9-12p                                     0.1245
+   18    9-12r                               9-12r                                     0.1530
+   19    9-12f                               9-12f                                     0.1525
+   20    1-235791                            1-235791                                  0.1199
+   21    9-12i                               9-12i                                     0.1401
+   22    9-12m                               9-12m                                     0.1562
+   23    9-12q                               9-12q                                     0.1211
+   24    11-GR92754                          11-GR92754                                0.3971
+   25    12-4c                               12-4c                                     0.5151
+   26    12-4a                               12-4a                                     0.3361
+   27    1-232965                            1-232965                                  0.1421
+   28    1-235777                            1-235777                                  0.1590
+   29    12-4d                               12-4d                                     0.5935
+   30    12-4b                               12-4b                                     0.4657
+   31    1-122870                            1-122870                                  0.3041
+   32    14-28                               14-28                                     0.1847
+   33    14-29                               14-29                                     0.1502
+   34    9-16b                               9-16b                                     0.1285
+   35    16-11                               16-11                                     0.1475
+   36    13-14                               13-14                                     0.1669
+   37    15-3                                15-3                                      0.2005
+   38    15-11                               15-11                                     0.2169
+   39    15-5                                15-5                                      0.2138
+   40    15-6                                15-6                                      0.1442
+   41    15-7                                15-7                                      0.2164
+   42    15-10                               15-10                                     0.1911
+   43    15-14                               15-14                                     0.1959
+   44    10-4a                               10-4a                                     0.1985
+   45    10-6a                               10-6a                                     0.2034
+   46    13-10                               13-10                                     0.1417
+   47    10-11a                              10-11a                                    0.1301
+   48    13-17                               13-17                                     0.1786
+   49    15-4                                15-4                                      0.1451
+   50    15-13                               15-13                                     0.2162
+   51    15-15                               15-15                                     0.2501
+   52    10-5a                               10-5a                                     0.2336
+   53    6-7                                 6-7                                       0.2846
+   54    6-14                                6-14                                      0.2572
+   55    6-15                                6-15                                      0.2675
+   56    6-16                                6-16                                      0.2674
+   57    6-21                                6-21                                      0.2947
+   58    6-22                                6-22                                      0.3200
+   59    6-23                                6-23                                      0.2543
+   60    6-1                                 6-1                                       0.3050
+   61    6-26                                6-26                                      0.2601
+   62    10-18a                              10-18a                                    0.2435
+   63    19-1                                19-1                                      0.1508
+   64    19-2                                19-2                                      0.1518
+   65    19-5                                19-5                                      0.1919
+   66    19-6                                19-6                                      0.2262
+   67    19-9                                19-9                                      0.1467
+   68    19-12                               19-12                                     0.1783
+   69    19-13                               19-13                                     0.1454
+   70    19-14                               19-14                                     0.1262
+   71    19-15                               19-15                                     0.1512
+   72    19-19                               19-19                                     0.2028
+   73    20-5a                               20-5a                                     0.3836
+   74    20-5c                               20-5c                                     0.6257
+   75    20-5e                               20-5e                                     0.6667
+   76    20-5f                               20-5f                                     0.5019
+   77    20-5g                               20-5g                                     0.7590
+   78    20-5i                               20-5i                                     0.5799
+   79    20-5j                               20-5j                                     0.7637
+   80    20-5k                               20-5k                                     0.5468
+   81    19-8                                19-8                                      0.2491
+   82    19-11                               19-11                                     0.1753
+   83    19-20                               19-20                                     0.1629
+   84    20-5d                               20-5d                                     0.7085
+   85    20-5m                               20-5m                                     0.6710
+   86    19-7                                19-7                                      0.2091
+   87    20-9a                               20-9a                                     1.0840
+   88    20-9b                               20-9b                                     0.5334
+   89    14-8                                14-8                                      0.1389
+   90    14-9                                14-9                                      0.1380
+   91    21-4                                21-4                                      0.1297
+   92    21-7                                21-7                                      0.1713
+   93    21-8                                21-8                                      0.1142
+   94    21-10                               21-10                                     0.1307
+   95    21-11                               21-11                                     0.1321
+   96    21-12                               21-12                                     0.1478
+   97    21-13                               21-13                                     0.1261
+   98    21-14                               21-14                                     0.1279
+   99    21-16                               21-16                                     0.1664
+  100    21-18                               21-18                                     0.1684
+  101    21-19                               21-19                                     0.1277
+  102    21-21                               21-21                                     0.1473
+  103    21-23                               21-23                                     0.1446
+  104    21-27                               21-27                                     0.1278
+  105    21-38                               21-38                                     0.1620
+  106    21-40                               21-40                                     0.1320
+  107    21-42                               21-42                                     0.1937
+  108    21-43                               21-43                                     0.1553
+  109    22-6                                22-6                                      0.5495
+  110    22-7                                22-7                                      1.1197
+  111    22-11                               22-11                                     1.9244
+  112    22-15                               22-15                                     2.1567
+  113    22-10                               22-10                                     1.5973
+  114    22-18                               22-18                                     0.8480
+  115    22-13                               22-13                                     1.7611
+  116    14-5                                14-5                                      0.1589
+  117    14-10                               14-10                                     0.1418
+  118    21-5                                21-5                                      0.1565
+  119    22-16                               22-16                                     2.3638
+  120    21-9                                21-9                                      0.1418
+  121    21-15                               21-15                                     0.1517
+  122    21-22                               21-22                                     0.1270
+  123    21-44                               21-44                                     0.1089
+  124    22-4                                22-4                                      0.6838
+  125    22-8                                22-8                                      0.5180
+  126    22-12                               22-12                                     1.9749
+  127    22-14                               22-14                                     2.0565
+  128    21-34                               21-34                                     0.1627
+  129    22-22                               22-22                                     0.7975
+  130    22-23                               22-23                                     2.0532
+  131    8-3                                 8-3                                       0.1385
+  132    24-5b                               24-5b                                     0.1999
+  133    14-22                               14-22                                     0.1883
+  134    9-13b                               9-13b                                     0.1979
+  135    9-13d                               9-13d                                     0.2085
+  136    9-13f                               9-13f                                     0.2109
+  137    9-13g                               9-13g                                     0.2317
+  138    9-13h                               9-13h                                     0.2621
+  139    9-13i                               9-13i                                     0.2063
+  140    9-13j                               9-13j                                     0.2033
+  141    9-13l                               9-13l                                     0.2207
+  142    9-13m                               9-13m                                     0.2129
+  143    9-13r                               9-13r                                     0.2207
+  144    9-13u                               9-13u                                     0.1868
+  145    9-14a                               9-14a                                     0.2296
+  146    9-14b                               9-14b                                     0.2228
+  147    9-14c                               9-14c                                     0.2137
+  148    9-14k                               9-14k                                     0.2163
+  149    9-14m                               9-14m                                     0.1951
+  150    9-15b                               9-15b                                     0.1220
+  151    9-15c                               9-15c                                     0.1071
+  152    9-16d                               9-16d                                     0.1630
+  153    25-12                               25-12                                     0.1630
+  154    25-14                               25-14                                     0.2221
+  155    25-16                               25-16                                     0.2335
+  156    25-19                               25-19                                     0.1567
+  157    25-20                               25-20                                     0.1773
+  158    25-21                               25-21                                     0.2666
+  159    25-23                               25-23                                     0.2244
+  160    25-24                               25-24                                     0.1874
+  161    25-25                               25-25                                     0.2104
+  162    26-10                               26-10                                     0.3315
+  163    27-6                                27-6                                      0.2141
+  164    27-7                                27-7                                      0.1995
+  165    27-9                                27-9                                      0.2125
+  166    27-10                               27-10                                     0.1869
+  167    27-13                               27-13                                     0.1686
+  168    27-14                               27-14                                     0.1583
+  169    27-16                               27-16                                     0.2121
+  170    10-2b                               10-2b                                     0.2045
+  171    28-3                                28-3                                      0.1109
+  172    28-4                                28-4                                      0.1438
+  173    23-4b                               23-4b                                     0.1831
+  174    24-2a                               24-2a                                     0.2276
+  175    24-2b                               24-2b                                     0.2290
+  176    24-2c                               24-2c                                     0.2218
+  177    24-2d                               24-2d                                     0.1915
+  178    24-2e                               24-2e                                     0.2525
+  179    24-3a                               24-3a                                     0.2196
+  180    24-4c                               24-4c                                     0.2012
+  181    24-5a                               24-5a                                     0.2017
+  182    9-14h                               9-14h                                     0.2027
+  183    25-11                               25-11                                     0.1445
+  184    27-11                               27-11                                     0.2100
+  185    28-10                               28-10                                     0.1315
+  186    8-6                                 8-6                                       0.1609
+  187    25-13                               25-13                                     0.1339
+  188    25-22                               25-22                                     0.2514
+  189    26-8                                26-8                                      0.2240
+  190    28-5                                28-5                                      0.1720
+  191    28-8                                28-8                                      0.1143
+  192    28-9                                28-9                                      0.1324
+  193    30-3                                30-3                                      0.3900
+  194    30-4                                30-4                                      0.3978
+  195    32-9                                32-9                                      0.5582
+  196    34-2                                34-2                                      0.3419
+  197    34-7                                34-7                                      0.3354
+  198    38-12                               38-12                                     0.3208
+  199    38-13                               38-13                                     0.3330
+  200    33-2                                33-2                                      0.4057
+  201    34-9                                34-9                                      0.3982
+  202    38-6                                38-6                                      0.3246
+  203    34-4                                34-4                                      0.3113
+  204    34-6                                34-6                                      0.2778
+  205    35-4                                35-4                                      0.3456
+  206    35-5                                35-5                                      0.2842
+  207    35-6                                35-6                                      0.2959
+  208    38-11                               38-11                                     0.4260
+  209    38-10                               38-10                                     0.3790
+  210    40-4                                40-4                                      0.4534
+  211    40-9                                40-9                                      0.3079
+  212    40-table2-1                         40-table2-1                               1.9062
+  213    16-10                               16-10                                     0.4019
+  214    36-6a                               36-6a                                     0.3878
+  215    41-4d                               41-4d                                     0.5632
+  216    41-7b                               41-7b                                     0.2954
+  217    41-7c                               41-7c                                     0.3495
+  218    40-table2-3                         40-table2-3                               0.5571
+  219    16-12                               16-12                                     0.3622
+  220    41-5b                               41-5b                                     0.4558
+  221    43-7                                43-7                                      0.5387
+  222    43-8                                43-8                                      0.5370
+  223    43-9                                43-9                                      0.4808
+  224    43-10                               43-10                                     0.5056
+  225    43-11                               43-11                                     0.5208
+  226    43-16                               43-16                                     0.4720
+  227    43-17                               43-17                                     0.4684
+  228    43-14                               43-14                                     0.4960
+  229    44-2                                44-2                                      0.7327
+  230    44-8                                44-8                                      0.9855
+  231    44-9                                44-9                                      1.3551
+  232    44-10                               44-10                                     0.8794
+  233    44-12                               44-12                                     1.1555
+  234    44-17                               44-17                                     1.4210
+  235    44-3                                44-3                                      1.2775
+  236    44-6                                44-6                                      1.0232
+  237    44-22                               44-22                                     0.4064
+  238    7-6                                 7-6                                       0.9225
+  239    9-12o                               9-12o                                     0.1367
+  240    1-137545                            1-137545                                  0.1330
+  241    10-2d                               10-2d                                     0.1913
+  242    1-152737                            1-152737                                  0.4552
+  243    1-233910                            1-233910                                  0.1165
+  244    1-241522                            1-241522                                  0.1328
+  245    9-12h                               9-12h                                     0.1660
+  246    9-12s                               9-12s                                     0.1242
+  247    9-12t                               9-12t                                     0.2560
+  248    9-12u                               9-12u                                     0.2605
+  249    12-4e                               12-4e                                     0.4966
+  250    1-233912                            1-233912                                  0.1256
+  251    6-48                                6-48                                      0.3674
+  252    11-AH2503                           11-AH2503                                 0.2780
+  253    11-AH2504                           11-AH2504                                 0.7252
+  254    12-4g                               12-4g                                     0.5384
+  255    10-12a                              10-12a                                    0.1261
+  256    15-12                               15-12                                     0.1752
+  257    10-3a                               10-3a                                     0.2036
+  258    1-Trimetrexate                      1-Trimetrexate                            0.2003
+  259    1-184692                            1-184692                                  0.3353
+  260    9-16c                               9-16c                                     0.1550
+  261    16-9a                               16-9a                                     0.1625
+  262    1-351521                            1-351521                                  0.9790
+  263    13-11                               13-11                                     0.2363
+  264    10-1a                               10-1a                                     0.1948
+  265    6-28                                6-28                                      0.3151
+  266    6-3                                 6-3                                       0.2606
+  267    6-2                                 6-2                                       1.0878
+  268    6-13                                6-13                                      1.0491
+  269    6-20                                6-20                                      0.2707
+  270    18-5                                18-5                                      0.3154
+  271    18-6                                18-6                                      0.2395
+  272    19-4                                19-4                                      0.1941
+  273    19-10                               19-10                                     0.1258
+  274    20-5b                               20-5b                                     0.5952
+  275    19-3                                19-3                                      0.1997
+  276    20-5h                               20-5h                                     0.7791
+  277    20-9c                               20-9c                                     2.7108
+  278    21-3                                21-3                                      0.1376
+  279    21-6                                21-6                                      0.1542
+  280    21-24                               21-24                                     0.1227
+  281    21-41                               21-41                                     0.1366
+  282    22-5                                22-5                                      0.5066
+  283    22-9                                22-9                                      0.5995
+  284    22-19                               22-19                                     0.7885
+  285    22-20                               22-20                                     1.4389
+  286    21-20                               21-20                                     0.1328
+  287    22-17                               22-17                                     2.0937
+  288    22-21                               22-21                                     2.0570
+  289    22-25                               22-25                                     0.1589
+  290    21-36                               21-36                                     0.1602
+  291    18-4                                18-4                                      0.3319
+  292    8-7                                 8-7                                       0.1363
+  293    8-8                                 8-8                                       0.1781
+  294    23-6a                               23-6a                                     0.1861
+  295    25-10                               25-10                                     0.1803
+  296    25-15                               25-15                                     0.2256
+  297    26-7                                26-7                                      0.2230
+  298    28-11                               28-11                                     0.1303
+  299    28-7                                28-7                                      0.1287
+  300    23-6b                               23-6b                                     0.2328
+  301    24-4a                               24-4a                                     0.2258
+  302    9-13s                               9-13s                                     0.1960
+  303    9-13t                               9-13t                                     0.1552
+  304    9-15a                               9-15a                                     0.1780
+  305    25-26                               25-26                                     0.1547
+  306    26-9                                26-9                                      0.2391
+  307    27-15                               27-15                                     0.2171
+  308    10-2c                               10-2c                                     0.2065
+  309    29-2-piritrexim                     29-2-piritrexim                           1.0370
+  310    24-3c                               24-3c                                     0.2298
+  311    24-3e                               24-3e                                     0.2628
+  312    9-13e                               9-13e                                     0.2013
+  313    30-2                                30-2                                      0.2917
+  314    26-5                                26-5                                      0.2836
+  315    18-3                                18-3                                      0.3348
+  316    10-18c                              10-18c                                    0.3249
+  317    28-12                               28-12                                     0.4749
+  318    32-8                                32-8                                      0.7742
+  319    32-10                               32-10                                     0.5716
+  320    32-11                               32-11                                     0.1441
+  321    34-3                                34-3                                      0.3222
+  322    35-3                                35-3                                      0.3403
+  323    35-7                                35-7                                      0.3036
+  324    33-1                                33-1                                      0.3984
+  325    35-10                               35-10                                     0.4127
+  326    38-8                                38-8                                      0.2990
+  327    41-4f                               41-4f                                     0.6401
+  328    40-3                                40-3                                      1.9687
+  329    40-5                                40-5                                      0.5095
+  330    40-table2-2                         40-table2-2                               0.9914
+  331    40-table-2-6                        40-table-2-6                              0.5187
+  332    36-6c                               36-6c                                     0.3500
+  333    36-6e                               36-6e                                     0.3286
+  334    37-1c                               37-1c                                     0.5672
+  335    37-1d                               37-1d                                     0.6547
+  336    41-7a                               41-7a                                     0.3658
+  337    42-8                                42-8                                      0.4115
+  338    43-13                               43-13                                     0.4833
+  339    43-15                               43-15                                     0.5300
+  340    44-7                                44-7                                      0.8029
+  341    44-21                               44-21                                     0.3889
+  342    44-11                               44-11                                     0.8554
+  343    44-14                               44-14                                     0.9207
+  344    44-16                               44-16                                     0.7403
+  345    44-18                               44-18                                     1.4799
+  346    44-19                               44-19                                     0.3536
+  347    44-20                               44-20                                     0.2882
+  348    44-23                               44-23                                     0.5504
+  349    7-1                                 7-1                                       0.4479
+  350    7-3                                 7-3                                       0.9315
+  351    28-6                                28-6                                      0.1322
+  352    33-5                                33-5                                      0.2761
+  353    37-1e                               37-1e                                     0.3661
+  354    34-5                                34-5                                      0.3754
+  355    40-6                                40-6                                      2.5320
+  356    40-7                                40-7                                      0.8105
+  357    40-8                                40-8                                      1.0289
+  358    16-8a                               16-8a                                     0.8342
+  359    36-6b                               36-6b                                     0.3804
+  360    37-1a                               37-1a                                     0.4890
+  361    37-1b                               37-1b                                     0.5065
+  362    38-14                               38-14                                     0.3202
+  363    41-4e                               41-4e                                     0.6554
+  364    41-4i                               41-4i                                     0.3839
+  365    7-2                                 7-2                                       1.0628
+  366    1-236642                            1-236642                                  0.1222
+  367    9-12l                               9-12l                                     0.1454
+  368    1-127977                            1-127977                                  0.4551
+  369    1-235776                            1-235776                                  0.1280
+  370    10-18d                              10-18d                                    0.3567
+  371    10-17a                              10-17a                                    0.2872
+  372    10-18b                              10-18b                                    0.3099
+  373    23-7                                23-7                                      1.3900
+  374    23-8b                               23-8b                                     0.4609
+  375    23-8                                23-8                                      0.2622
+  376    33-3                                33-3                                      0.3710
+  377    33-6                                33-6                                      0.2994
+  378    35-2                                35-2                                      0.4181
+  379    36-7a                               36-7a                                     0.3554
+  380    36-7b                               36-7b                                     0.3437
+  381    36-7c                               36-7c                                     0.3842
+  382    36-7d                               36-7d                                     0.3252
+  383    36-7e                               36-7e                                     0.3389
+  384    38-3                                38-3                                      0.2806
+  385    38-9                                38-9                                      0.3776
+  386    38-16                               38-16                                     0.3321
+  387    38-17                               38-17                                     0.3629
+  388    40-table-2-4                        40-table-2-4                              0.7493
+  389    40-table-2-5                        40-table-2-5                              0.8474
+  390    36-6d                               36-6d                                     0.3717
+  391    41-4c                               41-4c                                     0.3408
+  392    41-4g                               41-4g                                     0.6000
+  393    41-4h                               41-4h                                     0.5757
+  394    41-5a                               41-5a                                     0.4348
+  395    42-9                                42-9                                      0.4151
+  396    42-10                               42-10                                     0.4625
+  397    42-11                               42-11                                     0.4769
+---------------------------------------------------------------------------------------------
+                                             Average                                   0.4067
+---------------------------------------------------------------------------------------------
+
+Elapsed time: 4.3984 seconds.
+
+END COMMAND #00.0006 - COMPARE tool succeeded.
+BGN COMMAND #00.0007 - COMPARE tool was invoked as follows:
+> compare type=block file=dhfr/dhfr_align_atom_single/0001-0397_on_best_template.sdf aligned=dhfr/dhfr_align_atom_single/0001-0397_on_best_template_aligned_on_original.sdf
+
+
+Number of objects:   397
+
+---------------------------------------------------------------------------------------------
+    N    Reference name                      Name                                        RMSD
+---------------------------------------------------------------------------------------------
+    1    7-4                                 7-4                                       0.3593
+    2    7-5                                 7-5                                       0.3376
+    3    1-98535                             1-98535                                   0.4437
+    4    1-107146                            1-107146                                  0.4356
+    5    1-117356                            1-117356                                  0.4890
+    6    1-131463                            1-131463                                  0.1098
+    7    1-144698                            1-144698                                  0.1414
+    8    1-233903                            1-233903                                  0.1071
+    9    1-233904                            1-233904                                  0.1108
+   10    9-12c                               9-12c                                     0.7526
+   11    9-12d                               9-12d                                     0.1441
+   12    9-12e                               9-12e                                     0.1276
+   13    9-12g                               9-12g                                     0.1272
+   14    9-12j                               9-12j                                     0.1295
+   15    9-12k                               9-12k                                     0.1104
+   16    9-12n                               9-12n                                     0.1295
+   17    9-12p                               9-12p                                     0.1126
+   18    9-12r                               9-12r                                     0.1473
+   19    9-12f                               9-12f                                     0.1386
+   20    1-235791                            1-235791                                  0.1079
+   21    9-12i                               9-12i                                     0.1292
+   22    9-12m                               9-12m                                     0.1464
+   23    9-12q                               9-12q                                     0.1088
+   24    11-GR92754                          11-GR92754                                0.3846
+   25    12-4c                               12-4c                                     0.5290
+   26    12-4a                               12-4a                                     0.3551
+   27    1-232965                            1-232965                                  0.1310
+   28    1-235777                            1-235777                                  0.1532
+   29    12-4d                               12-4d                                     0.6044
+   30    12-4b                               12-4b                                     0.4725
+   31    1-122870                            1-122870                                  0.2979
+   32    14-28                               14-28                                     0.1824
+   33    14-29                               14-29                                     0.1372
+   34    9-16b                               9-16b                                     0.1174
+   35    16-11                               16-11                                     0.1489
+   36    13-14                               13-14                                     0.1501
+   37    15-3                                15-3                                      0.1875
+   38    15-11                               15-11                                     0.2040
+   39    15-5                                15-5                                      0.1984
+   40    15-6                                15-6                                      0.1227
+   41    15-7                                15-7                                      0.2125
+   42    15-10                               15-10                                     0.1835
+   43    15-14                               15-14                                     0.1835
+   44    10-4a                               10-4a                                     0.1818
+   45    10-6a                               10-6a                                     0.1909
+   46    13-10                               13-10                                     0.1273
+   47    10-11a                              10-11a                                    0.1185
+   48    13-17                               13-17                                     0.1579
+   49    15-4                                15-4                                      0.1263
+   50    15-13                               15-13                                     0.1989
+   51    15-15                               15-15                                     0.2335
+   52    10-5a                               10-5a                                     0.2260
+   53    6-7                                 6-7                                       7.1214
+   54    6-14                                6-14                                      0.6256
+   55    6-15                                6-15                                      2.6139
+   56    6-16                                6-16                                      2.5446
+   57    6-21                                6-21                                      6.9196
+   58    6-22                                6-22                                      5.7558
+   59    6-23                                6-23                                      3.1623
+   60    6-1                                 6-1                                       0.7958
+   61    6-26                                6-26                                      0.8931
+   62    10-18a                              10-18a                                    0.7283
+   63    19-1                                19-1                                      0.1326
+   64    19-2                                19-2                                      0.1340
+   65    19-5                                19-5                                      0.1819
+   66    19-6                                19-6                                      0.2161
+   67    19-9                                19-9                                      0.1285
+   68    19-12                               19-12                                     0.1692
+   69    19-13                               19-13                                     0.1271
+   70    19-14                               19-14                                     0.0971
+   71    19-15                               19-15                                     0.1336
+   72    19-19                               19-19                                     0.1934
+   73    20-5a                               20-5a                                     0.3958
+   74    20-5c                               20-5c                                     0.6303
+   75    20-5e                               20-5e                                     0.6720
+   76    20-5f                               20-5f                                     0.5180
+   77    20-5g                               20-5g                                     0.7650
+   78    20-5i                               20-5i                                     0.5940
+   79    20-5j                               20-5j                                     0.7724
+   80    20-5k                               20-5k                                     0.5606
+   81    19-8                                19-8                                      0.2426
+   82    19-11                               19-11                                     0.1665
+   83    19-20                               19-20                                     0.1469
+   84    20-5d                               20-5d                                     0.7182
+   85    20-5m                               20-5m                                     0.6758
+   86    19-7                                19-7                                      0.1991
+   87    20-9a                               20-9a                                     3.6746
+   88    20-9b                               20-9b                                     3.9921
+   89    14-8                                14-8                                      0.1278
+   90    14-9                                14-9                                      0.1269
+   91    21-4                                21-4                                      0.1184
+   92    21-7                                21-7                                      0.1591
+   93    21-8                                21-8                                      0.1066
+   94    21-10                               21-10                                     0.1225
+   95    21-11                               21-11                                     0.1194
+   96    21-12                               21-12                                     0.1432
+   97    21-13                               21-13                                     0.1067
+   98    21-14                               21-14                                     0.1167
+   99    21-16                               21-16                                     0.1555
+  100    21-18                               21-18                                     0.1617
+  101    21-19                               21-19                                     0.1167
+  102    21-21                               21-21                                     0.1434
+  103    21-23                               21-23                                     0.1401
+  104    21-27                               21-27                                     0.1170
+  105    21-38                               21-38                                     0.1470
+  106    21-40                               21-40                                     0.1231
+  107    21-42                               21-42                                     0.1816
+  108    21-43                               21-43                                     0.1483
+  109    22-6                                22-6                                      0.5609
+  110    22-7                                22-7                                      1.1304
+  111    22-11                               22-11                                     1.9349
+  112    22-15                               22-15                                     2.1662
+  113    22-10                               22-10                                     1.6046
+  114    22-18                               22-18                                     0.8485
+  115    22-13                               22-13                                     1.7690
+  116    14-5                                14-5                                      0.1580
+  117    14-10                               14-10                                     0.1303
+  118    21-5                                21-5                                      0.1470
+  119    22-16                               22-16                                     2.3722
+  120    21-9                                21-9                                      0.1331
+  121    21-15                               21-15                                     0.1501
+  122    21-22                               21-22                                     0.1089
+  123    21-44                               21-44                                     0.1000
+  124    22-4                                22-4                                      0.6949
+  125    22-8                                22-8                                      0.5264
+  126    22-12                               22-12                                     1.9817
+  127    22-14                               22-14                                     2.0673
+  128    21-34                               21-34                                     0.1615
+  129    22-22                               22-22                                     0.8047
+  130    22-23                               22-23                                     2.0670
+  131    8-3                                 8-3                                       0.1266
+  132    24-5b                               24-5b                                     0.1996
+  133    14-22                               14-22                                     0.1863
+  134    9-13b                               9-13b                                     0.1957
+  135    9-13d                               9-13d                                     0.2087
+  136    9-13f                               9-13f                                     0.2111
+  137    9-13g                               9-13g                                     0.2338
+  138    9-13h                               9-13h                                     0.2645
+  139    9-13i                               9-13i                                     0.2061
+  140    9-13j                               9-13j                                     0.2025
+  141    9-13l                               9-13l                                     0.2177
+  142    9-13m                               9-13m                                     0.2132
+  143    9-13r                               9-13r                                     0.2207
+  144    9-13u                               9-13u                                     0.1901
+  145    9-14a                               9-14a                                     0.2267
+  146    9-14b                               9-14b                                     0.2203
+  147    9-14c                               9-14c                                     0.2123
+  148    9-14k                               9-14k                                     0.2153
+  149    9-14m                               9-14m                                     0.1958
+  150    9-15b                               9-15b                                     0.1099
+  151    9-15c                               9-15c                                     0.0920
+  152    9-16d                               9-16d                                     0.1614
+  153    25-12                               25-12                                     0.1415
+  154    25-14                               25-14                                     0.2140
+  155    25-16                               25-16                                     0.2270
+  156    25-19                               25-19                                     0.1396
+  157    25-20                               25-20                                     0.1557
+  158    25-21                               25-21                                     0.2569
+  159    25-23                               25-23                                     0.2101
+  160    25-24                               25-24                                     0.1803
+  161    25-25                               25-25                                     0.1995
+  162    26-10                               26-10                                     0.3379
+  163    27-6                                27-6                                      0.2122
+  164    27-7                                27-7                                      0.1954
+  165    27-9                                27-9                                      0.2101
+  166    27-10                               27-10                                     0.1754
+  167    27-13                               27-13                                     0.1597
+  168    27-14                               27-14                                     0.1529
+  169    27-16                               27-16                                     0.2125
+  170    10-2b                               10-2b                                     0.2052
+  171    28-3                                28-3                                      0.0956
+  172    28-4                                28-4                                      0.1360
+  173    23-4b                               23-4b                                     0.1807
+  174    24-2a                               24-2a                                     0.2298
+  175    24-2b                               24-2b                                     0.2313
+  176    24-2c                               24-2c                                     0.2231
+  177    24-2d                               24-2d                                     0.1917
+  178    24-2e                               24-2e                                     0.2540
+  179    24-3a                               24-3a                                     0.2214
+  180    24-4c                               24-4c                                     0.1944
+  181    24-5a                               24-5a                                     0.2027
+  182    9-14h                               9-14h                                     0.1988
+  183    25-11                               25-11                                     0.1314
+  184    27-11                               27-11                                     0.2101
+  185    28-10                               28-10                                     0.1228
+  186    8-6                                 8-6                                       0.1485
+  187    25-13                               25-13                                     0.1084
+  188    25-22                               25-22                                     0.2411
+  189    26-8                                26-8                                      0.2254
+  190    28-5                                28-5                                      0.1694
+  191    28-8                                28-8                                      0.0818
+  192    28-9                                28-9                                      0.1255
+  193    30-3                                30-3                                      0.4018
+  194    30-4                                30-4                                      0.4095
+  195    32-9                                32-9                                      0.5732
+  196    34-2                                34-2                                      0.3589
+  197    34-7                                34-7                                      0.3486
+  198    38-12                               38-12                                     0.3364
+  199    38-13                               38-13                                     0.3442
+  200    33-2                                33-2                                      0.4152
+  201    34-9                                34-9                                      0.4084
+  202    38-6                                38-6                                      0.3377
+  203    34-4                                34-4                                      0.3179
+  204    34-6                                34-6                                      0.2894
+  205    35-4                                35-4                                      0.3578
+  206    35-5                                35-5                                      0.2984
+  207    35-6                                35-6                                      0.3126
+  208    38-11                               38-11                                     0.4356
+  209    38-10                               38-10                                     0.3947
+  210    40-4                                40-4                                      0.6253
+  211    40-9                                40-9                                      0.3157
+  212    40-table2-1                         40-table2-1                               1.9204
+  213    16-10                               16-10                                     0.4097
+  214    36-6a                               36-6a                                     0.3946
+  215    41-4d                               41-4d                                     0.5839
+  216    41-7b                               41-7b                                     0.3097
+  217    41-7c                               41-7c                                     0.3665
+  218    40-table2-3                         40-table2-3                               0.5594
+  219    16-12                               16-12                                     0.3686
+  220    41-5b                               41-5b                                     0.4733
+  221    43-7                                43-7                                      0.5579
+  222    43-8                                43-8                                      0.5564
+  223    43-9                                43-9                                      0.4962
+  224    43-10                               43-10                                     0.5245
+  225    43-11                               43-11                                     0.5391
+  226    43-16                               43-16                                     0.4850
+  227    43-17                               43-17                                     0.4856
+  228    43-14                               43-14                                     0.5173
+  229    44-2                                44-2                                      0.7315
+  230    44-8                                44-8                                      0.9886
+  231    44-9                                44-9                                      1.3659
+  232    44-10                               44-10                                     0.8825
+  233    44-12                               44-12                                     1.1658
+  234    44-17                               44-17                                     1.4314
+  235    44-3                                44-3                                      1.2945
+  236    44-6                                44-6                                      1.0296
+  237    44-22                               44-22                                     0.5820
+  238    7-6                                 7-6                                       0.9042
+  239    9-12o                               9-12o                                     0.1149
+  240    1-137545                            1-137545                                  0.1309
+  241    10-2d                               10-2d                                     0.1758
+  242    1-152737                            1-152737                                  0.4469
+  243    1-233910                            1-233910                                  0.1045
+  244    1-241522                            1-241522                                  0.1256
+  245    9-12h                               9-12h                                     0.1495
+  246    9-12s                               9-12s                                     0.1195
+  247    9-12t                               9-12t                                     0.2635
+  248    9-12u                               9-12u                                     0.2679
+  249    12-4e                               12-4e                                     0.5116
+  250    1-233912                            1-233912                                  0.1139
+  251    6-48                                6-48                                      0.3387
+  252    11-AH2503                           11-AH2503                                 0.2511
+  253    11-AH2504                           11-AH2504                                 0.7027
+  254    12-4g                               12-4g                                     0.5484
+  255    10-12a                              10-12a                                    0.1106
+  256    15-12                               15-12                                     0.1527
+  257    10-3a                               10-3a                                     0.1901
+  258    1-Trimetrexate                      1-Trimetrexate                            0.1961
+  259    1-184692                            1-184692                                  0.3267
+  260    9-16c                               9-16c                                     0.1501
+  261    16-9a                               16-9a                                     0.1634
+  262    1-351521                            1-351521                                  0.9833
+  263    13-11                               13-11                                     0.2232
+  264    10-1a                               10-1a                                     0.1705
+  265    6-28                                6-28                                      6.7344
+  266    6-3                                 6-3                                       2.7663
+  267    6-2                                 6-2                                       1.0658
+  268    6-13                                6-13                                      0.8366
+  269    6-20                                6-20                                      6.6042
+  270    18-5                                18-5                                      0.3356
+  271    18-6                                18-6                                      0.2690
+  272    19-4                                19-4                                      0.1837
+  273    19-10                               19-10                                     0.0966
+  274    20-5b                               20-5b                                     0.6001
+  275    19-3                                19-3                                      0.1869
+  276    20-5h                               20-5h                                     0.7858
+  277    20-9c                               20-9c                                     2.7406
+  278    21-3                                21-3                                      0.1263
+  279    21-6                                21-6                                      0.1495
+  280    21-24                               21-24                                     0.1073
+  281    21-41                               21-41                                     0.1251
+  282    22-5                                22-5                                      0.6509
+  283    22-9                                22-9                                      0.6092
+  284    22-19                               22-19                                     0.7931
+  285    22-20                               22-20                                     1.4490
+  286    21-20                               21-20                                     0.1196
+  287    22-17                               22-17                                     2.1034
+  288    22-21                               22-21                                     2.0664
+  289    22-25                               22-25                                     0.1401
+  290    21-36                               21-36                                     0.1537
+  291    18-4                                18-4                                      0.3511
+  292    8-7                                 8-7                                       0.1247
+  293    8-8                                 8-8                                       0.1528
+  294    23-6a                               23-6a                                     0.1824
+  295    25-10                               25-10                                     0.1599
+  296    25-15                               25-15                                     0.2176
+  297    26-7                                26-7                                      0.2269
+  298    28-11                               28-11                                     0.1258
+  299    28-7                                28-7                                      0.1023
+  300    23-6b                               23-6b                                     0.2353
+  301    24-4a                               24-4a                                     0.2247
+  302    9-13s                               9-13s                                     0.1804
+  303    9-13t                               9-13t                                     0.1564
+  304    9-15a                               9-15a                                     0.1756
+  305    25-26                               25-26                                     0.1442
+  306    26-9                                26-9                                      0.2450
+  307    27-15                               27-15                                     0.2111
+  308    10-2c                               10-2c                                     0.1917
+  309    29-2-piritrexim                     29-2-piritrexim                           1.0465
+  310    24-3c                               24-3c                                     0.2207
+  311    24-3e                               24-3e                                     0.2553
+  312    9-13e                               9-13e                                     0.2003
+  313    30-2                                30-2                                      0.3995
+  314    26-5                                26-5                                      0.2981
+  315    18-3                                18-3                                      0.3539
+  316    10-18c                              10-18c                                    0.2832
+  317    28-12                               28-12                                     1.3299
+  318    32-8                                32-8                                      0.7830
+  319    32-10                               32-10                                     0.5856
+  320    32-11                               32-11                                     0.1451
+  321    34-3                                34-3                                      0.3395
+  322    35-3                                35-3                                      0.3559
+  323    35-7                                35-7                                      0.3174
+  324    33-1                                33-1                                      0.4083
+  325    35-10                               35-10                                     0.4225
+  326    38-8                                38-8                                      0.3151
+  327    41-4f                               41-4f                                     0.6528
+  328    40-3                                40-3                                      1.9846
+  329    40-5                                40-5                                      0.5177
+  330    40-table2-2                         40-table2-2                               0.9988
+  331    40-table-2-6                        40-table-2-6                              0.5302
+  332    36-6c                               36-6c                                     0.3599
+  333    36-6e                               36-6e                                     0.3466
+  334    37-1c                               37-1c                                     0.5917
+  335    37-1d                               37-1d                                     0.6562
+  336    41-7a                               41-7a                                     0.3757
+  337    42-8                                42-8                                      7.5465
+  338    43-13                               43-13                                     1.0858
+  339    43-15                               43-15                                     0.6380
+  340    44-7                                44-7                                      0.8054
+  341    44-21                               44-21                                     1.0990
+  342    44-11                               44-11                                     0.8561
+  343    44-14                               44-14                                     0.9244
+  344    44-16                               44-16                                     0.7388
+  345    44-18                               44-18                                     1.4899
+  346    44-19                               44-19                                     0.4379
+  347    44-20                               44-20                                     0.3898
+  348    44-23                               44-23                                     0.5673
+  349    7-1                                 7-1                                       0.4201
+  350    7-3                                 7-3                                       0.9154
+  351    28-6                                28-6                                      0.1051
+  352    33-5                                33-5                                      0.2860
+  353    37-1e                               37-1e                                     0.3974
+  354    34-5                                34-5                                      0.3776
+  355    40-6                                40-6                                      2.5499
+  356    40-7                                40-7                                      0.8158
+  357    40-8                                40-8                                      1.0319
+  358    16-8a                               16-8a                                     0.8398
+  359    36-6b                               36-6b                                     0.3855
+  360    37-1a                               37-1a                                     0.5119
+  361    37-1b                               37-1b                                     0.5309
+  362    38-14                               38-14                                     0.3344
+  363    41-4e                               41-4e                                     0.6698
+  364    41-4i                               41-4i                                     0.3954
+  365    7-2                                 7-2                                       1.0506
+  366    1-236642                            1-236642                                  0.1119
+  367    9-12l                               9-12l                                     0.1319
+  368    1-127977                            1-127977                                  0.4475
+  369    1-235776                            1-235776                                  0.1162
+  370    10-18d                              10-18d                                    0.3554
+  371    10-17a                              10-17a                                    5.6410
+  372    10-18b                              10-18b                                    0.2683
+  373    23-7                                23-7                                      1.3919
+  374    23-8b                               23-8b                                     0.4512
+  375    23-8                                23-8                                      0.2627
+  376    33-3                                33-3                                      0.3781
+  377    33-6                                33-6                                      0.3049
+  378    35-2                                35-2                                      0.4227
+  379    36-7a                               36-7a                                     0.3642
+  380    36-7b                               36-7b                                     0.3507
+  381    36-7c                               36-7c                                     0.3921
+  382    36-7d                               36-7d                                     0.3320
+  383    36-7e                               36-7e                                     0.3570
+  384    38-3                                38-3                                      0.2945
+  385    38-9                                38-9                                      0.3879
+  386    38-16                               38-16                                     0.3467
+  387    38-17                               38-17                                     0.3664
+  388    40-table-2-4                        40-table-2-4                              0.7745
+  389    40-table-2-5                        40-table-2-5                              0.8380
+  390    36-6d                               36-6d                                     0.3783
+  391    41-4c                               41-4c                                     0.3540
+  392    41-4g                               41-4g                                     0.6168
+  393    41-4h                               41-4h                                     0.5924
+  394    41-5a                               41-5a                                     0.4478
+  395    42-9                                42-9                                      0.7458
+  396    42-10                               42-10                                     1.8769
+  397    42-11                               42-11                                     0.8382
+---------------------------------------------------------------------------------------------
+                                             Average                                   0.5759
+---------------------------------------------------------------------------------------------
+
+Elapsed time: 4.4674 seconds.
+
+END COMMAND #00.0007 - COMPARE tool succeeded.
+BGN COMMAND #00.0008 - COMPARE tool was invoked as follows:
+> compare type=block file=dhfr/dhfr_align_pharao_single/0001-0397_on_best_template.sdf aligned=dhfr/dhfr_align_pharao_single/0001-0397_on_best_template_aligned_on_original.sdf
+
+
+Number of objects:   397
+
+---------------------------------------------------------------------------------------------
+    N    Reference name                      Name                                        RMSD
+---------------------------------------------------------------------------------------------
+    1    7-4                                 7-4                                       4.5880
+    2    7-5                                 7-5                                       4.9178
+    3    1-98535                             1-98535                                   0.4848
+    4    1-107146                            1-107146                                  0.5261
+    5    1-117356                            1-117356                                  0.5892
+    6    1-131463                            1-131463                                  0.3892
+    7    1-144698                            1-144698                                  0.4878
+    8    1-233903                            1-233903                                  0.1254
+    9    1-233904                            1-233904                                  0.1882
+   10    9-12c                               9-12c                                     0.2803
+   11    9-12d                               9-12d                                     0.1815
+   12    9-12e                               9-12e                                     0.1730
+   13    9-12g                               9-12g                                     0.2420
+   14    9-12j                               9-12j                                     0.1826
+   15    9-12k                               9-12k                                     0.0562
+   16    9-12n                               9-12n                                     0.1013
+   17    9-12p                               9-12p                                     0.0944
+   18    9-12r                               9-12r                                     0.1209
+   19    9-12f                               9-12f                                     0.2201
+   20    1-235791                            1-235791                                  0.1264
+   21    9-12i                               9-12i                                     0.1634
+   22    9-12m                               9-12m                                     0.1081
+   23    9-12q                               9-12q                                     0.1006
+   24    11-GR92754                          11-GR92754                                0.2668
+   25    12-4c                               12-4c                                     0.5938
+   26    12-4a                               12-4a                                     0.6003
+   27    1-232965                            1-232965                                  0.1019
+   28    1-235777                            1-235777                                  0.1823
+   29    12-4d                               12-4d                                     0.7355
+   30    12-4b                               12-4b                                     0.5064
+   31    1-122870                            1-122870                                  0.3991
+   32    14-28                               14-28                                     0.1733
+   33    14-29                               14-29                                     0.1556
+   34    9-16b                               9-16b                                     0.0783
+   35    16-11                               16-11                                     0.0832
+   36    13-14                               13-14                                     0.1238
+   37    15-3                                15-3                                      0.0544
+   38    15-11                               15-11                                     0.0626
+   39    15-5                                15-5                                      0.2047
+   40    15-6                                15-6                                      0.1351
+   41    15-7                                15-7                                      0.3015
+   42    15-10                               15-10                                     0.2125
+   43    15-14                               15-14                                     0.3011
+   44    10-4a                               10-4a                                     0.3509
+   45    10-6a                               10-6a                                     0.2326
+   46    13-10                               13-10                                     0.1086
+   47    10-11a                              10-11a                                    0.0725
+   48    13-17                               13-17                                     0.1322
+   49    15-4                                15-4                                      0.1607
+   50    15-13                               15-13                                     0.1954
+   51    15-15                               15-15                                     0.3181
+   52    10-5a                               10-5a                                     0.4008
+   53    6-7                                 6-7                                       0.2887
+   54    6-14                                6-14                                      0.1735
+   55    6-15                                6-15                                      0.1866
+   56    6-16                                6-16                                      0.1757
+   57    6-21                                6-21                                      0.1997
+   58    6-22                                6-22                                      0.2011
+   59    6-23                                6-23                                      0.1777
+   60    6-1                                 6-1                                       0.2264
+   61    6-26                                6-26                                      0.2002
+   62    10-18a                              10-18a                                    0.1799
+   63    19-1                                19-1                                      0.1169
+   64    19-2                                19-2                                      0.1181
+   65    19-5                                19-5                                      0.3806
+   66    19-6                                19-6                                      0.3995
+   67    19-9                                19-9                                      0.1856
+   68    19-12                               19-12                                     0.2008
+   69    19-13                               19-13                                     0.1380
+   70    19-14                               19-14                                     0.2648
+   71    19-15                               19-15                                     0.1127
+   72    19-19                               19-19                                     0.1365
+   73    20-5a                               20-5a                                     0.3214
+   74    20-5c                               20-5c                                     0.3632
+   75    20-5e                               20-5e                                     0.3914
+   76    20-5f                               20-5f                                     0.4113
+   77    20-5g                               20-5g                                     0.4255
+   78    20-5i                               20-5i                                     0.4769
+   79    20-5j                               20-5j                                     0.3060
+   80    20-5k                               20-5k                                     0.4962
+   81    19-8                                19-8                                      0.4438
+   82    19-11                               19-11                                     0.3315
+   83    19-20                               19-20                                     0.0932
+   84    20-5d                               20-5d                                     0.3670
+   85    20-5m                               20-5m                                     0.4358
+   86    19-7                                19-7                                      0.1165
+   87    20-9a                               20-9a                                     1.6950
+   88    20-9b                               20-9b                                     2.0327
+   89    14-8                                14-8                                      0.3005
+   90    14-9                                14-9                                      0.2075
+   91    21-4                                21-4                                      0.0679
+   92    21-7                                21-7                                      0.1669
+   93    21-8                                21-8                                      0.1794
+   94    21-10                               21-10                                     0.1301
+   95    21-11                               21-11                                     0.3317
+   96    21-12                               21-12                                     0.0909
+   97    21-13                               21-13                                     0.1434
+   98    21-14                               21-14                                     0.1288
+   99    21-16                               21-16                                     0.3321
+  100    21-18                               21-18                                     0.1677
+  101    21-19                               21-19                                     0.0892
+  102    21-21                               21-21                                     0.1210
+  103    21-23                               21-23                                     0.1032
+  104    21-27                               21-27                                     0.2111
+  105    21-38                               21-38                                     0.2300
+  106    21-40                               21-40                                     0.0916
+  107    21-42                               21-42                                     0.3488
+  108    21-43                               21-43                                     0.3762
+  109    22-6                                22-6                                      0.6856
+  110    22-7                                22-7                                      1.4097
+  111    22-11                               22-11                                     1.8169
+  112    22-15                               22-15                                     2.3689
+  113    22-10                               22-10                                     1.6816
+  114    22-18                               22-18                                     0.5213
+  115    22-13                               22-13                                     1.8485
+  116    14-5                                14-5                                      0.1122
+  117    14-10                               14-10                                     0.3573
+  118    21-5                                21-5                                      0.1383
+  119    22-16                               22-16                                     2.4818
+  120    21-9                                21-9                                      0.1444
+  121    21-15                               21-15                                     0.1099
+  122    21-22                               21-22                                     0.2720
+  123    21-44                               21-44                                     0.3570
+  124    22-4                                22-4                                      0.4260
+  125    22-8                                22-8                                      0.4694
+  126    22-12                               22-12                                     2.0640
+  127    22-14                               22-14                                     2.3170
+  128    21-34                               21-34                                     0.2563
+  129    22-22                               22-22                                     0.6767
+  130    22-23                               22-23                                     2.6951
+  131    8-3                                 8-3                                       0.2382
+  132    24-5b                               24-5b                                     0.1997
+  133    14-22                               14-22                                     0.2893
+  134    9-13b                               9-13b                                     0.5263
+  135    9-13d                               9-13d                                     0.1441
+  136    9-13f                               9-13f                                     0.1104
+  137    9-13g                               9-13g                                     0.3115
+  138    9-13h                               9-13h                                     0.3944
+  139    9-13i                               9-13i                                     0.1376
+  140    9-13j                               9-13j                                     0.2231
+  141    9-13l                               9-13l                                     0.2812
+  142    9-13m                               9-13m                                     0.2139
+  143    9-13r                               9-13r                                     0.2191
+  144    9-13u                               9-13u                                     0.4441
+  145    9-14a                               9-14a                                     0.2830
+  146    9-14b                               9-14b                                     0.3226
+  147    9-14c                               9-14c                                     0.2038
+  148    9-14k                               9-14k                                     0.4454
+  149    9-14m                               9-14m                                     0.3108
+  150    9-15b                               9-15b                                     0.0642
+  151    9-15c                               9-15c                                     0.1334
+  152    9-16d                               9-16d                                     0.1352
+  153    25-12                               25-12                                     0.1130
+  154    25-14                               25-14                                     0.2787
+  155    25-16                               25-16                                     0.0942
+  156    25-19                               25-19                                     0.1500
+  157    25-20                               25-20                                     0.1454
+  158    25-21                               25-21                                     0.1568
+  159    25-23                               25-23                                     0.2361
+  160    25-24                               25-24                                     0.2571
+  161    25-25                               25-25                                     0.2140
+  162    26-10                               26-10                                     0.3638
+  163    27-6                                27-6                                      0.2079
+  164    27-7                                27-7                                      0.2119
+  165    27-9                                27-9                                      0.2559
+  166    27-10                               27-10                                     0.2914
+  167    27-13                               27-13                                     0.2554
+  168    27-14                               27-14                                     0.1907
+  169    27-16                               27-16                                     0.2062
+  170    10-2b                               10-2b                                     0.3566
+  171    28-3                                28-3                                      0.1351
+  172    28-4                                28-4                                      0.1317
+  173    23-4b                               23-4b                                     0.2796
+  174    24-2a                               24-2a                                     0.2256
+  175    24-2b                               24-2b                                     0.2271
+  176    24-2c                               24-2c                                     0.0930
+  177    24-2d                               24-2d                                     0.3554
+  178    24-2e                               24-2e                                     0.2317
+  179    24-3a                               24-3a                                     0.4647
+  180    24-4c                               24-4c                                     0.1741
+  181    24-5a                               24-5a                                     0.2725
+  182    9-14h                               9-14h                                     0.3704
+  183    25-11                               25-11                                     0.1003
+  184    27-11                               27-11                                     0.1899
+  185    28-10                               28-10                                     0.3044
+  186    8-6                                 8-6                                       0.1144
+  187    25-13                               25-13                                     0.1215
+  188    25-22                               25-22                                     0.0800
+  189    26-8                                26-8                                      0.2427
+  190    28-5                                28-5                                      0.1364
+  191    28-8                                28-8                                      0.6301
+  192    28-9                                28-9                                      0.1381
+  193    30-3                                30-3                                      0.4986
+  194    30-4                                30-4                                      0.6031
+  195    32-9                                32-9                                      0.2956
+  196    34-2                                34-2                                      0.4125
+  197    34-7                                34-7                                      2.6884
+  198    38-12                               38-12                                     0.2198
+  199    38-13                               38-13                                     0.4647
+  200    33-2                                33-2                                      0.4978
+  201    34-9                                34-9                                      0.5024
+  202    38-6                                38-6                                      0.3353
+  203    34-4                                34-4                                      0.4025
+  204    34-6                                34-6                                      0.3450
+  205    35-4                                35-4                                      2.6871
+  206    35-5                                35-5                                      0.1714
+  207    35-6                                35-6                                      0.2430
+  208    38-11                               38-11                                     0.4802
+  209    38-10                               38-10                                     0.4003
+  210    40-4                                40-4                                      0.3127
+  211    40-9                                40-9                                      0.4049
+  212    40-table2-1                         40-table2-1                               2.5142
+  213    16-10                               16-10                                     0.4240
+  214    36-6a                               36-6a                                     0.4323
+  215    41-4d                               41-4d                                     0.3256
+  216    41-7b                               41-7b                                     0.2690
+  217    41-7c                               41-7c                                     0.3454
+  218    40-table2-3                         40-table2-3                               0.3968
+  219    16-12                               16-12                                     0.3528
+  220    41-5b                               41-5b                                     0.2788
+  221    43-7                                43-7                                      0.5919
+  222    43-8                                43-8                                      0.6644
+  223    43-9                                43-9                                      0.4325
+  224    43-10                               43-10                                     0.7058
+  225    43-11                               43-11                                     0.6169
+  226    43-16                               43-16                                     0.5570
+  227    43-17                               43-17                                     0.6763
+  228    43-14                               43-14                                     0.5219
+  229    44-2                                44-2                                      2.2926
+  230    44-8                                44-8                                      2.5975
+  231    44-9                                44-9                                      2.4092
+  232    44-10                               44-10                                     2.2914
+  233    44-12                               44-12                                     2.1640
+  234    44-17                               44-17                                     1.8304
+  235    44-3                                44-3                                      2.6283
+  236    44-6                                44-6                                      2.8680
+  237    44-22                               44-22                                     0.2599
+  238    7-6                                 7-6                                       4.0104
+  239    9-12o                               9-12o                                     0.0883
+  240    1-137545                            1-137545                                  0.1247
+  241    10-2d                               10-2d                                     0.1566
+  242    1-152737                            1-152737                                  0.4826
+  243    1-233910                            1-233910                                  0.1374
+  244    1-241522                            1-241522                                  0.1699
+  245    9-12h                               9-12h                                     0.3239
+  246    9-12s                               9-12s                                     0.0822
+  247    9-12t                               9-12t                                     0.3206
+  248    9-12u                               9-12u                                     0.1771
+  249    12-4e                               12-4e                                     0.5591
+  250    1-233912                            1-233912                                  0.1387
+  251    6-48                                6-48                                      2.7121
+  252    11-AH2503                           11-AH2503                                 0.2167
+  253    11-AH2504                           11-AH2504                                 0.2831
+  254    12-4g                               12-4g                                     0.6526
+  255    10-12a                              10-12a                                    0.1310
+  256    15-12                               15-12                                     0.1680
+  257    10-3a                               10-3a                                     0.1267
+  258    1-Trimetrexate                      1-Trimetrexate                            0.2297
+  259    1-184692                            1-184692                                  0.5568
+  260    9-16c                               9-16c                                     0.1998
+  261    16-9a                               16-9a                                     0.1594
+  262    1-351521                            1-351521                                  0.6019
+  263    13-11                               13-11                                     0.0895
+  264    10-1a                               10-1a                                     0.2036
+  265    6-28                                6-28                                      0.2062
+  266    6-3                                 6-3                                       0.1759
+  267    6-2                                 6-2                                       0.2765
+  268    6-13                                6-13                                      0.2014
+  269    6-20                                6-20                                      0.1783
+  270    18-5                                18-5                                      0.5746
+  271    18-6                                18-6                                      0.5628
+  272    19-4                                19-4                                      0.1106
+  273    19-10                               19-10                                     0.2905
+  274    20-5b                               20-5b                                     0.5183
+  275    19-3                                19-3                                      0.1202
+  276    20-5h                               20-5h                                     0.4677
+  277    20-9c                               20-9c                                     2.9963
+  278    21-3                                21-3                                      0.1833
+  279    21-6                                21-6                                      0.0707
+  280    21-24                               21-24                                     0.1446
+  281    21-41                               21-41                                     0.3009
+  282    22-5                                22-5                                      0.6059
+  283    22-9                                22-9                                      0.3741
+  284    22-19                               22-19                                     0.5419
+  285    22-20                               22-20                                     1.8508
+  286    21-20                               21-20                                     0.1918
+  287    22-17                               22-17                                     2.2033
+  288    22-21                               22-21                                     2.2124
+  289    22-25                               22-25                                     0.1259
+  290    21-36                               21-36                                     0.1580
+  291    18-4                                18-4                                      0.5802
+  292    8-7                                 8-7                                       0.0995
+  293    8-8                                 8-8                                       0.3014
+  294    23-6a                               23-6a                                     0.1855
+  295    25-10                               25-10                                     0.0649
+  296    25-15                               25-15                                     0.2801
+  297    26-7                                26-7                                      0.2375
+  298    28-11                               28-11                                     0.3171
+  299    28-7                                28-7                                      0.5998
+  300    23-6b                               23-6b                                     0.1891
+  301    24-4a                               24-4a                                     0.2517
+  302    9-13s                               9-13s                                     0.2298
+  303    9-13t                               9-13t                                     0.1700
+  304    9-15a                               9-15a                                     0.2071
+  305    25-26                               25-26                                     0.2326
+  306    26-9                                26-9                                      0.2115
+  307    27-15                               27-15                                     0.2344
+  308    10-2c                               10-2c                                     0.3689
+  309    29-2-piritrexim                     29-2-piritrexim                           0.4663
+  310    24-3c                               24-3c                                     0.2414
+  311    24-3e                               24-3e                                     0.5186
+  312    9-13e                               9-13e                                     0.2192
+  313    30-2                                30-2                                      0.3350
+  314    26-5                                26-5                                      0.5386
+  315    18-3                                18-3                                      0.5668
+  316    10-18c                              10-18c                                    0.3104
+  317    28-12                               28-12                                     0.6104
+  318    32-8                                32-8                                      0.3060
+  319    32-10                               32-10                                     0.3063
+  320    32-11                               32-11                                     0.1220
+  321    34-3                                34-3                                      0.3805
+  322    35-3                                35-3                                      0.3082
+  323    35-7                                35-7                                      0.2872
+  324    33-1                                33-1                                      0.4923
+  325    35-10                               35-10                                     0.5154
+  326    38-8                                38-8                                      0.2471
+  327    41-4f                               41-4f                                     0.3752
+  328    40-3                                40-3                                      2.6891
+  329    40-5                                40-5                                      0.4199
+  330    40-table2-2                         40-table2-2                               2.3860
+  331    40-table-2-6                        40-table-2-6                              0.4300
+  332    36-6c                               36-6c                                     0.3504
+  333    36-6e                               36-6e                                     0.3268
+  334    37-1c                               37-1c                                     5.7688
+  335    37-1d                               37-1d                                     6.0680
+  336    41-7a                               41-7a                                     0.3447
+  337    42-8                                42-8                                      5.1491
+  338    43-13                               43-13                                     0.5663
+  339    43-15                               43-15                                     0.5333
+  340    44-7                                44-7                                      2.2709
+  341    44-21                               44-21                                     0.2575
+  342    44-11                               44-11                                     0.8687
+  343    44-14                               44-14                                     0.9219
+  344    44-16                               44-16                                     2.4004
+  345    44-18                               44-18                                     0.4469
+  346    44-19                               44-19                                     0.3263
+  347    44-20                               44-20                                     0.2808
+  348    44-23                               44-23                                     0.4379
+  349    7-1                                 7-1                                       3.8218
+  350    7-3                                 7-3                                       5.3031
+  351    28-6                                28-6                                      0.4152
+  352    33-5                                33-5                                      0.2784
+  353    37-1e                               37-1e                                     0.4215
+  354    34-5                                34-5                                      0.4829
+  355    40-6                                40-6                                      0.5131
+  356    40-7                                40-7                                      0.6627
+  357    40-8                                40-8                                      7.4935
+  358    16-8a                               16-8a                                     0.4367
+  359    36-6b                               36-6b                                     0.4970
+  360    37-1a                               37-1a                                     2.9474
+  361    37-1b                               37-1b                                     5.9207
+  362    38-14                               38-14                                     0.2234
+  363    41-4e                               41-4e                                     0.4248
+  364    41-4i                               41-4i                                     0.4118
+  365    7-2                                 7-2                                       0.4376
+  366    1-236642                            1-236642                                  0.1415
+  367    9-12l                               9-12l                                     0.0796
+  368    1-127977                            1-127977                                  0.6034
+  369    1-235776                            1-235776                                  0.0686
+  370    10-18d                              10-18d                                    0.3803
+  371    10-17a                              10-17a                                    0.1835
+  372    10-18b                              10-18b                                    0.2449
+  373    23-7                                23-7                                      1.0632
+  374    23-8b                               23-8b                                     1.1631
+  375    23-8                                23-8                                      1.0791
+  376    33-3                                33-3                                      0.4005
+  377    33-6                                33-6                                      0.3877
+  378    35-2                                35-2                                      0.4628
+  379    36-7a                               36-7a                                     0.3467
+  380    36-7b                               36-7b                                     0.5122
+  381    36-7c                               36-7c                                     0.4471
+  382    36-7d                               36-7d                                     0.4818
+  383    36-7e                               36-7e                                     0.3462
+  384    38-3                                38-3                                      0.2813
+  385    38-9                                38-9                                      2.0425
+  386    38-16                               38-16                                     0.3233
+  387    38-17                               38-17                                     0.3815
+  388    40-table-2-4                        40-table-2-4                              4.0076
+  389    40-table-2-5                        40-table-2-5                              1.6369
+  390    36-6d                               36-6d                                     0.4138
+  391    41-4c                               41-4c                                     0.4009
+  392    41-4g                               41-4g                                     0.4117
+  393    41-4h                               41-4h                                     0.4070
+  394    41-5a                               41-5a                                     0.3361
+  395    42-9                                42-9                                      5.3467
+  396    42-10                               42-10                                     0.7354
+  397    42-11                               42-11                                     5.6778
+---------------------------------------------------------------------------------------------
+                                             Average                                   0.6371
+---------------------------------------------------------------------------------------------
+
+Elapsed time: 4.4311 seconds.
+
+END COMMAND #00.0008 - COMPARE tool succeeded.
+
+
+Job finished on Sat Sep  8 14:10:56 2012
+
+Successful completion.

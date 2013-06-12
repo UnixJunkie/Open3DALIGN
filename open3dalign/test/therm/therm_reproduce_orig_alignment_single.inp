@@ -1,0 +1,17 @@
+import type=sdf file=therm/therm_3dqsar_canonical.sdf
+align type=random align_dir=therm/therm_align_random
+align type=mixed merge=y object_list=5,16,24,28,31,57,61,70,71 keep_best_template=y \
+	align_dir=therm/therm_align_mixed_single \
+	file=therm/therm_align_random/0001-0076_random.sdf
+align type=atom object_list=5,16,24,28,31,57,61,70,71 keep_best_template=y \
+	align_dir=therm/therm_align_atom_single \
+	file=therm/therm_align_random/0001-0076_random.sdf
+align type=pharao merge=y object_list=5,16,24,28,31,57,61,70,71 keep_best_template=y \
+	align_dir=therm/therm_align_pharao_single \
+	file=therm/therm_align_random/0001-0076_random.sdf
+compare type=block file=therm/therm_align_mixed_single/0001-0076_on_best_template.sdf \
+	aligned=therm/therm_align_mixed_single/0001-0076_on_best_template_aligned_on_original.sdf
+compare type=block file=therm/therm_align_atom_single/0001-0076_on_best_template.sdf \
+	aligned=therm/therm_align_atom_single/0001-0076_on_best_template_aligned_on_original.sdf
+compare type=block file=therm/therm_align_pharao_single/0001-0076_on_best_template.sdf \
+	aligned=therm/therm_align_pharao_single/0001-0076_on_best_template_aligned_on_original.sdf
