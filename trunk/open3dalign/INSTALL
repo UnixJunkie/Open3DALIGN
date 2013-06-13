@@ -50,7 +50,7 @@ libsunperf:
 
 $ ./configure CC=suncc --with-sunperf && make && make install
 
-To test your Open3DALIGN Installation, run
+To test your Open3DALIGN installation, run
 
 $ test/test.sh
 
