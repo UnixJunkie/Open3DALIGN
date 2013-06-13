@@ -17,15 +17,15 @@ href="http://www.unito.it/unitoWAR/appmanager/unito/home_en?_nfpb=true"
 target="_blank">a</a>,<a
 href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x70;&#x61;&#x6f;&#x6c;&#x6f;&#x2e;&#x74;&#x6f;&#x73;&#x63;&#x6f;&#x40;&#x75;&#x6e;&#x69;&#x74;&#x6f;&#x2e;&#x69;&#x74;"><img
 src="./envelope.png" alt="*"></a></sup> <a
-href="http://www.farma.ku.dk/index.php?id=8857" target="_blank">Thomas
-Balle</a><sup><a href="http://www.farma.ku.dk/index.php?id=161"
+href="http://sydney.edu.au/pharmacy/about/people/thomasb.shtml"
+target="_blank">Thomas Balle</a><sup><a
+href="http://sydney.edu.au/pharmacy/about/people/thomasb.shtml"
 target="_blank">b</a></sup><br></p> <p style="text-align: center;
 font-size: 120%;"> <sup>a </sup><I>Department of Drug Science and
-Technology,<br> University of Turin, via Pietro Giuria 9, 10125 Torino,
-Italy</I><br> <sup>b </sup><I>Department of Medicinal Chemistry,<br>
-The Faculty of Pharmaceutical Sciences, University of Copenhagen,<br>
-2 Universitetsparken, 2100 K&oslash;benhavn, Denmark</I></p> <p
-style="text-align: center; font-size: 100%;"><br> <I>Journal of
+Technology,<br> University of Turin, via Pietro Giuria 9, 10125
+Torino, Italy</I><br> <sup>b </sup><I>Faculty of Pharmacy, University of
+Sydney,<br> Pharmacy Building (A15), Camperdown Campus, Sydney NSW</I></p>
+<p style="text-align: center; font-size: 100%;"><br> <I>Journal of
 Computer-Aided Molecular Design</I> <B>2011</B>, <I>25</I>, 777-783
 &nbsp;<a href="http://dx.doi.org/10.1007/s10822-011-9462-9"
 target="_blank">doi</a></p> <br><br> <h1><a
@@ -179,28 +179,28 @@ href="#import">import</a></li> <li><a href="#load">load</a></li> <li><a
 href="#qmd">qmd</a></li> <li><a href="#remove_box">remove_box</a></li>
 <li><a href="#remove_object">remove_object</a></li>
 <li><a href="#remove_y_vars">remove_y_vars</a></li> <li><a
-href="#save">save</a></li> <li><a href="#set">set</a></li> <li><a
-href="#source">source</a></li> <li><a href="#stop">stop</a></li></ul>
-<br><br><br><a href="#Contents"> <p align="right">Back to
-Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
-size="2"><br><h3><a name="align"></a>align</h3><br> <h4>SYNOPSIS</h4>
-<code>align&nbsp; [type={ATOM | PHAR | MIXED | RANDOM}; defaults to
-ATOM]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [{object_list=&lt;comma/hyphen
-separated list or ALL&gt;&nbsp; \<br> &nbsp;&nbsp;&nbsp; |
-most_active_percent=&lt;percent of most active compounds used as
-alignment templates&gt;; defaults to 25&nbsp; \<br> &nbsp;&nbsp;&nbsp;
-[ref_y_var=&lt;reference <I>Y</I> variable used to find most active
-compounds&gt;]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [criterion={LOWEST
-| HIGHEST; defaults to HIGHEST}]}&nbsp; \<br> &nbsp;&nbsp;&nbsp;
-[hybrid={YES | NO; defaults to NO}]&nbsp; \<br> &nbsp;&nbsp;&nbsp;
-[merge={YES | NO; defaults to NO}]&nbsp; \<br> &nbsp;&nbsp;&nbsp;
-[template={SINGLE [keep_best_template={YES | NO}; defaults to
-NO] | MULTI}; defaults to SINGLE]&nbsp; \<br> &nbsp;&nbsp;&nbsp;
-[candidate={SINGLE [file=&lt;SDF file with candidate conformations
-to be aligned&gt;] | MULTI}; defaults to SINGLE]&nbsp; \<br>
-&nbsp;&nbsp;&nbsp; [{conf_dir=&lt;directory from which SDF conformational
-databases are retrieved&gt;; defaults to qmd_dir, if defined]&nbsp;
-\<br> &nbsp;&nbsp;&nbsp; | template_conf_dir=&lt;directory
+href="#rototrans">rototrans</a></li> <li><a href="#save">save</a></li>
+<li><a href="#set">set</a></li> <li><a href="#source">source</a></li>
+<li><a href="#stop">stop</a></li></ul> <br><br><br><a
+href="#Contents"> <p align="right">Back to Contents</p></a><br>
+<hr color="#ebf1de" align="center" width="95%" size="2"><br><h3><a
+name="align"></a>align</h3><br> <h4>SYNOPSIS</h4> <code>align&nbsp;
+[type={ATOM | PHAR | MIXED | RANDOM}; defaults to ATOM]&nbsp; \<br>
+&nbsp;&nbsp;&nbsp; [{object_list=&lt;comma/hyphen separated list or
+ALL&gt;&nbsp; \<br> &nbsp;&nbsp;&nbsp; | most_active_percent=&lt;percent
+of most active compounds used as alignment templates&gt;; defaults
+to 25&nbsp; \<br> &nbsp;&nbsp;&nbsp; [ref_y_var=&lt;reference
+<I>Y</I> variable used to find most active compounds&gt;]&nbsp;
+\<br> &nbsp;&nbsp;&nbsp; [criterion={LOWEST | HIGHEST; defaults
+to HIGHEST}]}&nbsp; \<br> &nbsp;&nbsp;&nbsp; [hybrid={YES | NO;
+defaults to NO}]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [merge={YES | NO;
+defaults to NO}]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [template={SINGLE
+[keep_best_template={YES | NO}; defaults to NO] | MULTI}; defaults to
+SINGLE]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [candidate={SINGLE [file=&lt;SDF
+file with candidate conformations to be aligned&gt;] | MULTI}; defaults to
+SINGLE]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [{conf_dir=&lt;directory from which
+SDF conformational databases are retrieved&gt;; defaults to qmd_dir, if
+defined]&nbsp; \<br> &nbsp;&nbsp;&nbsp; | template_conf_dir=&lt;directory
 from which SDF conformational databases to be used for
 template objects are retrieved&gt;&nbsp; \<br> &nbsp;&nbsp;&nbsp;
 candidate_conf_dir=&lt;directory from which SDF conformational databases
@@ -823,6 +823,38 @@ command removes Y variable 2 from the dataset currently loaded in
 Open3DALIGN<br> remove_y_vars&nbsp; y_var_list=2<br><br> <br><br><br><a
 href="#Contents"> <p align="right">Back to Contents</p></a><br>
 <hr color="#ebf1de" align="center" width="95%" size="2"><br><h3><a
+name="rototrans"></a>rototrans</h3><br> <h4>SYNOPSIS</h4>
+<code>rototrans&nbsp; [x_trans=&lt;amplitude in &Aring; of the
+translation on the <I>X</I> axis&gt;; defaults to 0.0]&nbsp;
+\<br> &nbsp;&nbsp;&nbsp; [y_trans=&lt;amplitude in &Aring; of the
+translation on the <I>Y</I> axis&gt;; defaults to 0.0]&nbsp; \<br>
+&nbsp;&nbsp;&nbsp; [z_trans=&lt;amplitude in &Aring; of the translation
+on the <I>Z</I> axis&gt;; defaults to 0.0]&nbsp; \<br> &nbsp;&nbsp;&nbsp;
+[x_rot=&lt;amplitude in degrees of the rotation on the <I>X</I> axis&gt;;
+defaults to 0.0]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [y_rot=&lt;amplitude
+in degrees of the rotation on the <I>Y</I> axis&gt;; defaults to
+0.0]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [z_rot=&lt;amplitude in degrees of
+the rotation on the <I>Z</I> axis&gt;; defaults to 0.0]&nbsp; \<br>
+&nbsp;&nbsp;&nbsp; [object_list | id_list=&lt;comma/hyphen separated
+list | ALL; defaults to ALL&gt;]&nbsp; \<br> &nbsp;&nbsp;&nbsp;
+file=&lt;filename&gt;</code><br><br> <h4>DESCRIPTION</h4> The
+<code>rototrans</code> keyword allows translating and/or rotating as
+a whole the currently loaded dataset (or a subset of objects selected
+through <code>object_list</code> or <code>id_list</code> parameters) by
+the amount specified by the <code>x_trans</code>, <code>y_trans</code>,
+<code>z_trans</code>, <code>x_rot</code>, <code>y_rot</code>,
+<code>z_rot</code> parameters.  Rotation is carried out setting the
+origin at the centre of mass of the selected objects; the order in
+which rotations around the three cartesian axes are applied is <I>X</I>,
+<I>Y</I>, <I>Z</I>.  The new coordinates are saved in the file specified
+through the <code>file</code> parameter.<br><br> <h4>EXAMPLES</h4> <code>
+#this command translates the currently loaded dataset by 2.0 &Aring;
+in all the three Cartesian directions and also rotates it by
+30&deg; around the <I>X</I> axis, saving the new coordinates as
+file_rototrans.sdf<br> rototrans&nbsp; x_rot=2.0&nbsp; y_rot=2.0&nbsp;
+z_rot=2.0 x_rot=30.0&nbsp; file=file_rototrans.sdf</code> <br><br><br><a
+href="#Contents"> <p align="right">Back to Contents</p></a><br>
+<hr color="#ebf1de" align="center" width="95%" size="2"><br><h3><a
 name="save"></a>save</h3><br> <h4>SYNOPSIS</h4> <code>save&nbsp;
 file=&lt;filename&gt;</code><br><br> <h4>DESCRIPTION</h4>
 The <code>save</code> keyword is used to store structures
@@ -902,34 +934,72 @@ J. J.; O'Brien, L. A.; Weaver, D. F.  <I>J. Med. Chem.</I> <B>2004</B>,
 target="_blank">DOI</a></li> <br><br><br><a href="#Contents">
 <p align="right">Back to Contents</p></a><br> <hr
 color="#ebf1de" align="center" width="95%" size="2"><br><h2><a
-name="ChangeLog">ChangeLog</a></h2><br><br> <ul><li>January 12, 2012:
-release of <B>Open3DALIGN</B> 2.104</li></ul> <ul>Changes with respect
-to the previous version include:</ul> <ul><ul><li><B>Open3DALIGN</B>
-was linked with the updated versions of ATLAS (3.8.4) and LAPACK (3.4.0)
-libraries</li></ul></ul> <br> <ul><li>October 22, 2011: release of
-<B>Open3DALIGN</B> 2.103</li></ul> <ul>Changes with respect to the
-previous version include:</ul> <ul><ul><li>Fixed a bug connected with
-different CR/LF handling on the Windows platform</li></ul></ul> <br>
-<ul><li>October 15, 2011: release of <B>Open3DALIGN</B> 2.102</li></ul>
+name="ChangeLog">ChangeLog</a></h2><br><br> <ul><li>June 13, 2013:
+release of <B>Open3DALIGN</B> 2.24</li></ul> <ul>Changes with
+respect to the previous version include:</ul> <ul><ul><li>A bug
+which caused the terminal to be set to ECHOCTL on exit was fixed
+(Linux/Mac OS X only)</li></ul></ul> <ul><ul><li>Linking against
+libminizip is now optional</li></ul></ul> <br> <ul><li>January 14,
+2013: release of <B>Open3DALIGN</B> 2.23</li></ul> <ul>Changes
+with respect to the previous version include:</ul> <ul><ul><li>A
+bug in the <code>import type=DEPENDENT</code> keyword which caused
+an error message whenever attempting to import multiple dependent
+variables was fixed</li></ul></ul> <br> <ul><li>December 21, 2012:
+release of <B>Open3DALIGN</B> 2.22</li></ul> <ul>Changes with
+respect to the previous version include:</ul> <ul><ul><li>Minor
+bugfixes all over</li></ul></ul> <br> <ul><li>September 5, 2012:
+release of <B>Open3DALIGN</B> 2.21</li></ul> <ul>Changes with
+respect to the previous version include:</ul> <ul><ul><li>Fixed a
+bug which affected the Windows version on start when the program is
+installed in a location whose path contains spaces</li></ul></ul>
+<ul><ul><li>Fixed a bug in the <code>import_dependent()</code>
+function</li></ul></ul> <br> <ul><li>August 10, 2012: release of
+<B>Open3DALIGN</B> 2.2</li></ul> <ul>Changes with respect to the
+previous version include:</ul> <ul><ul><li>Added compressed file
+support (GZIP, ZIP formats)</li></ul></ul> <ul><ul><li>Added the
+<code>rototrans</code> keyword to carry out rotations/translations
+on selected objects</li></ul></ul> <ul><ul><li>Added keyword and
+parameter shell-like TAB completion in interactive mode</li></ul></ul>
+<ul><ul><li><B>Open3DALIGN</B> was linked against the updated
+versions of ATLAS (3.10.0) and LAPACK (3.4.1) libraries</li></ul></ul>
+<ul><ul><li>Under Mac OS X, <B>Open3DALIGN</B> was linked against the
+ATLAS library instead of the Accelerate Framework, since I relized that,
+as of Mac OS X 10.7, the LAPACK library included in the Accelerate
+Framework is not completely thread-safe. In previous pre-built
+<B>Open3DALIGN</B> versions this might have triggered numerical errors
+when using <code>n_cpus > 1</code></li></ul></ul> <br> <ul><li>February
+17, 2012: release of <B>Open3DALIGN</B> 2.105</li></ul> <ul>Changes
+with respect to the previous version include:</ul> <ul><ul><li>The
+<code>box</code> keyword now supports also <code>[x,y,z]_nodes</code>
+parameters as alternative to <code>[x,y,z]_end</code></li></ul></ul> <br>
+<ul><li>January 12, 2012: release of <B>Open3DALIGN</B> 2.104</li></ul>
 <ul>Changes with respect to the previous version include:</ul>
-<ul><ul><li>Fixed a bug which prevented restoring the default terminal
-color on exit on *NIX platforms</li></ul></ul> <ul><ul><li>Added the
-<code>--term</code> command line switch to toggle terminal mode;
-this results in default terminal colors to be used for text and,
-on Windows, in preventing a new CMD window from being spawned on
-start</li></ul></ul> <br> <ul><li>September 19, 2011: release of
-<B>Open3DALIGN</B> 2.101</li></ul> <ul>Changes with respect to the
-previous version include:</ul> <ul><ul><li>Replaced the dependency
-from the obsolete <code>termcap</code> library with the one from the
-ubiquitous <code>curses</code> library on Linux, Solaris, Mac OS X and
-FreeBSD platforms</li></ul></ul> <br> <ul><li>September 1, 2011: release
-of <B>Open3DALIGN</B> 2.1</li></ul> <ul>Changes with respect to the
-previous version include:</ul> <ul><ul><li>The <code>filter</code> keyword
-was implemented to allow template filtering/selection before carrying out
-multiple template alignment</li></ul></ul> <br> <ul><li>August 30, 2011:
-release of <B>Open3DALIGN</B> 2.043</li></ul> <ul>Changes with respect to
-the previous version include:</ul> <ul><ul><li>A regression introduced
-in version 2.042 which caused the <code>qmd</code> command to fail with
+<ul><ul><li><B>Open3DALIGN</B> was linked with the updated versions
+of ATLAS (3.8.4) and LAPACK (3.4.0) libraries</li></ul></ul> <br>
+<ul><li>October 22, 2011: release of <B>Open3DALIGN</B> 2.103</li></ul>
+<ul>Changes with respect to the previous version include:</ul>
+<ul><ul><li>Fixed a bug connected with different CR/LF handling
+on the Windows platform</li></ul></ul> <br> <ul><li>October 15,
+2011: release of <B>Open3DALIGN</B> 2.102</li></ul> <ul>Changes with
+respect to the previous version include:</ul> <ul><ul><li>Fixed a bug
+which prevented restoring the default terminal color on exit on *NIX
+platforms</li></ul></ul> <ul><ul><li>Added the <code>--term</code> command
+line switch to toggle terminal mode; this results in default terminal
+colors to be used for text and, on Windows, in preventing a new CMD window
+from being spawned on start</li></ul></ul> <br> <ul><li>September 19,
+2011: release of <B>Open3DALIGN</B> 2.101</li></ul> <ul>Changes with
+respect to the previous version include:</ul> <ul><ul><li>Replaced
+the dependency from the obsolete <code>termcap</code> library
+with the one from the ubiquitous <code>curses</code> library on
+Linux, Solaris, Mac OS X and FreeBSD platforms</li></ul></ul> <br>
+<ul><li>September 1, 2011: release of <B>Open3DALIGN</B> 2.1</li></ul>
+<ul>Changes with respect to the previous version include:</ul>
+<ul><ul><li>The <code>filter</code> keyword was implemented to allow
+template filtering/selection before carrying out multiple template
+alignment</li></ul></ul> <br> <ul><li>August 30, 2011: release of
+<B>Open3DALIGN</B> 2.043</li></ul> <ul>Changes with respect to the
+previous version include:</ul> <ul><ul><li>A regression introduced in
+version 2.042 which caused the <code>qmd</code> command to fail with
 a segmentation fault was fixed</li></ul></ul> <br> <ul><li>August 26,
 2011: release of <B>Open3DALIGN</B> 2.042</li></ul> <ul>Changes with
 respect to the previous version include:</ul> <ul><ul><li>A regression
@@ -1009,11 +1079,11 @@ bugfixes all over</li></ul></ul> <br> <ul><li>March 7, 2011: release
 of <B>Open3DALIGN</B> 1.02</li></ul> <ul>Changes with respect to
 the previous version include:</ul> <ul><ul><li>The <code>box</code>,
 <code>remove_box</code>, <code>remove_object</code>, <code>load</code>
-and <code>save</code> keywords have been added</li></ul></ul>
-<br> <ul><li>February 16, 2011: release of <B>Open3DALIGN</B>
-1.01</li></ul> <ul>Changes with respect to the previous version
-include:</ul> <ul><ul><li>More efficient integration with OpenBabel,
-which results in faster loading and visualization in PyMOL of imported
+and <code>save</code> keywords have been added</li></ul></ul> <br>
+<ul><li>February 16, 2011: release of <B>Open3DALIGN</B> 1.01</li></ul>
+<ul>Changes with respect to the previous version include:</ul>
+<ul><ul><li>More efficient integration with OpenBabel, which
+results in faster loading and visualization in PyMOL of imported
 molecules, particularly on Windows</li></ul></ul> <ul><ul><li>Fixed
 some issues in the superpose_conf() routine which might cause small
 numeric discrepancies across different platforms</li></ul></ul> <br>
@@ -1022,7 +1092,7 @@ numeric discrepancies across different platforms</li></ul></ul> <br>
 Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
 size="2"><br><h1><a name="License"></a>License</h1><br><br>
 <B>Open3DALIGN</B><br><br> <I>An open-source software aimed at
-unsupervised molecular alignment</I><br><br> Copyright &copy; 2010-2012 <a
+unsupervised molecular alignment</I><br><br> Copyright &copy; 2010-2013 <a
 href="http://www.personalweb.unito.it/paolo.tosco/" target="_blank">Paolo
 Tosco</a>, <a href="http://www.farma.ku.dk/index.php?id=8857"
 target="_blank">Thomas Balle</a><br><br><br> This program is free
@@ -1091,9 +1161,9 @@ Assignment Problems" [<a href="#credits_ref5">5</a>]</li></ul><br><br>
 Program testing has been carried out taking advantage of the <a
 href="http://dcs.di.unipmn.it/sharegrid/" target="_blank">ShareGrid</a>
 distributed platform [<a href="#credits_ref6">6</a>].  <br><br>
-<h4>REFERENCES</h4><ol> <li><a name="credits_ref1"></a>Petitjean,
-M.  <I>Computers Chem.</I> <B>1998</B>, <I>22</I>, 463-465.
-&nbsp; <a href="http://dx.doi.org/10.1016/S0097-8485(98)00017-5"
+<h4>REFERENCES</h4><ol> <li><a name="credits_ref1"></a>Petitjean, M.
+<I>Computers Chem.</I> <B>1998</B>, <I>22</I>, 463-465.  &nbsp;
+<a href="http://dx.doi.org/10.1016/S0097-8485(98)00017-5"
 target="_blank">DOI</a></li> <li><a name="credits_ref2"></a>Richmond,
 N. J.; Willett, P.; Clark, R. D.  <I>J. Mol. Graph. Model.</I>
 <B>2004</B>, <I>23</I>, 199-209.  &nbsp; <a
@@ -1112,9 +1182,9 @@ Canonico, M.; Guazzone, M.; Botta, M.; Rabellino, S.; Arena, S.; Girardi,
 G.  <I>Proceedings of CCGRID'08</I>, May <B>2008</B>, Lyon (France),
 IEEE Press.  &nbsp; <a href="http://dx.doi.org/10.1109/CCGRID.2008.23"
 target="_blank">DOI</a></li> </ol> <br><br><br><br><br><a
-href="#Contents"> <p align="right">Back to Contents</p></a><br>
-<hr color="#ebf1de" align="center" width="95%"
-size="2"><br><h1>Downloads</h1><br><br>
+href="#Contents"> <p align="right">Back to
+Contents</p></a><br> <hr color="#ebf1de" align="center"
+width="95%" size="2"><br><h1>Downloads</h1><br><br>
 <B>Open3DALIGN</B> may be downloaded from <a
 href="http://sourceforge.net/projects/open3dalign/files/"
 target="_blank">SourceForge</a> as <a
@@ -1164,363 +1234,10 @@ directions</a> are given <a href="#Install_PyMOL">on this
 page</a>.<br><br> <a href="#Install_from_source">Here</a> you will
 find detailed instructions <a href="#Install_from_source">how to
 build</a> <B>Open3DALIGN</B> from source on the different platforms,
-while <a href="#Install_distribution">here</a> you will find out <a
-href="#Install_distribution">how to install the pre-built binary
-distribution</a> which fits your OS/architecture.  <br><br><br><a
-href="#Contents"> <p align="right">Back to Contents</p></a><br>
-<hr color="#ebf1de" align="center" width="95%" size="2"><br><h2><a
-name="Install_from_source">Install from source</a></h2><br><br>
-Building <B>Open3DALIGN</B> is very straightforward. <B>Open3DALIGN</B>
-can be built without effort on virtually any platform which supports
-GNU Autotools (<span style="font-style: italic;">i.e.</span>, <a
-href="http://www.gnu.org/software/autoconf/" target="_blank">Autoconf</a>
-and <a href="http://www.gnu.org/software/automake/"
-target="_blank">Automake</a>).  Interestingly, a native Windows executable
-which does not depend on any third party DLLs can be obtained using only
-<a href="http://www.mingw.org/wiki/mingw/" target="_blank">MinGW</a> and
-<a href="http://www.mingw.org/wiki/msys" target="_blank">MSYS</a>.<br><br>
-<B>Open3DALIGN</B> depends on <a href="http://www.netlib.org/blas/"
-target="_blank">BLAS</a> and <a href="http://www.netlib.org/lapack/"
-target="_blank">LAPACK</a> math libraries, which exist under both
-open-source and vendor implementations. A very efficient, freely available
-implementation is the <a href="http://math-atlas.sourceforge.net/"
-target="_blank">ATLAS library</a>, which can be easily built for all
-platforms; <a href="http://math-atlas.sourceforge.net/atlas_install/"
-target="_blank">building and installation</a> of this library are
-described in great detail in the ATLAS website and are also summarized
-here. Alternatively, an excellent vendor implementation is the one
-included in the <a href="http://developers.sun.com/sunstudio/"
-target="_blank">Sun Studio compiler suite</a>, which is
-available to Linux and Solaris users for free. Another
-BLAS/LAPACK implementation is the one provided by the <a
-href="http://software.intel.com/en-us/intel-mkl/" target="_blank">Intel
-Math Kernel Library</a>, which is available at no cost for Linux
-non-commercial developers, while a license has to be purchased for
-Windows and Mac OS X versions. Mac OS X users may rely on the <a
-href="http://developer.apple.com/performance/accelerateframework.html"
-target="_blank">Apple Accelerate Framework</a> which is
-bundled in <a href="http://developer.apple.com/tools/Xcode/"
-target="_blank">XCode Tools</a>.<br><br> <B>Open3DALIGN</B>
-has been successfully built on the following platforms:<br><br>
-<ul><a href="?Downloads:Install_from_source:Windows"><img
-src="./windows.png"></a>&nbsp; Windows</ul> <ul><a
-href="?Downloads:Install_from_source:Linux"><img
-src="./linux.png"></a>&nbsp; Linux</ul> <ul><a
-href="?Downloads:Install_from_source:Intel_Mac_OS_X"><img
-src="./macosx.png"></a>&nbsp; Intel Mac OS X</ul> <ul><a
-href="?Downloads:Install_from_source:Solaris_x86"><img
-src="./solaris.png"></a>&nbsp; Solaris x86</ul>
-<ul><a href="?Downloads:Install_from_source:FreeBSD"><img
-src="./freebsd.png"></a>&nbsp; FreeBSD</ul> <br><br> Please note that
-<B>Open3DALIGN</B> has a number of dependencies, namely:<br> <ul><li><a
-href="http://open3dqsar.org/" target="_blank">Open3DQSAR</a><br>
-<B>Open3DALIGN</B> depends on the <B>Open3DQSAR</B>
-library <code>libo3q.a</code>; therefore, prior to installing
-<B>Open3DALIGN</B>, you should install <a href="http://open3dqsar.org/"
-target="_blank">Open3DQSAR</a><br> as described in the <B>Open3DQSAR</B>
-website.  </ul></li> <ul><li><a href="http://openbabel.org/wiki/Main_Page"
-target="_blank">OpenBabel</a><br> The latest OpenBabel
-version (currently, 2.3.0) must be downloaded from
-the <a href="http://openbabel.org/wiki/Get_Open_Babel"
-target="_blank">OpenBabel website</a>.  and installed as per the <a
-href="http://openbabel.org/wiki/Get_Open_Babel" target="_blank">OpenBabel
-website</a> instructions.  On some platforms (<I>e.g.</I>, Windows)
-you might need to include the directory containing OpenBabel binaries to
-the executable path setting the <code>PATH</code> environment variable
-appropriately.  Alternatively, before executing <B>Open3DALIGN</B>
-you may point the <code>O3_BABEL_PATH</code> environment variable
-(or alternatively use the <code>env babel_path</code> keyword in your
-<B>Open3DALIGN</B> script) to the directory which contains OpenBabel
-binaries (<I>e.g.</I>, <code>C:\Program Files\OpenBabel-2.3.0</code>
-for Windows, <code>/usr/local/bin</code> on Linux, etc.).<br>
-</ul></li> <ul><li><a href="http://www.silicos.be/pharao.html"
-target="_blank">Pharao</a><br> Pharao is an open source program for
-generation and alignment of pharmacophores released under the GPL by <a
-href="http://www.silicos.be" target="_blank">Silicos</a>. It depends on <a
-href="http://openbabel.org/wiki/Main_Page" target="_blank">OpenBabel</a>
-and its installation is very straightforward following the instructions
-reported in the <a href="http://www.silicos.be/PDF/pharao.pdf"
-target="_blank">documentation</a>.  On some platforms (<I>e.g.</I>,
-Windows) you might need to include the directory containing the
-Pharao binary to the executable path setting the <code>PATH</code>
-environment variable appropriately.  Alternatively, before executing
-<B>Open3DALIGN</B> you may point the <code>O3_PHARAO</code> environment
-variable (or alternatively use the <code>env pharao</code> keyword
-in your <B>Open3DALIGN</B> script) to the Pharao executable.
-</ul></li> <ul><li><a href="http://dasher.wustl.edu/tinker/"
-target="_blank">TINKER</a><br> The TINKER molecular modeling software is
-a complete and general package for molecular mechanics and dynamics. It
-can be obtained from the <a href="http://dasher.wustl.edu/tinker/"
-target="_blank">TINKER webpage</a> both as source code and as pre-built
-binaries for Windows, Linux and Mac OS X.  You might need to include
-the directory containing TINKER binaries to the executable path
-setting the <code>PATH</code> environment variable appropriately.
-Alternatively, before executing <B>Open3DALIGN</B> you may point the
-<code>O3_TINKER_PATH</code> environment variable (or alternatively use
-the <code>env tinker_path</code> keyword in your <B>Open3DALIGN</B>
-script) to the directory which contains TINKER binaries.  </ul></li>
+while <a href="#Install_distribution">here</a> you will find out
+<a href="#Install_distribution">how to install the pre-built binary
+distribution</a> which fits your OS/architecture.
 
-<br><br><br><a href="#Contents"> <p align="right">Back to
-Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
-size="2"><br><h3>Windows</h3> <br><br> A native Windows executable,
-which does not depend on third-party DLLs, can be easily obtained using
-<a href="http://www.mingw.org/wiki/mingw/" target="_blank">MinGW</a> and
-<a href="http://www.mingw.org/wiki/msys" target="_blank">MSYS</a> tools.
-After installing MinGW and MSYS (32-bit versions), as well as the latest
-MinGW version of the GNU compilers, if you are running a 64-bit version
-of Microsoft Windows and wish to exploit the full computational power of
-64-bit BLAS/LAPACK libraries, you will also need to install the 64-bit
-versions of the GNU compilers. Both 32 and 64-bit GNU compilers can be
-retrieved from the <a href="http://sourceforge.net/projects/mingw-w64/"
-target="_blank">MinGW-w64 project</a> website. We suggest to install 32
-and 64-bit versions under separate directory trees in order to avoid
-confusion. In the following paragraph we are going to illustrate
-the build of a 32-bit SSSE3 version of <B>Open3DALIGN</B> linked
-against 32-bit SSE3 ATLAS libraries and against the <B>Open3DQSAR</B>
-library <code>libo3q.a</code>.  With minor changes in compilation
-flags it will possible to build any other version, provided that
-the flags match those used in building the <B>Open3DQSAR</B>
-library <code>libo3q.a</code>.<br> Firstly, you will have to
-install <B>Open3DQSAR</B> and its dependencies as described in
-detail <a href="http://open3dqsar.org/?Downloads:Install_from_source"
-target="_blank">here</a>.  Then, move in the <code>open3dalign-X.Y</code>
-folder, where <code>X</code> and <code>Y</code> are the major and minor
-version numbers, and build <code>open3dalign</code>:<br><br><code>
-$ ./bootstrap<br></code><br> Subsequently, you should
-set up your build through the <code>configure</code>
-script as in the following:<br><br><code> $ ./configure \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CC=/mingw/mingw-w32-bin_i686-mingw/bin/i686-w64-mingw32-gcc.exe
-\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CFLAGS="-Wall
--O3 -m32 -mssse3 \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-I/c/build32/ATLAS/include \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-I/c/build32/include" \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LDFLAGS="-L/c/build32/ATLAS/lib
-\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-L/c/build32/lib"
-\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--with-atlas \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--prefix=/c/build32</code><br><br>
-Clearly, the paths reported in the example above might vary slightly
-according to your specific installations details.<br><br> Subsequently,
-type<br><br><code> $ make<br> $ make install</code><br><br> to
-have the <code>open3dalign.exe</code> executable binary installed
-in the <code>C:\build32\bin</code> folder and the documentation in
-<code>C:\build32\share\doc\Open3DALIGN</code>. Please note that this is
-a native Windows 32-bit executable that does not depend on any external
-DLLs and may be relocated everywhere on your system, including pendrives
-and network shares.
-
-<br><br><br><a href="#Contents"> <p align="right">Back to
-Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
-size="2"><br><h3>Linux</h3> <br><br> You have different options
-to build <B>Open3DALIGN</B> under Linux.<br><br> <B>Using Oracle
-Solaris Studio Compilers and the Sun Performance Library</B><br><br> <a
-href="http://www.oracle.com/technetwork/server-storage/solarisstudio/downloads/index.html"
-target="_blank">Oracle Solaris Studio Compilers</a> for Linux can
-be freely downloaded upon registration. The suite includes a C and a
-Fortran compiler plus the Sun Performance library which includes BLAS
-and LAPACK routines needed by <B>Open3DALIGN</B>. After installing
-Oracle Solaris Studio compilers (as of now the latest version is
-Oracle Solaris Studio 12 Update 2), the first step is installing
-<B>Open3DQSAR</B> and its dependencies as described in detail
-<a href="http://open3dqsar.org/?Downloads:Install_from_source"
-target="_blank">here</a>.  Then, move to the folder where you have
-downloaded <code>open3dalign-X.Y.tar.gz</code>, where <code>X</code>
-and <code>Y</code> are the major and minor version numbers,
-and build <code>open3dalign</code>:<br><br><code> $ tar -xzf
-open3dalign-X.Y.tar.gz<br> $ cd open3dalign-X.Y/ $ ./bootstrap<br> $
-./configure CC=suncc \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-CFLAGS="-O3 -fast -xarch=ssse3 -m64 -I/path/to/CBLAS/src
-\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--I/path/to/editline_install/include" \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-LDFLAGS="-L/path/to/CBLAS/lib/LINUX64/ \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -L/path/to/editline_install/lib
-\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--L/path/to/open3dqsar_install/lib" \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --with-sunperf \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --prefix=$HOME<br>
-$ make<br> $ make install</code><br><br> These commands
-will build <B>Open3DALIGN</B> for a 64-bit CPU with SSSE3
-extensions and install the <code>open3dalign</code> executable
-binary into <code>$HOME/bin</code> and documentation into
-<code>$HOME/share/doc/Open3DALIGN</code><code></code>. You might
-have to tweak the path to <code>CBLAS</code>, <code>libedit</code>
-and <code>libo3q</code> according to the specific features of
-your system.<br><br><br><br> <B>Using the Intel C Compiler and
-the Intel Math Kernel Library</B><br><br> The Intel C Compiler
-for Linux as well as the Intel Math Kernel Library can be <a
-href="http://software.intel.com/en-us/articles/non-commercial-software-download/"
-target="_blank"> freely downloaded</a> for non-commercial use. Then you
-will have to install <B>Open3DQSAR</B> and its dependencies as described
-in detail <a href="http://open3dqsar.org/?Downloads:Install_from_source"
-target="_blank">here</a>.  Afterwards, you simply need to move to the
-folder where you have downloaded <code>open3dalign-X.Y.tar.gz</code>,
-where <code>X</code> and <code>Y</code> are the major and minor
-version numbers, and build <code>open3dalign</code>:<br><br><code>
-$ tar -xzf open3dalign-X.Y.tar.gz<br> $ cd open3dalign-X.Y<br>
-$ ./bootstrap<br> $ ./configure CC=icc \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CFLAGS="-Wall -O3
--xSSSE3 -m64 \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--I/path/to/editline_install/include" \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-LDFLAGS="-L/path/to/editline_install/lib \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--L/path/to/open3dqsar_install/lib" \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --with-intel-mkl \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --prefix=$HOME<br> $
-make<br> $ make install</code><br><br> These commands will build
-<B>Open3DALIGN</B> for a 64-bit CPU with SSSE3 extensions and install the
-<code>open3dalign</code> executable binary into <code>$HOME/bin</code>
-and documentation into <code>$HOME/share/doc/Open3DALIGN</code>. You
-might have to tweak the path to the Intel Math Kernel includes, Intel
-Math Kernel libraries, <code>libedit</code> and <code>libo3q</code>
-according to the specific features of your installation.<br><br><br><br>
-<B>Using the GNU C Compiler and ATLAS math libraries</B><br><br> If you
-wish to build <B>Open3DALIGN</B> using the GNU C Compiler, first you will
-need to install <B>Open3DQSAR</B> and its dependencies as described in
-detail <a href="http://open3dqsar.org/?Downloads:Install_from_source"
-target="_blank">here</a>.  Afterwards, you simply need to move to the
-folder where you have downloaded <code>open3dalign-X.Y.tar.gz</code>,
-where <code>X</code> and <code>Y</code> are the major and minor version
-numbers, and build <code>open3dalign</code>:<br><br><code> $ tar -xzf
-open3dalign-X.Y.tar.gz<br> $ cd open3dalign-X.Y<br> $ ./bootstrap<br>
-$ ./configure \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-CC=gcc45 \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-CFLAGS="-Wall -O3 -m64 -mssse3 -I/path/to/ATLAS/include
-\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--I/path/to/editline_install/include" \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LDFLAGS="-L/path/to/ATLAS/lib
-\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--L/path/to/editline_install/lib \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--L/path/to/open3dqsar_install/lib" \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --with-atlas \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --prefix=$HOME</code><br><br>
-Clearly, the paths reported in the example above might vary slightly
-according to your specific installations details.<br><br>Subsequently,
-type:<br><br><code> $ make<br> $ make install</code><br><br> to
-have the <code>open3dalign</code> executable binary installed
-in the <code>$HOME/bin</code> folder and the documentation in
-<code>$HOME/</code><code>share/doc/Open3DALIGN</code>.
-
-<br><br><br><a href="#Contents"> <p align="right">Back to
-Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
-size="2"><br><h3>Intel Mac OS X</h3> <br><br> Under Mac OS X, due to the
-free availability of <a href="http://developer.apple.com/tools/xcode/"
-target="_blank">XCode Tools</a> which include GCC and the Accelerate
-Framework with BLAS/LAPACK libraries, we did not attempt to build
-<B>Open3DALIGN</B> with other tools, even if it is obviously
-possible to replace the Accelerate Framework libraries with the <a
-href="http://math-atlas.sourceforge.net/" target="_blank">ATLAS math
-libraries</a> just as described for Windows and Linux.<br><br><br>
-<B>Using GNU compilers and the Accelerate Framework</B><br><br> <a
-href="http://developer.apple.com/tools/xcode/" target="_blank">XCode
-Tools</a> for Mac OS X can be freely downloaded upon registration. The
-suite includes GNU compilers plus the Accelerate Framework
-library, which incorporates BLAS and LAPACK routines needed
-by <B>Open3DALIGN</B>.<br> First, you will have to install
-<B>Open3DQSAR</B> and its dependencies as described in detail
-<a href="http://open3dqsar.org/?Downloads:Install_from_source"
-target="_blank">here</a>.  Afterwards, you simply need to move to the
-folder where you have downloaded <code>open3dalign-X.Y.tar.gz</code>,
-where <code>X</code> and <code>Y</code> are the major and minor
-version numbers, and build <code>open3dalign</code>:<br><br><code>
-$ tar -xzf open3dalign-X.Y.tar.gz<br> $ cd open3dalign-X.Y<br>
-$ ./bootstrap<br> $ ./configure CC=gcc-4.2 \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CFLAGS="-Wall
--O3 -mssse3 -m64 \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--I/System/Library/Frameworks/Accelerate.framework/Versions/Current/Frameworks/vecLib.framework/Versions/Current/Headers
-\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--I/path/to/editline_install/include" \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-LDFLAGS="-L/path/to/editline_install/lib \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--L/path/to/open3dqsar_install/lib" \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --with-accelerate \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --prefix=$HOME </code><br><br>
-Clearly, the paths reported in the example above might vary slightly
-according to your specific installations details. You might also have
-to tweak the value of the <code>CC</code> variable and the path to
-Accelerate Framework's headers according to the version of your XCode
-Tools.<br><br> Subsequently, type:<br><br><code> $ make<br> $ make
-install</code><br><br> These commands will build <B>Open3DALIGN</B> for a
-64-bit CPU with SSSE3 extensions and install the <code>open3dalign</code>
-executable binary into <code>$HOME/bin</code> and documentation into
-<code>$HOME/share/doc/Open3DALIGN</code>.
-
-<br><br><br><a href="#Contents"> <p align="right">Back to
-Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
-size="2"><br><h3>Solaris x86</h3> <br><br> Under Solaris, due
-to the free availability and to the excellent performance of
-Oracle Solaris Studio Compilers and Sun Performance Library, we
-did not attempt to build <B>Open3DALIGN</B> with other tools,
-even if it is obviously possible to use GCC in conjunction
-with the <a href="http://math-atlas.sourceforge.net/"
-target="_blank">ATLAS math libraries</a> just as described
-for Windows and Linux.<br><br><br> <B>Using Oracle Solaris
-Studio Compilers and the Sun Performance Library</B><br><br> <a
-href="http://www.oracle.com/technetwork/server-storage/solarisstudio/downloads/index.html"
-target="_blank">Oracle Solaris Studio Compilers</a> for Solaris
-can be freely downloaded upon registration. The suite includes
-a C and a Fortran compiler plus the Sun Performance library which
-includes BLAS and LAPACK routines needed by <B>Open3DALIGN</B>. After
-installing Oracle Solaris Studio compilers (as of now the latest
-version is Oracle Solaris Studio 12 Update 2), the first step is
-installing <B>Open3DQSAR</B> and its dependencies as described in
-detail <a href="http://open3dqsar.org/?Downloads:Install_from_source"
-target="_blank">here</a>.  Afterwards, you simply need to move to the
-folder where you have downloaded <code>open3dalign-X.Y.tar.gz</code>,
-where <code>X</code> and <code>Y</code> are the major and minor version
-numbers, and build <code>open3dalign</code>:<br><br><code> $ tar -xzf
-open3dalign-X.Y.tar.gz<br> $ cd open3dalign-X.Y<br> $ ./bootstrap<br> $
-./configure CC=suncc \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-CFLAGS="-O3 -fast -xarch=ssse3 -m64 -I/path/to/CBLAS/src
-\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--I/path/to/editline_install/include" \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-LDFLAGS="-L/path/to/CBLAS/lib/SOLARIS64 \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -L/path/to/editline_install/lib
-\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--L/path/to/open3dqsar_install/lib" \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--with-sunperf \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --prefix=$HOME<br>
-$ make<br> $ make install</code><br><br> These commands
-will build <B>Open3DALIGN</B> for a 64-bit CPU with SSSE3
-extensions and install the <code>open3dalign</code> executable
-binary into <code>$HOME/bin</code> and documentation into
-<code>$HOME/share/doc/Open3DALIGN</code><code></code>. You might have
-to tweak the path to <code>CBLAS</code>, <code>libedit</code> and
-<code>libo3q</code> according to the specific features of your system.
-
-<br><br><br><a href="#Contents"> <p align="right">Back to
-Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
-size="2"><br><h3>FreeBSD</h3> <br><br> An <code>open3dalign</code>
-executable for FreeBSD can be easily obtained using the GNU C
-Compiler and ATLAS math libraries.<br><br>Firstly, you will have
-to install <B>Open3DQSAR</B> and its dependencies as described in
-detail <a href="http://open3dqsar.org/?Downloads:Install_from_source"
-target="_blank">here</a>.  Afterwards, you simply need to move to the
-folder where you have downloaded <code>open3dalign-X.Y.tar.gz</code>,
-where <code>X</code> and <code>Y</code> are the major and minor version
-numbers, and build <code>open3dalign</code>:<br><br><code> $ tar -xzf
-open3dalign-X.Y.tar.gz<br> $ cd open3dalign-X.Y<br> $ ./bootstrap<br>
-$ ./configure \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-CC=gcc45 \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-CFLAGS="-Wall -O3 -m64 -mssse3 -I/path/to/ATLAS/include
-\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--I/path/to/editline_install/include" \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LDFLAGS="-L/path/to/ATLAS/lib
-\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--L/path/to/editline_install/lib \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
--L/path/to/open3dqsar_install/lib" \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --with-atlas \<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --prefix=$HOME</code><br><br>
-Clearly, the paths reported in the example above might vary slightly
-according to your specific installations details.<br><br> Subsequently,
-type<br><br><code> $ make<br> $ make install</code><br><br> to
-have the <code>open3dalign</code> executable binary installed
-in the <code>$HOME/bin</code> folder and the documentation
-in <code>$HOME/</code><code>share/doc/Open3DALIGN</code>.
 <br><br><br><a href="#Contents"> <p align="right">Back
 to Contents</p></a><br> <hr color="#ebf1de" align="center"
 width="95%" size="2"><br><h2><a name="Install_distribution">Install
@@ -1538,11 +1255,11 @@ href="?Downloads:Install_distribution:FreeBSD"><img
 src="./freebsd.png"></a>&nbsp; FreeBSD</ul> <br> <B>Open3DALIGN</B>
 pre-built binary distributions are provided with all the required
 dependencies, as explained in the OS-specific instructions. Briefly:<br>
-<ul><li>download and install <code>openbabel_for_open3dtools</code> for
-your OS (if you have not done it yet)</ul></li> <ul><li>download and run
-<code>choose_version</code> to discover the version of <B>Open3DALIGN</B>
-which suits best your system (32/64-bit, SSE2/SSE3/SSSE3)</ul></li>
-<ul><li>download and install the <B>Open3DALIGN</B>
+<ul><li>download and install <code>openbabel_for_open3dtools</code>
+for your OS (if you have not done it yet)</ul></li> <ul><li>download
+and run <code>choose_version</code> to discover the version
+of <B>Open3DALIGN</B> which suits best your system (32/64-bit,
+SSE2/SSE3)</ul></li> <ul><li>download and install the <B>Open3DALIGN</B>
 version suggested by <code>choose_version</code></ul></li>
 <ul><li>run <code>bin/open3dalign</code>: everything should
 work and the program should report if and where it has found <a
@@ -1656,7 +1373,7 @@ target="_blank">TINKER</a> executables and libraries.<br> In
 fact, the <code>open3dalign</code> executable has been built with <a
 href="http://www.oracle.com/technetwork/server-storage/solarisstudio/downloads/index.html"
 target="_blank">Oracle Solaris Studio Compiler</a> for Linux version
-12 update 2 and linked with the Sun Performance Library. The Linux
+12 update 3 and linked with the Sun Performance Library. The Linux
 distribution of this compiler does not allow for full static linking
 of libraries, so the <code>LD_LIBRARY_PATH</code> has to be properly
 set in order for the OS to find the dynamic link library needed by
@@ -1695,7 +1412,7 @@ size="2"><br><h3>Intel Mac OS X</h3><br> Administrative privileges
 are NOT needed to install the Intel Mac OS X binary distribution of
 <B>Open3DALIGN</B>.<br><br> As far as we know, Intel Macs should
 come with 64-bit CPUs (Core2, Xeon, Core i<I>#</I>) endowed with
-SSSE3 instruction sets or better; however, just in case, 32-bit
+SSE3 instruction sets or better; however, just in case, 32-bit
 binaries and older instruction sets are supported as well. If you wish
 to determine the most appropriate version for your system, download <a
 href="http://sourceforge.net/projects/open3dalign/files/binaries/macosx"><code>choose_version</code></a>
@@ -1788,7 +1505,7 @@ the original arrangement of the directory tree.  <br><br>
 The <code>open3dalign</code> executables have been built with <a
 href="http://www.oracle.com/technetwork/server-storage/solarisstudio/downloads/index.html"
 target="_blank">Oracle Solaris Studio Compiler</a> for Solaris x86
-version 12 update 2 and linked with the Sun Performance Library.
+version 12 update 3 and linked with the Sun Performance Library.
 
 <br><br><br><a href="#Contents"> <p align="right">Back to
 Contents</p></a><br> <hr color="#ebf1de" align="center"
@@ -1839,6 +1556,315 @@ href="http://www.freebsd.org/ports/" target="_blank">FreeBSD Ports</a>
 and linked with the <a href="http://math-atlas.sourceforge.net"
 target="_blank">ATLAS</a> and <a href="http://www.netlib.org/lapack"
 target="_blank">LAPACK</a> libraries.
+
+<br><br><br><a href="#Contents"> <p align="right">Back
+to Contents</p></a><br> <hr color="#ebf1de" align="center"
+width="95%" size="2"><br><h2><a name="Install_from_source">Install
+from source</a></h2><br><br> Building <B>Open3DALIGN</B>
+is very straightforward. <B>Open3DALIGN</B> can be built
+without effort on virtually any platform which supports GNU
+Autotools (<span style="font-style: italic;">i.e.</span>, <a
+href="http://www.gnu.org/software/autoconf/" target="_blank">Autoconf</a>
+and <a href="http://www.gnu.org/software/automake/"
+target="_blank">Automake</a>).  Interestingly, a native Windows executable
+which does not depend on any third party DLLs can be obtained using only
+<a href="http://www.mingw.org/wiki/mingw/" target="_blank">MinGW</a> and
+<a href="http://www.mingw.org/wiki/msys" target="_blank">MSYS</a>.<br><br>
+<B>Open3DALIGN</B> depends on <a href="http://www.netlib.org/blas/"
+target="_blank">BLAS</a> and <a href="http://www.netlib.org/lapack/"
+target="_blank">LAPACK</a> math libraries, which exist under both
+open-source and vendor implementations. A very efficient, freely available
+implementation is the <a href="http://math-atlas.sourceforge.net/"
+target="_blank">ATLAS library</a>, which can be easily built for all
+platforms; <a href="http://math-atlas.sourceforge.net/atlas_install/"
+target="_blank">building and installation</a> of this library
+are described in great detail in the ATLAS website and are also
+summarized here. Alternatively, an excellent vendor implementation is
+the one included in the <a href="http://developers.sun.com/sunstudio/"
+target="_blank">Sun Studio compiler suite</a>, which is available to Linux
+and Solaris users for free. Another BLAS/LAPACK implementation is the
+one provided by the <a href="http://software.intel.com/en-us/intel-mkl/"
+target="_blank">Intel Math Kernel Library</a>, which is available at
+no cost for Linux non-commercial developers, while a license has to be
+purchased for Windows and Mac OS X versions.<br><br> <B>Open3DALIGN</B>
+has been successfully built on the following platforms:<br><br>
+<ul><a href="?Downloads:Install_from_source:Windows"><img
+src="./windows.png"></a>&nbsp; Windows</ul> <ul><a
+href="?Downloads:Install_from_source:Linux"><img
+src="./linux.png"></a>&nbsp; Linux</ul> <ul><a
+href="?Downloads:Install_from_source:Intel_Mac_OS_X"><img
+src="./macosx.png"></a>&nbsp; Intel Mac OS X</ul> <ul><a
+href="?Downloads:Install_from_source:Solaris_x86"><img
+src="./solaris.png"></a>&nbsp; Solaris x86</ul>
+<ul><a href="?Downloads:Install_from_source:FreeBSD"><img
+src="./freebsd.png"></a>&nbsp; FreeBSD</ul> <br><br> Please note that
+<B>Open3DALIGN</B> has a number of dependencies, namely:<br> <ul><li><a
+href="http://open3dqsar.org/" target="_blank">Open3DQSAR</a><br>
+<B>Open3DALIGN</B> depends on the <B>Open3DQSAR</B>
+library <code>libo3q.a</code>; therefore, prior to installing
+<B>Open3DALIGN</B>, you should install <a href="http://open3dqsar.org/"
+target="_blank">Open3DQSAR</a><br> as described in the <B>Open3DQSAR</B>
+website.  </ul></li> <ul><li><a href="http://openbabel.org/wiki/Main_Page"
+target="_blank">OpenBabel</a><br> The latest CVS OpenBabel version can be
+downloaded from the <a href="http://openbabel.org/wiki/Get_Open_Babel"
+target="_blank">OpenBabel website</a>.  and installed as
+per the <a href="http://openbabel.org/wiki/Get_Open_Babel"
+target="_blank">OpenBabel website</a> instructions.  Alternatively,
+you may download the <code>openbabel_for_open3dtools</code>
+self-installing package for your OS from the binary downloads page.<br>
+</ul></li> <ul><li><a href="http://www.silicos.be/pharao.html"
+target="_blank">Pharao</a><br> Pharao is an open source program for
+generation and alignment of pharmacophores released under the GPL by <a
+href="http://www.silicos.be" target="_blank">Silicos</a>. It depends on <a
+href="http://openbabel.org/wiki/Main_Page" target="_blank">OpenBabel</a>
+and its installation is very straightforward following the instructions
+reported in the <a href="http://www.silicos.be/PDF/pharao.pdf"
+target="_blank">documentation</a>.  On some platforms (<I>e.g.</I>,
+Windows) you might need to include the directory containing the
+Pharao binary to the executable path setting the <code>PATH</code>
+environment variable appropriately.  Alternatively, before executing
+<B>Open3DALIGN</B> you may point the <code>O3_PHARAO</code> environment
+variable (or alternatively use the <code>env pharao</code> keyword
+in your <B>Open3DALIGN</B> script) to the Pharao executable.
+</ul></li> <ul><li><a href="http://dasher.wustl.edu/tinker/"
+target="_blank">TINKER</a><br> The TINKER molecular modeling software is
+a complete and general package for molecular mechanics and dynamics. It
+can be obtained from the <a href="http://dasher.wustl.edu/tinker/"
+target="_blank">TINKER webpage</a> both as source code and as pre-built
+binaries for Windows, Linux and Mac OS X.  You might need to include
+the directory containing TINKER binaries to the executable path
+setting the <code>PATH</code> environment variable appropriately.
+Alternatively, before executing <B>Open3DALIGN</B> you may point the
+<code>O3_TINKER_PATH</code> environment variable (or alternatively use
+the <code>env tinker_path</code> keyword in your <B>Open3DALIGN</B>
+script) to the directory which contains TINKER binaries.  </ul></li>
+
+<br><br><br><a href="#Contents"> <p align="right">Back to
+Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
+size="2"><br><h3>Windows</h3> <br><br> A native Windows executable,
+which does not depend on third-party DLLs, can be easily obtained using
+<a href="http://www.mingw.org/wiki/mingw/" target="_blank">MinGW</a> and
+<a href="http://www.mingw.org/wiki/msys" target="_blank">MSYS</a> tools.
+After installing MinGW and MSYS (32-bit versions), as well as the latest
+MinGW version of the GNU compilers, if you are running a 64-bit version
+of Microsoft Windows and wish to exploit the full computational power of
+64-bit BLAS/LAPACK libraries, you will also need to install the 64-bit
+versions of the GNU compilers. Both 32 and 64-bit GNU compilers can be
+retrieved from the <a href="http://sourceforge.net/projects/mingw-w64/"
+target="_blank">MinGW-w64 project</a> website. We suggest to install 32
+and 64-bit versions under separate directory trees in order to avoid
+confusion. In the following paragraph we are going to illustrate
+the build of a 32-bit SSE3 version of <B>Open3DALIGN</B> linked
+against 32-bit SSE3 ATLAS libraries and against the <B>Open3DQSAR</B>
+library <code>libo3q.a</code>.  With minor changes in compilation
+flags it will possible to build any other version, provided that
+the flags match those used in building the <B>Open3DQSAR</B>
+library <code>libo3q.a</code>.<br> Firstly, you will have to
+install <B>Open3DQSAR</B> and its dependencies as described in
+detail <a href="http://open3dqsar.org/?Downloads:Install_from_source"
+target="_blank">here</a>.  Then, move in the <code>open3dalign-X.Y</code>
+folder, where <code>X</code> and <code>Y</code> are the major and minor
+version numbers, and build <code>open3dalign</code>:<br><br><code>
+$ ./bootstrap</code><br><br> Subsequently, you should
+set up your build through the <code>configure</code>
+script as in the following:<br><br><code> $ ./configure \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CC=/mingw/mingw-w32-bin_i686-mingw/bin/i686-w64-mingw32-gcc.exe
+\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CFLAGS="-Wall -O3 -m32
+-msse3 \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-I/c/build/include"
+\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LDFLAGS="-L/c/build/lib32"
+\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--with-atlas
+\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--prefix=/c/build
+</code><br><br> Clearly, the paths reported in the example above might
+vary slightly according to your specific installations details.<br><br>
+Subsequently, type<br><br><code> $ make<br> $ make install</code><br><br>
+to have the <code>Open3DALIGN.exe</code> executable binary installed
+in the <code>C:\build\bin</code> folder and the documentation in
+<code>C:\build\share\doc\Open3DALIGN</code>. Please note that this is
+a native Windows 32-bit executable that does not depend on any external
+DLLs and may be relocated everywhere on your system, including pendrives
+and network shares.
+
+<br><br><br><a href="#Contents"> <p align="right">Back to
+Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
+size="2"><br><h3>Linux</h3> <br><br> You have different options
+to build <B>Open3DALIGN</B> under Linux.<br><br> <B>Using Oracle
+Solaris Studio Compilers and the Sun Performance Library</B><br><br> <a
+href="http://www.oracle.com/technetwork/server-storage/solarisstudio/downloads/index.html"
+target="_blank">Oracle Solaris Studio Compilers</a> for Linux can
+be freely downloaded upon registration. The suite includes a C and a
+Fortran compiler plus the Sun Performance library which includes BLAS
+and LAPACK routines needed by <B>Open3DALIGN</B>. After installing
+Oracle Solaris Studio compilers (as of now the latest version is
+Oracle Solaris Studio 12 update 3), the first step is installing
+<B>Open3DQSAR</B> and its dependencies as described in detail
+<a href="http://open3dqsar.org/?Downloads:Install_from_source"
+target="_blank">here</a>.  Then, move to the folder where
+you have downloaded <code>open3dalign-X.Y.tar.gz</code>, where
+<code>X</code> and <code>Y</code> are the major and minor version
+numbers, and build <code>open3dalign</code>:<br><br><code> $
+tar -xzf open3dalign-X.Y.tar.gz<br> $ cd open3dalign-X.Y/
+$ ./bootstrap<br> $ ./configure CC=suncc \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CFLAGS="-erroff=%none
+-fast \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -D_GNU_SOURCE
+-I/build/include"\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDFLAGS=-L/build/lib64 \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+--with-sunperf \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+--prefix=/build </code><br><br> Clearly, the paths reported in the example
+above might vary slightly according to your specific installations
+details.<br><br> Subsequently, type<br><br><code> $ make<br> $ make
+install</code><br><br> These commands will build <B>Open3DALIGN</B> for a
+64-bit CPU with SSE3 extensions and install the <code>open3dalign</code>
+executable binary into <code>/build/bin</code> and documentation into
+<code>/build/share/doc/Open3DALIGN</code><code></code>. You might
+have to tweak the path to <code>CBLAS</code>, <code>libedit</code>
+and <code>libo3q</code> according to the specific features of
+your system.<br><br><br><br> <B>Using the Intel C Compiler and
+the Intel Math Kernel Library</B><br><br> The Intel C Compiler
+for Linux as well as the Intel Math Kernel Library can be <a
+href="http://software.intel.com/en-us/articles/non-commercial-software-download/"
+target="_blank"> freely downloaded</a> for non-commercial use. Then you
+will have to install <B>Open3DQSAR</B> and its dependencies as described
+in detail <a href="http://open3dqsar.org/?Downloads:Install_from_source"
+target="_blank">here</a>.  Afterwards, you simply need to move to the
+folder where you have downloaded <code>open3dalign-X.Y.tar.gz</code>,
+where <code>X</code> and <code>Y</code> are the major and minor
+version numbers, and build <code>open3dalign</code>:<br><br><code>
+$ tar -xzf open3dalign-X.Y.tar.gz<br> $ cd
+open3dalign-X.Y<br> $ ./bootstrap<br> $ ./configure CC=icc \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CFLAGS="-Wall -O3 -xSSE3 -m64
+\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -I/build/include" \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LDFLAGS="-L/build/lib64"
+\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --with-intel-mkl
+\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --prefix=/build<br>
+$ make<br> $ make install</code><br><br> These commands will build
+<B>Open3DALIGN</B> for a 64-bit CPU with SSE3 extensions and install the
+<code>open3dalign</code> executable binary into <code>/build/bin</code>
+and documentation into <code>/build/share/doc/Open3DALIGN</code>. You
+might have to tweak the path to the Intel Math Kernel includes, Intel
+Math Kernel libraries, <code>libedit</code> and <code>libo3q</code>
+according to the specific features of your installation.<br><br><br><br>
+<B>Using the GNU C Compiler and ATLAS math libraries</B><br><br> If you
+wish to build <B>Open3DALIGN</B> using the GNU C Compiler, first you will
+need to install <B>Open3DQSAR</B> and its dependencies as described in
+detail <a href="http://open3dqsar.org/?Downloads:Install_from_source"
+target="_blank">here</a>.  Afterwards, you simply need to move to the
+folder where you have downloaded <code>open3dalign-X.Y.tar.gz</code>,
+where <code>X</code> and <code>Y</code> are the major and minor version
+numbers, and build <code>open3dalign</code>:<br><br><code> $ tar -xzf
+open3dalign-X.Y.tar.gz<br> $ cd open3dalign-X.Y<br> $ ./bootstrap<br>
+$ ./configure \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CC=gcc45
+\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CFLAGS="-Wall -O3 -m64
+-msse3 -I/build/include \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-I/build/include" \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDFLAGS="-L/build/lib64 \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+--with-atlas \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+--prefix=/build </code><br><br> Clearly, the paths reported in the example
+above might vary slightly according to your specific installations
+details.<br><br> Subsequently, type<br><br><code> $ make<br> $
+make install</code><br><br> to have the <code>open3dalign</code>
+executable binary installed in the <code>/build/bin</code> folder and
+the documentation in <code>/build/share/doc/Open3DALIGN</code>.
+
+<br><br><br><a href="#Contents"> <p align="right">Back to
+Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
+size="2"><br><h3>Intel Mac OS X</h3> <br><br> Under Mac OS X, due to the
+free availability of <a href="http://developer.apple.com/tools/xcode/"
+target="_blank">XCode Tools</a> which can be freely downloaded
+upon registration, we did not attempt to build <B>Open3DALIGN</B>
+with other tools.  For BLAS and LAPACK functionality, we
+could not rely on the Accelerate Framework bundled in the <a
+href="http://developer.apple.com/tools/xcode/" target="_blank">XCode
+Tools</a> since, as of Mac OS X 10.7, it is not thread-safe.<br><br>
+Therefore you will need to build and install the ATLAS libraries
+including full LAPACK functionality according to the <a
+href="http://math-atlas.sourceforge.net/atlas_install/"
+target="_blank">instructions</a> reported on the
+ATLAS website.<br> First, you will have to install
+<B>Open3DQSAR</B> and its dependencies as described in detail
+<a href="http://open3dqsar.org/?Downloads:Install_from_source"
+target="_blank">here</a>.  Afterwards, you simply need to move to the
+folder where you have downloaded <code>open3dalign-X.Y.tar.gz</code>,
+where <code>X</code> and <code>Y</code> are the major and minor
+version numbers, and build <code>open3dalign</code>:<br><br><code>
+$ tar -xzf open3dalign-X.Y.tar.gz<br> $ cd open3dalign-X.Y<br>
+$ ./bootstrap<br> $ ./configure CC=gcc-4.2 \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CFLAGS="-Wall -O3 -msse3 -m64
+\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -I/build/include" \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LDFLAGS="-L/build/lib64"
+\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --with-atlas
+\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --prefix=/build
+</code><br><br> Clearly, the paths reported in the example above
+might vary slightly according to your specific installations
+details.<br><br> Subsequently, type<br><br><code> $ make<br> $ make
+install</code><br><br> These commands will build <B>Open3DALIGN</B> for a
+64-bit CPU with SSE3 extensions and install the <code>open3dalign</code>
+executable binary into <code>/build/bin</code> and documentation into
+<code>/build/share/doc/Open3DALIGN</code>. You might have to tweak the
+value of the <code>CC</code> variable according to the version of your
+XCode Tools.
+
+<br><br><br><a href="#Contents"> <p align="right">Back to
+Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
+size="2"><br><h3>Solaris x86</h3> <br><br> Under Solaris, due
+to the free availability and to the excellent performance of
+Oracle Solaris Studio Compilers and Sun Performance Library, we
+did not attempt to build <B>Open3DALIGN</B> with other tools,
+even if it is obviously possible to use GCC in conjunction
+with the <a href="http://math-atlas.sourceforge.net/"
+target="_blank">ATLAS math libraries</a> just as described
+for Windows and Linux.<br><br><br> <B>Using Oracle Solaris
+Studio Compilers and the Sun Performance Library</B><br><br> <a
+href="http://www.oracle.com/technetwork/server-storage/solarisstudio/downloads/index.html"
+target="_blank">Oracle Solaris Studio Compilers</a> for Solaris
+can be freely downloaded upon registration. The suite includes
+a C and a Fortran compiler plus the Sun Performance library which
+includes BLAS and LAPACK routines needed by <B>Open3DALIGN</B>. After
+installing Oracle Solaris Studio compilers (as of now the latest
+version is Oracle Solaris Studio 12 update 3), the first step is
+installing <B>Open3DQSAR</B> and its dependencies as described in
+detail <a href="http://open3dqsar.org/?Downloads:Install_from_source"
+target="_blank">here</a>.  Afterwards, you simply need to move to the
+folder where you have downloaded <code>open3dalign-X.Y.tar.gz</code>,
+where <code>X</code> and <code>Y</code> are the major and minor version
+numbers, and build <code>open3dalign</code>:<br><br><code> $ tar -xzf
+open3dalign-X.Y.tar.gz<br> $ cd open3dalign-X.Y<br> $ ./bootstrap<br> $
+./configure CC=suncc \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CFLAGS="-O3 -fast -m64 -I/build/include" \<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LDFLAGS="-L/build/lib64"
+\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--with-sunperf
+\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --prefix=/build
+</code><br><br> Clearly, the paths reported in the example above
+might vary slightly according to your specific installations
+details.<br><br> Subsequently, type<br><br><code> $ make<br> $ make
+install</code><br><br> These commands will build <B>Open3DALIGN</B>
+for a 64-bit CPU and install the <code>open3dalign</code> executable
+binary into <code>/build/bin</code> and documentation into
+<code>/build/share/doc/Open3DALIGN</code><code></code>.
+
+<br><br><br><a href="#Contents"> <p align="right">Back to
+Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
+size="2"><br><h3>FreeBSD</h3> <br><br> An <code>open3dalign</code>
+executable for FreeBSD can be easily obtained using the GNU C
+Compiler and ATLAS math libraries.<br><br>Firstly, you will have
+to install <B>Open3DQSAR</B> and its dependencies as described in
+detail <a href="http://open3dqsar.org/?Downloads:Install_from_source"
+target="_blank">here</a>.  Afterwards, you simply need to move to the
+folder where you have downloaded <code>open3dalign-X.Y.tar.gz</code>,
+where <code>X</code> and <code>Y</code> are the major and minor version
+numbers, and build <code>open3dalign</code>:<br><br><code> $ tar -xzf
+open3dalign-X.Y.tar.gz<br> $ cd open3dalign-X.Y<br> $ ./bootstrap<br>
+$ ./configure \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CC=gcc45
+\<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CFLAGS="-Wall -O3 -m64
+-msse3 -I/build/include \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+-I/build/include" \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+LDFLAGS="-L/build/lib64" \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+--with-atlas \<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+--prefix=/build </code><br><br> Clearly, the paths reported in the example
+above might vary slightly according to your specific installations
+details.<br><br> Subsequently, type<br><br><code> $ make<br> $
+make install</code><br><br> to have the <code>open3dalign</code>
+executable binary installed in the <code>/build/bin</code> folder and
+the documentation in <code>/build/share/doc/Open3DALIGN</code>.
 
 <br><br><br><a href="#Contents"> <p align="right">Back to
 Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"

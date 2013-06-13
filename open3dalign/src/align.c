@@ -349,86 +349,6 @@ int remove_from_list(IntPerm **list, int elem)
 }
 
 
-int preload_best_templates(O3Data *od, FileDescriptor *fd, int *skip, double *score)
-{
-  int object_num;
-  int template_num = 0;
-  int template_object_num;
-  double file_score;
-  
-  
-  if (!alignment_exists(od, fd)) {
-    return 0;
-  }
-  for (object_num = 0, *skip = 1;
-    *skip && (object_num < od->grid.object_num); ++object_num) {
-    /*
-    read template_object_num and score from file for this object
-    */
-    if (get_alignment_score(od, fd, object_num, &file_score, &template_object_num)) {
-      *skip = 0;
-      break;
-    }
-    if (template_object_num == -1) {
-      *skip = 0;
-      break;
-    }
-    /*
-    check if it is already included in the current template list,
-    (OBJECT_LIST, which initially is empty);
-    if not, then add it at the end of the current template list
-    */
-    if (!is_in_list(od->pel.numberlist[OBJECT_LIST], template_object_num + 1)) {
-      if (add_to_list(&(od->pel.numberlist[OBJECT_LIST]), template_object_num + 1)) {
-        return OUT_OF_MEMORY;
-      }
-    }
-    /*
-    put the score in mol_info->score, multiplied by the gold coefficient
-    */
-    od->al.mol_info[object_num]->score = file_score * od->align.gold;
-    *score += file_score;
-    /*
-    populate the per_object_template list with template_object_num
-    */
-    od->mel.per_object_template[object_num] = template_object_num;
-  }
-  if (!(*skip)) {
-    /*
-    if something went wrong, reset mol_info->score to 0.0 and
-    clean up per_object_template
-    */
-    for (object_num = 0; object_num < od->grid.object_num; ++object_num) {
-      od->mel.per_object_template[object_num] = -1;
-      od->al.mol_info[object_num]->score = 0.0;
-    }
-  }
-  else {
-    /*
-    sort OBJECT_LIST by object number
-    */
-    qsort(od->pel.numberlist[OBJECT_LIST]->pe,
-      od->pel.numberlist[OBJECT_LIST]->size, sizeof(int), compare_integers);
-    for (template_num = 0; template_num < od->pel.numberlist[OBJECT_LIST]->size; ++template_num) {
-      /*
-      if the same templates read from template_file have not already been supplied by the user,
-      then add them to the end of the user-supplied list (ID_LIST)
-      */
-      template_object_num = od->pel.numberlist[OBJECT_LIST]->pe[template_num] - 1;
-      if (!is_in_list(od->pel.numberlist[ID_LIST], template_object_num + 1)) {
-        if (add_to_list(&(od->pel.numberlist[ID_LIST]), template_object_num + 1)) {
-          return OUT_OF_MEMORY;
-        }
-      }
-    }
-    qsort(od->pel.numberlist[ID_LIST]->pe,
-      od->pel.numberlist[ID_LIST]->size, sizeof(int), compare_integers);
-  }
-
-  return 0;
-}
-
-
 int align(O3Data *od)
 {
   char buffer[BUF_LEN];
@@ -778,36 +698,34 @@ int align(O3Data *od)
     free_array(od->al.done_objects);
     od->al.done_objects = NULL;
   }
-  if (!(od->align.type & ALIGN_ITERATIVE_TEMPLATE_BIT)) {
-    tee_printf(od, "%8s%8s%16s%20s\n%s",
-      "Template", "ID", "Conformer", ((od->align.type & ALIGN_PHARAO_BIT)
-      ? "PHARAO_TANIMOTO" : "O3A_SCORE"), dashed_line);
-    for (template_num = 0; template_num < od->pel.numberlist[OBJECT_LIST]->size; ++template_num) {
-      template_object_num = od->pel.numberlist[OBJECT_LIST]->pe[template_num] - 1;
-      for (template_conf_num = 0; template_conf_num < ((od->align.type & ALIGN_MULTICONF_TEMPLATE_BIT)
-        ? od->pel.conf_population[TEMPLATE_DB]->pe[template_object_num] : 1); ++template_conf_num) {
-        if (od->align.type & ALIGN_MULTICONF_TEMPLATE_BIT) {
-          sprintf(template_conf_string, "_%06d", template_conf_num + 1);
-        }
-        sprintf(temp_fd.name, "%s%c%04d-%04d_on_%04d%s.sdf",
-          od->align.align_dir, SEPARATOR,
-          od->al.mol_info[0]->object_id,
-          od->al.mol_info[od->grid.object_num - 1]->object_id,
-          od->al.mol_info[template_object_num]->object_id,
-          template_conf_string);
-        for (object_num = 0, overall_score = 0.0; object_num < od->grid.object_num; ++object_num) {
-          if ((result = get_alignment_score(od, &temp_fd, object_num, &score, NULL))) {
-            return result;
-          }
-          overall_score += score;
-        }
-        tee_printf(od, "%8d%8d%16d%20.2lf\n", template_object_num + 1,
-          od->al.mol_info[template_object_num]->object_id,
-          template_conf_num + 1, overall_score);
+  tee_printf(od, "%8s%8s%16s%20s\n%s",
+    "Template", "ID", "Conformer", ((od->align.type & ALIGN_PHARAO_BIT)
+    ? "PHARAO_TANIMOTO" : "O3A_SCORE"), dashed_line);
+  for (template_num = 0; template_num < od->pel.numberlist[OBJECT_LIST]->size; ++template_num) {
+    template_object_num = od->pel.numberlist[OBJECT_LIST]->pe[template_num] - 1;
+    for (template_conf_num = 0; template_conf_num < ((od->align.type & ALIGN_MULTICONF_TEMPLATE_BIT)
+      ? od->pel.conf_population[TEMPLATE_DB]->pe[template_object_num] : 1); ++template_conf_num) {
+      if (od->align.type & ALIGN_MULTICONF_TEMPLATE_BIT) {
+        sprintf(template_conf_string, "_%06d", template_conf_num + 1);
       }
+      sprintf(temp_fd.name, "%s%c%04d-%04d_on_%04d%s.sdf",
+        od->align.align_dir, SEPARATOR,
+        od->al.mol_info[0]->object_id,
+        od->al.mol_info[od->grid.object_num - 1]->object_id,
+        od->al.mol_info[template_object_num]->object_id,
+        template_conf_string);
+      for (object_num = 0, overall_score = 0.0; object_num < od->grid.object_num; ++object_num) {
+        if ((result = get_alignment_score(od, &temp_fd, object_num, &score, NULL))) {
+          return result;
+        }
+        overall_score += score;
+      }
+      tee_printf(od, "%8d%8d%16d%20.2lf\n", template_object_num + 1,
+        od->al.mol_info[template_object_num]->object_id,
+        template_conf_num + 1, overall_score);
     }
-    tee_printf(od, "%s\n", dashed_line);
   }
+  tee_printf(od, "%s\n", dashed_line);
   if (od->align.type & ALIGN_KEEP_BEST_TEMPLATE_BIT) {
     sprintf(best_fd.name, "%s%c%04d-%04d_on_best_template.sdf",
       od->align.align_dir,

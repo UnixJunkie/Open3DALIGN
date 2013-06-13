@@ -1,6 +1,58 @@
 Open3DALIGN's ChangeLog
 -----------------------
 
+*** June 13, 2013: release of Open3DALIGN 2.24 ***
+
+  Changes with respect to the previous version include:
+
+  - A bug which caused the terminal to be set to ECHOCTL on exit was fixed
+    (Linux/Mac OS X only)
+  - Linking against libminizip is now optional
+
+
+*** January 14, 2013: release of Open3DALIGN 2.23 ***
+
+  Changes with respect to the previous version include:
+
+  - A bug in the "import type=DEPENDENT" keyword which caused an error
+    message whenever attempting to import multiple dependent variables
+    was fixed
+
+
+*** December 21, 2012: release of Open3DALIGN 2.22 ***
+
+  Changes with respect to the previous version include:
+
+  - Minor bugfixes all over
+
+
+*** September 5, 2012: release of Open3DALIGN 2.21 ***
+
+  Changes with respect to the previous version include:
+
+  - Fixed a bug which affected the Windows version on start when the
+    program is installed in a location whose path contains spaces
+  - Fixed a bug in the import_dependent() function
+
+
+*** August 10, 2012: release of Open3DALIGN 2.2 ***
+
+  Changes with respect to the previous version include:
+
+  - Added compressed file support (GZIP, ZIP formats)
+  - Added the "rototrans" keyword to carry out rotations/translations on
+    selected objects
+  - Added keyword and parameter shell-like TAB completion in interactive
+    mode
+  - Open3DALIGN was linked against the updated versions of ATLAS (3.10.0)
+    and LAPACK (3.4.1) libraries
+  - Under Mac OS X, Open3DALIGN was linked against the ATLAS library instead
+    of the Accelerate Framework, since I relized that, as of Mac OS X
+    10.7, the LAPACK library included in the Accelerate Framework is not
+    completely thread-safe. In previous pre-built Open3DALIGN versions this
+    might have triggered numerical errors when using n_cpus > 1
+
+
 *** February 17, 2012: release of Open3DALIGN 2.105 ***
 
   Changes with respect to the previous version include:

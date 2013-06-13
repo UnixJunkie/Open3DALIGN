@@ -7,7 +7,7 @@
 # 
 # An open-source software aimed at unsupervised molecular alignment
 # 
-# Copyright (C) 2010-2012 Paolo Tosco, Thomas Balle
+# Copyright (C) 2010-2013 Paolo Tosco, Thomas Balle
 # 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -37,10 +37,10 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_INIT(Open3DALIGN, 3.2, <paolo.tosco@unito.it>)
+AC_INIT(Open3DALIGN, 2.24, <paolo.tosco@unito.it>)
 AC_DEFINE([PACKAGE_NAME_SMALL_CAPS], ["open3dalign"], [Package name in small caps])
 AC_DEFINE([O3A], [1], [Open3DALIGN])
-AM_INIT_AUTOMAKE(Open3DALIGN, 3.2)
+AM_INIT_AUTOMAKE(Open3DALIGN, 2.24)
 AC_CONFIG_SRCDIR([src])
 AC_CONFIG_HEADER([config.h])
 AC_CONFIG_MACRO_DIR([m4])
@@ -60,7 +60,7 @@ eof
 
 AC_CHECK_LIB([m], [sqrt], , AC_MSG_FAILURE([libm not found]))
 AC_CHECK_LIB([z], [gzopen], , AC_MSG_FAILURE([libz not found]))
-AC_CHECK_LIB([z -lminizip], [zipOpen], , AC_MSG_FAILURE([libminizip not found]))
+AC_CHECK_LIB([minizip], [zipOpen])
 
 # Checks for library functions.
 AC_FUNC_VPRINTF

@@ -491,12 +491,14 @@ void program_signal_handler(int signum)
     signal(signum, SIG_DFL);
     raise(signum);
   }
+  #ifdef HAVE_EDITLINE_FUNCTIONALITY
   else {
     if (rl_line_buffer) {
       rl_line_buffer[0] = EOF;
       rl_line_buffer[1] = '\0';
     }
   }
+  #endif
 }
 #else
 BOOL program_signal_handler(DWORD fdwCtrlType)
@@ -553,7 +555,7 @@ void reset_user_terminal(O3Data *od)
   #ifndef WIN32
   #ifdef HAVE_EDITLINE_FUNCTIONALITY
   if (od->user_termios) {
-    tcsetattr(STDIN_FILENO, TCSADRAIN, od->user_termios);
+    tcsetattr(STDOUT_FILENO, TCSADRAIN, od->user_termios);
   }
   #endif
   SET_INK(od, DEFAULT_INK);
@@ -569,6 +571,7 @@ int main(int argc, char **argv)
   char *nice_string;
   char *babel_path_string;
   char *pymol_string;
+  char *jmol_string;
   char current_time[BUF_LEN];
   char current_dir[BUF_LEN];
   char buffer[BUF_LEN];
@@ -874,7 +877,7 @@ int main(int argc, char **argv)
   }
   #else
   #ifdef HAVE_EDITLINE_FUNCTIONALITY
-  if (tcgetattr(STDIN_FILENO, &user_termios)) {
+  if (tcgetattr(STDOUT_FILENO, &user_termios)) {
     od.user_termios = NULL;
   }
   #endif
@@ -1118,6 +1121,11 @@ int main(int argc, char **argv)
     "%s\n\n"
     "The current working directory is:\n"
     "%s\n\n", od.temp_dir, current_dir);
+  #ifndef HAVE_LIBMINIZIP
+  tee_printf(&od,
+      "Since "PACKAGE_NAME" was not linked against libminizip, "
+      "support for ZIP files will not be available.\n\n");
+  #endif
   tee_flush(&od);
   strcpy(od.field.babel_exe_path, bin);
   if ((babel_path_string = getenv(BABEL_PATH_ENV))) {
@@ -1476,6 +1484,58 @@ int main(int argc, char **argv)
     "O3_PYMOL environment variable or "
     "by the \"env pymol\" keyword.\n\n",
     (found ? "changed" : "set"));
+  #ifdef WIN32
+  wVersionRequested = MAKEWORD(2, 2);
+  error = WSAStartup(wVersionRequested, &wsaData);
+  if (!error) {
+    error = ((LOBYTE(wsaData.wVersion) != 2)
+      || (HIBYTE(wsaData.wVersion) != 2));
+    if (error) {
+      WSACleanup();
+    }
+  }
+  if (error) {
+    od.jmol.port = -1;
+  }
+  #endif
+  if (od.prompt && (!(od.pymol.use_pymol))
+    && (od.jmol.port != -1)) {
+    memset(od.jmol.jmol_exe, 0, BUF_LEN);
+    if (is_in_path(JMOL_EXE, buffer)) {
+      strncpy(od.jmol.jmol_exe, buffer, BUF_LEN - 2);
+    }
+    if ((jmol_string = getenv("O3_JMOL"))) {
+      if (jmol_string[0]) {
+        strncpy(od.jmol.jmol_exe, jmol_string, BUF_LEN - 2);
+        absolute_path(od.jmol.jmol_exe);
+        od.jmol.use_jmol = 1;
+        od.jmol.port = JMOL_FIRST_PORT;
+      }
+      else {
+        od.jmol.use_jmol = 0;
+        od.jmol.port = -1;
+      }
+    }
+    found = 0;
+    if (od.jmol.use_jmol) {
+      if ((found = fexist(od.jmol.jmol_exe))) {
+        tee_printf(&od, "The Jmol binary is:\n"
+          "%s\n", od.jmol.jmol_exe);
+        strcat(od.jmol.jmol_exe, " " JMOL_ARGS);
+      }
+      else {
+        tee_printf(&od, "The Jmol binary could not be found.\n");
+        od.jmol.use_jmol = 0;
+      }
+    }
+    else {
+      tee_printf(&od, "Jmol will not be used.\n");
+    }
+    tee_printf(&od, "The path to Jmol can be %s through the "
+      "O3_JMOL environment variable or "
+      "by the \"env jmol\" keyword.\n\n",
+      (found ? "changed" : "set"));
+  }
   save_ram_string = getenv("O3_SAVE_RAM");
   if (save_ram_string && (!strncasecmp(save_ram_string, "y", 1))) {
     od.save_ram = 1;
@@ -1522,17 +1582,29 @@ int main(int argc, char **argv)
   if (current_dir[0]) {
     chdir(current_dir);
   }
-  #ifdef WIN32
-  if (hIcon) {
-    DestroyIcon(hIcon);
-  }
-  #endif
   if (od.pymol.pymol_handle) {
     strcpy(buffer, "quit\n");
     FWRITE_WRAP(od.pymol.pymol_handle, buffer, &n);
     FFLUSH_WRAP(od.pymol.pymol_handle);
     free_proc_env(od.pymol.proc_env);
   }
+  if (od.jmol.port != -1) {
+    send_jmol_command(&od, "exitJmol");
+    free_proc_env(od.jmol.proc_env);
+    #ifndef WIN32
+    close(od.jmol.sock);
+    #else
+    closesocket(od.jmol.sock);
+    #endif
+  }
+  #ifdef WIN32
+  if (hIcon) {
+    DestroyIcon(hIcon);
+  }
+  if (od.jmol.port != -1) {
+    WSACleanup();
+  }
+  #endif
   if (od.prompt && result) {
     fprintf(stderr, E_PROGRAM_EXIT);
     fflush(stderr);
