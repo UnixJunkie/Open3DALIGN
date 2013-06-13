@@ -7,8 +7,8 @@
 # In case of failure check test/${OUTPUT_FILE}
 
 
-temp_ref=`mktemp`
-temp_test=`mktemp`
+temp_ref=ref_values.txt
+temp_test=test_values.txt
 VALIDATION_SCRIPT=validation.sh
 TEST_COMPLETED_MSG="Validation succeeded"
 DATASETS="ace ache bzr cox2 dhfr gpb therm thr"
@@ -24,7 +24,6 @@ OPEN3DTOOL=open3dalign
 # where the user originally was
 clean_exit()
 {
-  rm -f $temp_ref $temp_test
   cd $old_cwd
   exit $1
 }
