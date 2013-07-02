@@ -37,7 +37,7 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_INIT(Open3DALIGN, 2.24, <paolo.tosco@unito.it>)
+AC_INIT(Open3DALIGN, 2.241, <paolo.tosco@unito.it>)
 AC_DEFINE([PACKAGE_NAME_SMALL_CAPS], ["open3dalign"], [Package name in small caps])
 AC_DEFINE([O3A], [1], [Open3DALIGN])
 AM_INIT_AUTOMAKE(Open3DALIGN, 2.24)
@@ -90,7 +90,8 @@ rm -f src/test.c src/test
 # Checks for header files.
 AC_HEADER_DIRENT
 AC_HEADER_STDC
-AC_CHECK_HEADERS([fcntl.h stddef.h stdlib.h string.h sys/param.h sys/time.h termios.h unistd.h])
+AC_CHECK_HEADERS([fcntl.h stddef.h stdlib.h string.h sys/param.h sys/time.h \
+  termios.h unistd.h minizip/zip.h minizip/unzip.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
