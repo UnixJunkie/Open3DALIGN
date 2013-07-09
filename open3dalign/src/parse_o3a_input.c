@@ -89,6 +89,7 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
   int criterion;
   int type = 0;
   int state = 0;
+  int synonym = 0;
   int list_type = 0;
   int multi_file_type;
   int quote;
@@ -551,6 +552,7 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
       memset(grid_fill, 0, MAX_NAME_LEN);
       temp_grid.step[0] = 1.0;
       outgap = 5.0;
+      from_file = 0;
       if ((parameter = get_args(od, "file"))) {
         grid_fill[0] = 1;
         for (i = 0; i < 6; ++i) {
@@ -569,29 +571,39 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
         from_file = 1;
       }
       else {
-        if ((parameter = get_args(od, "x_start"))) {
-          grid_fill[0] = 1;
-          sscanf(parameter, "%f", &(temp_grid.start_coord[0]));
+        for (result = 0, i = 0; i < 3; ++i) {
+          memset(buffer, 0, BUF_LEN);
+          sprintf(buffer, "%c_start", i + 'x');
+          if ((parameter = get_args(od, buffer))) {
+            grid_fill[i] = 1;
+            sscanf(parameter, "%f", &(temp_grid.start_coord[i]));
+          }
+          synonym = 0;
+          sprintf(buffer, "%c_end", i + 'x');
+          if ((parameter = get_args(od, buffer))) {
+            grid_fill[i + 3] = 1;
+            sscanf(parameter, "%f", &(temp_grid.end_coord[i]));
+            ++synonym;
+          }
+          sprintf(buffer, "%c_nodes", i + 'x');
+          if ((parameter = get_args(od, buffer))) {
+            grid_fill[i + 3] = 1;
+            sscanf(parameter, "%d", &(temp_grid.nodes[i]));
+            ++synonym;
+          }
+          if (synonym > 1) {
+            tee_error(od, run_type, overall_line_num,
+              "Conflicting grid definitions were detected; "
+              "please specify either %c_end or %c_nodes.\n",
+              i + 'x', i + 'x');
+            result = 1;
+          }
         }
-        if ((parameter = get_args(od, "y_start"))) {
-          grid_fill[1] = 1;
-          sscanf(parameter, "%f", &(temp_grid.start_coord[1]));
-        }
-        if ((parameter = get_args(od, "z_start"))) {
-          grid_fill[2] = 1;
-          sscanf(parameter, "%f", &(temp_grid.start_coord[2]));
-        }
-        if ((parameter = get_args(od, "x_end"))) {
-          grid_fill[3] = 1;
-          sscanf(parameter, "%f", &(temp_grid.end_coord[0]));
-        }
-        if ((parameter = get_args(od, "y_end"))) {
-          grid_fill[4] = 1;
-          sscanf(parameter, "%f", &(temp_grid.end_coord[1]));
-        }
-        if ((parameter = get_args(od, "z_end"))) {
-          grid_fill[5] = 1;
-          sscanf(parameter, "%f", &(temp_grid.end_coord[2]));
+        if (result) {
+          tee_error(od, run_type, overall_line_num,
+            "%s", BOX_FAILED);
+          fail = !(run_type & INTERACTIVE_RUN);
+          continue;
         }
         if ((parameter = get_args(od, "step"))) {
           grid_fill[6] = 1;
@@ -680,6 +692,7 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
         od->grid.nodes[1] = 10;
         od->grid.nodes[2] = 10;
         od->grid.object_num = 10;
+        od->grid.struct_num = 10;
         od->object_num = 10;
       }
     }
