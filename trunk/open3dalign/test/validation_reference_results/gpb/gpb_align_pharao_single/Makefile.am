@@ -35,6 +35,9 @@
 # E-mail: paolo.tosco@unito.it
 
 
-AUTOMAKE_OPTIONS = foreign
-ACLOCAL_AMFLAGS= -I m4
-SUBDIRS = src doc test
+gpb_align_pharao_singledir = \
+$(datadir)/@PACKAGE@/test/validation_reference_results/gpb/gpb_align_pharao_single
+gpb_align_pharao_single_DATA = \
+0001-0066_on_0056.sdf \
+0001-0066_on_best_template.sdf \
+0001-0066_on_best_template_aligned_on_original.sdf

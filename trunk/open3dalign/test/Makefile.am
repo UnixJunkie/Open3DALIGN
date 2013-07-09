@@ -35,6 +35,9 @@
 # E-mail: paolo.tosco@unito.it
 
 
-AUTOMAKE_OPTIONS = foreign
-ACLOCAL_AMFLAGS= -I m4
-SUBDIRS = src doc test
+testdir = $(datadir)/@PACKAGE@/test
+test_SCRIPTS = \
+test.sh \
+validation.sh
+SUBDIRS = ace ache bzr cox2 dhfr gpb therm thr \
+validation_reference_results

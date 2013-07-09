@@ -35,6 +35,9 @@
 # E-mail: paolo.tosco@unito.it
 
 
-AUTOMAKE_OPTIONS = foreign
-ACLOCAL_AMFLAGS= -I m4
-SUBDIRS = src doc test
+cox2dir = $(datadir)/@PACKAGE@/test/validation_reference_results/cox2
+cox2_DATA = \
+cox2_reproduce_orig_alignment_single.out
+SUBDIRS = cox2_align_atom_single \
+cox2_align_mixed_single \
+cox2_align_pharao_single

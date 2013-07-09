@@ -35,6 +35,11 @@
 # E-mail: paolo.tosco@unito.it
 
 
-AUTOMAKE_OPTIONS = foreign
-ACLOCAL_AMFLAGS= -I m4
-SUBDIRS = src doc test
+ace_align_mixed_singledir = \
+$(datadir)/@PACKAGE@/test/validation_reference_results/ace/ace_align_mixed_single
+ace_align_mixed_single_DATA = \
+0001-0114_on_0003.sdf \
+0001-0114_on_0008.sdf \
+0001-0114_on_0071.sdf \
+0001-0114_on_best_template.sdf \
+0001-0114_on_best_template_aligned_on_original.sdf

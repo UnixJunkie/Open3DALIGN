@@ -35,6 +35,9 @@
 # E-mail: paolo.tosco@unito.it
 
 
-AUTOMAKE_OPTIONS = foreign
-ACLOCAL_AMFLAGS= -I m4
-SUBDIRS = src doc test
+thermdir = $(datadir)/@PACKAGE@/test/validation_reference_results/therm
+therm_DATA = \
+therm_reproduce_orig_alignment_single.out
+SUBDIRS = therm_align_atom_single \
+therm_align_mixed_single \
+therm_align_pharao_single

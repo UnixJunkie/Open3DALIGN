@@ -35,6 +35,9 @@
 # E-mail: paolo.tosco@unito.it
 
 
-AUTOMAKE_OPTIONS = foreign
-ACLOCAL_AMFLAGS= -I m4
-SUBDIRS = src doc test
+achedir = $(datadir)/@PACKAGE@/test/validation_reference_results/ache
+ache_DATA = \
+ache_reproduce_orig_alignment_single.out
+SUBDIRS = ache_align_atom_single \
+ache_align_mixed_single \
+ache_align_pharao_single

@@ -35,6 +35,7 @@
 # E-mail: paolo.tosco@unito.it
 
 
-AUTOMAKE_OPTIONS = foreign
-ACLOCAL_AMFLAGS= -I m4
-SUBDIRS = src doc test
+dhfrdir = $(datadir)/@PACKAGE@/test/dhfr
+dhfr_DATA = \
+dhfr_3dqsar_canonical.sdf \
+dhfr_reproduce_orig_alignment_single.inp

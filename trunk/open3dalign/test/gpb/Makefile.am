@@ -35,6 +35,7 @@
 # E-mail: paolo.tosco@unito.it
 
 
-AUTOMAKE_OPTIONS = foreign
-ACLOCAL_AMFLAGS= -I m4
-SUBDIRS = src doc test
+gpbdir = $(datadir)/@PACKAGE@/test/gpb
+gpb_DATA = \
+gpb_3dqsar_canonical.sdf \
+gpb_reproduce_orig_alignment_single.inp
