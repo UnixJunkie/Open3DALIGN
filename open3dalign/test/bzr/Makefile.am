@@ -35,6 +35,7 @@
 # E-mail: paolo.tosco@unito.it
 
 
-AUTOMAKE_OPTIONS = foreign
-ACLOCAL_AMFLAGS= -I m4
-SUBDIRS = src doc test
+bzrdir = $(datadir)/@PACKAGE@/test/bzr
+bzr_DATA = \
+bzr_3dqsar_canonical.sdf \
+bzr_reproduce_orig_alignment_single.inp

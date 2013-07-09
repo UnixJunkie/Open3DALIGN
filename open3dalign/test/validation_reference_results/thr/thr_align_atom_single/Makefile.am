@@ -35,6 +35,9 @@
 # E-mail: paolo.tosco@unito.it
 
 
-AUTOMAKE_OPTIONS = foreign
-ACLOCAL_AMFLAGS= -I m4
-SUBDIRS = src doc test
+thr_align_atom_singledir = \
+$(datadir)/@PACKAGE@/test/validation_reference_results/thr/thr_align_atom_single
+thr_align_atom_single_DATA = \
+0001-0088_on_0030.sdf \
+0001-0088_on_best_template.sdf \
+0001-0088_on_best_template_aligned_on_original.sdf

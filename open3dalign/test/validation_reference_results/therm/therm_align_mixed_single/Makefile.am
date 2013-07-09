@@ -35,6 +35,17 @@
 # E-mail: paolo.tosco@unito.it
 
 
-AUTOMAKE_OPTIONS = foreign
-ACLOCAL_AMFLAGS= -I m4
-SUBDIRS = src doc test
+therm_align_mixed_singledir = \
+$(datadir)/@PACKAGE@/test/validation_reference_results/therm/therm_align_mixed_single
+therm_align_mixed_single_DATA = \
+0001-0076_on_0005.sdf \
+0001-0076_on_0016.sdf \
+0001-0076_on_0024.sdf \
+0001-0076_on_0028.sdf \
+0001-0076_on_0031.sdf \
+0001-0076_on_0057.sdf \
+0001-0076_on_0061.sdf \
+0001-0076_on_0070.sdf \
+0001-0076_on_0071.sdf \
+0001-0076_on_best_template.sdf \
+0001-0076_on_best_template_aligned_on_original.sdf

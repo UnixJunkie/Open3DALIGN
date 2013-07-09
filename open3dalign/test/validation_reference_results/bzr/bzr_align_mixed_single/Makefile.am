@@ -35,6 +35,9 @@
 # E-mail: paolo.tosco@unito.it
 
 
-AUTOMAKE_OPTIONS = foreign
-ACLOCAL_AMFLAGS= -I m4
-SUBDIRS = src doc test
+bzr_align_mixed_singledir = \
+$(datadir)/@PACKAGE@/test/validation_reference_results/bzr/bzr_align_mixed_single
+bzr_align_mixed_single_DATA = \
+0001-0163_on_0050.sdf \
+0001-0163_on_best_template.sdf \
+0001-0163_on_best_template_aligned_on_original.sdf

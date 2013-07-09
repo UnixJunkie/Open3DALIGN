@@ -37,10 +37,10 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_INIT(Open3DALIGN, 2.241, <paolo.tosco@unito.it>)
+AC_INIT(Open3DALIGN, 2.242, <paolo.tosco@unito.it>)
 AC_DEFINE([PACKAGE_NAME_SMALL_CAPS], ["open3dalign"], [Package name in small caps])
 AC_DEFINE([O3A], [1], [Open3DALIGN])
-AM_INIT_AUTOMAKE(Open3DALIGN, 2.24)
+AM_INIT_AUTOMAKE(open3dalign, 2.242)
 AC_CONFIG_SRCDIR([src])
 AC_CONFIG_HEADER([config.h])
 AC_CONFIG_MACRO_DIR([m4])
@@ -300,5 +300,46 @@ AS_IF([test "x$BUGGY_RINT" = xyes],
 AS_IF([test "x$BUGGY_RINT" = xyes],
 	[AC_DEFINE([HAVE_SAFE_RINT], [1], [Use safe_rint() replacement for buggy rint()])])
 
-AC_CONFIG_FILES([Makefile src/Makefile doc/Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile doc/Makefile test/Makefile \
+  test/ace/Makefile \
+  test/ache/Makefile \
+  test/bzr/Makefile \
+  test/cox2/Makefile \
+  test/dhfr/Makefile \
+  test/gpb/Makefile \
+  test/therm/Makefile \
+  test/thr/Makefile \
+  test/validation_reference_results/Makefile \
+  test/validation_reference_results/ace/Makefile \
+  test/validation_reference_results/ace/ace_align_atom_single/Makefile \
+  test/validation_reference_results/ace/ace_align_mixed_single/Makefile \
+  test/validation_reference_results/ace/ace_align_pharao_single/Makefile \
+  test/validation_reference_results/ache/Makefile \
+  test/validation_reference_results/ache/ache_align_atom_single/Makefile \
+  test/validation_reference_results/ache/ache_align_mixed_single/Makefile \
+  test/validation_reference_results/ache/ache_align_pharao_single/Makefile \
+  test/validation_reference_results/bzr/Makefile \
+  test/validation_reference_results/bzr/bzr_align_atom_single/Makefile \
+  test/validation_reference_results/bzr/bzr_align_mixed_single/Makefile \
+  test/validation_reference_results/bzr/bzr_align_pharao_single/Makefile \
+  test/validation_reference_results/cox2/Makefile \
+  test/validation_reference_results/cox2/cox2_align_atom_single/Makefile \
+  test/validation_reference_results/cox2/cox2_align_mixed_single/Makefile \
+  test/validation_reference_results/cox2/cox2_align_pharao_single/Makefile \
+  test/validation_reference_results/dhfr/Makefile \
+  test/validation_reference_results/dhfr/dhfr_align_atom_single/Makefile \
+  test/validation_reference_results/dhfr/dhfr_align_mixed_single/Makefile \
+  test/validation_reference_results/dhfr/dhfr_align_pharao_single/Makefile \
+  test/validation_reference_results/gpb/Makefile \
+  test/validation_reference_results/gpb/gpb_align_atom_single/Makefile \
+  test/validation_reference_results/gpb/gpb_align_mixed_single/Makefile \
+  test/validation_reference_results/gpb/gpb_align_pharao_single/Makefile \
+  test/validation_reference_results/therm/Makefile \
+  test/validation_reference_results/therm/therm_align_atom_single/Makefile \
+  test/validation_reference_results/therm/therm_align_mixed_single/Makefile \
+  test/validation_reference_results/therm/therm_align_pharao_single/Makefile \
+  test/validation_reference_results/thr/Makefile \
+  test/validation_reference_results/thr/thr_align_atom_single/Makefile \
+  test/validation_reference_results/thr/thr_align_mixed_single/Makefile \
+  test/validation_reference_results/thr/thr_align_pharao_single/Makefile])
 AC_OUTPUT

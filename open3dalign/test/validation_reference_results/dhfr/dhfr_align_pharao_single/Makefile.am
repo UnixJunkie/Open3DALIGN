@@ -35,6 +35,10 @@
 # E-mail: paolo.tosco@unito.it
 
 
-AUTOMAKE_OPTIONS = foreign
-ACLOCAL_AMFLAGS= -I m4
-SUBDIRS = src doc test
+dhfr_align_pharao_singledir = \
+$(datadir)/@PACKAGE@/test/validation_reference_results/dhfr/dhfr_align_pharao_single
+dhfr_align_pharao_single_DATA = \
+0001-0397_on_0030.sdf \
+0001-0397_on_0200.sdf \
+0001-0397_on_best_template.sdf \
+0001-0397_on_best_template_aligned_on_original.sdf

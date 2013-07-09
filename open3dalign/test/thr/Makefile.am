@@ -35,6 +35,7 @@
 # E-mail: paolo.tosco@unito.it
 
 
-AUTOMAKE_OPTIONS = foreign
-ACLOCAL_AMFLAGS= -I m4
-SUBDIRS = src doc test
+thrdir = $(datadir)/@PACKAGE@/test/thr
+thr_DATA = \
+thr_3dqsar_canonical.sdf \
+thr_reproduce_orig_alignment_single.inp
