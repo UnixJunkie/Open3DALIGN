@@ -37,13 +37,15 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_INIT(Open3DALIGN, 2.243, <paolo.tosco@unito.it>)
+AC_INIT(Open3DALIGN, 2.25, <paolo.tosco@unito.it>)
 AC_DEFINE([PACKAGE_NAME_SMALL_CAPS], ["open3dalign"], [Package name in small caps])
 AC_DEFINE([O3A], [1], [Open3DALIGN])
-AM_INIT_AUTOMAKE(open3dalign, 2.243)
+AM_INIT_AUTOMAKE(open3dalign, 2.25)
 AC_CONFIG_SRCDIR([src])
 AC_CONFIG_HEADER([config.h])
 AC_CONFIG_MACRO_DIR([m4])
+m4_pattern_allow([AC_USE_SYSTEM_EXTENSIONS])
+AS_IF([test "${host_os}" = "SunOS"], [AC_USE_SYSTEM_EXTENSIONS])
 
 # Checks for programs.
 AC_PROG_CC
