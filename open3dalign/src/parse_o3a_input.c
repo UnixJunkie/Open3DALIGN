@@ -9,7 +9,7 @@ Open3DALIGN
 
 An open-source software aimed at unsupervised molecular alignment
 
-Copyright (C) 2010-2013 Paolo Tosco, Thomas Balle
+Copyright (C) 2010-2014 Paolo Tosco, Thomas Balle
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -40,13 +40,19 @@ E-mail: paolo.tosco@unito.it
 
 #include <include/o3header.h>
 #include <include/error_messages.h>
+#include <include/rl_runtime.h>
 #ifdef WIN32
 #include <include/nice_windows.h>
 #endif
 
 #ifdef HAVE_EDITLINE_FUNCTIONALITY
+#ifdef HAVE_GNU_READLINE
+#include <readline/readline.h>
+#include <readline/history.h>
+#else
 #include <editline/readline.h>
 #include <histedit.h>
+#endif
 #endif
 
 
@@ -95,6 +101,7 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
   int quote;
   int quote_error;
   int nice_value;
+  int options;
   int begin;
   int active_object_num;
   int wrong_object_num;
@@ -117,13 +124,8 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
   FileDescriptor **source;
   FileDescriptor *current_source;
   O3Data od_comp;
-  #ifdef HAVE_EDITLINE_FUNCTIONALITY
   FILE *touch;
   HIST_ENTRY *last_entry;
-  #endif
-  #ifdef WIN32
-  HANDLE hOutput;
-  #endif
   
 
   memset(comma_hyphen_list, 0, BUF_LEN);
@@ -136,16 +138,47 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
     ++nesting;
     current_source = current_source->next;
   }
-  #ifdef WIN32
-  hOutput = GetStdHandle(STD_OUTPUT_HANDLE);
-  #endif
-  #ifdef HAVE_EDITLINE_FUNCTIONALITY
-  if (!(run_type & INTERACTIVE_RUN)) {
-    /*
-    if this is not an interactive session,
-    then we are going to fetch lines by fgets
-    so allocate memory for buffer
-    */
+  if (have_editline) {
+    if (!(run_type & INTERACTIVE_RUN)) {
+      /*
+      if this is not an interactive session,
+      then we are going to fetch lines by fgets
+      so allocate memory for buffer
+      */
+      od->mel.line = realloc(od->mel.line, BUF_LEN);
+      if (!(od->mel.line)) {
+        tee_error(od, run_type, overall_line_num,
+          E_OUT_OF_MEMORY, PARSE_INPUT_FAILED);
+        return PARSE_INPUT_ERROR;
+      }
+    }
+    else {
+      /*
+      if this is an interactive session,
+      then check if the history file exists,
+      otherwise create it
+      */
+      sprintf(history_file, "%s%c%s", od->home_dir, SEPARATOR, HISTORY_FILE);
+      if (access(history_file, F_OK) == -1) {
+        touch = fopen(history_file, "w+");
+        if (touch) {
+          fclose(touch);
+        }
+      }
+      /*
+      read history from file and get the last entry
+      */
+      using_history();
+      read_history(history_file);
+      last_entry = previous_history();
+      next_history();
+      if (last_entry) {
+        strncpy(last_line, last_entry->line, BUF_LEN);
+        last_line[BUF_LEN - 1] = '\0';
+      }
+    }
+  }
+  else {
     od->mel.line = realloc(od->mel.line, BUF_LEN);
     if (!(od->mel.line)) {
       tee_error(od, run_type, overall_line_num,
@@ -153,39 +186,6 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
       return PARSE_INPUT_ERROR;
     }
   }
-  else {
-    /*
-    if this is an interactive session,
-    then check if the history file exists,
-    otherwise create it
-    */
-    sprintf(history_file, "%s%c%s", od->home_dir, SEPARATOR, HISTORY_FILE);
-    if (access(history_file, F_OK) == -1) {
-      touch = fopen(history_file, "w+");
-      if (touch) {
-        fclose(touch);
-      }
-    }
-    /*
-    read history from file and get the last entry
-    */
-    using_history();
-    read_history(history_file);
-    last_entry = previous_history();
-    next_history();
-    if (last_entry) {
-      strncpy(last_line, last_entry->line, BUF_LEN);
-      last_line[BUF_LEN - 1] = '\0';
-    }
-  }
-  #else
-  od->mel.line = realloc(od->mel.line, BUF_LEN);
-  if (!(od->mel.line)) {
-    tee_error(od, run_type, overall_line_num,
-      E_OUT_OF_MEMORY, PARSE_INPUT_FAILED);
-    return PARSE_INPUT_ERROR;
-  }
-  #endif
   /*
   allocate an array of pointers to string buffers
   for command line arguments and values, then store
@@ -221,19 +221,28 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
     readline which allocates a pointer to the entered
     line; the user is supposed to free it after use
     */
-    #ifdef HAVE_EDITLINE_FUNCTIONALITY
-    if (run_type & INTERACTIVE_RUN) {
-      if (od->mel.line) {
-        free(od->mel.line);
-        od->mel.line = NULL;
+    if (have_editline) {
+      if (run_type & INTERACTIVE_RUN) {
+        if (od->mel.line) {
+          #if (defined HAVE_EDITLINE_FUNCTIONALITY && defined HAVE_GNU_READLINE)
+          rl_free(od->mel.line);
+          od->mel.line = NULL;
+          #endif
+          #ifndef HAVE_EDITLINE_FUNCTIONALITY
+          if (_dlsym_rl_free) {
+            rl_free(od->mel.line);
+            od->mel.line = NULL;
+          }
+          #endif
+        }
+      }
+      else {
+        memset(od->mel.line, 0, BUF_LEN);
       }
     }
     else {
       memset(od->mel.line, 0, BUF_LEN);
     }
-    #else
-    memset(od->mel.line, 0, BUF_LEN);
-    #endif
     memset(line_orig, 0, BUF_LEN);
     line_complete = 0;
     line_num = 0;
@@ -249,22 +258,23 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
         if it is an interactive session we use readline
         */
         SET_INK(od, HIGHLIGHT_INK);
-        #ifdef HAVE_EDITLINE_FUNCTIONALITY
-        if (rl_line_buffer && rl_line_buffer[0]) {
-          memset(rl_line_buffer, 0, strlen(rl_line_buffer));
+        if (have_editline) {
+          if (rl_line_buffer && rl_line_buffer[0]) {
+            memset(rl_line_buffer, 0, strlen(rl_line_buffer));
+          }
+          od->mel.line = readline(prompt);
+          if (rl_line_buffer) {
+            rl_line_buffer[0] = '\0';
+          }
+          eof = od->mel.line;
         }
-        od->mel.line = readline(prompt);
-        if (rl_line_buffer) {
-          rl_line_buffer[0] = '\0';
+        else {
+          printf("%s", prompt);
+          if ((eof = fgets(od->mel.line, BUF_LEN, input_stream))) {
+            od->mel.line[BUF_LEN - 1] = '\0';
+            remove_newline(od->mel.line);
+          }
         }
-        eof = od->mel.line;
-        #else
-        printf("%s", prompt);
-        if ((eof = fgets(od->mel.line, BUF_LEN, input_stream))) {
-          od->mel.line[BUF_LEN - 1] = '\0';
-          remove_newline(od->mel.line);
-        }
-        #endif
         SET_INK(od, NORMAL_INK);
       }
       else {
@@ -427,10 +437,10 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
     }
     if (line_orig[0] && (run_type & INTERACTIVE_RUN)
       && strcmp(last_line, line_orig)) {
-      #ifdef HAVE_EDITLINE_FUNCTIONALITY
-      add_history(line_orig);
-      write_history(history_file);
-      #endif
+      if (have_editline) {
+        add_history(line_orig);
+        write_history(history_file);
+      }
       strcpy(last_line, line_orig);
     }
     /*
@@ -541,6 +551,12 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
           E_IMPORT_MOLFILE_FIRST, BOX_FAILED);
         fail = !(run_type & INTERACTIVE_RUN);
         continue;
+      }
+      if ((parameter = get_args(od, "mode"))) {
+        if (!strncasecmp(parameter, "get", 3)) {
+          print_grid_coordinates(od, &(od->grid));
+          continue;
+        }
       }
       if (od->field_num) {
         tee_error(od, run_type, overall_line_num,
@@ -960,7 +976,7 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
               E_Y_VAR_LOW_SD, IMPORT_FAILED);
             return PARSE_INPUT_ERROR;
           }
-          if (alloc_object_attr(od)) {
+          if (alloc_object_attr(od, 0)) {
             tee_error(od, run_type, overall_line_num,
               E_OUT_OF_MEMORY, IMPORT_FAILED);
             return PARSE_INPUT_ERROR;
@@ -1454,86 +1470,151 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
       }
       strcpy(od->file[DAT_IN]->name, parameter);
       absolute_path(od->file[DAT_IN]->name);
+      options = VERBOSE_BIT;
+      if ((parameter = get_args(od, "mode"))) {
+        if (od->grid.object_num
+          && (!strncasecmp(parameter, "append", 6))) {
+          options |= APPEND_BIT;
+        }
+      }
       if (!(run_type & DRY_RUN)) {
-        if (od->pel.pymol_old_object_id) {
-          int_perm_free(od->pel.pymol_old_object_id);
-          od->pel.pymol_old_object_id = NULL;
+        ++command;
+        tee_printf(od, M_TOOL_INVOKE, nesting, command, "LOAD", line_orig);
+        tee_flush(od);
+        if (!(options & APPEND_BIT)) {
+          close_files(od, MAX_FILES);
+          remove_temp_files(od->package_code);
+          if (od->pel.pymol_old_object_id) {
+            int_perm_free(od->pel.pymol_old_object_id);
+            od->pel.pymol_old_object_id = NULL;
+          }
+          if (od->pel.jmol_old_object_id) {
+            int_perm_free(od->pel.jmol_old_object_id);
+            od->pel.jmol_old_object_id = NULL;
+          }
         }
-        if (od->pel.jmol_old_object_id) {
-          int_perm_free(od->pel.jmol_old_object_id);
-          od->pel.jmol_old_object_id = NULL;
-        }
-        if (!(od->file[DAT_IN]->handle = fopen(parameter, "rb"))) {
+        if (!(od->file[DAT_IN]->handle = (FILE *)
+          fzopen(od->file[DAT_IN]->name, "rb"))) {
           tee_error(od, run_type, overall_line_num,
             E_FILE_CANNOT_BE_OPENED_FOR_READING,
-            parameter, LOAD_FAILED);
+            od->file[DAT_IN]->name, LOAD_FAILED);
           fail = !(run_type & INTERACTIVE_RUN);
           continue;
         }
         /*
         load .dat file
         */
-        ++command;
-        tee_printf(od, M_TOOL_INVOKE, nesting, command, "LOAD", line_orig);
-        tee_flush(od);
-        close_files(od, MAX_FILES);
-        remove_temp_files(od->package_code);
-        result = open_temp_dir(od, NULL, "mol_dir", od->field.mol_dir);
-        if (result) {
-          tee_error(od, run_type, overall_line_num,
-            E_TEMP_DIR_CANNOT_BE_CREATED, od->field.mol_dir,
-            LOAD_FAILED);
-            fail = !(run_type & INTERACTIVE_RUN);
-            continue;
+        if (!(options & APPEND_BIT)) {
+          result = open_temp_dir(od, NULL, "mol_dir", od->field.mol_dir);
+          if (result) {
+            tee_error(od, run_type, overall_line_num,
+              E_TEMP_DIR_CANNOT_BE_CREATED, od->field.mol_dir,
+              LOAD_FAILED);
+              if (od->file[DAT_IN]->handle) {
+                fzclose((fzPtr *)(od->file[DAT_IN]->handle));
+                od->file[DAT_IN]->handle = NULL;
+              }
+              fail = !(run_type & INTERACTIVE_RUN);
+              continue;
+          }
         }
         sprintf(od->file[TEMP_MOLFILE]->name, "%s%cloaded_molfile.sdf",
           od->field.mol_dir, SEPARATOR);
         result = load_dat(od, DAT_IN, VERBOSE_BIT);
+        if (od->file[DAT_IN]->handle) {
+          fzclose((fzPtr *)(od->file[DAT_IN]->handle));
+          od->file[DAT_IN]->handle = NULL;
+        }
         gettimeofday(&end, NULL);
         elapsed_time(od, &start, &end);
         switch (result) {
           case PREMATURE_DAT_EOF:
           tee_error(od, run_type, overall_line_num,
             E_FILE_CORRUPTED_OR_IN_WRONG_FORMAT, ".dat",
-            parameter, LOAD_FAILED);
+            od->file[DAT_IN]->name, LOAD_FAILED);
+          O3_ERROR_PRINT(&(od->task));
+          return PARSE_INPUT_ERROR;
+          
+          case WRONG_NUMBER_OF_FIELDS:
+          tee_error(od, run_type, overall_line_num,
+            "In the .dat file \"%s\" the number of fields "
+            "does not match the number of currently loaded "
+            "fields.\n%s",
+            od->file[DAT_IN]->name, LOAD_FAILED);
+          O3_ERROR_PRINT(&(od->task));
+          return PARSE_INPUT_ERROR;
+          
+          case WRONG_NUMBER_OF_X_VARS:
+          tee_error(od, run_type, overall_line_num,
+            "In the .dat file \"%s\" the number of X variables "
+            "does not match the number of currently loaded "
+            "X variables.\n%s",
+            od->file[DAT_IN]->name, LOAD_FAILED);
+          O3_ERROR_PRINT(&(od->task));
+          return PARSE_INPUT_ERROR;
+            
+          case WRONG_NUMBER_OF_Y_VARS:
+          tee_error(od, run_type, overall_line_num,
+            "In the .dat file \"%s\" the number of Y variables "
+            "does not match the number of currently loaded "
+            "Y variables.\n%s",
+            od->file[DAT_IN]->name, LOAD_FAILED);
+          O3_ERROR_PRINT(&(od->task));
+          return PARSE_INPUT_ERROR;
+            
+          case GRID_NOT_MATCHING:
+          tee_error(od, run_type, overall_line_num,
+            E_GRID_NOT_MATCHING, "DAT",
+            od->file[DAT_IN]->name, "");
+          print_grid_comparison(od);
+          tee_error(od, run_type, overall_line_num, "%s\n",
+            LOAD_FAILED);
+          O3_ERROR_PRINT(&(od->task));
           return PARSE_INPUT_ERROR;
 
           case STATUS_INCONSISTENCY:
           tee_error(od, run_type, overall_line_num,
             "In the .dat file \"%s\" the active/inactive "
-            "status of objects is not consistent among the "
+            "status of objects is not consistent across the "
             "different fields.\n%s",
-            parameter, LOAD_FAILED);
+            od->file[DAT_IN]->name, LOAD_FAILED);
+          O3_ERROR_PRINT(&(od->task));
           return PARSE_INPUT_ERROR;
 
           case OUT_OF_MEMORY:
           tee_error(od, run_type, overall_line_num,
             E_OUT_OF_MEMORY, LOAD_FAILED);
+          O3_ERROR_PRINT(&(od->task));
           return PARSE_INPUT_ERROR;
 
           case Y_VAR_LOW_SD:
           tee_error(od, run_type, overall_line_num,
             E_Y_VAR_LOW_SD, LOAD_FAILED);
+          O3_ERROR_PRINT(&(od->task));
           return PARSE_INPUT_ERROR;
 
           case CANNOT_READ_TEMP_FILE:
           tee_error(od, run_type, overall_line_num,
-            E_ERROR_IN_READING_TEMP_FILE, LOAD_FAILED);
+            E_ERROR_IN_READING_TEMP_FILE, "TEMP_FIELD", LOAD_FAILED);
+          O3_ERROR_PRINT(&(od->task));
           return PARSE_INPUT_ERROR;
 
           case FL_CANNOT_CREATE_CHANNELS:
           tee_error(od, run_type, overall_line_num,
             E_CANNOT_CREATE_PIPE, LOAD_FAILED);
+          O3_ERROR_PRINT(&(od->task));
           return PARSE_INPUT_ERROR;
 
           case FL_CANNOT_CHDIR:
           tee_error(od, run_type, overall_line_num,
             E_CANNOT_CHANGE_DIR, od->field.babel_exe_path, LOAD_FAILED);
+          O3_ERROR_PRINT(&(od->task));
           return PARSE_INPUT_ERROR;
 
           case FL_CANNOT_CREATE_PROCESS:
           tee_error(od, run_type, overall_line_num,
             E_CANNOT_CREATE_PROCESS, "OpenBabel", LOAD_FAILED);
+          O3_ERROR_PRINT(&(od->task));
           return PARSE_INPUT_ERROR;
 
           case OPENBABEL_ERROR:
@@ -1554,6 +1635,7 @@ int parse_input(O3Data *od, FILE *input_stream, int run_type)
             tee_error(od, run_type, overall_line_num,
               E_CANNOT_READ_PROGRAM_LOG, "OpenBabel", LOAD_FAILED);
           }
+          O3_ERROR_PRINT(&(od->task));
           return PARSE_INPUT_ERROR;
         }
         if (update_mol(od)) {
