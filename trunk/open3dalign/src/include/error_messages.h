@@ -9,7 +9,7 @@ Open3DALIGN
 
 An open-source software aimed at unsupervised molecular alignment
 
-Copyright (C) 2010-2013 Paolo Tosco, Thomas Balle
+Copyright (C) 2010-2014 Paolo Tosco, Thomas Balle
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -222,6 +222,9 @@ char E_CANNOT_FIND_Y_VAR_NAME[] =
   "names does not exist.\n%s";
 char E_Y_VAR_ALLOWED_RANGE[] =
   "Please choose biological activity number 1 - %d.\n%s";
+char E_GRID_NOT_MATCHING[] =
+  "The grid defined in the %s file \"%s\" is not matching "
+  "with the one already defined in "PACKAGE_NAME".\n%s";
 char E_NO_OBJECTS_PRESENT[] =
   "No objects are currently present.\n%s";
 char E_WHILE_SOURCING[] =

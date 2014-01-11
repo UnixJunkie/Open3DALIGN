@@ -358,44 +358,53 @@ name="align_ref2"></a>Taminau, J.; Thijs, G.; De Winter, H.
 target="_blank">DOI</a></li> </li></ol> <br><br><br><a href="#Contents">
 <p align="right">Back to Contents</p></a><br> <hr color="#ebf1de"
 align="center" width="95%" size="2"><br><h3><a name="box"></a>box</h3><br>
-<h4>SYNOPSIS</h4> <code>box&nbsp; {[outgap=&lt;number of &Aring;
+<h4>SYNOPSIS</h4> <code>box&nbsp; [mode={GET | SET; defaults to
+SET}]&nbsp; \<br> &nbsp;&nbsp;&nbsp; {[outgap=&lt;number of &Aring;
 by which the grid box exceeds the largest molecule in all directions;
 defaults to 5.0&gt;]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [step=&lt;grid step
 size in &Aring;; defaults to 1.0&gt;]&nbsp; \<br> &nbsp;&nbsp;&nbsp; |
-[x_start=&lt;top left x coordinate&gt;&nbsp; x_end=&lt;bottom right
-x coordinate&gt;&nbsp; \<br> &nbsp;&nbsp;&nbsp; y_start=&lt;top left
-y coordinate&gt;&nbsp; y_end=&lt;bottom right y coordinate&gt;&nbsp;
-\<br> &nbsp;&nbsp;&nbsp; z_start=&lt;top left z coordinate&gt;&nbsp;
-z_end=&lt;bottom right z coordinate&gt;]&nbsp; \<br> &nbsp;&nbsp;&nbsp;
-[step=&lt;grid step size in &Aring;; defaults to 1.0&gt;]&nbsp; \<br>
-&nbsp;&nbsp;&nbsp; | [file=&lt;CoMFA .rgn file&gt;]} </code><br><br>
-<h4>DESCRIPTION</h4> The <code>box</code> keyword allows to specify
-the position, size and mesh of a grid box surrounding the molecules
-of the currently loaded dataset. Before invoking <code>box</code>,
-some 3D structures must have been imported through the <code>import
-type=SDF</code> or <code>load</code> keywords. Invoking <code>box</code>
+[x_start=&lt;top left x coordinate&gt;&nbsp; \<br> &nbsp;&nbsp;&nbsp;
+{x_end=&lt;bottom right x coordinate&gt; | x_nodes=&lt;number
+of nodes on the x coordinate&gt;}&nbsp; \<br> &nbsp;&nbsp;&nbsp;
+y_start=&lt;top left y coordinate&gt;&nbsp; \<br> &nbsp;&nbsp;&nbsp;
+{y_end=&lt;bottom right y coordinate&gt; | y_nodes=&lt;number
+of nodes on the y coordinate&gt;}&nbsp; \<br> &nbsp;&nbsp;&nbsp;
+z_start=&lt;top left z coordinate&gt;&nbsp; \<br> &nbsp;&nbsp;&nbsp;
+{z_end=&lt;bottom right z coordinate&gt; | z_nodes=&lt;number of nodes
+on the z coordinate&gt;}&nbsp; \<br> &nbsp;&nbsp;&nbsp; | [file=&lt;CoMFA
+.rgn file&gt;]} </code><br><br> <h4>DESCRIPTION</h4> The <code>box</code>
+keyword, whose default operation <code>mode</code> is <code>SET</code>,
+allows specifying the position, size and mesh of the grid box which
+surrounds the molecules belonging to the dataset.  Before invoking
+<code>box</code>, some 3D structures must have been imported through
+the <code>import type=SDF</code> keyword. Invoking <code>box</code>
 without parameters creates a 1.0 &Aring; step size box surrounding all
 molecules leaving a 5.0 &Aring; outgap around the largest. Instead of
 specifying the grid box size through the <code>outgap</code> parameter,
-absolute <code>x,y,z</code> coordinates of the top left, bottom right
-corners may be given; the actual position of the bottom right corner
-will be adjusted to the nearest multiple of the grid step size.<br>
-Finally, a grid box consistent with the one used in a CoMFA study
-may be created by importing a CoMFA region <code>.rgn</code> file
-through the <code>file</code> parameter.  The <code>box</code> keyword
-has been implemented in <B>Open3DALIGN</B> mostly for compatibility
-with <a href="http://open3dgrid.org/" target="_blank">Open3DGRID</a>
-and <a href="http://open3dqsar.org/" target="_blank">Open3DQSAR</a>.
-<br><br> <h4>EXAMPLES</h4> <code> # the following command creates a
-1.0 &Aring; step size box surrounding all molecules leaving a 5.0
-&Aring; outgap around the largest<br> box<br><br> # the following
-command creates a 0.3333 &Aring; step size box surrounding all
-molecules leaving a 4.0 &Aring; outgap around the largest<br>
-box&nbsp; step=0.3333&nbsp; outgap=4.0<br><br> # the following
-command creates a 1.0 &Aring; step size box whose top left, bottom
-right corners have the following coordinates: [(21.0, 30.0, 27.0),
+absolute <code>x,y,z</code> coordinates of the top left, bottom
+right corners may be given; the actual position of the bottom right
+corner will be adjusted to the nearest multiple of the grid step size.
+As an alternative to <code>[x,y,z]_end</code> parameters, the number of
+nodes on the <code>x,y,z</code> coordinates may be entered through the
+<code>[x,y,z]_nodes</code> parameters.<br> A grid box consistent with
+the one used in a CoMFA study may be created by importing a CoMFA region
+<code>.rgn</code> file through the <code>file</code> parameter.<br>
+Finally, invoking <code>box</code> with <code>mode=GET</code> outputs
+the current grid box settings.  <br><br> <h4>EXAMPLES</h4> <code> #
+the following command creates a 1.0 &Aring; step size box surrounding
+all molecules leaving a 5.0 &Aring; outgap around the largest<br>
+box<br><br> # the following command creates a 0.3333 &Aring; step
+size box surrounding all molecules leaving a 4.0 &Aring; outgap around
+the largest<br> box&nbsp; step=0.3333&nbsp; outgap=4.0<br><br> # the
+following command creates a 1.0 &Aring; step size box whose top left,
+bottom right corners have the following coordinates: [(21.0, 30.0, 27.0),
 (39.0, 46.0, 49.0)]<br> box&nbsp; x_start=21.0&nbsp; x_end=39.0&nbsp;
 y_start=30.0&nbsp; y_end=46.0&nbsp; z_start=27.0&nbsp; z_end=49.0<br><br>
+# the following command creates a 1.5 &Aring; step size box whose
+top left corner has the following coordinates: (17.0, 21.0, 24.0);
+the number of nodes in the x, y, z directions are respectively 15, 18,
+19<br> box&nbsp; step=1.5&nbsp; x_start=17.0&nbsp; y_start=21.0&nbsp;
+z_start=24.0&nbsp; x_nodes=15&nbsp; y_nodes=18&nbsp; z_nodes=19<br><br>
 # the following command creates a grid consistent with the one used in
 a CoMFA study<br> box&nbsp; file=comfa_study.rgn</code> <br><br><br><a
 href="#Contents"> <p align="right">Back to Contents</p></a><br>
@@ -654,32 +663,42 @@ of such a file follows:<br><br><code> affinity<br> 6.72<br> 6.74<br>
 9.00<br> 6.77<br> 9.06<br> 9.17<br> 8.18<br> 6.62<br> 9.00<br> 9.35<br>
 9.42<br> 7.07<br> 8.17<br> 8.52<br> 8.55<br> 8.80<br> 6.74<br> 8.62<br>
 8.82</code><br><br> If multiple dependent variables are present, their
-values should be entered on separate columns delimited by either a
-space or a tabulation character, each bearing on the first line the
-variable name.  If a mismatch between object number and dependent
-variable lines is detected, an error message is issued. If only some
-of the dependent variables are to be used, the <code>y_var_name</code>
-parameter may be set to a comma-separated list of the variable names
-to be imported; the default is <code>ALL</code>, which means that
-all available variables are imported.<br> All <I>Y</I> values can be
-transformed through the <code>transform</code> keyword</li></ul><br>
-<h4>EXAMPLES</h4> <code> # this command imports a SDF file and opens it in
-PyMOL, whose path is given<br> env&nbsp; pymol=/usr/local/bin/pymol<br>
-import&nbsp; type=SDF&nbsp; file=my_dataset.sdf</code> <br><br><br><a
-href="#Contents"> <p align="right">Back to Contents</p></a><br>
-<hr color="#ebf1de" align="center" width="95%" size="2"><br><h3><a
-name="load"></a>load</h3><br> <h4>SYNOPSIS</h4> <code>load&nbsp;
+values should be entered on separate columns delimited by either a space
+or a tabulation character, each bearing on the first line the variable
+name.  If a mismatch between object number and dependent variable lines
+is detected, an error message is issued. If only some of the dependent
+variables are to be used, the <code>y_var_name</code> parameter may be
+set to a comma-separated list of the variable names to be imported; the
+default is <code>ALL</code>, which means that all available variables
+are imported.<br> All <I>Y</I> values can be transformed through
+the <code>transform</code> keyword</li></ul><br> <h4>EXAMPLES</h4>
+<code> # this command imports a SDF file and opens it in PyMOL,
+whose path is given<br> env&nbsp; pymol=/usr/local/bin/pymol<br>
+import&nbsp; type=SDF&nbsp; file=my_dataset.sdf</code>
+<br><br><br><a href="#Contents"> <p align="right">Back to
+Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
+size="2"><br><h3><a name="load"></a>load</h3><br> <h4>SYNOPSIS</h4>
+<code>load&nbsp; [mode={NORMAL | APPEND}; defaults to NORMAL]&nbsp;
 file=&lt;filename&gt;</code><br><br> <h4>DESCRIPTION</h4> The
 <code>load</code> keyword is used to retrieve data previously
 stored by <B>Open3DALIGN</B>, <a href="http://open3dgrid.org/"
 target="_blank">Open3DGRID</a> or <a href="http://open3dqsar.org/"
-target="_blank">Open3DQSAR</a> with the <code>save</code>
-keyword.  <br><br><br><a href="#Contents"> <p align="right">Back to
-Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
-size="2"><br><h3><a name="qmd"></a>qmd</h3><br> <h4>SYNOPSIS</h4>
-<code>qmd&nbsp; [prm=&lt;folder containing TINKER parameter
-files&gt;]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [keep_initial={YES | NO;
-defaults to NO}]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [minimizer={OPTIMIZE
+target="_blank">Open3DQSAR</a> with the <code>save</code> keyword.<br>
+The <code>load</code> keyword supports GZIP/ZIP-compressed files
+without need to decompress them in advance; the compression
+format is recognized by the file extension (<code>.gz</code> or
+<code>.zip</code>, respectively).<br> The default <code>mode</code>
+for the <code>load</code> keyword is <code>NORMAL</code>; <I>i.e.</I>,
+the newly loaded data replace the previously loaded ones. Instead, when
+<code>mode=APPEND</code>, the new molecules are appended to the already
+loaded ones. The <code>APPEND</code> parameter requires that the grid
+box size and field data in the appended file are compatible with those
+currently loaded in the program.  <br><br><br><a href="#Contents">
+<p align="right">Back to Contents</p></a><br> <hr color="#ebf1de"
+align="center" width="95%" size="2"><br><h3><a name="qmd"></a>qmd</h3><br>
+<h4>SYNOPSIS</h4> <code>qmd&nbsp; [prm=&lt;folder containing TINKER
+parameter files&gt;]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [keep_initial={YES |
+NO; defaults to NO}]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [minimizer={OPTIMIZE
 | MINIMIZE; defaults to OPTIMIZE}]&nbsp; \<br> &nbsp;&nbsp;&nbsp;
 [min_maxiter=&lt;maximum number of iterations carried out by the
 minimizer&gt;; defaults to 1000]&nbsp; \<br> &nbsp;&nbsp;&nbsp;
@@ -696,14 +715,14 @@ carried out&gt;; defaults to 200]&nbsp; \<br> &nbsp;&nbsp;&nbsp;
 to 10]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [time_step=&lt;length in fs of
 the molecular dynamics integration time step&gt;; defaults to 1.0]&nbsp;
 \<br> &nbsp;&nbsp;&nbsp; [diel_const=&lt;dielectric constant value&gt;;
-defaults to 1.0]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [gbsa={YES | NO};
-defaults to NO]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [qmd_dir=&lt;directory
-where SDF databases of conformers are stored&gt;]&nbsp; \<br>
-&nbsp;&nbsp;&nbsp; [remove_qmd_folder={YES | NO}; defaults to NO]
-</code><br><br> <h4>DESCRIPTION</h4> The <code>qmd</code> keyword is
-used to carry out quenched molecular dynamics (QMD) conformational
-searches.  The quenched molecular dynamics protocol we implemented
-in <B>Open3DALIGN</B> is outlined below:<br><ol> <li>minimize the
+defaults to 1.0]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [gbsa={YES | NO}; defaults
+to NO]&nbsp; \<br> &nbsp;&nbsp;&nbsp; [qmd_dir=&lt;directory where SDF
+databases of conformers are stored&gt;]&nbsp; \<br> &nbsp;&nbsp;&nbsp;
+[remove_qmd_folder={YES | NO}; defaults to NO] </code><br><br>
+<h4>DESCRIPTION</h4> The <code>qmd</code> keyword is used to carry
+out quenched molecular dynamics (QMD) conformational searches.
+The quenched molecular dynamics protocol we implemented in
+<B>Open3DALIGN</B> is outlined below:<br><ol> <li>minimize the
 starting geometry using the MMFF94s force-field as implemented in <a
 href="http://dasher.wustl.edu/tinker/" target="_blank">TINKER</a>;
 the TINKER minimizer can be chosen through the <code>minimizer</code>
@@ -767,13 +786,13 @@ for the <I>n</I> compounds belonging to the currently loaded dataset,
 and conformers are saved into <I>n</I> SDF databases in the directory
 defined by <code>qmd_dir</code>.  Therefore, after importing a SDF
 database of <I>n</I> compounds through the <code>import type=SDF</code>
-keyword, the <code>qmd</code> keyword yields a directory with <I>n</I> SDF
-databases containing the most stable conformer in a span from the global
-minimum selected through the <code>range</code> parameter.  <br><br>
-By default, the <code>qmd</code> module operates in parallel fashion
-on multiprocessor machines, using all the CPUs available in the system;
-if one wishes to run the computation on a lower number of CPUs, this
-may be specified before calling <code>qmd</code> with the <code>env
+keyword, the <code>qmd</code> keyword yields a directory with <I>n</I>
+SDF databases containing the most stable conformer in a span from
+the global minimum selected through the <code>range</code> parameter.
+<br><br> By default, the <code>qmd</code> module operates in parallel
+fashion on multiprocessor machines, using all the CPUs available in the
+system; if one wishes to run the computation on a lower number of CPUs,
+this may be specified before calling <code>qmd</code> with the <code>env
 n_cpus</code> keyword.<br><br> Since QMD searches can be time-consuming,
 especially when large datasets and high numbers of runs are used,
 unfinished runs which have been stopped by <code>CTRL-C</code>, logout,
@@ -820,7 +839,7 @@ list&gt;; defaults to ALL}</code><br><br> <h4>DESCRIPTION</h4> The
 <code>remove_y_vars</code> keyword allows to remove selected <I>Y</I>
 variables previously imported.<br><br> <h4>EXAMPLES</h4> <code> #this
 command removes Y variable 2 from the dataset currently loaded in
-Open3DALIGN<br> remove_y_vars&nbsp; y_var_list=2<br><br> <br><br><br><a
+Open3DALIGN<br> remove_y_vars&nbsp; y_var_list=2</code> <br><br><br><a
 href="#Contents"> <p align="right">Back to Contents</p></a><br>
 <hr color="#ebf1de" align="center" width="95%" size="2"><br><h3><a
 name="rototrans"></a>rototrans</h3><br> <h4>SYNOPSIS</h4>
@@ -857,10 +876,13 @@ href="#Contents"> <p align="right">Back to Contents</p></a><br>
 <hr color="#ebf1de" align="center" width="95%" size="2"><br><h3><a
 name="save"></a>save</h3><br> <h4>SYNOPSIS</h4> <code>save&nbsp;
 file=&lt;filename&gt;</code><br><br> <h4>DESCRIPTION</h4>
-The <code>save</code> keyword is used to store structures
-and biological data previously imported in <B>Open3DALIGN</B>
-job.  <br><br><br><a href="#Contents"> <p align="right">Back to
-Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
+The <code>save</code> keyword is used to store structures and
+biological data previously imported in <B>Open3DALIGN</B> job.<br>
+The <code>save</code> keyword can export GZIP/ZIP-compressed files;
+the compression format is chosen according to the file extension
+specified by the user (<code>.gz</code> or <code>.zip</code>,
+respectively).  <br><br><br><a href="#Contents"> <p align="right">Back
+to Contents</p></a><br> <hr color="#ebf1de" align="center" width="95%"
 size="2"><br><h3><a name="set"></a>set</h3><br> <h4>SYNOPSIS</h4>
 <code>set&nbsp; {object_list | id_list=&lt;comma/hyphen separated
 list&gt;}&nbsp; \<br> &nbsp;&nbsp;&nbsp; attribute={TRAININGSET
@@ -934,9 +956,34 @@ J. J.; O'Brien, L. A.; Weaver, D. F.  <I>J. Med. Chem.</I> <B>2004</B>,
 target="_blank">DOI</a></li> <br><br><br><a href="#Contents">
 <p align="right">Back to Contents</p></a><br> <hr
 color="#ebf1de" align="center" width="95%" size="2"><br><h2><a
-name="ChangeLog">ChangeLog</a></h2><br><br> <ul><li>August 5, 2013:
-release of <B>Open3DALIGN</B> 2.25</li></ul> <ul>Changes with respect
-to the previous version include:</ul> <ul><ul><li>Built against
+name="ChangeLog">ChangeLog</a></h2><br><br> <ul><li>January 10, 2014:
+release of <B>Open3DALIGN</B> 2.27</li></ul> <ul>Changes with respect
+to the previous version include:</ul> <ul><ul><li>Added the possibility
+to print grid box settings with the <code>mode=GET</code> parameter,
+as opposed to the default <code>mode=SET</code></li></ul></ul>
+<ul><ul><li>Added the <code>mode=APPEND</code> parameter to
+the <code>load</code> keyword to allow appending a dataset to an
+already loaded one</li></ul></ul> <ul><ul><li>Removed the dependency
+from <code>libedit</code>; now the program attempts to open the
+<code>libedit</code> (or <code>libreadline</code>, if <code>libedit</code>
+is not available) dynamic library at runtime. The dependency from
+<code>libedit</code>/<code>libreadline</code> can still be introduced
+at compile time using the <code>--with-editline</code> configure
+switch</li></ul></ul> <ul><ul><li>Minor bug fixes</li></ul></ul>
+<br> <ul><li>November 24, 2013: release of <B>Open3DALIGN</B>
+2.26</li></ul> <ul>Changes with respect to the previous version
+include:</ul> <ul><ul><li>Built against <code>libo3q</code>
+version 2.26</li></ul></ul> <br> <ul><li>November 17, 2013:
+release of <B>Open3DALIGN</B> 2.252</li></ul> <ul>Changes with
+respect to the previous version include:</ul> <ul><ul><li>Fixed
+a bug in parsing V2000 SDF files missing the <code>V2000</code>
+keyword in the header line</li></ul></ul> <ul><ul><li>Fixed a bug
+in parsing V3000 SDF files</li></ul></ul> <br> <ul><li>October 31,
+2013: release of <B>Open3DALIGN</B> 2.251</li></ul> <ul>Changes with
+respect to the previous version include:</ul> <ul><ul><li>Built against
+<code>libo3q</code> version 2.251</li></ul></ul> <br> <ul><li>August
+5, 2013: release of <B>Open3DALIGN</B> 2.25</li></ul> <ul>Changes with
+respect to the previous version include:</ul> <ul><ul><li>Built against
 <code>libo3q</code> version 2.25</li></ul></ul> <br> <ul><li>June 13,
 2013: release of <B>Open3DALIGN</B> 2.24</li></ul> <ul>Changes with
 respect to the previous version include:</ul> <ul><ul><li>A bug which
@@ -1137,22 +1184,22 @@ href="http://dasher.wustl.edu/tinker/" target="_blank">TINKER</a> and
 respectively.  So, big thanks to <a href="http://dasher.wustl.edu/ponder/"
 target="_blank">Prof. Jay Ponder</a> for his kind and prompt
 feedback and for allowing us to include four programs of the <a
-href="http://dasher.wustl.edu/tinker/" target="_blank">TINKER</a>
-suite (namely, <code>analyze</code>, <code>dynamic</code>,
-<code>minimize</code> and <code>optimize</code>) in <B>Open3DALIGN</B>.
-Thanks also to all <a href="http://www.silicos.be/pharao.html"
-target="_blank">Pharao</a> developers at <a href="http://www.silicos.be"
-target="_blank">Silicos</a> and particularly to Gert Thijs with
-whom we had some nice discussions.<br><br> Finally, we wish to
-cite the authors of some algorithms which either inspired those
-implemented in <B>Open3DALIGN</B> [<a href="#credits_ref1">1</a>,<a
-href="#credits_ref2">2</a>,<a href="#credits_ref3">3</a>], or
-were implemented exactly as in their original formulation [<a
-href="#credits_ref4">4</a>,<a href="#credits_ref5">5</a>]:<br><br>
-<ul><li>M. Petitjean for his description of the combined
-SDM/RMS algorithm [<a href="#credits_ref1">1</a>]</li></ul>
-<ul><li>N. J. Richmond, P. Willett, R. D. Clark for the description
-of their LAMDA algorithm [<a href="#credits_ref2">2</a>]</li></ul>
+href="http://dasher.wustl.edu/tinker/" target="_blank">TINKER</a> suite
+(namely, <code>analyze</code>, <code>dynamic</code>, <code>minimize</code>
+and <code>optimize</code>) in <B>Open3DALIGN</B>.  Thanks also to all
+<a href="http://www.silicos.be/pharao.html" target="_blank">Pharao</a>
+developers at <a href="http://www.silicos.be" target="_blank">Silicos</a>
+and particularly to Gert Thijs with whom we had some nice
+discussions.<br><br> Finally, we wish to cite the authors of some
+algorithms which either inspired those implemented in <B>Open3DALIGN</B>
+[<a href="#credits_ref1">1</a>,<a href="#credits_ref2">2</a>,<a
+href="#credits_ref3">3</a>], or were implemented exactly as in
+their original formulation [<a href="#credits_ref4">4</a>,<a
+href="#credits_ref5">5</a>]:<br><br> <ul><li>M. Petitjean
+for his description of the combined SDM/RMS algorithm [<a
+href="#credits_ref1">1</a>]</li></ul> <ul><li>N. J. Richmond,
+P. Willett, R. D. Clark for the description of their
+LAMDA algorithm [<a href="#credits_ref2">2</a>]</li></ul>
 <ul><li>D. E. Stewart and Z. Leyk, for providing inspiration with
 their <a href="http://www.cs.uiowa.edu/%7Edstewart/meschach/"
 target="_blank">Meschach library</a> about how to code an efficient
@@ -1187,9 +1234,23 @@ Canonico, M.; Guazzone, M.; Botta, M.; Rabellino, S.; Arena, S.; Girardi,
 G.  <I>Proceedings of CCGRID'08</I>, May <B>2008</B>, Lyon (France),
 IEEE Press.  &nbsp; <a href="http://dx.doi.org/10.1109/CCGRID.2008.23"
 target="_blank">DOI</a></li> </ol> <br><br><br><br><br><a
-href="#Contents"> <p align="right">Back to Contents</p></a><br>
-<hr color="#ebf1de" align="center" width="95%"
-size="2"><br><h1>Downloads</h1><br><br>
+href="#Contents"> <p align="right">Back to
+Contents</p></a><br> <hr color="#ebf1de" align="center"
+width="95%" size="2"><br><h1>Tutorials</h1><br><br> <a
+href="http://open3dqsar.org/downloads/Open3DTOOLS_tutorial_20130812.pdf"
+target="_blank">Here</a> you may find a basic tutorial to learn using
+<a href="http://open3dqsar.org/" target="_blank">Open3DQSAR</a> and <a
+href="http://open3dalign.org/" target="_blank">Open3DALIGN</a>.<br><br>
+<a href="http://file.teach-discover-treat.org/download_winner.php?w=1"
+target="_blank">Here</a> you may download a very
+comprehensive advanced tutorial (winner of the <a
+href="http://www.teach-discover-treat.org/the-2012-competition"
+target="_blank">Teach-Discover-Treat competition 2012</a>) which shows how
+to use <a href="http://open3dqsar.org/" target="_blank">Open3DQSAR</a> and
+<a href="http://open3dalign.org/" target="_blank">Open3DALIGN</a> in the
+context of virtual screening.  <br><br><br><br><br><a href="#Contents">
+<p align="right">Back to Contents</p></a><br> <hr color="#ebf1de"
+align="center" width="95%" size="2"><br><h1>Downloads</h1><br><br>
 <B>Open3DALIGN</B> may be downloaded from <a
 href="http://sourceforge.net/projects/open3dalign/files/"
 target="_blank">SourceForge</a> as <a

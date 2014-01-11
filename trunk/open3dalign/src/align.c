@@ -9,7 +9,7 @@ Open3DALIGN
 
 An open-source software aimed at unsupervised molecular alignment
 
-Copyright (C) 2010-2013 Paolo Tosco, Thomas Balle
+Copyright (C) 2010-2014 Paolo Tosco, Thomas Balle
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -1404,6 +1404,11 @@ int align(O3Data *od)
       O3_ERROR_LOCATE(&(od->task));
       return OUT_OF_MEMORY;
     }
+    /*
+    done_array_pos ranges from 0 to the overall number of
+    template conformations (computed over all template objects)
+    done_objects is a (done_array_pos, object_num) byte matrix
+    */
     for (template_num = 0, done_array_pos = 0; template_num < od->pel.numberlist[OBJECT_LIST]->size; ++template_num) {
       template_object_num = od->pel.numberlist[OBJECT_LIST]->pe[template_num] - 1;
       for (template_conf_num = 0; template_conf_num < ((od->align.type & ALIGN_MULTICONF_TEMPLATE_BIT)
@@ -1442,6 +1447,9 @@ int align(O3Data *od)
       od->al.task_list[i]->data[MOVED_OBJECT_NUM] = i;
       od->al.task_list[i]->data[MOVED_CONF_NUM] = -1;
     }
+    /*
+    allocate and fill AtomInfo structures for each object
+    */
     for (i = 0, od->field.max_n_heavy_atoms = 0; i < od->grid.object_num; ++i) {
       if (!(od->al.mol_info[i]->atom = (AtomInfo **)
         alloc_array(od->al.mol_info[i]->n_atoms + 1, sizeof(AtomInfo)))) {
@@ -1535,10 +1543,20 @@ int align(O3Data *od)
     tee_printf(od, "%8s%8s%16s%20s\n%s",
       "Template", "ID", "Conformer", ((od->align.type & ALIGN_PHARAO_BIT)
       ? "PHARAO_TANIMOTO" : "O3A_SCORE"), dashed_line);
+    /*
+    loop over user-requested template numbers
+    */
     for (template_num = 0; template_num < od->pel.numberlist[OBJECT_LIST]->size; ++template_num) {
       template_object_num = od->pel.numberlist[OBJECT_LIST]->pe[template_num] - 1;
+      /*
+      loop over available conformations for each template
+      */
       for (template_conf_num = 0; template_conf_num < ((od->align.type & ALIGN_MULTICONF_TEMPLATE_BIT)
         ? od->pel.conf_population[TEMPLATE_DB]->pe[template_object_num] : 1); ++template_conf_num) {
+        /*
+        set the aligned SDF name depending on whether the template
+        includes multiple conformations or not
+        */
         if (od->align.type & ALIGN_MULTICONF_TEMPLATE_BIT) {
           sprintf(template_conf_string, "_%06d", template_conf_num + 1);
         }
@@ -1873,6 +1891,9 @@ DWORD align_atombased_thread(void *pointer)
     alloc_fail = 1;
   }
   for (i = 0; i < O3_MAX_SLOT; ++i) {
+    /*
+    allocate MAX_SLOT conformations and SDM matrices
+    */
     if (!(conf[i] = alloc_conf(ti->od.field.max_n_atoms))) {
       alloc_fail = 1;
     }
@@ -1885,6 +1906,11 @@ DWORD align_atombased_thread(void *pointer)
   }
   for (i = 0; i < 2; ++i) {
     if (conf[i]) {
+      /*
+      for the first two conformations, allocate a
+      (max_n_heavy_atoms, MAX_H_BINS) int matrix
+      and also a (max_n_heavy_atoms) byte vector
+      */
       if (!(conf[i]->h = (int **)alloc_array
         (ti->od.field.max_n_heavy_atoms, MAX_H_BINS * sizeof(int)))) {
         alloc_fail = 1;
@@ -1905,7 +1931,7 @@ DWORD align_atombased_thread(void *pointer)
     prog_exe_info.sep_proc_grp = 1;
   }
   /*
-  loop over all tasks
+  loop over all template objects
   */
   for (template_num = 0, done_array_pos = 0, error = 0; (!error)
     && (template_num < ti->od.pel.numberlist[OBJECT_LIST]->size); ++template_num) {
@@ -1916,6 +1942,9 @@ DWORD align_atombased_thread(void *pointer)
       conf[O3_TEMPLATE]->n_atoms = ti->od.al.mol_info[template_object_num]->n_atoms;
       conf[O3_TEMPLATE]->n_heavy_atoms = ti->od.al.mol_info[template_object_num]->n_heavy_atoms;
     }
+    /*
+    loop over conformations of this template object
+    */
     for (template_conf_num = 0; (!error) && (template_conf_num < ((ti->od.align.type & ALIGN_MULTICONF_TEMPLATE_BIT)
       ? ti->od.pel.conf_population[TEMPLATE_DB]->pe[template_object_num] : 1)); ++template_conf_num) {
       if (ti->od.align.type & ALIGN_MULTICONF_TEMPLATE_BIT) {
@@ -1933,6 +1962,11 @@ DWORD align_atombased_thread(void *pointer)
               ti->od.al.mol_info[template_object_num]->object_id);
           }
           conf_file_error = 0;
+          /*
+          Read template conformation coordinates from a file,
+          either an external file (for single-conformation template aligment)
+          or a SDF conformational database (for multi-conformation template aligment)
+          */
           if ((temp_fd.handle = fopen(temp_fd.name, "rb"))) {
             conf_found = (!find_conformation_in_sdf(temp_fd.handle, NULL, template_conf_num));
             if (conf_found) {
@@ -1953,13 +1987,22 @@ DWORD align_atombased_thread(void *pointer)
           }
         }
         else {
+          /*
+          read coordinates from the currently loaded structure
+          */
           for (i = 0; i < ti->od.al.mol_info[template_object_num]->n_atoms; ++i) {
             cblas_dcopy(3, template_atom[i]->coord, 1, &(conf[O3_TEMPLATE]->coord[i * 3]), 1);
           }
         }
+        /*
+        compute H array for the template
+        */
         compute_conf_h(conf[O3_TEMPLATE]);
       }
       assigned = 1;
+      /*
+      loop over all objects and find one not already assigned to some thread
+      */
       while ((!error) && assigned) {
         moved_object_num = 0;
         assigned = 0;
@@ -1990,6 +2033,9 @@ DWORD align_atombased_thread(void *pointer)
             ++moved_object_num;
           }
         }
+        /*
+        if no object is left, stop searching
+        */
         if (!assigned)  {
           break;
         }
@@ -2003,6 +2049,9 @@ DWORD align_atombased_thread(void *pointer)
           error = 1;
           continue;
         }
+        /*
+        if it is a multi-conformational template
+        */
         if (ti->od.align.type & ALIGN_MULTICONF_TEMPLATE_BIT) {
           ti->od.al.task_list[moved_object_num]->data[TEMPLATE_CONF_NUM] = template_conf_num;
           if (conf_file_error) {
@@ -2028,6 +2077,9 @@ DWORD align_atombased_thread(void *pointer)
             continue;
           }
         }
+        /*
+        if this is a mixed alignment
+        */
         if (ti->od.align.type & ALIGN_MIXED_BIT) {
           if (ti->od.align.type & ALIGN_MULTICONF_CANDIDATE_BIT) {
             /*
@@ -2121,6 +2173,9 @@ DWORD align_atombased_thread(void *pointer)
             }
           }
         }
+        /*
+        create a scratch folder for the object currently assigned to this thread
+        */
         sprintf(buffer, "%s%c%04d", ti->od.align.align_scratch, SEPARATOR,
           ti->od.al.mol_info[moved_object_num]->object_id);
         if (!dexist(buffer)) {
@@ -2138,6 +2193,10 @@ DWORD align_atombased_thread(void *pointer)
           }
           continue;
         }
+        /*
+        open in the scratch folder a SDF file for the assigned object,
+        which will be aligned on the current template
+        */
         sprintf(out_sdf_fd.name, "%s%c%04d_on_%04d%s.sdf",
           buffer, SEPARATOR,
           ti->od.al.mol_info[moved_object_num]->object_id,
@@ -2154,7 +2213,14 @@ DWORD align_atombased_thread(void *pointer)
           }
           continue;
         }
+        /*
+        if we are dealing with a multi-conformational candidate
+        */
         if (ti->od.align.type & ALIGN_MULTICONF_CANDIDATE_BIT) {
+          /*
+          find where the conformational database for this candidate object
+          is stored and open it
+          */
           sprintf(moved_fd.name, "%s%c%04d.sdf", ti->od.align.candidate_conf_dir,
             SEPARATOR, ti->od.al.mol_info[moved_object_num]->object_id);
           if (!(moved_fd.handle = fopen(moved_fd.name, "rb"))) {
@@ -2171,15 +2237,25 @@ DWORD align_atombased_thread(void *pointer)
             continue;
           }
         }
+        /*
+        get AtomInfo for the candidate object
+        */
         moved_atom = ti->od.al.mol_info[moved_object_num]->atom;
         for (i = 1; i <= 5; ++i) {
           conf[i]->atom = moved_atom;
           conf[i]->n_atoms = ti->od.al.mol_info[moved_object_num]->n_atoms;
           conf[i]->n_heavy_atoms = ti->od.al.mol_info[moved_object_num]->n_heavy_atoms;
         }
+        /*
+        loop over conformations of the candidate object
+        */
         for (moved_conf_num = 0, best_conf_num = 0, score[O3_GLOBAL] = 0.0, pairs[O3_GLOBAL] = 0;
           (!error) && (moved_conf_num < ((ti->od.align.type & ALIGN_MULTICONF_CANDIDATE_BIT)
           ? ti->od.pel.conf_population[CANDIDATE_DB]->pe[moved_object_num] : 1)); ++moved_conf_num) {
+          /*
+          if the candidate has multiple conformations, get the relevant one
+          from the SDF conformational database
+          */
           if (ti->od.align.type & ALIGN_MULTICONF_CANDIDATE_BIT) {
             ti->od.al.task_list[moved_object_num]->data[MOVED_CONF_NUM] = moved_conf_num;
             ti->od.al.task_list[moved_object_num]->code =
@@ -2230,6 +2306,10 @@ DWORD align_atombased_thread(void *pointer)
             }
           }
           else {
+            /*
+            if the candidate has a single conformations, retrieve it from
+            the candidate file (if supplied by the user)
+            */
             if (ti->od.align.candidate_file[0]) {
               sprintf(moved_fd.name, "%s%c%04d.mol",
                 ti->od.align.candidate_dir, SEPARATOR,
@@ -2288,11 +2368,17 @@ DWORD align_atombased_thread(void *pointer)
               }
             }
             else {
+              /*
+              otherwise just get coordinates from the currently loaded objects
+              */
               for (i = 0; i < ti->od.al.mol_info[moved_object_num]->n_atoms; ++i) {
                 cblas_dcopy(3, moved_atom[i]->coord, 1, &(conf[O3_MOVED]->coord[i * 3]), 1);
               }
             }
           }
+          /*
+          compute the H array for the candidate conformation
+          */
           compute_conf_h(conf[O3_MOVED]);
           for (options = 0, pairs[0] = 0, score[0] = 0.0;
             options <= (ti->od.align.type & ALIGN_TOGGLE_LOOP_BIT ? 0 : 1); ++options) {
@@ -2302,28 +2388,56 @@ DWORD align_atombased_thread(void *pointer)
             */
             for (coeff = (ti->od.align.type & ALIGN_TOGGLE_LOOP_BIT ? 5 : 0), pairs[1] = 0, score[1] = 0.0;
               coeff < (ti->od.align.type & ALIGN_TOGGLE_LOOP_BIT ? 6 : 5); ++coeff) {
+              /*
+              compute the cost matrix for matching candidate to template
+              */
               largest_n_heavy_atoms = compute_cost_matrix(&li, conf[O3_MOVED], conf[O3_TEMPLATE],
                 MAX_H_BINS, coeff, (options ? MATCH_ATOM_TYPES_BIT : 0));
+              /*
+              find the lowest cost atom matching
+              */
               lap(&li, largest_n_heavy_atoms);
               calc_conf_centroid(conf[O3_TEMPLATE], centroid[O3_TEMPLATE]);
               calc_conf_centroid(conf[O3_MOVED], centroid[O3_MOVED]);
+              /*
+              copy coordinates from O3_MOVED to O3_CAND
+              */
               cblas_dcopy(conf[O3_MOVED]->n_atoms * 3, conf[O3_MOVED]->coord, 1, conf[O3_CAND]->coord, 1);
               for (i = 0; i < conf[O3_MOVED]->n_atoms; ++i) {
+                /*
+                subtract O3_MOVED centroid from O3_CAND
+                (that is, O3_CAND is O3_MOVED with the center translated to origin)
+                */
                 cblas_daxpy(3, -1.0, centroid[O3_MOVED], 1, &(conf[O3_CAND]->coord[i * 3]), 1);
+                /*
+                add O3_TEMPLATE centroid from O3_CAND
+                (that is, O3_CAND is O3_MOVED with the center translated to origin and
+                then translated where the template centroid is)
+                */
                 cblas_daxpy(3, 1.0, centroid[O3_TEMPLATE], 1, &(conf[O3_CAND]->coord[i * 3]), 1);
               }
+              /*
+              filter the solution vector keeping only the safest n_equiv matches
+              */
               n_equiv = filter_sol_vector(&li, conf[O3_CAND], conf[O3_TEMPLATE], sdm[O3_TEMP2], sdm[O3_TEMP1]);
               /*
               remove highest scores, keeping at least 3 superposition points
               */
               for (i = 3, pairs[2] = 0, score[2] = 0.0; i < n_equiv; ++i) {
+                /*
+                conf[O3_MOVED] is fitted on conf[O3_TEMPLATE]; fitted coordinates
+                are placed in conf[O3_CAND]. If rms_algorithm fails, then
+                fitted coordinates are not produced, hence candidate coordinates
+                translated on the template centroid are copied in to fitted coordinates
+                (better than nothing)
+                */
                 if (rms_algorithm
                   ((options ? USE_MMFF_WEIGHTS : USE_CHARGE_WEIGHTS), sdm[O3_TEMP1], i,
                   conf[O3_MOVED], conf[O3_TEMPLATE], conf[O3_CAND], rt_mat, &n_equiv_heavy_msd, NULL)) {
                   cblas_dcopy(conf[O3_MOVED]->n_atoms * 3, conf[O3_MOVED]->coord, 1, conf[O3_CAND]->coord, 1);
-                  for (i = 0; i < conf[O3_MOVED]->n_atoms; ++i) {
-                    cblas_daxpy(3, -1.0, centroid[O3_MOVED], 1, &(conf[O3_CAND]->coord[i * 3]), 1);
-                    cblas_daxpy(3, 1.0, centroid[O3_TEMPLATE], 1, &(conf[O3_CAND]->coord[i * 3]), 1);
+                  for (k = 0; k < conf[O3_MOVED]->n_atoms; ++k) {
+                    cblas_daxpy(3, -1.0, centroid[O3_MOVED], 1, &(conf[O3_CAND]->coord[k * 3]), 1);
+                    cblas_daxpy(3, 1.0, centroid[O3_TEMPLATE], 1, &(conf[O3_CAND]->coord[k * 3]), 1);
                   }
                 }
                 for (sdm_threshold_iter = (ti->od.align.type & ALIGN_TOGGLE_LOOP_BIT ? 2 : 0),

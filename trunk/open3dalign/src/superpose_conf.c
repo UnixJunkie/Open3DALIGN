@@ -9,7 +9,7 @@ Open3DALIGN
 
 An open-source software aimed at unsupervised molecular alignment
 
-Copyright (C) 2010-2013 Paolo Tosco, Thomas Balle
+Copyright (C) 2010-2014 Paolo Tosco, Thomas Balle
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -1174,10 +1174,12 @@ int filter_sol_vector(LAPInfo *li, ConfInfo *moved_conf, ConfInfo *template_conf
   /*
   find out correspondences between heavy atom indexes
   in the original molecule and heavy atoms in the sdm matrix
+  (the sdm matrix is rebuilt using original molecule
+  heavy atom indexes)
   */
   n_equiv = k;
   for (n = 0; n < 2; ++n) {
-    for(i = 0; i < n_equiv; ++i) {
+    for (i = 0; i < n_equiv; ++i) {
       j = 0;
       n_atoms = 0;
       k = sdm[i].a[n];
@@ -1190,7 +1192,13 @@ int filter_sol_vector(LAPInfo *li, ConfInfo *moved_conf, ConfInfo *template_conf
       }
     }
   }
+  /*
+  loop over n_equiv rows
+  */
   for (i = 0; i < n_equiv; ++i) {
+    /*
+    initialize to 0 the i-th row of the diff matrix
+    */
     memset(li->diff[i], 0, n_equiv * sizeof(double));
     for (j = 0; j < n_equiv; ++j) {
       /*
@@ -1200,6 +1208,12 @@ int filter_sol_vector(LAPInfo *li, ConfInfo *moved_conf, ConfInfo *template_conf
       if (i == j) {
         continue;
       }
+      /*
+      - the euclidean distance between atoms i,j is computed for template_conf
+      - the euclidean distance between the corresponding atoms is computed for moved_conf
+      - the absolute value of the difference between the two distances is computed
+        and placed in diff[i][j]
+      */
       li->diff[i][j] = fabs(sqrt(squared_euclidean_distance
         (&(template_conf->coord[sdm[i].a[0] * 3]), &(template_conf->coord[sdm[j].a[0] * 3])))
         - sqrt(squared_euclidean_distance
