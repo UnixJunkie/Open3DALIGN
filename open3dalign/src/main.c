@@ -79,6 +79,9 @@ E-mail: paolo.tosco@unito.it
 #define EL_RC_FILE      ".editrc"
 
 
+#ifndef WIN32
+EditLineData el_data;
+#endif
 O3Data *extern_od;
 void *(*_dlsym_add_history)(const char *) = NULL;
 HIST_ENTRY *(*_dlsym_next_history)(void) = NULL;
@@ -95,13 +98,11 @@ void *(*_dlsym_rl_user_completion_entry_free_function) = NULL;
 int *_dlsym_rl_attempted_completion_over = NULL;
 int *_dlsym_rl_completion_append_character = NULL;
 char **(*_dlsym_rl_completion_matches)(const char *, void *) = NULL;
-int (*_dlsym_rl_delete_text)(int, int) = NULL;
-void (*_dlsym_rl_free_line_state)(void) = NULL;
-void (*_dlsym_rl_replace_line)(const char *, int) = NULL;
-void (*_dlsym_rl_reset_after_signal)(void) = NULL;
 char *(*_dlsym_rl_filename_completion_function)(const char *, int) = NULL;
 char *(*_dlsym_rl_line_buffer) = NULL;
 int *_dlsym_rl_point = NULL;
+int *_dlsym_rl_catch_signals = NULL;
+int *_dlsym_rl_delete_text = NULL;
 char have_editline = 0;
 char have_gnu_readline = 0;
 
@@ -560,16 +561,7 @@ void program_signal_handler(int signum)
     raise(signum);
   }
   else if (have_editline && rl_line_buffer) {
-    if (have_gnu_readline) {
-      rl_delete_text(0, strlen(rl_line_buffer));
-      rl_free_line_state();
-      rl_replace_line("", 1);
-      rl_reset_after_signal();
-    }
-    else {
-      rl_line_buffer[0] = EOF;
-      rl_line_buffer[1] = '\0';
-    }
+    pthread_cancel(el_data.thread_id);
   }
 }
 #else
@@ -673,7 +665,7 @@ int main(int argc, char **argv)
     "\n"
     PACKAGE_NAME" version " VERSION "\n"
     #ifdef O3Q
-    "Copyright (C) 2009-2013 Paolo Tosco, Thomas Balle\n"
+    "Copyright (C) 2009-2014 Paolo Tosco, Thomas Balle\n"
     #else
     "Copyright (C) 2010-2014 Paolo Tosco, Thomas Balle\n"
     #endif
@@ -700,7 +692,7 @@ int main(int argc, char **argv)
     "\n"
     "Version " VERSION "\n"
     #ifdef O3Q
-    "Copyright (C) 2009-2013 Paolo Tosco, Thomas Balle\n"
+    "Copyright (C) 2009-2014 Paolo Tosco, Thomas Balle\n"
     #else
     "Copyright (C) 2010-2014 Paolo Tosco, Thomas Balle\n"
     #endif
@@ -823,9 +815,23 @@ int main(int argc, char **argv)
   dl_handle = check_readline();
   if (have_editline) {
     memset(el_rc, 0, BUF_LEN);
+    #ifndef HAVE_EDITLINE_FUNCTIONALITY
+    rl_attempted_completion_function = (void *)o3_completion_matches;
+    #else
     rl_attempted_completion_function = o3_completion_matches;
+    #endif
     #ifdef WIN32
     rl_user_completion_entry_free_function = o3_compentry_free;
+    #else
+    #if (defined HAVE_EDITLINE_FUNCTIONALITY && defined HAVE_GNU_READLINE)
+    rl_catch_signals = 0;
+    #endif
+    #ifndef HAVE_EDITLINE_FUNCTIONALITY
+    if (have_gnu_readline) {
+      rl_catch_signals = 0;
+    }
+    #endif
+    memset(&el_data, 0, sizeof(EditLineData));
     #endif
   }
   #ifndef WIN32

@@ -37,7 +37,7 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_INIT(Open3DALIGN, 2.27, <paolo.tosco@unito.it>)
+AC_INIT(Open3DALIGN, 2.271, <paolo.tosco@unito.it>)
 AC_DEFINE([PACKAGE_NAME_LOWERCASE], ["open3dalign"], [Package name in lowercase])
 AC_DEFINE([PACKAGE_NAME_UPPERCASE], ["OPEN3DALIGN"], [Package name in uppercase])
 AC_DEFINE([O3A], [1], [Open3DALIGN])
