@@ -9,7 +9,7 @@ Open3DALIGN
 
 An open-source software aimed at unsupervised molecular alignment
 
-Copyright (C) 2010-2014 Paolo Tosco, Thomas Balle
+Copyright (C) 2010-2015 Paolo Tosco, Thomas Balle
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -53,6 +53,12 @@ char M_EXECUTABLE_PATH[] =
 char M_INPUT_OUTPUT_LOG_DIR[] =
   "The %s directory where input, output and log "
   "files will be put is:\n\"%s\"\n\n";
+char M_STDOUT_STDERR_OUTPUT[] =
+  "The command generated the following output on %s:\n\n";
+char E_CANNOT_READ_OUT_LOG_FILE[] =
+  "Cannot read the command's %s; hence, it is not "
+  "possible to determine if the command "
+  "has completed successfully or not.\n%s";
 char E_CANNOT_CHANGE_DIR[] =
   "Cannot change directory to \"%s\".\n%s";
 char E_DIR_NOT_EXISTING[] =
@@ -269,3 +275,5 @@ char CHANGE_DIR_FAILED[] =
   "CHANGE_DIR failed.\n";
 char SOURCE_FAILED[] =
   "SOURCE failed.\n";
+char SYSTEM_FAILED[] =
+  "SYSTEM failed.\n";

@@ -5,39 +5,39 @@ Single-conformation validation:
 Dataset                 Mixed           Atom            Pharao          
 
 ACE
-RMSD (angstrom)         0.4288          0.6178          2.4269          
-Time (HH:MM:SS)         00:00:05        00:00:02        00:00:02        
+RMSD (angstrom)         0.3445          0.3655          2.3962          
+Time (HH:MM:SS)         00:00:06        00:00:03        00:00:03        
 
 ACHE
-RMSD (angstrom)         0.1529          0.1499          0.3566          
-Time (HH:MM:SS)         00:00:04        00:00:02        00:00:02        
+RMSD (angstrom)         0.1352          0.1352          0.3489          
+Time (HH:MM:SS)         00:00:05        00:00:02        00:00:03        
 
 BZR
-RMSD (angstrom)         0.1450          0.3367          0.4037          
-Time (HH:MM:SS)         00:00:05        00:00:01        00:00:03        
+RMSD (angstrom)         0.1702          0.2079          0.5599          
+Time (HH:MM:SS)         00:00:06        00:00:01        00:00:04        
 
 COX2
-RMSD (angstrom)         0.1170          0.1170          0.1891          
-Time (HH:MM:SS)         00:00:12        00:00:04        00:00:09        
+RMSD (angstrom)         0.1218          0.1218          0.1717          
+Time (HH:MM:SS)         00:00:15        00:00:05        00:00:11        
 
 DHFR
-RMSD (angstrom)         0.4067          0.5759          0.6371          
-Time (HH:MM:SS)         00:00:23        00:00:12        00:00:13        
+RMSD (angstrom)         0.4195          0.5513          0.6280          
+Time (HH:MM:SS)         00:00:27        00:00:13        00:00:16        
 
 GPB
-RMSD (angstrom)         0.3369          0.3369          0.3331          
-Time (HH:MM:SS)         00:00:08        00:00:00        00:00:07        
+RMSD (angstrom)         0.3425          0.3902          0.3331          
+Time (HH:MM:SS)         00:00:08        00:00:00        00:00:08        
 
 THERM
-RMSD (angstrom)         0.7879          0.6946          1.8876          
-Time (HH:MM:SS)         00:00:13        00:00:08        00:00:05        
+RMSD (angstrom)         0.7427          0.7083          1.9216          
+Time (HH:MM:SS)         00:00:13        00:00:10        00:00:05        
 
 THR
-RMSD (angstrom)         0.2136          0.2136          0.4386          
-Time (HH:MM:SS)         00:00:06        00:00:01        00:00:05        
+RMSD (angstrom)         0.2005          0.2005          0.3274          
+Time (HH:MM:SS)         00:00:08        00:00:02        00:00:06        
 
 Overall time
-(HH:MM:SS)              00:01:16        00:00:30        00:00:46        
+(HH:MM:SS)              00:01:28        00:00:36        00:00:56        
 
 Validation succeeded.
 

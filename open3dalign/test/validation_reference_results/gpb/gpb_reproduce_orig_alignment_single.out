@@ -1,5 +1,5 @@
 
-Open3DALIGN version 2.21
+Open3DALIGN version 2.28
 Copyright (C) 2010-2014 Paolo Tosco, Thomas Balle
 Licensed under the terms of GPLv3
 Report bugs to <paolo.tosco@unito.it>
@@ -7,11 +7,11 @@ Report bugs to <paolo.tosco@unito.it>
 
 System information
 ------------------
-Hostname: iron
-x86_64 Linux 2.6.28 #2 SMP Wed Jan 14 08:12:26 CET 2009
-This machine has 8 CPUs.
+Hostname: pcPharm004.pharm.unito.it
+x86_64 Linux 2.6.32-358.6.2.el6.x86_64 #1 SMP Thu May 16 11:21:38 CDT 2013
+This machine has 32 CPUs.
 
-The number of CPUs used by Open3DALIGN has been set to 8.
+The number of CPUs used by Open3DALIGN has been set to 16.
 
 The nice value has been set to 20.
 
@@ -19,7 +19,7 @@ The directory for temporary storage is:
 /tmp
 
 The current working directory is:
-/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite
+/home/ptosco/open3dalign_validation_suite_2014
 
 OpenBabel binaries are in:
 /home/ptosco/open3dtools/bin
@@ -30,19 +30,19 @@ TINKER binaries are in:
 The path to TINKER binaries can be changed through the O3_TINKER_PATH environment variable or by the "env tinker_path" keyword.
 
 The PHARAO binary is:
-/home/ptosco/open3dtools/bin/pharao
+/home/ptosco/open3dtools/bin/align-it
 The path to PHARAO can be changed through the O3_PHARAO environment variable or by the "env pharao" keyword.
 
 PyMOL will not be used.
 The path to PyMOL can be set through the O3_PYMOL environment variable or by the "env pymol" keyword.
 
-Job started on Sat Sep  8 14:10:57 2012
+Job started on Wed Jun 25 12:14:36 2014
 
 BGN COMMAND #00.0001 - IMPORT SDF tool was invoked as follows:
 > import type=sdf file=gpb/gpb_3dqsar_canonical.sdf
 
 
-Elapsed time: 0.0208 seconds.
+Elapsed time: 0.0059 seconds.
 
 
 Number of fields:      0
@@ -130,13 +130,13 @@ BGN COMMAND #00.0002 - ALIGN tool was invoked as follows:
 > align type=random align_dir=gpb/gpb_align_random
 
 The align_dir directory where input, output and log files will be put is:
-"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/gpb/gpb_align_random"
+"/home/ptosco/open3dalign_validation_suite_2014/gpb/gpb_align_random"
 
 The align_scratch directory is:
-/tmp/O3A.31771.align_scratch.tpvqeR
+/tmp/O3A.30747.align_scratch.BZhNsh
 
 
-Elapsed time: 0.5146 seconds.
+Elapsed time: 0.5796 seconds.
 
 END COMMAND #00.0002 - ALIGN tool succeeded.
 BGN COMMAND #00.0003 - ALIGN tool was invoked as follows:
@@ -146,20 +146,20 @@ The objects which will be used as alignment templates are the following:
 56
 
 The align_dir directory where input, output and log files will be put is:
-"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/gpb/gpb_align_mixed_single"
+"/home/ptosco/open3dalign_validation_suite_2014/gpb/gpb_align_mixed_single"
 
 The align_scratch directory is:
-/tmp/O3A.31771.align_scratch.MGV7UP
+/tmp/O3A.30747.align_scratch.xzUNbi
 
 Template      ID       Conformer           O3A_SCORE
 ----------------------------------------------------
-      56      56               1             9509.76
+      56      56               1             9473.84
 ----------------------------------------------------
 
-Best template combination score:             9509.76
+Best template combination score:             9473.84
 
 
-Elapsed time: 8.1096 seconds.
+Elapsed time: 8.7076 seconds.
 
 END COMMAND #00.0003 - ALIGN tool succeeded.
 BGN COMMAND #00.0004 - ALIGN tool was invoked as follows:
@@ -169,20 +169,20 @@ The objects which will be used as alignment templates are the following:
 56
 
 The align_dir directory where input, output and log files will be put is:
-"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/gpb/gpb_align_atom_single"
+"/home/ptosco/open3dalign_validation_suite_2014/gpb/gpb_align_atom_single"
 
 The align_scratch directory is:
-/tmp/O3A.31771.align_scratch.TwBKdc
+/tmp/O3A.30747.align_scratch.bBigSC
 
 Template      ID       Conformer           O3A_SCORE
 ----------------------------------------------------
-      56      56               1             9509.76
+      56      56               1             9443.52
 ----------------------------------------------------
 
-Best template combination score:             9509.76
+Best template combination score:             9443.52
 
 
-Elapsed time: 0.4839 seconds.
+Elapsed time: 0.4790 seconds.
 
 END COMMAND #00.0004 - ALIGN tool succeeded.
 BGN COMMAND #00.0005 - ALIGN tool was invoked as follows:
@@ -192,10 +192,10 @@ The objects which will be used as alignment templates are the following:
 56
 
 The align_dir directory where input, output and log files will be put is:
-"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/gpb/gpb_align_pharao_single"
+"/home/ptosco/open3dalign_validation_suite_2014/gpb/gpb_align_pharao_single"
 
 The align_scratch directory is:
-/tmp/O3A.31771.align_scratch.cnLEVz
+/tmp/O3A.30747.align_scratch.ytzNEY
 
 Template      ID       Conformer     PHARAO_TANIMOTO
 ----------------------------------------------------
@@ -205,7 +205,7 @@ Template      ID       Conformer     PHARAO_TANIMOTO
 Best template combination score:               36.54
 
 
-Elapsed time: 7.7737 seconds.
+Elapsed time: 8.2110 seconds.
 
 END COMMAND #00.0005 - ALIGN tool succeeded.
 BGN COMMAND #00.0006 - COMPARE tool was invoked as follows:
@@ -217,77 +217,77 @@ Number of objects:   66
 ---------------------------------------------------------------------------------------------
     N    Reference name                      Name                                        RMSD
 ---------------------------------------------------------------------------------------------
-    1    1                                   1                                         0.3469
-    2    2                                   2                                         0.1305
-    3    3                                   3                                         0.1661
-    4    4                                   4                                         0.2546
-    5    5                                   5                                         0.1844
-    6    6                                   6                                         0.1593
-    7    7                                   7                                         0.3970
-    8    9                                   9                                         0.1874
-    9    10                                  10                                        0.1708
-   10    11                                  11                                        0.2317
-   11    13                                  13                                        0.2304
-   12    14                                  14                                        0.1535
-   13    16                                  16                                        0.4335
-   14    18                                  18                                        0.2004
-   15    20                                  20                                        0.3018
-   16    21                                  21                                        0.1411
-   17    24                                  24                                        0.6212
-   18    25                                  25                                        0.3458
-   19    26                                  26                                        0.2300
-   20    27                                  27                                        0.1855
-   21    28                                  28                                        0.1314
-   22    30                                  30                                        0.1276
-   23    31                                  31                                        0.3320
-   24    32                                  32                                        0.2422
-   25    34                                  34                                        0.1019
-   26    35                                  35                                        0.1742
-   27    36                                  36                                        0.5427
-   28    37                                  37                                        0.4373
-   29    38                                  38                                        0.5581
-   30    39                                  39                                        0.5531
-   31    41                                  41                                        0.6574
-   32    43                                  43                                        0.6544
-   33    44                                  44                                        0.2898
-   34    45                                  45                                        0.7911
-   35    49                                  49                                        0.2460
-   36    50                                  50                                        0.7424
-   37    51                                  51                                        0.1855
-   38    53                                  53                                        0.6134
-   39    56                                  56                                        0.3374
-   40    58                                  58                                        0.4960
-   41    59                                  59                                        0.2543
-   42    60                                  60                                        0.2879
-   43    61                                  61                                        0.3933
-   44    64                                  64                                        0.5807
-   45    8                                   8                                         0.3906
-   46    12                                  12                                        0.1028
-   47    15                                  15                                        0.4742
-   48    17                                  17                                        0.2022
-   49    19                                  19                                        0.4808
-   50    22                                  22                                        0.0903
-   51    23                                  23                                        0.2700
-   52    29                                  29                                        0.3088
-   53    33                                  33                                        0.0918
-   54    40                                  40                                        0.1470
-   55    42                                  42                                        0.4981
-   56    46                                  46                                        0.0797
-   57    47                                  47                                        0.6905
-   58    48                                  48                                        0.2273
-   59    52                                  52                                        0.7615
-   60    54                                  54                                        0.1742
-   61    55                                  55                                        0.4905
-   62    57                                  57                                        0.2096
-   63    62                                  62                                        0.3355
-   64    63                                  63                                        0.5935
-   65    65                                  65                                        0.5251
-   66    66                                  66                                        0.2900
+    1    1                                   1                                         0.3423
+    2    2                                   2                                         0.1231
+    3    3                                   3                                         0.1309
+    4    4                                   4                                         0.2538
+    5    5                                   5                                         0.1838
+    6    6                                   6                                         0.1454
+    7    7                                   7                                         0.3825
+    8    9                                   9                                         0.1900
+    9    10                                  10                                        0.1651
+   10    11                                  11                                        0.2142
+   11    13                                  13                                        0.2808
+   12    14                                  14                                        0.1573
+   13    16                                  16                                        0.4289
+   14    18                                  18                                        0.2007
+   15    20                                  20                                        0.3058
+   16    21                                  21                                        0.1580
+   17    24                                  24                                        0.5179
+   18    25                                  25                                        0.3426
+   19    26                                  26                                        0.1254
+   20    27                                  27                                        0.1522
+   21    28                                  28                                        0.1259
+   22    30                                  30                                        0.1205
+   23    31                                  31                                        0.3344
+   24    32                                  32                                        0.2281
+   25    34                                  34                                        0.1109
+   26    35                                  35                                        0.1488
+   27    36                                  36                                        0.5052
+   28    37                                  37                                        0.4145
+   29    38                                  38                                        0.5302
+   30    39                                  39                                        0.5177
+   31    41                                  41                                        0.6124
+   32    43                                  43                                        0.5688
+   33    44                                  44                                        0.3804
+   34    45                                  45                                        0.7711
+   35    49                                  49                                        0.3626
+   36    50                                  50                                        0.1537
+   37    51                                  51                                        0.2158
+   38    53                                  53                                        0.7159
+   39    56                                  56                                        0.3474
+   40    58                                  58                                        0.4745
+   41    59                                  59                                        0.2475
+   42    60                                  60                                        0.3728
+   43    61                                  61                                        0.3637
+   44    64                                  64                                        0.5705
+   45    8                                   8                                         0.4487
+   46    12                                  12                                        0.1065
+   47    15                                  15                                        0.4961
+   48    17                                  17                                        0.1790
+   49    19                                  19                                        0.5902
+   50    22                                  22                                        0.0802
+   51    23                                  23                                        0.6475
+   52    29                                  29                                        0.3138
+   53    33                                  33                                        0.0476
+   54    40                                  40                                        0.1254
+   55    42                                  42                                        0.4890
+   56    46                                  46                                        0.0844
+   57    47                                  47                                        0.6552
+   58    48                                  48                                        0.1968
+   59    52                                  52                                        0.5702
+   60    54                                  54                                        0.2136
+   61    55                                  55                                        1.3420
+   62    57                                  57                                        0.2330
+   63    62                                  62                                        0.3417
+   64    63                                  63                                        0.5991
+   65    65                                  65                                        0.5436
+   66    66                                  66                                        0.3097
 ---------------------------------------------------------------------------------------------
-                                             Average                                   0.3369
+                                             Average                                   0.3425
 ---------------------------------------------------------------------------------------------
 
-Elapsed time: 0.6150 seconds.
+Elapsed time: 0.7442 seconds.
 
 END COMMAND #00.0006 - COMPARE tool succeeded.
 BGN COMMAND #00.0007 - COMPARE tool was invoked as follows:
@@ -299,77 +299,77 @@ Number of objects:   66
 ---------------------------------------------------------------------------------------------
     N    Reference name                      Name                                        RMSD
 ---------------------------------------------------------------------------------------------
-    1    1                                   1                                         0.3469
-    2    2                                   2                                         0.1305
-    3    3                                   3                                         0.1661
-    4    4                                   4                                         0.2546
-    5    5                                   5                                         0.1844
-    6    6                                   6                                         0.1593
-    7    7                                   7                                         0.3970
-    8    9                                   9                                         0.1874
-    9    10                                  10                                        0.1708
-   10    11                                  11                                        0.2317
-   11    13                                  13                                        0.2304
-   12    14                                  14                                        0.1535
-   13    16                                  16                                        0.4335
-   14    18                                  18                                        0.2004
-   15    20                                  20                                        0.3018
-   16    21                                  21                                        0.1411
-   17    24                                  24                                        0.6212
-   18    25                                  25                                        0.3458
-   19    26                                  26                                        0.2300
-   20    27                                  27                                        0.1855
-   21    28                                  28                                        0.1314
-   22    30                                  30                                        0.1276
-   23    31                                  31                                        0.3320
-   24    32                                  32                                        0.2422
-   25    34                                  34                                        0.1019
-   26    35                                  35                                        0.1742
-   27    36                                  36                                        0.5427
-   28    37                                  37                                        0.4373
-   29    38                                  38                                        0.5581
-   30    39                                  39                                        0.5531
-   31    41                                  41                                        0.6574
-   32    43                                  43                                        0.6544
-   33    44                                  44                                        0.2898
-   34    45                                  45                                        0.7911
-   35    49                                  49                                        0.2460
-   36    50                                  50                                        0.7424
-   37    51                                  51                                        0.1855
-   38    53                                  53                                        0.6134
-   39    56                                  56                                        0.3374
-   40    58                                  58                                        0.4960
-   41    59                                  59                                        0.2543
-   42    60                                  60                                        0.2879
-   43    61                                  61                                        0.3933
-   44    64                                  64                                        0.5807
-   45    8                                   8                                         0.3906
-   46    12                                  12                                        0.1028
-   47    15                                  15                                        0.4742
-   48    17                                  17                                        0.2022
-   49    19                                  19                                        0.4808
-   50    22                                  22                                        0.0903
-   51    23                                  23                                        0.2700
-   52    29                                  29                                        0.3088
-   53    33                                  33                                        0.0918
-   54    40                                  40                                        0.1470
-   55    42                                  42                                        0.4981
-   56    46                                  46                                        0.0797
-   57    47                                  47                                        0.6905
-   58    48                                  48                                        0.2273
-   59    52                                  52                                        0.7615
-   60    54                                  54                                        0.1742
-   61    55                                  55                                        0.4905
-   62    57                                  57                                        0.2096
-   63    62                                  62                                        0.3355
-   64    63                                  63                                        0.5935
-   65    65                                  65                                        0.5251
-   66    66                                  66                                        0.2900
+    1    1                                   1                                         0.3381
+    2    2                                   2                                         0.1204
+    3    3                                   3                                         0.1295
+    4    4                                   4                                         0.2462
+    5    5                                   5                                         0.1792
+    6    6                                   6                                         0.1542
+    7    7                                   7                                         0.3911
+    8    9                                   9                                         0.1894
+    9    10                                  10                                        0.1576
+   10    11                                  11                                        3.9411
+   11    13                                  13                                        0.2909
+   12    14                                  14                                        0.1541
+   13    16                                  16                                        0.4224
+   14    18                                  18                                        0.2056
+   15    20                                  20                                        0.3131
+   16    21                                  21                                        0.1560
+   17    24                                  24                                        0.5370
+   18    25                                  25                                        0.3500
+   19    26                                  26                                        0.1346
+   20    27                                  27                                        0.1543
+   21    28                                  28                                        0.1223
+   22    30                                  30                                        0.1187
+   23    31                                  31                                        0.3420
+   24    32                                  32                                        0.2234
+   25    34                                  34                                        0.1184
+   26    35                                  35                                        0.1472
+   27    36                                  36                                        0.4924
+   28    37                                  37                                        0.4038
+   29    38                                  38                                        0.5175
+   30    39                                  39                                        0.5049
+   31    41                                  41                                        0.5976
+   32    43                                  43                                        0.5577
+   33    44                                  44                                        0.3978
+   34    45                                  45                                        0.7583
+   35    49                                  49                                        0.3752
+   36    50                                  50                                        0.1695
+   37    51                                  51                                        0.2277
+   38    53                                  53                                        0.7284
+   39    56                                  56                                        0.3385
+   40    58                                  58                                        0.4638
+   41    59                                  59                                        0.2437
+   42    60                                  60                                        0.3912
+   43    61                                  61                                        0.3705
+   44    64                                  64                                        0.5581
+   45    8                                   8                                         0.4565
+   46    12                                  12                                        0.1147
+   47    15                                  15                                        0.3436
+   48    17                                  17                                        0.1695
+   49    19                                  19                                        0.5715
+   50    22                                  22                                        0.0725
+   51    23                                  23                                        0.6330
+   52    29                                  29                                        0.3219
+   53    33                                  33                                        0.0431
+   54    40                                  40                                        0.1124
+   55    42                                  42                                        0.4793
+   56    46                                  46                                        0.0785
+   57    47                                  47                                        0.6364
+   58    48                                  48                                        0.1973
+   59    52                                  52                                        0.1802
+   60    54                                  54                                        0.2266
+   61    55                                  55                                        1.3594
+   62    57                                  57                                        0.2252
+   63    62                                  62                                        0.3514
+   64    63                                  63                                        0.6141
+   65    65                                  65                                        0.5299
+   66    66                                  66                                        0.3005
 ---------------------------------------------------------------------------------------------
-                                             Average                                   0.3369
+                                             Average                                   0.3902
 ---------------------------------------------------------------------------------------------
 
-Elapsed time: 0.5839 seconds.
+Elapsed time: 0.7450 seconds.
 
 END COMMAND #00.0007 - COMPARE tool succeeded.
 BGN COMMAND #00.0008 - COMPARE tool was invoked as follows:
@@ -451,11 +451,11 @@ Number of objects:   66
                                              Average                                   0.3331
 ---------------------------------------------------------------------------------------------
 
-Elapsed time: 0.6178 seconds.
+Elapsed time: 0.7471 seconds.
 
 END COMMAND #00.0008 - COMPARE tool succeeded.
 
 
-Job finished on Sat Sep  8 14:11:15 2012
+Job finished on Wed Jun 25 12:14:56 2014
 
 Successful completion.

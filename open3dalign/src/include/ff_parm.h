@@ -9,7 +9,7 @@ Open3DALIGN
 
 An open-source software aimed at unsupervised molecular alignment
 
-Copyright (C) 2010-2014 Paolo Tosco, Thomas Balle
+Copyright (C) 2010-2015 Paolo Tosco, Thomas Balle
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -62,7 +62,9 @@ typedef struct FFParm FFParm;
 struct FFParm {
   short type_num;
   char type_chr[MAX_FF_TYPE_LEN];
+  char da;
   double vdw_parm[MAX_FF_PARM];
 };
 
 extern FFParm ff_parm[MAX_FF_N][100];
+FFParm *get_mmff_parm(unsigned int num);

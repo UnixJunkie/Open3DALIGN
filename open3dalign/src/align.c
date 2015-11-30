@@ -9,7 +9,7 @@ Open3DALIGN
 
 An open-source software aimed at unsupervised molecular alignment
 
-Copyright (C) 2010-2014 Paolo Tosco, Thomas Balle
+Copyright (C) 2010-2015 Paolo Tosco, Thomas Balle
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -1837,6 +1837,7 @@ DWORD align_atombased_thread(void *pointer)
   int n_equiv = 0;
   int largest_n_heavy_atoms = 0;
   int coeff = 0;
+  int weight = 0;
   int options = 0;
   int pid;
   int sdm_threshold_iter;
@@ -1844,6 +1845,7 @@ DWORD align_atombased_thread(void *pointer)
   int assigned = 0;
   int done_array_pos = 0;
   int pairs[O3_MAX_SLOT];
+  int best_weight[O3_MAX_SLOT];
   double rt_mat[RT_MAT_SIZE];
   double n_equiv_heavy_msd;
   double pairs_heavy_msd[O3_MAX_SLOT];
@@ -2380,14 +2382,16 @@ DWORD align_atombased_thread(void *pointer)
           compute the H array for the candidate conformation
           */
           compute_conf_h(conf[O3_MOVED]);
-          for (options = 0, pairs[0] = 0, score[0] = 0.0;
+          for (options = 0, pairs[0] = 0, score[0] = 0.0, best_weight[0] = 0;
             options <= (ti->od.align.type & ALIGN_TOGGLE_LOOP_BIT ? 0 : 1); ++options) {
             /*
             get object on which we are going to align
             the portion of dataset assigned to this thread
             */
-            for (coeff = (ti->od.align.type & ALIGN_TOGGLE_LOOP_BIT ? 5 : 0), pairs[1] = 0, score[1] = 0.0;
+            for (coeff = (ti->od.align.type & ALIGN_TOGGLE_LOOP_BIT ? 5 : 0), pairs[1] = 0,
+              score[1] = 0.0, best_weight[1] = 0;
               coeff < (ti->od.align.type & ALIGN_TOGGLE_LOOP_BIT ? 6 : 5); ++coeff) {
+              weight = (options ? coeff : 0);
               /*
               compute the cost matrix for matching candidate to template
               */
@@ -2403,19 +2407,6 @@ DWORD align_atombased_thread(void *pointer)
               copy coordinates from O3_MOVED to O3_CAND
               */
               cblas_dcopy(conf[O3_MOVED]->n_atoms * 3, conf[O3_MOVED]->coord, 1, conf[O3_CAND]->coord, 1);
-              for (i = 0; i < conf[O3_MOVED]->n_atoms; ++i) {
-                /*
-                subtract O3_MOVED centroid from O3_CAND
-                (that is, O3_CAND is O3_MOVED with the center translated to origin)
-                */
-                cblas_daxpy(3, -1.0, centroid[O3_MOVED], 1, &(conf[O3_CAND]->coord[i * 3]), 1);
-                /*
-                add O3_TEMPLATE centroid from O3_CAND
-                (that is, O3_CAND is O3_MOVED with the center translated to origin and
-                then translated where the template centroid is)
-                */
-                cblas_daxpy(3, 1.0, centroid[O3_TEMPLATE], 1, &(conf[O3_CAND]->coord[i * 3]), 1);
-              }
               /*
               filter the solution vector keeping only the safest n_equiv matches
               */
@@ -2431,8 +2422,7 @@ DWORD align_atombased_thread(void *pointer)
                 translated on the template centroid are copied in to fitted coordinates
                 (better than nothing)
                 */
-                if (rms_algorithm
-                  ((options ? USE_MMFF_WEIGHTS : USE_CHARGE_WEIGHTS), sdm[O3_TEMP1], i,
+                if (rms_algorithm(weight, sdm[O3_TEMP1], i,
                   conf[O3_MOVED], conf[O3_TEMPLATE], conf[O3_CAND], rt_mat, &n_equiv_heavy_msd, NULL)) {
                   cblas_dcopy(conf[O3_MOVED]->n_atoms * 3, conf[O3_MOVED]->coord, 1, conf[O3_CAND]->coord, 1);
                   for (k = 0; k < conf[O3_MOVED]->n_atoms; ++k) {
@@ -2448,7 +2438,6 @@ DWORD align_atombased_thread(void *pointer)
                   iter = 0;
                   cblas_dcopy(conf[O3_CAND]->n_atoms * 3, conf[O3_CAND]->coord, 1, conf[O3_PROGRESS]->coord, 1);
                   while (flag && (iter < MAX_SDM_ITERATIONS)) {
-                    ++iter;
                     /*
                     call sdm_algorithm
                     */
@@ -2460,8 +2449,8 @@ DWORD align_atombased_thread(void *pointer)
                     /*
                     call rms_algorithm
                     */
-                    if (rms_algorithm((options ? USE_MMFF_WEIGHTS : USE_CHARGE_WEIGHTS),
-                      sdm[O3_TEMP2], pairs[5], conf[O3_PROGRESS], conf[O3_TEMPLATE], conf[O3_FITTED],
+                    if (rms_algorithm(weight, sdm[O3_TEMP2], pairs[5],
+                      conf[O3_PROGRESS], conf[O3_TEMPLATE], conf[O3_FITTED],
                       rt_mat, &pairs_heavy_msd[5], NULL)) {
                       cblas_dcopy(conf[O3_PROGRESS]->n_atoms * 3, conf[O3_PROGRESS]->coord, 1, conf[O3_FITTED]->coord, 1);
                       break;
@@ -2473,13 +2462,14 @@ DWORD align_atombased_thread(void *pointer)
                        anymore, but the msd is improved compared to the previous one
                     */
                     flag = ((pairs[5] > pairs[4]) || ((pairs[5] == pairs[4])
-                      && ((pairs_heavy_msd[4] - pairs_heavy_msd[5]) > MSD_THRESHOLD)));
+                      && ((!iter) || ((pairs_heavy_msd[4] - pairs_heavy_msd[5]) > MSD_THRESHOLD))));
                     if (flag) {
                       pairs[4] = pairs[5];
                       pairs_heavy_msd[4] = pairs_heavy_msd[5];
                       memcpy(sdm[4], sdm[O3_TEMP2], pairs[4] * sizeof(AtomPair));
                       cblas_dcopy(conf[O3_FITTED]->n_atoms * 3, conf[O3_FITTED]->coord, 1, conf[O3_PROGRESS]->coord, 1);
                     }
+                    ++iter;
                   }
                   score[4] = ((pairs[4] >= 3) ? score_alignment(&(ti->od), conf[O3_TEMPLATE],
                     conf[O3_FITTED], sdm[4], pairs[4]) : 0.0);
@@ -2504,12 +2494,14 @@ DWORD align_atombased_thread(void *pointer)
               if ((score[2] - score[1]) > ALMOST_ZERO) {
                 score[1] = score[2];
                 pairs[1] = pairs[2];
+                best_weight[1] = weight;
                 memcpy(sdm[1], sdm[2], pairs[1] * sizeof(AtomPair));
               }
             }
             if ((score[1] - score[0]) > ALMOST_ZERO) {
               score[0] = score[1];
               pairs[0] = pairs[1];
+              best_weight[0] = best_weight[1];
               memcpy(sdm[0], sdm[1], pairs[0] * sizeof(AtomPair));
             }
           }
@@ -2575,8 +2567,8 @@ DWORD align_atombased_thread(void *pointer)
                 /*
                 call rms_algorithm
                 */
-                if (rms_algorithm((options ? USE_MMFF_WEIGHTS : USE_CHARGE_WEIGHTS),
-                  sdm[O3_TEMP2], pairs[5], conf[O3_PROGRESS], conf[O3_TEMPLATE], conf[O3_FITTED],
+                if (rms_algorithm(weight, sdm[O3_TEMP2], pairs[5],
+                  conf[O3_PROGRESS], conf[O3_TEMPLATE], conf[O3_FITTED],
                   rt_mat, &pairs_heavy_msd[5], NULL)) {
                   cblas_dcopy(conf[O3_PROGRESS]->n_atoms * 3, conf[O3_PROGRESS]->coord, 1, conf[O3_FITTED]->coord, 1);
                   break;
@@ -2614,6 +2606,7 @@ DWORD align_atombased_thread(void *pointer)
             || (!(ti->od.align.type & ALIGN_MULTICONF_CANDIDATE_BIT))) {
             score[O3_GLOBAL] = score[0];
             pairs[O3_GLOBAL] = pairs[0];
+            best_weight[O3_GLOBAL] = best_weight[0];
             best_conf_num = moved_conf_num;
             cblas_dcopy(conf[O3_MOVED]->n_atoms * 3, conf[O3_MOVED]->coord, 1, conf[O3_BEST]->coord, 1);
             memcpy(sdm[O3_GLOBAL], sdm[0], pairs[O3_GLOBAL] * sizeof(AtomPair));
@@ -2627,7 +2620,7 @@ DWORD align_atombased_thread(void *pointer)
           moved_fd.handle = NULL;
           cblas_dcopy(conf[O3_MOVED]->n_atoms * 3, conf[O3_BEST]->coord, 1, conf[O3_MOVED]->coord, 1);
         }
-        rms_algorithm(USE_CHARGE_WEIGHTS, sdm[O3_GLOBAL], pairs[O3_GLOBAL], conf[O3_MOVED],
+        rms_algorithm(best_weight[O3_GLOBAL], sdm[O3_GLOBAL], pairs[O3_GLOBAL], conf[O3_MOVED],
           conf[O3_TEMPLATE], conf[O3_FITTED], rt_mat, &pairs_heavy_msd[O3_GLOBAL],
           &original_heavy_msd);
         sprintf(mol_fd.name, "%s%c%04d.mol", ti->od.align.candidate_dir,

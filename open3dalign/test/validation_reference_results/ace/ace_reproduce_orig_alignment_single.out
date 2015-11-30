@@ -1,5 +1,5 @@
 
-Open3DALIGN version 2.21
+Open3DALIGN version 2.28
 Copyright (C) 2010-2014 Paolo Tosco, Thomas Balle
 Licensed under the terms of GPLv3
 Report bugs to <paolo.tosco@unito.it>
@@ -7,11 +7,11 @@ Report bugs to <paolo.tosco@unito.it>
 
 System information
 ------------------
-Hostname: iron
-x86_64 Linux 2.6.28 #2 SMP Wed Jan 14 08:12:26 CET 2009
-This machine has 8 CPUs.
+Hostname: pcPharm004.pharm.unito.it
+x86_64 Linux 2.6.32-358.6.2.el6.x86_64 #1 SMP Thu May 16 11:21:38 CDT 2013
+This machine has 32 CPUs.
 
-The number of CPUs used by Open3DALIGN has been set to 8.
+The number of CPUs used by Open3DALIGN has been set to 16.
 
 The nice value has been set to 20.
 
@@ -19,7 +19,7 @@ The directory for temporary storage is:
 /tmp
 
 The current working directory is:
-/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite
+/home/ptosco/open3dalign_validation_suite_2014
 
 OpenBabel binaries are in:
 /home/ptosco/open3dtools/bin
@@ -30,19 +30,19 @@ TINKER binaries are in:
 The path to TINKER binaries can be changed through the O3_TINKER_PATH environment variable or by the "env tinker_path" keyword.
 
 The PHARAO binary is:
-/home/ptosco/open3dtools/bin/pharao
+/home/ptosco/open3dtools/bin/align-it
 The path to PHARAO can be changed through the O3_PHARAO environment variable or by the "env pharao" keyword.
 
 PyMOL will not be used.
 The path to PyMOL can be set through the O3_PYMOL environment variable or by the "env pymol" keyword.
 
-Job started on Sat Sep  8 14:08:16 2012
+Job started on Wed Jun 25 12:11:26 2014
 
 BGN COMMAND #00.0001 - IMPORT SDF tool was invoked as follows:
 > import type=sdf file=ace/ace_3dqsar_canonical.sdf
 
 
-Elapsed time: 0.0512 seconds.
+Elapsed time: 0.0102 seconds.
 
 
 Number of fields:      0
@@ -178,13 +178,13 @@ BGN COMMAND #00.0002 - ALIGN tool was invoked as follows:
 > align type=random align_dir=ace/ace_align_random
 
 The align_dir directory where input, output and log files will be put is:
-"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/ace/ace_align_random"
+"/home/ptosco/open3dalign_validation_suite_2014/ace/ace_align_random"
 
 The align_scratch directory is:
-/tmp/O3A.31477.align_scratch.Bw25aF
+/tmp/O3A.30236.align_scratch.Axi2sx
 
 
-Elapsed time: 1.1901 seconds.
+Elapsed time: 1.2701 seconds.
 
 END COMMAND #00.0002 - ALIGN tool succeeded.
 BGN COMMAND #00.0003 - ALIGN tool was invoked as follows:
@@ -194,22 +194,22 @@ The objects which will be used as alignment templates are the following:
 3, 8, 71
 
 The align_dir directory where input, output and log files will be put is:
-"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/ace/ace_align_mixed_single"
+"/home/ptosco/open3dalign_validation_suite_2014/ace/ace_align_mixed_single"
 
 The align_scratch directory is:
-/tmp/O3A.31477.align_scratch.1Za0S8
+/tmp/O3A.30236.align_scratch.1CJwEx
 
 Template      ID       Conformer           O3A_SCORE
 ----------------------------------------------------
-       3       3               1            13843.79
-       8       8               1            15308.07
-      71      71               1            11846.02
+       3       3               1            13840.84
+       8       8               1            15412.82
+      71      71               1            11777.58
 ----------------------------------------------------
 
-Best template combination score:            16203.06
+Best template combination score:            16267.10
 
 
-Elapsed time: 5.4589 seconds.
+Elapsed time: 6.0683 seconds.
 
 END COMMAND #00.0003 - ALIGN tool succeeded.
 BGN COMMAND #00.0004 - ALIGN tool was invoked as follows:
@@ -219,22 +219,22 @@ The objects which will be used as alignment templates are the following:
 3, 8, 71
 
 The align_dir directory where input, output and log files will be put is:
-"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/ace/ace_align_atom_single"
+"/home/ptosco/open3dalign_validation_suite_2014/ace/ace_align_atom_single"
 
 The align_scratch directory is:
-/tmp/O3A.31477.align_scratch.4POluS
+/tmp/O3A.30236.align_scratch.oyyoKL
 
 Template      ID       Conformer           O3A_SCORE
 ----------------------------------------------------
-       3       3               1            13613.80
-       8       8               1            15173.70
-      71      71               1            11647.14
+       3       3               1            13620.58
+       8       8               1            15214.99
+      71      71               1            11730.34
 ----------------------------------------------------
 
-Best template combination score:            16174.30
+Best template combination score:            16250.33
 
 
-Elapsed time: 2.3333 seconds.
+Elapsed time: 3.1093 seconds.
 
 END COMMAND #00.0004 - ALIGN tool succeeded.
 BGN COMMAND #00.0005 - ALIGN tool was invoked as follows:
@@ -244,22 +244,22 @@ The objects which will be used as alignment templates are the following:
 3, 8, 71
 
 The align_dir directory where input, output and log files will be put is:
-"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/ace/ace_align_pharao_single"
+"/home/ptosco/open3dalign_validation_suite_2014/ace/ace_align_pharao_single"
 
 The align_scratch directory is:
-/tmp/O3A.31477.align_scratch.Z2wKSI
+/tmp/O3A.30236.align_scratch.hIW8X6
 
 Template      ID       Conformer     PHARAO_TANIMOTO
 ----------------------------------------------------
-       3       3               1               48.33
-       8       8               1               39.44
-      71      71               1               33.56
+       3       3               1               47.99
+       8       8               1               39.35
+      71      71               1               33.79
 ----------------------------------------------------
 
-Best template combination score:               58.25
+Best template combination score:               58.15
 
 
-Elapsed time: 2.7670 seconds.
+Elapsed time: 3.2731 seconds.
 
 END COMMAND #00.0005 - ALIGN tool succeeded.
 BGN COMMAND #00.0006 - COMPARE tool was invoked as follows:
@@ -271,125 +271,125 @@ Number of objects:   114
 ---------------------------------------------------------------------------------------------
     N    Reference name                      Name                                        RMSD
 ---------------------------------------------------------------------------------------------
-    1    mol_07                              mol_07                                    0.5633
-    2    mol_08                              mol_08                                    0.7958
-    3    mol_09                              mol_09                                    0.0938
-    4    mol_12                              mol_12                                    0.1798
-    5    mol_14                              mol_14                                    0.1785
-    6    mol_15                              mol_15                                    0.1705
-    7    mol_16                              mol_16                                    0.1892
-    8    mol_18                              mol_18                                    0.1109
-    9    mol_19                              mol_19                                    0.2045
-   10    mol_20                              mol_20                                    0.1378
-   11    mol_21                              mol_21                                    0.1868
-   12    mol_22                              mol_22                                    0.2712
-   13    mol_24                              mol_24                                    0.2910
-   14    mol_25                              mol_25                                    0.2244
-   15    mol_26                              mol_26                                    0.3336
-   16    mol_29                              mol_29                                    0.2224
-   17    mol_30                              mol_30                                    0.1009
-   18    mol_31                              mol_31                                    0.1045
-   19    mol_33                              mol_33                                    0.1299
-   20    mol_34                              mol_34                                    0.0966
-   21    mol_37                              mol_37                                    0.3208
-   22    mol_38                              mol_38                                    0.3044
-   23    mol_41                              mol_41                                    3.8460
-   24    mol_42                              mol_42                                    3.6406
-   25    mol_43                              mol_43                                    0.3301
-   26    mol_45                              mol_45                                    0.3523
-   27    mol_46                              mol_46                                    0.1265
-   28    mol_47                              mol_47                                    0.0989
-   29    mol_49                              mol_49                                    0.1524
-   30    mol_50                              mol_50                                    0.1656
-   31    mol_51                              mol_51                                    0.1803
-   32    mol_52                              mol_52                                    0.2675
-   33    mol_53                              mol_53                                    0.2310
-   34    mol_56                              mol_56                                    0.1330
-   35    mol_57                              mol_57                                    0.1521
-   36    mol_59                              mol_59                                    0.3752
-   37    mol_63                              mol_63                                    0.2736
-   38    mol_65                              mol_65                                    0.2746
-   39    mol_66                              mol_66                                    0.1099
-   40    mol_68                              mol_68                                    0.2325
-   41    COO_23A                             COO_23A                                   0.3276
-   42    COO_23J                             COO_23J                                   0.2595
-   43    COO_24C                             COO_24C                                   0.3457
-   44    COO_25A                             COO_25A                                   0.3336
-   45    COO_25E                             COO_25E                                   0.7419
-   46    COO_26A                             COO_26A                                   0.2573
-   47    COO_26C                             COO_26C                                   0.3558
-   48    COO_26H                             COO_26H                                   0.2996
-   49    SQ29852                             SQ29852                                   0.2677
-   50    SQ29852_2B                          SQ29852_2B                                0.2904
-   51    SQ29852_2Q                          SQ29852_2Q                                0.2749
-   52    SQ29852_2R                          SQ29852_2R                                0.1682
-   53    SQ29852_2T                          SQ29852_2T                                0.2194
-   54    SQ29852_2U                          SQ29852_2U                                0.9316
-   55    SQ29852_2V                          SQ29852_2V                                0.1944
-   56    SQ29852_2W                          SQ29852_2W                                0.1710
-   57    SQ29852_2Y                          SQ29852_2Y                                0.8372
-   58    SQ29852_2Z                          SQ29852_2Z                                0.1795
-   59    SQ29852_2X                          SQ29852_2X                                0.4016
-   60    SQ29852_2E                          SQ29852_2E                                0.2520
-   61    SQ29852_2K                          SQ29852_2K                                0.4431
-   62    SQ29852_2I                          SQ29852_2I                                0.0901
-   63    THIOL_2                             THIOL_2                                   3.4754
-   64    THIOL_4                             THIOL_4                                   3.4754
-   65    THIOL_5                             THIOL_5                                   0.2648
-   66    THIOL_7A                            THIOL_7A                                  0.1982
-   67    THIOL_7B                            THIOL_7B                                  1.7606
-   68    THIOL_9                             THIOL_9                                   0.3272
-   69    THIOL_10                            THIOL_10                                  0.1253
-   70    THIOL_14                            THIOL_14                                  0.2099
-   71    THIOL_18                            THIOL_18                                  0.2138
-   72    THIOL_20A                           THIOL_20A                                 2.0813
-   73    THIOL_20B                           THIOL_20B                                 0.1562
-   74    THIOL_27                            THIOL_27                                  0.3404
-   75    THIOL_30A                           THIOL_30A                                 0.5909
-   76    THIOL_30B                           THIOL_30B                                 0.2492
-   77    mol_01                              mol_01                                    0.2101
-   78    mol_02                              mol_02                                    0.0951
-   79    mol_03                              mol_03                                    0.2276
-   80    mol_04                              mol_04                                    0.1360
-   81    mol_05                              mol_05                                    0.0820
-   82    mol_06                              mol_06                                    0.1176
-   83    mol_10                              mol_10                                    0.0982
-   84    mol_11                              mol_11                                    0.0687
-   85    mol_13                              mol_13                                    0.0910
-   86    mol_17                              mol_17                                    0.1289
-   87    mol_23                              mol_23                                    0.2649
-   88    mol_27                              mol_27                                    0.5921
-   89    mol_28                              mol_28                                    0.1996
-   90    mol_32                              mol_32                                    0.1018
-   91    mol_35                              mol_35                                    0.6566
-   92    mol_36                              mol_36                                    0.2439
-   93    mol_39                              mol_39                                    0.1068
-   94    mol_40                              mol_40                                    0.0975
-   95    mol_44                              mol_44                                    0.3553
-   96    mol_48                              mol_48                                    0.0853
-   97    mol_54                              mol_54                                    0.2357
-   98    mol_55                              mol_55                                    0.0971
-   99    mol_58                              mol_58                                    0.1281
-  100    mol_60                              mol_60                                    0.0976
-  101    mol_61                              mol_61                                    0.1525
-  102    mol_62                              mol_62                                    0.2289
-  103    mol_64                              mol_64                                    0.2692
-  104    mol_67                              mol_67                                    0.2122
-  105    COO_23E                             COO_23E                                   0.4430
-  106    COO_24A                             COO_24A                                   0.2098
-  107    SQ29852_2A                          SQ29852_2A                                0.1448
-  108    SQ29852_2P                          SQ29852_2P                                0.3768
-  109    SQ29852_2S                          SQ29852_2S                                0.2188
-  110    SQ29852_2G                          SQ29852_2G                                0.2057
-  111    SQ29852_2H                          SQ29852_2H                                0.2190
-  112    THIOL_12                            THIOL_12                                  0.2018
-  113    THIOL_22                            THIOL_22                                  1.0012
-  114    THIOL_28                            THIOL_28                                  3.2229
+    1    mol_07                              mol_07                                    0.6187
+    2    mol_08                              mol_08                                    0.9159
+    3    mol_09                              mol_09                                    0.1001
+    4    mol_12                              mol_12                                    0.1667
+    5    mol_14                              mol_14                                    0.0698
+    6    mol_15                              mol_15                                    0.2033
+    7    mol_16                              mol_16                                    0.2628
+    8    mol_18                              mol_18                                    0.1361
+    9    mol_19                              mol_19                                    0.2584
+   10    mol_20                              mol_20                                    0.1950
+   11    mol_21                              mol_21                                    0.2539
+   12    mol_22                              mol_22                                    0.4396
+   13    mol_24                              mol_24                                    0.3132
+   14    mol_25                              mol_25                                    0.1893
+   15    mol_26                              mol_26                                    0.3512
+   16    mol_29                              mol_29                                    0.2449
+   17    mol_30                              mol_30                                    0.1051
+   18    mol_31                              mol_31                                    0.0987
+   19    mol_33                              mol_33                                    0.0930
+   20    mol_34                              mol_34                                    0.1007
+   21    mol_37                              mol_37                                    0.3726
+   22    mol_38                              mol_38                                    0.3595
+   23    mol_41                              mol_41                                    0.1066
+   24    mol_42                              mol_42                                    3.4545
+   25    mol_43                              mol_43                                    0.3867
+   26    mol_45                              mol_45                                    0.4110
+   27    mol_46                              mol_46                                    0.2760
+   28    mol_47                              mol_47                                    0.0810
+   29    mol_49                              mol_49                                    0.1139
+   30    mol_50                              mol_50                                    0.1280
+   31    mol_51                              mol_51                                    0.1131
+   32    mol_52                              mol_52                                    0.1990
+   33    mol_53                              mol_53                                    0.1564
+   34    mol_56                              mol_56                                    0.1272
+   35    mol_57                              mol_57                                    0.1449
+   36    mol_59                              mol_59                                    0.2060
+   37    mol_63                              mol_63                                    0.3330
+   38    mol_65                              mol_65                                    0.2954
+   39    mol_66                              mol_66                                    0.1128
+   40    mol_68                              mol_68                                    0.1452
+   41    COO_23A                             COO_23A                                   0.2430
+   42    COO_23J                             COO_23J                                   0.8040
+   43    COO_24C                             COO_24C                                   0.2715
+   44    COO_25A                             COO_25A                                   0.1883
+   45    COO_25E                             COO_25E                                   0.3156
+   46    COO_26A                             COO_26A                                   0.1723
+   47    COO_26C                             COO_26C                                   1.0729
+   48    COO_26H                             COO_26H                                   0.2899
+   49    SQ29852                             SQ29852                                   0.3007
+   50    SQ29852_2B                          SQ29852_2B                                0.3064
+   51    SQ29852_2Q                          SQ29852_2Q                                0.2432
+   52    SQ29852_2R                          SQ29852_2R                                0.1856
+   53    SQ29852_2T                          SQ29852_2T                                0.3030
+   54    SQ29852_2U                          SQ29852_2U                                0.5069
+   55    SQ29852_2V                          SQ29852_2V                                0.1670
+   56    SQ29852_2W                          SQ29852_2W                                0.4043
+   57    SQ29852_2Y                          SQ29852_2Y                                0.3068
+   58    SQ29852_2Z                          SQ29852_2Z                                0.1310
+   59    SQ29852_2X                          SQ29852_2X                                0.3234
+   60    SQ29852_2E                          SQ29852_2E                                0.2572
+   61    SQ29852_2K                          SQ29852_2K                                0.4868
+   62    SQ29852_2I                          SQ29852_2I                                0.1157
+   63    THIOL_2                             THIOL_2                                   0.7971
+   64    THIOL_4                             THIOL_4                                   0.7971
+   65    THIOL_5                             THIOL_5                                   0.2291
+   66    THIOL_7A                            THIOL_7A                                  0.2119
+   67    THIOL_7B                            THIOL_7B                                  1.8747
+   68    THIOL_9                             THIOL_9                                   0.2677
+   69    THIOL_10                            THIOL_10                                  0.1252
+   70    THIOL_14                            THIOL_14                                  0.1788
+   71    THIOL_18                            THIOL_18                                  0.2111
+   72    THIOL_20A                           THIOL_20A                                 1.6163
+   73    THIOL_20B                           THIOL_20B                                 0.1836
+   74    THIOL_27                            THIOL_27                                  0.3224
+   75    THIOL_30A                           THIOL_30A                                 0.4249
+   76    THIOL_30B                           THIOL_30B                                 0.2850
+   77    mol_01                              mol_01                                    0.1911
+   78    mol_02                              mol_02                                    0.0860
+   79    mol_03                              mol_03                                    0.1643
+   80    mol_04                              mol_04                                    0.1315
+   81    mol_05                              mol_05                                    0.0957
+   82    mol_06                              mol_06                                    0.0818
+   83    mol_10                              mol_10                                    0.0837
+   84    mol_11                              mol_11                                    0.0668
+   85    mol_13                              mol_13                                    0.3081
+   86    mol_17                              mol_17                                    0.1214
+   87    mol_23                              mol_23                                    0.2904
+   88    mol_27                              mol_27                                    0.5642
+   89    mol_28                              mol_28                                    0.1339
+   90    mol_32                              mol_32                                    0.0932
+   91    mol_35                              mol_35                                    0.6802
+   92    mol_36                              mol_36                                    0.2016
+   93    mol_39                              mol_39                                    0.0903
+   94    mol_40                              mol_40                                    0.1045
+   95    mol_44                              mol_44                                    0.4127
+   96    mol_48                              mol_48                                    0.0517
+   97    mol_54                              mol_54                                    0.1664
+   98    mol_55                              mol_55                                    0.1097
+   99    mol_58                              mol_58                                    0.1335
+  100    mol_60                              mol_60                                    0.1040
+  101    mol_61                              mol_61                                    0.1397
+  102    mol_62                              mol_62                                    0.2261
+  103    mol_64                              mol_64                                    0.3181
+  104    mol_67                              mol_67                                    0.2097
+  105    COO_23E                             COO_23E                                   0.3088
+  106    COO_24A                             COO_24A                                   0.1626
+  107    SQ29852_2A                          SQ29852_2A                                0.4874
+  108    SQ29852_2P                          SQ29852_2P                                0.5971
+  109    SQ29852_2S                          SQ29852_2S                                0.1641
+  110    SQ29852_2G                          SQ29852_2G                                0.2528
+  111    SQ29852_2H                          SQ29852_2H                                0.5911
+  112    THIOL_12                            THIOL_12                                  0.1843
+  113    THIOL_22                            THIOL_22                                  1.0124
+  114    THIOL_28                            THIOL_28                                  2.5889
 ---------------------------------------------------------------------------------------------
-                                             Average                                   0.4288
+                                             Average                                   0.3445
 ---------------------------------------------------------------------------------------------
 
-Elapsed time: 1.3730 seconds.
+Elapsed time: 1.6505 seconds.
 
 END COMMAND #00.0006 - COMPARE tool succeeded.
 BGN COMMAND #00.0007 - COMPARE tool was invoked as follows:
@@ -401,125 +401,125 @@ Number of objects:   114
 ---------------------------------------------------------------------------------------------
     N    Reference name                      Name                                        RMSD
 ---------------------------------------------------------------------------------------------
-    1    mol_07                              mol_07                                    0.5928
-    2    mol_08                              mol_08                                    0.8370
-    3    mol_09                              mol_09                                    0.1075
-    4    mol_12                              mol_12                                    0.1364
-    5    mol_14                              mol_14                                    0.1925
-    6    mol_15                              mol_15                                    0.1954
-    7    mol_16                              mol_16                                    0.2317
-    8    mol_18                              mol_18                                    0.1266
-    9    mol_19                              mol_19                                    0.2461
-   10    mol_20                              mol_20                                    0.1800
-   11    mol_21                              mol_21                                    0.2515
-   12    mol_22                              mol_22                                    0.2049
-   13    mol_24                              mol_24                                    0.2930
-   14    mol_25                              mol_25                                    0.1941
-   15    mol_26                              mol_26                                    0.3676
-   16    mol_29                              mol_29                                    0.2200
-   17    mol_30                              mol_30                                    0.1210
-   18    mol_31                              mol_31                                    0.1217
-   19    mol_33                              mol_33                                    0.1312
-   20    mol_34                              mol_34                                    0.1099
-   21    mol_37                              mol_37                                    0.3548
-   22    mol_38                              mol_38                                    0.3414
-   23    mol_41                              mol_41                                    3.8667
-   24    mol_42                              mol_42                                    3.6632
-   25    mol_43                              mol_43                                    0.3736
-   26    mol_45                              mol_45                                    3.5764
-   27    mol_46                              mol_46                                    0.1384
-   28    mol_47                              mol_47                                    0.0942
-   29    mol_49                              mol_49                                    0.1674
-   30    mol_50                              mol_50                                    0.1820
-   31    mol_51                              mol_51                                    0.1457
-   32    mol_52                              mol_52                                    0.2207
-   33    mol_53                              mol_53                                    0.2636
-   34    mol_56                              mol_56                                    0.1351
-   35    mol_57                              mol_57                                    0.1564
-   36    mol_59                              mol_59                                    0.3988
-   37    mol_63                              mol_63                                    0.3112
-   38    mol_65                              mol_65                                    0.3233
-   39    mol_66                              mol_66                                    0.1195
-   40    mol_68                              mol_68                                    0.2802
-   41    COO_23A                             COO_23A                                   0.2753
-   42    COO_23J                             COO_23J                                   5.9777
-   43    COO_24C                             COO_24C                                   0.3903
-   44    COO_25A                             COO_25A                                   0.2761
-   45    COO_25E                             COO_25E                                   0.7190
-   46    COO_26A                             COO_26A                                   0.3045
-   47    COO_26C                             COO_26C                                   0.2876
-   48    COO_26H                             COO_26H                                   0.3641
-   49    SQ29852                             SQ29852                                   0.2880
-   50    SQ29852_2B                          SQ29852_2B                                0.2434
-   51    SQ29852_2Q                          SQ29852_2Q                                0.2597
-   52    SQ29852_2R                          SQ29852_2R                                0.1758
-   53    SQ29852_2T                          SQ29852_2T                                0.3065
-   54    SQ29852_2U                          SQ29852_2U                                0.8893
-   55    SQ29852_2V                          SQ29852_2V                                0.2317
-   56    SQ29852_2W                          SQ29852_2W                                0.1874
-   57    SQ29852_2Y                          SQ29852_2Y                                0.8039
-   58    SQ29852_2Z                          SQ29852_2Z                                0.2066
-   59    SQ29852_2X                          SQ29852_2X                                0.3621
-   60    SQ29852_2E                          SQ29852_2E                                0.2346
-   61    SQ29852_2K                          SQ29852_2K                                0.3874
-   62    SQ29852_2I                          SQ29852_2I                                0.1160
-   63    THIOL_2                             THIOL_2                                   3.4549
-   64    THIOL_4                             THIOL_4                                   3.4549
-   65    THIOL_5                             THIOL_5                                   0.2277
-   66    THIOL_7A                            THIOL_7A                                  0.2300
-   67    THIOL_7B                            THIOL_7B                                  1.7547
-   68    THIOL_9                             THIOL_9                                   0.3700
-   69    THIOL_10                            THIOL_10                                  0.1344
-   70    THIOL_14                            THIOL_14                                  0.2317
-   71    THIOL_18                            THIOL_18                                  0.1750
-   72    THIOL_20A                           THIOL_20A                                 2.1355
-   73    THIOL_20B                           THIOL_20B                                 0.1722
-   74    THIOL_27                            THIOL_27                                  0.3094
-   75    THIOL_30A                           THIOL_30A                                 3.6055
-   76    THIOL_30B                           THIOL_30B                                 0.2869
-   77    mol_01                              mol_01                                    0.2349
-   78    mol_02                              mol_02                                    0.1190
-   79    mol_03                              mol_03                                    0.2151
-   80    mol_04                              mol_04                                    0.1317
-   81    mol_05                              mol_05                                    0.1095
-   82    mol_06                              mol_06                                    0.1246
-   83    mol_10                              mol_10                                    0.1086
-   84    mol_11                              mol_11                                    0.0645
-   85    mol_13                              mol_13                                    0.1296
-   86    mol_17                              mol_17                                    0.1618
-   87    mol_23                              mol_23                                    0.2459
-   88    mol_27                              mol_27                                    0.5421
-   89    mol_28                              mol_28                                    0.1206
-   90    mol_32                              mol_32                                    0.1153
-   91    mol_35                              mol_35                                    0.6457
-   92    mol_36                              mol_36                                    0.2392
-   93    mol_39                              mol_39                                    0.1149
-   94    mol_40                              mol_40                                    0.1119
-   95    mol_44                              mol_44                                    0.3463
-   96    mol_48                              mol_48                                    0.0950
-   97    mol_54                              mol_54                                    0.2697
-   98    mol_55                              mol_55                                    0.1055
-   99    mol_58                              mol_58                                    0.1128
-  100    mol_60                              mol_60                                    0.1255
-  101    mol_61                              mol_61                                    0.1561
-  102    mol_62                              mol_62                                    0.2507
-  103    mol_64                              mol_64                                    0.3074
-  104    mol_67                              mol_67                                    0.2058
-  105    COO_23E                             COO_23E                                   0.4898
-  106    COO_24A                             COO_24A                                   8.9540
-  107    SQ29852_2A                          SQ29852_2A                                0.1657
-  108    SQ29852_2P                          SQ29852_2P                                0.3750
-  109    SQ29852_2S                          SQ29852_2S                                0.1853
-  110    SQ29852_2G                          SQ29852_2G                                0.1961
-  111    SQ29852_2H                          SQ29852_2H                                0.2237
-  112    THIOL_12                            THIOL_12                                  0.2443
-  113    THIOL_22                            THIOL_22                                  1.0526
-  114    THIOL_28                            THIOL_28                                  3.2306
+    1    mol_07                              mol_07                                    0.6272
+    2    mol_08                              mol_08                                    0.9200
+    3    mol_09                              mol_09                                    0.0892
+    4    mol_12                              mol_12                                    0.1692
+    5    mol_14                              mol_14                                    0.0683
+    6    mol_15                              mol_15                                    0.1852
+    7    mol_16                              mol_16                                    0.2484
+    8    mol_18                              mol_18                                    0.1195
+    9    mol_19                              mol_19                                    0.2628
+   10    mol_20                              mol_20                                    0.1797
+   11    mol_21                              mol_21                                    0.2428
+   12    mol_22                              mol_22                                    0.4430
+   13    mol_24                              mol_24                                    0.3025
+   14    mol_25                              mol_25                                    0.1877
+   15    mol_26                              mol_26                                    0.3384
+   16    mol_29                              mol_29                                    0.2313
+   17    mol_30                              mol_30                                    0.0891
+   18    mol_31                              mol_31                                    0.0826
+   19    mol_33                              mol_33                                    0.0802
+   20    mol_34                              mol_34                                    0.0895
+   21    mol_37                              mol_37                                    0.3820
+   22    mol_38                              mol_38                                    0.3678
+   23    mol_41                              mol_41                                    0.0924
+   24    mol_42                              mol_42                                    3.4346
+   25    mol_43                              mol_43                                    0.3926
+   26    mol_45                              mol_45                                    3.5268
+   27    mol_46                              mol_46                                    0.2751
+   28    mol_47                              mol_47                                    0.0744
+   29    mol_49                              mol_49                                    0.1165
+   30    mol_50                              mol_50                                    0.1314
+   31    mol_51                              mol_51                                    0.1090
+   32    mol_52                              mol_52                                    0.1983
+   33    mol_53                              mol_53                                    0.1492
+   34    mol_56                              mol_56                                    0.1242
+   35    mol_57                              mol_57                                    0.1318
+   36    mol_59                              mol_59                                    0.2239
+   37    mol_63                              mol_63                                    0.3405
+   38    mol_65                              mol_65                                    0.2867
+   39    mol_66                              mol_66                                    0.0979
+   40    mol_68                              mol_68                                    0.1396
+   41    COO_23A                             COO_23A                                   0.2458
+   42    COO_23J                             COO_23J                                   0.8167
+   43    COO_24C                             COO_24C                                   0.2726
+   44    COO_25A                             COO_25A                                   0.1850
+   45    COO_25E                             COO_25E                                   0.2620
+   46    COO_26A                             COO_26A                                   0.1686
+   47    COO_26C                             COO_26C                                   1.0837
+   48    COO_26H                             COO_26H                                   0.2840
+   49    SQ29852                             SQ29852                                   0.2942
+   50    SQ29852_2B                          SQ29852_2B                                0.3116
+   51    SQ29852_2Q                          SQ29852_2Q                                0.2370
+   52    SQ29852_2R                          SQ29852_2R                                0.1878
+   53    SQ29852_2T                          SQ29852_2T                                0.2974
+   54    SQ29852_2U                          SQ29852_2U                                0.5159
+   55    SQ29852_2V                          SQ29852_2V                                0.1769
+   56    SQ29852_2W                          SQ29852_2W                                0.4128
+   57    SQ29852_2Y                          SQ29852_2Y                                0.3162
+   58    SQ29852_2Z                          SQ29852_2Z                                0.1340
+   59    SQ29852_2X                          SQ29852_2X                                0.3116
+   60    SQ29852_2E                          SQ29852_2E                                0.2493
+   61    SQ29852_2K                          SQ29852_2K                                0.4941
+   62    SQ29852_2I                          SQ29852_2I                                0.1046
+   63    THIOL_2                             THIOL_2                                   0.8053
+   64    THIOL_4                             THIOL_4                                   0.8053
+   65    THIOL_5                             THIOL_5                                   0.2293
+   66    THIOL_7A                            THIOL_7A                                  0.1942
+   67    THIOL_7B                            THIOL_7B                                  1.8825
+   68    THIOL_9                             THIOL_9                                   0.2517
+   69    THIOL_10                            THIOL_10                                  0.1250
+   70    THIOL_14                            THIOL_14                                  0.1746
+   71    THIOL_18                            THIOL_18                                  0.1991
+   72    THIOL_20A                           THIOL_20A                                 1.6278
+   73    THIOL_20B                           THIOL_20B                                 0.1818
+   74    THIOL_27                            THIOL_27                                  0.3138
+   75    THIOL_30A                           THIOL_30A                                 0.4326
+   76    THIOL_30B                           THIOL_30B                                 0.2932
+   77    mol_01                              mol_01                                    0.1928
+   78    mol_02                              mol_02                                    0.0978
+   79    mol_03                              mol_03                                    0.1721
+   80    mol_04                              mol_04                                    0.1260
+   81    mol_05                              mol_05                                    0.0862
+   82    mol_06                              mol_06                                    0.0701
+   83    mol_10                              mol_10                                    0.0713
+   84    mol_11                              mol_11                                    0.0616
+   85    mol_13                              mol_13                                    0.2999
+   86    mol_17                              mol_17                                    0.1025
+   87    mol_23                              mol_23                                    0.2809
+   88    mol_27                              mol_27                                    0.5579
+   89    mol_28                              mol_28                                    0.1291
+   90    mol_32                              mol_32                                    0.0805
+   91    mol_35                              mol_35                                    0.6870
+   92    mol_36                              mol_36                                    0.1826
+   93    mol_39                              mol_39                                    0.0826
+   94    mol_40                              mol_40                                    0.0908
+   95    mol_44                              mol_44                                    0.0760
+   96    mol_48                              mol_48                                    0.0425
+   97    mol_54                              mol_54                                    0.1606
+   98    mol_55                              mol_55                                    0.0984
+   99    mol_58                              mol_58                                    0.1300
+  100    mol_60                              mol_60                                    0.0872
+  101    mol_61                              mol_61                                    0.1365
+  102    mol_62                              mol_62                                    0.2197
+  103    mol_64                              mol_64                                    0.3247
+  104    mol_67                              mol_67                                    0.2071
+  105    COO_23E                             COO_23E                                   0.3076
+  106    COO_24A                             COO_24A                                   0.1635
+  107    SQ29852_2A                          SQ29852_2A                                0.4901
+  108    SQ29852_2P                          SQ29852_2P                                0.6028
+  109    SQ29852_2S                          SQ29852_2S                                0.1644
+  110    SQ29852_2G                          SQ29852_2G                                0.2431
+  111    SQ29852_2H                          SQ29852_2H                                0.5978
+  112    THIOL_12                            THIOL_12                                  0.1841
+  113    THIOL_22                            THIOL_22                                  1.0215
+  114    THIOL_28                            THIOL_28                                  2.6039
 ---------------------------------------------------------------------------------------------
-                                             Average                                   0.6178
+                                             Average                                   0.3655
 ---------------------------------------------------------------------------------------------
 
-Elapsed time: 1.3685 seconds.
+Elapsed time: 1.6150 seconds.
 
 END COMMAND #00.0007 - COMPARE tool succeeded.
 BGN COMMAND #00.0008 - COMPARE tool was invoked as follows:
@@ -531,129 +531,129 @@ Number of objects:   114
 ---------------------------------------------------------------------------------------------
     N    Reference name                      Name                                        RMSD
 ---------------------------------------------------------------------------------------------
-    1    mol_07                              mol_07                                    0.9367
-    2    mol_08                              mol_08                                    1.4702
-    3    mol_09                              mol_09                                    0.8497
-    4    mol_12                              mol_12                                    0.9399
-    5    mol_14                              mol_14                                    1.0536
-    6    mol_15                              mol_15                                    1.2904
-    7    mol_16                              mol_16                                    5.4166
-    8    mol_18                              mol_18                                    1.3781
-    9    mol_19                              mol_19                                    1.5742
-   10    mol_20                              mol_20                                    1.4286
-   11    mol_21                              mol_21                                    1.5648
-   12    mol_22                              mol_22                                    1.4691
-   13    mol_24                              mol_24                                    2.0345
-   14    mol_25                              mol_25                                    1.3283
-   15    mol_26                              mol_26                                    1.5121
-   16    mol_29                              mol_29                                    1.2750
-   17    mol_30                              mol_30                                    0.7938
-   18    mol_31                              mol_31                                    0.7806
-   19    mol_33                              mol_33                                    0.7790
-   20    mol_34                              mol_34                                    0.8347
-   21    mol_37                              mol_37                                    0.8063
-   22    mol_38                              mol_38                                    0.7935
-   23    mol_41                              mol_41                                    6.0111
-   24    mol_42                              mol_42                                    5.6252
-   25    mol_43                              mol_43                                    0.7780
-   26    mol_45                              mol_45                                    0.7982
-   27    mol_46                              mol_46                                    9.2400
-   28    mol_47                              mol_47                                    0.8225
-   29    mol_49                              mol_49                                    0.8928
-   30    mol_50                              mol_50                                    0.9429
-   31    mol_51                              mol_51                                    0.7683
-   32    mol_52                              mol_52                                    0.8045
-   33    mol_53                              mol_53                                    4.7645
-   34    mol_56                              mol_56                                    0.8062
-   35    mol_57                              mol_57                                    0.8011
-   36    mol_59                              mol_59                                    2.1567
-   37    mol_63                              mol_63                                    0.8550
-   38    mol_65                              mol_65                                    0.9144
-   39    mol_66                              mol_66                                    0.9178
-   40    mol_68                              mol_68                                    0.8653
-   41    COO_23A                             COO_23A                                   1.3547
-   42    COO_23J                             COO_23J                                   1.2423
-   43    COO_24C                             COO_24C                                   1.5915
-   44    COO_25A                             COO_25A                                   8.0619
-   45    COO_25E                             COO_25E                                   0.7377
-   46    COO_26A                             COO_26A                                   0.7469
-   47    COO_26C                             COO_26C                                   1.5587
-   48    COO_26H                             COO_26H                                   1.5514
-   49    SQ29852                             SQ29852                                   1.8279
-   50    SQ29852_2B                          SQ29852_2B                                5.0952
-   51    SQ29852_2Q                          SQ29852_2Q                                1.9154
-   52    SQ29852_2R                          SQ29852_2R                                5.6638
-   53    SQ29852_2T                          SQ29852_2T                                1.6667
-   54    SQ29852_2U                          SQ29852_2U                                5.0407
-   55    SQ29852_2V                          SQ29852_2V                                6.3017
-   56    SQ29852_2W                          SQ29852_2W                                5.0690
-   57    SQ29852_2Y                          SQ29852_2Y                                4.8984
-   58    SQ29852_2Z                          SQ29852_2Z                                4.9245
-   59    SQ29852_2X                          SQ29852_2X                                2.1968
-   60    SQ29852_2E                          SQ29852_2E                                7.9713
-   61    SQ29852_2K                          SQ29852_2K                                5.2176
-   62    SQ29852_2I                          SQ29852_2I                                5.4240
-   63    THIOL_2                             THIOL_2                                   3.2651
-   64    THIOL_4                             THIOL_4                                   3.2651
-   65    THIOL_5                             THIOL_5                                   3.1408
-   66    THIOL_7A                            THIOL_7A                                  3.1091
-   67    THIOL_7B                            THIOL_7B                                  7.1044
-   68    THIOL_9                             THIOL_9                                   3.1309
-   69    THIOL_10                            THIOL_10                                  3.1113
-   70    THIOL_14                            THIOL_14                                  1.3030
-   71    THIOL_18                            THIOL_18                                  1.1691
-   72    THIOL_20A                           THIOL_20A                                 3.4805
-   73    THIOL_20B                           THIOL_20B                                 1.2528
-   74    THIOL_27                            THIOL_27                                  1.1717
-   75    THIOL_30A                           THIOL_30A                                 2.2341
-   76    THIOL_30B                           THIOL_30B                                 1.8658
-   77    mol_01                              mol_01                                    1.1428
-   78    mol_02                              mol_02                                    1.0334
-   79    mol_03                              mol_03                                    0.7554
-   80    mol_04                              mol_04                                    4.6092
-   81    mol_05                              mol_05                                    1.0443
-   82    mol_06                              mol_06                                    0.8914
-   83    mol_10                              mol_10                                    0.8133
-   84    mol_11                              mol_11                                    0.9352
-   85    mol_13                              mol_13                                    5.1673
-   86    mol_17                              mol_17                                    1.0418
-   87    mol_23                              mol_23                                    2.1659
-   88    mol_27                              mol_27                                    1.6603
-   89    mol_28                              mol_28                                    1.1114
-   90    mol_32                              mol_32                                    1.1061
-   91    mol_35                              mol_35                                    1.1455
-   92    mol_36                              mol_36                                    0.7529
-   93    mol_39                              mol_39                                    0.7886
-   94    mol_40                              mol_40                                    0.8023
-   95    mol_44                              mol_44                                    0.7920
-   96    mol_48                              mol_48                                    0.8440
-   97    mol_54                              mol_54                                    4.8544
-   98    mol_55                              mol_55                                    3.0936
-   99    mol_58                              mol_58                                    1.0298
-  100    mol_60                              mol_60                                    0.7918
-  101    mol_61                              mol_61                                    0.7977
-  102    mol_62                              mol_62                                    0.8355
-  103    mol_64                              mol_64                                    0.8080
-  104    mol_67                              mol_67                                    0.9751
-  105    COO_23E                             COO_23E                                   1.2401
-  106    COO_24A                             COO_24A                                   8.2792
-  107    SQ29852_2A                          SQ29852_2A                                5.6961
-  108    SQ29852_2P                          SQ29852_2P                                5.0331
-  109    SQ29852_2S                          SQ29852_2S                                5.5277
-  110    SQ29852_2G                          SQ29852_2G                                5.7422
-  111    SQ29852_2H                          SQ29852_2H                                5.5793
-  112    THIOL_12                            THIOL_12                                  1.3608
-  113    THIOL_22                            THIOL_22                                  4.2573
-  114    THIOL_28                            THIOL_28                                  4.4310
+    1    mol_07                              mol_07                                    0.9208
+    2    mol_08                              mol_08                                    1.4359
+    3    mol_09                              mol_09                                    0.8358
+    4    mol_12                              mol_12                                    0.8943
+    5    mol_14                              mol_14                                    1.0021
+    6    mol_15                              mol_15                                    1.2418
+    7    mol_16                              mol_16                                    5.4505
+    8    mol_18                              mol_18                                    1.3367
+    9    mol_19                              mol_19                                    1.5468
+   10    mol_20                              mol_20                                    1.3314
+   11    mol_21                              mol_21                                    1.5173
+   12    mol_22                              mol_22                                    1.4279
+   13    mol_24                              mol_24                                    2.0415
+   14    mol_25                              mol_25                                    1.2733
+   15    mol_26                              mol_26                                    1.4581
+   16    mol_29                              mol_29                                    1.2509
+   17    mol_30                              mol_30                                    0.7801
+   18    mol_31                              mol_31                                    0.7677
+   19    mol_33                              mol_33                                    0.7553
+   20    mol_34                              mol_34                                    0.8115
+   21    mol_37                              mol_37                                    0.7885
+   22    mol_38                              mol_38                                    0.7766
+   23    mol_41                              mol_41                                    5.9951
+   24    mol_42                              mol_42                                    5.6132
+   25    mol_43                              mol_43                                    0.7681
+   26    mol_45                              mol_45                                    0.7893
+   27    mol_46                              mol_46                                    9.0180
+   28    mol_47                              mol_47                                    0.8033
+   29    mol_49                              mol_49                                    0.8738
+   30    mol_50                              mol_50                                    0.9121
+   31    mol_51                              mol_51                                    0.7469
+   32    mol_52                              mol_52                                    0.7834
+   33    mol_53                              mol_53                                    4.7303
+   34    mol_56                              mol_56                                    0.7895
+   35    mol_57                              mol_57                                    0.7865
+   36    mol_59                              mol_59                                    0.9478
+   37    mol_63                              mol_63                                    0.8298
+   38    mol_65                              mol_65                                    0.8950
+   39    mol_66                              mol_66                                    0.8996
+   40    mol_68                              mol_68                                    0.8373
+   41    COO_23A                             COO_23A                                   1.2849
+   42    COO_23J                             COO_23J                                   1.1743
+   43    COO_24C                             COO_24C                                   1.5415
+   44    COO_25A                             COO_25A                                   8.0338
+   45    COO_25E                             COO_25E                                   0.7016
+   46    COO_26A                             COO_26A                                   3.6975
+   47    COO_26C                             COO_26C                                   1.5159
+   48    COO_26H                             COO_26H                                   1.5082
+   49    SQ29852                             SQ29852                                   1.8028
+   50    SQ29852_2B                          SQ29852_2B                                5.0900
+   51    SQ29852_2Q                          SQ29852_2Q                                1.8805
+   52    SQ29852_2R                          SQ29852_2R                                5.6369
+   53    SQ29852_2T                          SQ29852_2T                                1.6297
+   54    SQ29852_2U                          SQ29852_2U                                5.1608
+   55    SQ29852_2V                          SQ29852_2V                                6.2396
+   56    SQ29852_2W                          SQ29852_2W                                5.0712
+   57    SQ29852_2Y                          SQ29852_2Y                                4.9317
+   58    SQ29852_2Z                          SQ29852_2Z                                4.9327
+   59    SQ29852_2X                          SQ29852_2X                                2.1727
+   60    SQ29852_2E                          SQ29852_2E                                7.9439
+   61    SQ29852_2K                          SQ29852_2K                                5.2379
+   62    SQ29852_2I                          SQ29852_2I                                5.4376
+   63    THIOL_2                             THIOL_2                                   3.2257
+   64    THIOL_4                             THIOL_4                                   3.2257
+   65    THIOL_5                             THIOL_5                                   3.1105
+   66    THIOL_7A                            THIOL_7A                                  3.0825
+   67    THIOL_7B                            THIOL_7B                                  7.5119
+   68    THIOL_9                             THIOL_9                                   3.1058
+   69    THIOL_10                            THIOL_10                                  3.0824
+   70    THIOL_14                            THIOL_14                                  1.2540
+   71    THIOL_18                            THIOL_18                                  1.1401
+   72    THIOL_20A                           THIOL_20A                                 3.4266
+   73    THIOL_20B                           THIOL_20B                                 1.2122
+   74    THIOL_27                            THIOL_27                                  1.1175
+   75    THIOL_30A                           THIOL_30A                                 2.2267
+   76    THIOL_30B                           THIOL_30B                                 1.8121
+   77    mol_01                              mol_01                                    1.1072
+   78    mol_02                              mol_02                                    1.0383
+   79    mol_03                              mol_03                                    0.7511
+   80    mol_04                              mol_04                                    0.8765
+   81    mol_05                              mol_05                                    1.0454
+   82    mol_06                              mol_06                                    1.1812
+   83    mol_10                              mol_10                                    0.8003
+   84    mol_11                              mol_11                                    0.9145
+   85    mol_13                              mol_13                                    5.1947
+   86    mol_17                              mol_17                                    0.9988
+   87    mol_23                              mol_23                                    2.1350
+   88    mol_27                              mol_27                                    1.6268
+   89    mol_28                              mol_28                                    1.0663
+   90    mol_32                              mol_32                                    1.1172
+   91    mol_35                              mol_35                                    1.1298
+   92    mol_36                              mol_36                                    0.7547
+   93    mol_39                              mol_39                                    0.7658
+   94    mol_40                              mol_40                                    0.7893
+   95    mol_44                              mol_44                                    0.7728
+   96    mol_48                              mol_48                                    0.8299
+   97    mol_54                              mol_54                                    4.8205
+   98    mol_55                              mol_55                                    3.3314
+   99    mol_58                              mol_58                                    0.9935
+  100    mol_60                              mol_60                                    0.7786
+  101    mol_61                              mol_61                                    0.7807
+  102    mol_62                              mol_62                                    0.8132
+  103    mol_64                              mol_64                                    0.7974
+  104    mol_67                              mol_67                                    0.9370
+  105    COO_23E                             COO_23E                                   1.1690
+  106    COO_24A                             COO_24A                                   8.3155
+  107    SQ29852_2A                          SQ29852_2A                                5.6746
+  108    SQ29852_2P                          SQ29852_2P                                5.0689
+  109    SQ29852_2S                          SQ29852_2S                                5.5419
+  110    SQ29852_2G                          SQ29852_2G                                5.7572
+  111    SQ29852_2H                          SQ29852_2H                                5.6005
+  112    THIOL_12                            THIOL_12                                  1.3144
+  113    THIOL_22                            THIOL_22                                  4.3024
+  114    THIOL_28                            THIOL_28                                  4.4481
 ---------------------------------------------------------------------------------------------
-                                             Average                                   2.4269
+                                             Average                                   2.3962
 ---------------------------------------------------------------------------------------------
 
-Elapsed time: 1.3450 seconds.
+Elapsed time: 1.6268 seconds.
 
 END COMMAND #00.0008 - COMPARE tool succeeded.
 
 
-Job finished on Sat Sep  8 14:08:32 2012
+Job finished on Wed Jun 25 12:11:44 2014
 
 Successful completion.

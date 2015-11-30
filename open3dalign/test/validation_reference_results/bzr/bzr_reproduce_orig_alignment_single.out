@@ -1,5 +1,5 @@
 
-Open3DALIGN version 2.21
+Open3DALIGN version 2.28
 Copyright (C) 2010-2014 Paolo Tosco, Thomas Balle
 Licensed under the terms of GPLv3
 Report bugs to <paolo.tosco@unito.it>
@@ -7,11 +7,11 @@ Report bugs to <paolo.tosco@unito.it>
 
 System information
 ------------------
-Hostname: iron
-x86_64 Linux 2.6.28 #2 SMP Wed Jan 14 08:12:26 CET 2009
-This machine has 8 CPUs.
+Hostname: pcPharm004.pharm.unito.it
+x86_64 Linux 2.6.32-358.6.2.el6.x86_64 #1 SMP Thu May 16 11:21:38 CDT 2013
+This machine has 32 CPUs.
 
-The number of CPUs used by Open3DALIGN has been set to 8.
+The number of CPUs used by Open3DALIGN has been set to 16.
 
 The nice value has been set to 20.
 
@@ -19,7 +19,7 @@ The directory for temporary storage is:
 /tmp
 
 The current working directory is:
-/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite
+/home/ptosco/open3dalign_validation_suite_2014
 
 OpenBabel binaries are in:
 /home/ptosco/open3dtools/bin
@@ -30,19 +30,19 @@ TINKER binaries are in:
 The path to TINKER binaries can be changed through the O3_TINKER_PATH environment variable or by the "env tinker_path" keyword.
 
 The PHARAO binary is:
-/home/ptosco/open3dtools/bin/pharao
+/home/ptosco/open3dtools/bin/align-it
 The path to PHARAO can be changed through the O3_PHARAO environment variable or by the "env pharao" keyword.
 
 PyMOL will not be used.
 The path to PyMOL can be set through the O3_PYMOL environment variable or by the "env pymol" keyword.
 
-Job started on Sat Sep  8 14:08:49 2012
+Job started on Wed Jun 25 12:12:05 2014
 
 BGN COMMAND #00.0001 - IMPORT SDF tool was invoked as follows:
 > import type=sdf file=bzr/bzr_3dqsar_canonical.sdf
 
 
-Elapsed time: 0.0479 seconds.
+Elapsed time: 0.0137 seconds.
 
 
 Number of fields:      0
@@ -227,13 +227,13 @@ BGN COMMAND #00.0002 - ALIGN tool was invoked as follows:
 > align type=random align_dir=bzr/bzr_align_random
 
 The align_dir directory where input, output and log files will be put is:
-"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/bzr/bzr_align_random"
+"/home/ptosco/open3dalign_validation_suite_2014/bzr/bzr_align_random"
 
 The align_scratch directory is:
-/tmp/O3A.31597.align_scratch.WxX13t
+/tmp/O3A.30444.align_scratch.SLbjiT
 
 
-Elapsed time: 1.6707 seconds.
+Elapsed time: 1.9997 seconds.
 
 END COMMAND #00.0002 - ALIGN tool succeeded.
 BGN COMMAND #00.0003 - ALIGN tool was invoked as follows:
@@ -243,20 +243,20 @@ The objects which will be used as alignment templates are the following:
 50
 
 The align_dir directory where input, output and log files will be put is:
-"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/bzr/bzr_align_mixed_single"
+"/home/ptosco/open3dalign_validation_suite_2014/bzr/bzr_align_mixed_single"
 
 The align_scratch directory is:
-/tmp/O3A.31597.align_scratch.8TO6Sw
+/tmp/O3A.30444.align_scratch.16exQl
 
 Template      ID       Conformer           O3A_SCORE
 ----------------------------------------------------
-      50      50               1            24150.20
+      50      50               1            24120.05
 ----------------------------------------------------
 
-Best template combination score:            24150.20
+Best template combination score:            24120.05
 
 
-Elapsed time: 5.0695 seconds.
+Elapsed time: 6.5355 seconds.
 
 END COMMAND #00.0003 - ALIGN tool succeeded.
 BGN COMMAND #00.0004 - ALIGN tool was invoked as follows:
@@ -266,20 +266,20 @@ The objects which will be used as alignment templates are the following:
 50
 
 The align_dir directory where input, output and log files will be put is:
-"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/bzr/bzr_align_atom_single"
+"/home/ptosco/open3dalign_validation_suite_2014/bzr/bzr_align_atom_single"
 
 The align_scratch directory is:
-/tmp/O3A.31597.align_scratch.pByktO
+/tmp/O3A.30444.align_scratch.Mc8wn3
 
 Template      ID       Conformer           O3A_SCORE
 ----------------------------------------------------
-      50      50               1            24043.75
+      50      50               1            24076.02
 ----------------------------------------------------
 
-Best template combination score:            24043.75
+Best template combination score:            24076.02
 
 
-Elapsed time: 1.7743 seconds.
+Elapsed time: 1.8465 seconds.
 
 END COMMAND #00.0004 - ALIGN tool succeeded.
 BGN COMMAND #00.0005 - ALIGN tool was invoked as follows:
@@ -289,20 +289,20 @@ The objects which will be used as alignment templates are the following:
 50
 
 The align_dir directory where input, output and log files will be put is:
-"/data/moe_data/mol2/qsar_sets/o3q_corina/open3dalign_validation_suite/bzr/bzr_align_pharao_single"
+"/home/ptosco/open3dalign_validation_suite_2014/bzr/bzr_align_pharao_single"
 
 The align_scratch directory is:
-/tmp/O3A.31597.align_scratch.gCVIdb
+/tmp/O3A.30444.align_scratch.4oOW8O
 
 Template      ID       Conformer     PHARAO_TANIMOTO
 ----------------------------------------------------
-      50      50               1               77.95
+      50      50               1               78.27
 ----------------------------------------------------
 
-Best template combination score:               77.95
+Best template combination score:               78.27
 
 
-Elapsed time: 3.8516 seconds.
+Elapsed time: 4.9565 seconds.
 
 END COMMAND #00.0005 - ALIGN tool succeeded.
 BGN COMMAND #00.0006 - COMPARE tool was invoked as follows:
@@ -314,174 +314,174 @@ Number of objects:   163
 ---------------------------------------------------------------------------------------------
     N    Reference name                      Name                                        RMSD
 ---------------------------------------------------------------------------------------------
-    1    Meclonazepam                        Meclonazepam                              0.0697
-    2    Ro05-4435                           Ro05-4435                                 0.0725
-    3    Ro07-3953                           Ro07-3953                                 0.0615
-    4    Clonazepam                          Clonazepam                                0.0693
-    5    Delorazepam                         Delorazepam                               0.0603
-    6    Ro05-3590                           Ro05-3590                                 0.0941
-    7    Ro11-4878                           Ro11-4878                                 0.0658
-    8    Ro20-8065                           Ro20-8065                                 0.0682
-    9    Flunitrazepam                       Flunitrazepam                             0.0666
-   10    Ro07-4065                           Ro07-4065                                 0.0544
-   11    Ro05-6822                           Ro05-6822                                 0.0672
-   12    Ro20-7078                           Ro20-7078                                 0.0584
-   13    Ro05-6820                           Ro05-6820                                 0.0765
-   14    Diazepam                            Diazepam                                  0.0653
-   15    Ro07-1986                           Ro07-1986                                 0.0672
-   16    Nordazepam                          Nordazepam                                0.0695
-   17    Ro05-2904                           Ro05-2904                                 0.0875
-   18    Ro05-4520                           Ro05-4520                                 0.0662
-   19    Ro20-8552                           Ro20-8552                                 0.0656
-   20    Temazepam                           Temazepam                                 0.0682
-   21    Ro05-4865                           Ro05-4865                                 0.0716
-   22    Oxazepam                            Oxazepam                                  0.0732
-   23    Ro07-4419                           Ro07-4419                                 0.0666
-   24    Ro20-8895                           Ro20-8895                                 0.0679
-   25    Ro05-4336                           Ro05-4336                                 0.0684
-   26    Ro20-5747                           Ro20-5747                                 0.0841
-   27    Ro07-2750                           Ro07-2750                                 0.0664
-   28    Ro07-6198                           Ro07-6198                                 0.0670
-   29    Desmethyltetrazepam                 Desmethyltetrazepam                       0.1155
-   30    Ro20-2533                           Ro20-2533                                 0.0815
-   31    Ro05-3061                           Ro05-3061                                 0.0863
-   32    Ro22-6762                           Ro22-6762                                 0.0764
-   33    Ro20-5397                           Ro20-5397                                 0.0817
-   34    Ro06-7263                           Ro06-7263                                 0.0702
-   35    Ro20-1815                           Ro20-1815                                 0.0690
-   36    Ro13-0593                           Ro13-0593                                 0.4678
-   37    Ro05-4619                           Ro05-4619                                 0.0778
-   38    Halazepam                           Halazepam                                 0.0692
-   39    Pinazepam                           Pinazepam                                 0.0654
-   40    Ro20-7736                           Ro20-7736                                 0.0659
-   41    Ro13-0699                           Ro13-0699                                 0.0759
-   42    Ro17-2221                           Ro17-2221                                 0.0789
-   43    Ro05-3546                           Ro05-3546                                 0.0888
-   44    Ro05-2921                           Ro05-2921                                 0.0761
-   45    Ro05-4528                           Ro05-4528                                 0.0710
-   46    Ro05-3072                           Ro05-3072                                 0.0882
-   47    Ro05-4318                           Ro05-4318                                 0.0727
-   48    Desmethylclobazam                   Desmethylclobazam                         0.3241
-   49    Ro11-6679                           Ro11-6679                                 0.0512
-   50    Triazolam                           Triazolam                                 0.0491
-   51    U-35005                             U-35005                                   0.0579
-   52    Estazolam                           Estazolam                                 0.0514
-   53    Alprazolam                          Alprazolam                                0.0469
-   54    Adinazolam                          Adinazolam                                0.0500
-   55    Ro11-7800                           Ro11-7800                                 0.3245
-   56    Etizolam                            Etizolam                                  0.2240
-   57    Ro17-4582                           Ro17-4582                                 0.2501
-   58    Ro21-8137                           Ro21-8137                                 0.0295
-   59    Midazolam                           Midazolam                                 0.0479
-   60    Ro21-5205                           Ro21-5205                                 0.0284
-   61    Ro22-0992                           Ro22-0992                                 0.0436
-   62    Ro15-8670                           Ro15-8670                                 0.0406
-   63    Ro15-8867                           Ro15-8867                                 0.0915
-   64    Ro14-0304                           Ro14-0304                                 0.0563
-   65    Ro14-5921                           Ro14-5921                                 0.0733
-   66    Ro13-9868                           Ro13-9868                                 0.0592
-   67    Ro11-8125                           Ro11-8125                                 0.0925
-   68    Ro08-6739                           Ro08-6739                                 0.0845
-   69    Ro15-0791                           Ro15-0791                                 0.0767
-   70    Ro15-2200                           Ro15-2200                                 0.0841
-   71    Ro15-3929                           Ro15-3929                                 0.0802
-   72    Ro22-3245                           Ro22-3245                                 0.0898
-   73    Ro22-1366                           Ro22-1366                                 0.1023
-   74    Ro22-1251                           Ro22-1251                                 0.1095
-   75    Ro22-3147                           Ro22-3147                                 0.2449
-   76    Ro22-0780                           Ro22-0780                                 0.2038
-   77    Ro22-3148                           Ro22-3148                                 0.2281
-   78    Ro16-4019                           Ro16-4019                                 0.1414
-   79    Ro16-9918                           Ro16-9918                                 0.1422
-   80    Ro16-3031                           Ro16-3031                                 0.1433
-   81    Ro16-7083                           Ro16-7083                                 0.1506
-   82    Ro16-6127                           Ro16-6127                                 0.1548
-   83    Ro16-0071                           Ro16-0071                                 0.2246
-   84    Ro16-3774                           Ro16-3774                                 0.1652
-   85    Ro16-6048                           Ro16-6048                                 0.1634
-   86    Ro16-5824                           Ro16-5824                                 0.1680
-   87    Ro16-6654                           Ro16-6654                                 0.1669
-   88    Ro17-1302                           Ro17-1302                                 0.1611
-   89    Ro16-8912                           Ro16-8912                                 0.1783
-   90    Ro16-7082                           Ro16-7082                                 0.1427
-   91    Ro14-5974                           Ro14-5974                                 0.1375
-   92    Ro16-4261                           Ro16-4261                                 0.1237
-   93    Ro16-6624                           Ro16-6624                                 0.1701
-   94    Ro16-3607                           Ro16-3607                                 0.1621
-   95    Ro14-5975                           Ro14-5975                                 0.1196
-   96    Ro15-3505                           Ro15-3505                                 0.3497
-   97    Ro14-7437                           Ro14-7437                                 0.3304
-   98    Ro17-9741                           Ro17-9741                                 0.1875
-   99    Lorazepam                           Lorazepam                                 0.0702
-  100    Ro14-3074                           Ro14-3074                                 0.0826
-  101    Ro11-6896                           Ro11-6896                                 0.0626
-  102    Nitrazepam                          Nitrazepam                                0.0853
-  103    Bromazepam                          Bromazepam                                0.1193
-  104    Ro20-3053                           Ro20-3053                                 0.0831
-  105    Ro20-2541                           Ro20-2541                                 0.0669
-  106    Tetrazepam                          Tetrazepam                                0.0830
-  107    Ro05-2750                           Ro05-2750                                 0.0893
-  108    Clorazepate                         Clorazepate                               0.0792
-  109    Ro05-3328                           Ro05-3328                                 0.4073
-  110    Prazepam                            Prazepam                                  0.0689
-  111    Ro10-3580                           Ro10-3580                                 0.0724
-  112    Ro13-0882                           Ro13-0882                                 0.0783
-  113    Ro22-4683                           Ro22-4683                                 0.1276
-  114    Ro06-9098                           Ro06-9098                                 0.0688
-  115    Ro12-6377                           Ro12-6377                                 0.0672
-  116    Ro20-1310                           Ro20-1310                                 0.2222
-  117    Clobazam                            Clobazam                                  0.1809
-  118    Ro11-5073                           Ro11-5073                                 0.0436
-  119    alpha-hydroxytriazolam              alpha-hydroxytriazolam                    0.0467
-  120    Ro11-1465                           Ro11-1465                                 0.2981
-  121    alpha-Hydroxymidazolam              alpha-Hydroxymidazolam                    0.0523
-  122    Ro22-1892                           Ro22-1892                                 0.0425
-  123    Ro16-0529                           Ro16-0529                                 0.0668
-  124    Ro21-8482                           Ro21-8482                                 0.0591
-  125    Ro14-1359                           Ro14-1359                                 0.0649
-  126    Ro15-9270                           Ro15-9270                                 0.0782
-  127    Ro14-2652                           Ro14-2652                                 0.0573
-  128    Ro14-7187                           Ro14-7187                                 0.0666
-  129    Ro14-0609                           Ro14-0609                                 0.0828
-  130    Ro08-9212                           Ro08-9212                                 0.1139
-  131    Ro15-2201                           Ro15-2201                                 0.0784
-  132    Ro14-3930                           Ro14-3930                                 0.0744
-  133    Ro14-5568                           Ro14-5568                                 0.0725
-  134    Ro22-1274                           Ro22-1274                                 0.0350
-  135    Ro22-2038                           Ro22-2038                                 0.0993
-  136    Ro22-2466                           Ro22-2466                                 0.2058
-  137    Ro15-4941                           Ro15-4941                                 0.1331
-  138    Ro16-9906                           Ro16-9906                                 0.1384
-  139    Ro16-6950                           Ro16-6950                                 5.0867
-  140    Ro16-4234                           Ro16-4234                                 0.1211
-  141    Ro15-1310                           Ro15-1310                                 0.3493
-  142    Ro10-2643                           Ro10-2643                                 0.3789
-  143    Premazepam                          Premazepam                                0.2377
-  144    Ro15-8852                           Ro15-8852                                 0.0826
-  145    Chlordiazepoxide                    Chlordiazepoxide                          0.3347
-  146    Demoxepam                           Demoxepam                                 0.0732
-  147    Medazepam                           Medazepam                                 0.0610
-  148    Ro05-3308                           Ro05-3308                                 0.0978
-  149    Ro05-3343                           Ro05-3343                                 0.0992
-  150    Ro05-3663                           Ro05-3663                                 0.1118
-  151    Ro05-7094                           Ro05-7094                                 0.0915
-  152    Ro05-9090                           Ro05-9090                                 0.0722
-  153    Ro07-4532                           Ro07-4532                                 0.0656
-  154    Ro07-5096                           Ro07-5096                                 0.0637
-  155    Ro14-2312                           Ro14-2312                                 0.0773
-  156    Ro14-7181                           Ro14-7181                                 0.1090
-  157    Ro15-1746                           Ro15-1746                                 0.3278
-  158    Ro15-2427                           Ro15-2427                                 0.2715
-  159    Ro15-3237                           Ro15-3237                                 0.3364
-  160    Ro05-2181                           Ro05-2181                                 0.0830
-  161    Ro05-2881                           Ro05-2881                                 0.0938
-  162    Ro05-3395                           Ro05-3395                                 0.1022
-  163    Ro05-3636                           Ro05-3636                                 0.0808
+    1    Meclonazepam                        Meclonazepam                              0.0659
+    2    Ro05-4435                           Ro05-4435                                 0.0577
+    3    Ro07-3953                           Ro07-3953                                 0.0513
+    4    Clonazepam                          Clonazepam                                0.0673
+    5    Delorazepam                         Delorazepam                               0.0601
+    6    Ro05-3590                           Ro05-3590                                 0.0946
+    7    Ro11-4878                           Ro11-4878                                 0.0546
+    8    Ro20-8065                           Ro20-8065                                 0.0547
+    9    Flunitrazepam                       Flunitrazepam                             0.0623
+   10    Ro07-4065                           Ro07-4065                                 0.0465
+   11    Ro05-6822                           Ro05-6822                                 0.0599
+   12    Ro20-7078                           Ro20-7078                                 0.0527
+   13    Ro05-6820                           Ro05-6820                                 0.0636
+   14    Diazepam                            Diazepam                                  0.0490
+   15    Ro07-1986                           Ro07-1986                                 0.0582
+   16    Nordazepam                          Nordazepam                                0.0570
+   17    Ro05-2904                           Ro05-2904                                 0.0754
+   18    Ro05-4520                           Ro05-4520                                 0.0612
+   19    Ro20-8552                           Ro20-8552                                 0.0513
+   20    Temazepam                           Temazepam                                 0.0546
+   21    Ro05-4865                           Ro05-4865                                 0.0607
+   22    Oxazepam                            Oxazepam                                  0.0588
+   23    Ro07-4419                           Ro07-4419                                 0.0560
+   24    Ro20-8895                           Ro20-8895                                 0.0569
+   25    Ro05-4336                           Ro05-4336                                 0.0574
+   26    Ro20-5747                           Ro20-5747                                 0.0711
+   27    Ro07-2750                           Ro07-2750                                 0.0574
+   28    Ro07-6198                           Ro07-6198                                 0.0548
+   29    Desmethyltetrazepam                 Desmethyltetrazepam                       0.1064
+   30    Ro20-2533                           Ro20-2533                                 0.0693
+   31    Ro05-3061                           Ro05-3061                                 0.0725
+   32    Ro22-6762                           Ro22-6762                                 0.0720
+   33    Ro20-5397                           Ro20-5397                                 0.0687
+   34    Ro06-7263                           Ro06-7263                                 0.0525
+   35    Ro20-1815                           Ro20-1815                                 0.0618
+   36    Ro13-0593                           Ro13-0593                                 0.4735
+   37    Ro05-4619                           Ro05-4619                                 0.0730
+   38    Halazepam                           Halazepam                                 0.2862
+   39    Pinazepam                           Pinazepam                                 0.0542
+   40    Ro20-7736                           Ro20-7736                                 0.0596
+   41    Ro13-0699                           Ro13-0699                                 0.0795
+   42    Ro17-2221                           Ro17-2221                                 0.0676
+   43    Ro05-3546                           Ro05-3546                                 0.0805
+   44    Ro05-2921                           Ro05-2921                                 0.0654
+   45    Ro05-4528                           Ro05-4528                                 0.0682
+   46    Ro05-3072                           Ro05-3072                                 0.0754
+   47    Ro05-4318                           Ro05-4318                                 0.0621
+   48    Desmethylclobazam                   Desmethylclobazam                         0.3334
+   49    Ro11-6679                           Ro11-6679                                 0.0484
+   50    Triazolam                           Triazolam                                 0.0372
+   51    U-35005                             U-35005                                   0.0446
+   52    Estazolam                           Estazolam                                 0.0435
+   53    Alprazolam                          Alprazolam                                0.0384
+   54    Adinazolam                          Adinazolam                                0.0436
+   55    Ro11-7800                           Ro11-7800                                 0.3128
+   56    Etizolam                            Etizolam                                  0.2548
+   57    Ro17-4582                           Ro17-4582                                 0.2431
+   58    Ro21-8137                           Ro21-8137                                 0.0425
+   59    Midazolam                           Midazolam                                 0.0497
+   60    Ro21-5205                           Ro21-5205                                 0.0388
+   61    Ro22-0992                           Ro22-0992                                 0.0498
+   62    Ro15-8670                           Ro15-8670                                 0.0454
+   63    Ro15-8867                           Ro15-8867                                 0.1007
+   64    Ro14-0304                           Ro14-0304                                 0.0596
+   65    Ro14-5921                           Ro14-5921                                 0.0770
+   66    Ro13-9868                           Ro13-9868                                 0.0571
+   67    Ro11-8125                           Ro11-8125                                 0.1048
+   68    Ro08-6739                           Ro08-6739                                 0.0925
+   69    Ro15-0791                           Ro15-0791                                 0.0824
+   70    Ro15-2200                           Ro15-2200                                 0.0980
+   71    Ro15-3929                           Ro15-3929                                 0.0986
+   72    Ro22-3245                           Ro22-3245                                 0.0628
+   73    Ro22-1366                           Ro22-1366                                 0.0849
+   74    Ro22-1251                           Ro22-1251                                 0.0619
+   75    Ro22-3147                           Ro22-3147                                 0.2507
+   76    Ro22-0780                           Ro22-0780                                 0.2079
+   77    Ro22-3148                           Ro22-3148                                 0.2306
+   78    Ro16-4019                           Ro16-4019                                 0.1710
+   79    Ro16-9918                           Ro16-9918                                 0.1742
+   80    Ro16-3031                           Ro16-3031                                 0.1696
+   81    Ro16-7083                           Ro16-7083                                 0.1833
+   82    Ro16-6127                           Ro16-6127                                 0.1870
+   83    Ro16-0071                           Ro16-0071                                 0.2128
+   84    Ro16-3774                           Ro16-3774                                 0.1980
+   85    Ro16-6048                           Ro16-6048                                 5.1590
+   86    Ro16-5824                           Ro16-5824                                 0.2031
+   87    Ro16-6654                           Ro16-6654                                 0.2038
+   88    Ro17-1302                           Ro17-1302                                 0.1993
+   89    Ro16-8912                           Ro16-8912                                 0.2089
+   90    Ro16-7082                           Ro16-7082                                 0.1739
+   91    Ro14-5974                           Ro14-5974                                 0.1454
+   92    Ro16-4261                           Ro16-4261                                 0.1430
+   93    Ro16-6624                           Ro16-6624                                 0.2036
+   94    Ro16-3607                           Ro16-3607                                 0.1934
+   95    Ro14-5975                           Ro14-5975                                 0.1304
+   96    Ro15-3505                           Ro15-3505                                 0.3585
+   97    Ro14-7437                           Ro14-7437                                 0.3384
+   98    Ro17-9741                           Ro17-9741                                 0.2005
+   99    Lorazepam                           Lorazepam                                 0.0577
+  100    Ro14-3074                           Ro14-3074                                 0.0692
+  101    Ro11-6896                           Ro11-6896                                 0.0621
+  102    Nitrazepam                          Nitrazepam                                0.0713
+  103    Bromazepam                          Bromazepam                                0.1090
+  104    Ro20-3053                           Ro20-3053                                 0.0696
+  105    Ro20-2541                           Ro20-2541                                 0.0627
+  106    Tetrazepam                          Tetrazepam                                0.0721
+  107    Ro05-2750                           Ro05-2750                                 0.0788
+  108    Clorazepate                         Clorazepate                               0.0623
+  109    Ro05-3328                           Ro05-3328                                 0.2557
+  110    Prazepam                            Prazepam                                  0.0506
+  111    Ro10-3580                           Ro10-3580                                 0.0645
+  112    Ro13-0882                           Ro13-0882                                 0.0834
+  113    Ro22-4683                           Ro22-4683                                 0.1169
+  114    Ro06-9098                           Ro06-9098                                 0.0642
+  115    Ro12-6377                           Ro12-6377                                 0.0646
+  116    Ro20-1310                           Ro20-1310                                 0.1372
+  117    Clobazam                            Clobazam                                  0.1855
+  118    Ro11-5073                           Ro11-5073                                 0.0403
+  119    alpha-hydroxytriazolam              alpha-hydroxytriazolam                    0.0388
+  120    Ro11-1465                           Ro11-1465                                 0.3369
+  121    alpha-Hydroxymidazolam              alpha-Hydroxymidazolam                    0.0566
+  122    Ro22-1892                           Ro22-1892                                 0.0643
+  123    Ro16-0529                           Ro16-0529                                 0.0691
+  124    Ro21-8482                           Ro21-8482                                 0.0702
+  125    Ro14-1359                           Ro14-1359                                 0.0632
+  126    Ro15-9270                           Ro15-9270                                 0.0874
+  127    Ro14-2652                           Ro14-2652                                 0.0618
+  128    Ro14-7187                           Ro14-7187                                 0.0591
+  129    Ro14-0609                           Ro14-0609                                 0.1023
+  130    Ro08-9212                           Ro08-9212                                 0.1291
+  131    Ro15-2201                           Ro15-2201                                 0.0826
+  132    Ro14-3930                           Ro14-3930                                 0.0946
+  133    Ro14-5568                           Ro14-5568                                 0.0819
+  134    Ro22-1274                           Ro22-1274                                 0.0258
+  135    Ro22-2038                           Ro22-2038                                 0.0823
+  136    Ro22-2466                           Ro22-2466                                 0.2091
+  137    Ro15-4941                           Ro15-4941                                 0.1617
+  138    Ro16-9906                           Ro16-9906                                 0.1687
+  139    Ro16-6950                           Ro16-6950                                 4.3034
+  140    Ro16-4234                           Ro16-4234                                 0.1459
+  141    Ro15-1310                           Ro15-1310                                 0.3504
+  142    Ro10-2643                           Ro10-2643                                 0.0750
+  143    Premazepam                          Premazepam                                0.2328
+  144    Ro15-8852                           Ro15-8852                                 0.1241
+  145    Chlordiazepoxide                    Chlordiazepoxide                          0.3629
+  146    Demoxepam                           Demoxepam                                 0.0667
+  147    Medazepam                           Medazepam                                 0.0758
+  148    Ro05-3308                           Ro05-3308                                 0.0845
+  149    Ro05-3343                           Ro05-3343                                 0.0810
+  150    Ro05-3663                           Ro05-3663                                 0.1051
+  151    Ro05-7094                           Ro05-7094                                 0.0827
+  152    Ro05-9090                           Ro05-9090                                 0.0652
+  153    Ro07-4532                           Ro07-4532                                 0.0534
+  154    Ro07-5096                           Ro07-5096                                 0.0540
+  155    Ro14-2312                           Ro14-2312                                 0.0763
+  156    Ro14-7181                           Ro14-7181                                 0.1131
+  157    Ro15-1746                           Ro15-1746                                 0.3439
+  158    Ro15-2427                           Ro15-2427                                 0.2798
+  159    Ro15-3237                           Ro15-3237                                 0.3538
+  160    Ro05-2181                           Ro05-2181                                 0.1156
+  161    Ro05-2881                           Ro05-2881                                 0.0933
+  162    Ro05-3395                           Ro05-3395                                 0.1236
+  163    Ro05-3636                           Ro05-3636                                 0.0847
 ---------------------------------------------------------------------------------------------
-                                             Average                                   0.1450
+                                             Average                                   0.1702
 ---------------------------------------------------------------------------------------------
 
-Elapsed time: 1.9911 seconds.
+Elapsed time: 2.4910 seconds.
 
 END COMMAND #00.0006 - COMPARE tool succeeded.
 BGN COMMAND #00.0007 - COMPARE tool was invoked as follows:
@@ -493,174 +493,174 @@ Number of objects:   163
 ---------------------------------------------------------------------------------------------
     N    Reference name                      Name                                        RMSD
 ---------------------------------------------------------------------------------------------
-    1    Meclonazepam                        Meclonazepam                              0.0850
-    2    Ro05-4435                           Ro05-4435                                 0.0764
-    3    Ro07-3953                           Ro07-3953                                 0.0732
-    4    Clonazepam                          Clonazepam                                0.0868
-    5    Delorazepam                         Delorazepam                               0.0838
-    6    Ro05-3590                           Ro05-3590                                 0.1110
-    7    Ro11-4878                           Ro11-4878                                 0.0754
-    8    Ro20-8065                           Ro20-8065                                 0.0788
-    9    Flunitrazepam                       Flunitrazepam                             0.0802
-   10    Ro07-4065                           Ro07-4065                                 0.0790
-   11    Ro05-6822                           Ro05-6822                                 0.0754
-   12    Ro20-7078                           Ro20-7078                                 0.0820
-   13    Ro05-6820                           Ro05-6820                                 0.0756
-   14    Diazepam                            Diazepam                                  0.0869
-   15    Ro07-1986                           Ro07-1986                                 0.0809
-   16    Nordazepam                          Nordazepam                                0.0781
-   17    Ro05-2904                           Ro05-2904                                 0.0896
-   18    Ro05-4520                           Ro05-4520                                 0.0872
-   19    Ro20-8552                           Ro20-8552                                 0.0766
-   20    Temazepam                           Temazepam                                 0.0878
-   21    Ro05-4865                           Ro05-4865                                 0.0774
-   22    Oxazepam                            Oxazepam                                  0.0791
-   23    Ro07-4419                           Ro07-4419                                 0.0769
-   24    Ro20-8895                           Ro20-8895                                 0.0782
-   25    Ro05-4336                           Ro05-4336                                 0.0792
-   26    Ro20-5747                           Ro20-5747                                 0.0835
-   27    Ro07-2750                           Ro07-2750                                 0.0807
-   28    Ro07-6198                           Ro07-6198                                 0.0767
-   29    Desmethyltetrazepam                 Desmethyltetrazepam                       0.1242
-   30    Ro20-2533                           Ro20-2533                                 0.0827
-   31    Ro05-3061                           Ro05-3061                                 0.0804
-   32    Ro22-6762                           Ro22-6762                                 0.0946
-   33    Ro20-5397                           Ro20-5397                                 0.0836
-   34    Ro06-7263                           Ro06-7263                                 0.0845
-   35    Ro20-1815                           Ro20-1815                                 0.0792
-   36    Ro13-0593                           Ro13-0593                                 0.5165
-   37    Ro05-4619                           Ro05-4619                                 0.0901
-   38    Halazepam                           Halazepam                                 0.0834
-   39    Pinazepam                           Pinazepam                                 0.0849
-   40    Ro20-7736                           Ro20-7736                                 0.0777
-   41    Ro13-0699                           Ro13-0699                                 0.0954
-   42    Ro17-2221                           Ro17-2221                                 0.0935
-   43    Ro05-3546                           Ro05-3546                                 0.0976
-   44    Ro05-2921                           Ro05-2921                                 0.0842
-   45    Ro05-4528                           Ro05-4528                                 0.0831
-   46    Ro05-3072                           Ro05-3072                                 0.0840
-   47    Ro05-4318                           Ro05-4318                                 0.0803
-   48    Desmethylclobazam                   Desmethylclobazam                         0.3291
-   49    Ro11-6679                           Ro11-6679                                 0.0787
-   50    Triazolam                           Triazolam                                 0.0757
-   51    U-35005                             U-35005                                   0.0796
-   52    Estazolam                           Estazolam                                 0.0842
-   53    Alprazolam                          Alprazolam                                0.0783
-   54    Adinazolam                          Adinazolam                                0.0841
-   55    Ro11-7800                           Ro11-7800                                 0.3618
-   56    Etizolam                            Etizolam                                  0.2511
-   57    Ro17-4582                           Ro17-4582                                 0.2780
-   58    Ro21-8137                           Ro21-8137                                 0.0909
-   59    Midazolam                           Midazolam                                 0.0920
-   60    Ro21-5205                           Ro21-5205                                 0.0891
-   61    Ro22-0992                           Ro22-0992                                 0.0928
-   62    Ro15-8670                           Ro15-8670                                 0.0934
-   63    Ro15-8867                           Ro15-8867                                 0.1138
-   64    Ro14-0304                           Ro14-0304                                 0.1044
-   65    Ro14-5921                           Ro14-5921                                 0.1166
-   66    Ro13-9868                           Ro13-9868                                 0.0979
-   67    Ro11-8125                           Ro11-8125                                 0.1263
-   68    Ro08-6739                           Ro08-6739                                 0.1080
-   69    Ro15-0791                           Ro15-0791                                 0.1297
-   70    Ro15-2200                           Ro15-2200                                 0.1441
-   71    Ro15-3929                           Ro15-3929                                 0.1427
-   72    Ro22-3245                           Ro22-3245                                 0.0829
-   73    Ro22-1366                           Ro22-1366                                 0.0773
-   74    Ro22-1251                           Ro22-1251                                 0.0817
-   75    Ro22-3147                           Ro22-3147                                 0.3065
-   76    Ro22-0780                           Ro22-0780                                 0.2661
-   77    Ro22-3148                           Ro22-3148                                 0.2897
-   78    Ro16-4019                           Ro16-4019                                 0.2046
-   79    Ro16-9918                           Ro16-9918                                 0.2096
-   80    Ro16-3031                           Ro16-3031                                 5.0909
-   81    Ro16-7083                           Ro16-7083                                 0.2123
-   82    Ro16-6127                           Ro16-6127                                 7.0444
-   83    Ro16-0071                           Ro16-0071                                 0.2395
-   84    Ro16-3774                           Ro16-3774                                 0.2134
-   85    Ro16-6048                           Ro16-6048                                 4.3142
-   86    Ro16-5824                           Ro16-5824                                 0.2110
-   87    Ro16-6654                           Ro16-6654                                 0.2378
-   88    Ro17-1302                           Ro17-1302                                 0.2338
-   89    Ro16-8912                           Ro16-8912                                 0.2263
-   90    Ro16-7082                           Ro16-7082                                 0.2048
-   91    Ro14-5974                           Ro14-5974                                 0.1922
-   92    Ro16-4261                           Ro16-4261                                 0.1851
-   93    Ro16-6624                           Ro16-6624                                 0.2154
-   94    Ro16-3607                           Ro16-3607                                 0.2085
-   95    Ro14-5975                           Ro14-5975                                 0.1728
-   96    Ro15-3505                           Ro15-3505                                 0.3862
-   97    Ro14-7437                           Ro14-7437                                 0.3714
-   98    Ro17-9741                           Ro17-9741                                 5.5992
-   99    Lorazepam                           Lorazepam                                 0.0774
-  100    Ro14-3074                           Ro14-3074                                 0.0769
-  101    Ro11-6896                           Ro11-6896                                 0.0774
-  102    Nitrazepam                          Nitrazepam                                0.0843
-  103    Bromazepam                          Bromazepam                                0.1228
-  104    Ro20-3053                           Ro20-3053                                 0.0886
-  105    Ro20-2541                           Ro20-2541                                 0.0799
-  106    Tetrazepam                          Tetrazepam                                0.1030
-  107    Ro05-2750                           Ro05-2750                                 0.0974
-  108    Clorazepate                         Clorazepate                               0.0801
-  109    Ro05-3328                           Ro05-3328                                 0.4007
-  110    Prazepam                            Prazepam                                  0.0854
-  111    Ro10-3580                           Ro10-3580                                 0.0815
-  112    Ro13-0882                           Ro13-0882                                 0.0983
-  113    Ro22-4683                           Ro22-4683                                 0.0906
-  114    Ro06-9098                           Ro06-9098                                 0.0785
-  115    Ro12-6377                           Ro12-6377                                 0.0803
-  116    Ro20-1310                           Ro20-1310                                 0.2629
-  117    Clobazam                            Clobazam                                  0.1919
-  118    Ro11-5073                           Ro11-5073                                 0.0805
-  119    alpha-hydroxytriazolam              alpha-hydroxytriazolam                    0.0806
-  120    Ro11-1465                           Ro11-1465                                 0.3328
-  121    alpha-Hydroxymidazolam              alpha-Hydroxymidazolam                    0.0993
-  122    Ro22-1892                           Ro22-1892                                 0.1087
-  123    Ro16-0529                           Ro16-0529                                 0.1076
-  124    Ro21-8482                           Ro21-8482                                 0.1074
-  125    Ro14-1359                           Ro14-1359                                 0.0904
-  126    Ro15-9270                           Ro15-9270                                 0.1237
-  127    Ro14-2652                           Ro14-2652                                 0.1106
-  128    Ro14-7187                           Ro14-7187                                 0.0999
-  129    Ro14-0609                           Ro14-0609                                 0.1283
-  130    Ro08-9212                           Ro08-9212                                 0.1464
-  131    Ro15-2201                           Ro15-2201                                 0.1291
-  132    Ro14-3930                           Ro14-3930                                 0.1322
-  133    Ro14-5568                           Ro14-5568                                 0.1205
-  134    Ro22-1274                           Ro22-1274                                 0.0697
-  135    Ro22-2038                           Ro22-2038                                 0.0759
-  136    Ro22-2466                           Ro22-2466                                 0.2677
-  137    Ro15-4941                           Ro15-4941                                 6.0206
-  138    Ro16-9906                           Ro16-9906                                 0.2013
-  139    Ro16-6950                           Ro16-6950                                 5.0435
-  140    Ro16-4234                           Ro16-4234                                 0.1696
-  141    Ro15-1310                           Ro15-1310                                 0.3877
-  142    Ro10-2643                           Ro10-2643                                 0.3552
-  143    Premazepam                          Premazepam                                0.2244
-  144    Ro15-8852                           Ro15-8852                                 0.0864
-  145    Chlordiazepoxide                    Chlordiazepoxide                          0.3933
-  146    Demoxepam                           Demoxepam                                 0.0793
-  147    Medazepam                           Medazepam                                 0.0996
-  148    Ro05-3308                           Ro05-3308                                 0.0899
-  149    Ro05-3343                           Ro05-3343                                 0.1083
-  150    Ro05-3663                           Ro05-3663                                 0.1023
-  151    Ro05-7094                           Ro05-7094                                 0.1396
-  152    Ro05-9090                           Ro05-9090                                 0.0862
-  153    Ro07-4532                           Ro07-4532                                 0.0865
-  154    Ro07-5096                           Ro07-5096                                 0.0808
-  155    Ro14-2312                           Ro14-2312                                 0.0959
-  156    Ro14-7181                           Ro14-7181                                 0.1672
-  157    Ro15-1746                           Ro15-1746                                 0.3731
-  158    Ro15-2427                           Ro15-2427                                 0.3141
-  159    Ro15-3237                           Ro15-3237                                 0.3812
-  160    Ro05-2181                           Ro05-2181                                 0.1021
-  161    Ro05-2881                           Ro05-2881                                 0.1139
-  162    Ro05-3395                           Ro05-3395                                 0.1139
-  163    Ro05-3636                           Ro05-3636                                 0.1033
+    1    Meclonazepam                        Meclonazepam                              0.0853
+    2    Ro05-4435                           Ro05-4435                                 0.0807
+    3    Ro07-3953                           Ro07-3953                                 0.0767
+    4    Clonazepam                          Clonazepam                                0.0859
+    5    Delorazepam                         Delorazepam                               0.0770
+    6    Ro05-3590                           Ro05-3590                                 0.1088
+    7    Ro11-4878                           Ro11-4878                                 0.0808
+    8    Ro20-8065                           Ro20-8065                                 0.0773
+    9    Flunitrazepam                       Flunitrazepam                             0.0842
+   10    Ro07-4065                           Ro07-4065                                 0.0721
+   11    Ro05-6822                           Ro05-6822                                 0.0834
+   12    Ro20-7078                           Ro20-7078                                 0.0777
+   13    Ro05-6820                           Ro05-6820                                 0.0869
+   14    Diazepam                            Diazepam                                  0.0702
+   15    Ro07-1986                           Ro07-1986                                 0.0840
+   16    Nordazepam                          Nordazepam                                0.0805
+   17    Ro05-2904                           Ro05-2904                                 0.0958
+   18    Ro05-4520                           Ro05-4520                                 0.0844
+   19    Ro20-8552                           Ro20-8552                                 0.0738
+   20    Temazepam                           Temazepam                                 0.0759
+   21    Ro05-4865                           Ro05-4865                                 0.0829
+   22    Oxazepam                            Oxazepam                                  0.0839
+   23    Ro07-4419                           Ro07-4419                                 0.0820
+   24    Ro20-8895                           Ro20-8895                                 0.0810
+   25    Ro05-4336                           Ro05-4336                                 0.0818
+   26    Ro20-5747                           Ro20-5747                                 0.0918
+   27    Ro07-2750                           Ro07-2750                                 0.0833
+   28    Ro07-6198                           Ro07-6198                                 0.0806
+   29    Desmethyltetrazepam                 Desmethyltetrazepam                       0.1221
+   30    Ro20-2533                           Ro20-2533                                 0.0911
+   31    Ro05-3061                           Ro05-3061                                 0.0940
+   32    Ro22-6762                           Ro22-6762                                 0.0903
+   33    Ro20-5397                           Ro20-5397                                 0.0906
+   34    Ro06-7263                           Ro06-7263                                 0.0749
+   35    Ro20-1815                           Ro20-1815                                 0.0849
+   36    Ro13-0593                           Ro13-0593                                 0.4751
+   37    Ro05-4619                           Ro05-4619                                 0.0914
+   38    Halazepam                           Halazepam                                 0.2847
+   39    Pinazepam                           Pinazepam                                 0.0785
+   40    Ro20-7736                           Ro20-7736                                 0.0827
+   41    Ro13-0699                           Ro13-0699                                 0.0981
+   42    Ro17-2221                           Ro17-2221                                 0.0878
+   43    Ro05-3546                           Ro05-3546                                 0.1002
+   44    Ro05-2921                           Ro05-2921                                 0.0887
+   45    Ro05-4528                           Ro05-4528                                 0.0887
+   46    Ro05-3072                           Ro05-3072                                 0.0966
+   47    Ro05-4318                           Ro05-4318                                 0.0842
+   48    Desmethylclobazam                   Desmethylclobazam                         0.3405
+   49    Ro11-6679                           Ro11-6679                                 0.0699
+   50    Triazolam                           Triazolam                                 0.0554
+   51    U-35005                             U-35005                                   0.0635
+   52    Estazolam                           Estazolam                                 0.0540
+   53    Alprazolam                          Alprazolam                                0.0601
+   54    Adinazolam                          Adinazolam                                0.0652
+   55    Ro11-7800                           Ro11-7800                                 0.3008
+   56    Etizolam                            Etizolam                                  0.2617
+   57    Ro17-4582                           Ro17-4582                                 0.2347
+   58    Ro21-8137                           Ro21-8137                                 0.0490
+   59    Midazolam                           Midazolam                                 0.0662
+   60    Ro21-5205                           Ro21-5205                                 0.0459
+   61    Ro22-0992                           Ro22-0992                                 0.0510
+   62    Ro15-8670                           Ro15-8670                                 0.0481
+   63    Ro15-8867                           Ro15-8867                                 0.1151
+   64    Ro14-0304                           Ro14-0304                                 0.0595
+   65    Ro14-5921                           Ro14-5921                                 0.0706
+   66    Ro13-9868                           Ro13-9868                                 0.0545
+   67    Ro11-8125                           Ro11-8125                                 0.1156
+   68    Ro08-6739                           Ro08-6739                                 0.1032
+   69    Ro15-0791                           Ro15-0791                                 0.0679
+   70    Ro15-2200                           Ro15-2200                                 0.0812
+   71    Ro15-3929                           Ro15-3929                                 0.0788
+   72    Ro22-3245                           Ro22-3245                                 0.0810
+   73    Ro22-1366                           Ro22-1366                                 0.1092
+   74    Ro22-1251                           Ro22-1251                                 0.0873
+   75    Ro22-3147                           Ro22-3147                                 0.2410
+   76    Ro22-0780                           Ro22-0780                                 0.1990
+   77    Ro22-3148                           Ro22-3148                                 0.2218
+   78    Ro16-4019                           Ro16-4019                                 0.1454
+   79    Ro16-9918                           Ro16-9918                                 0.1431
+   80    Ro16-3031                           Ro16-3031                                 0.1452
+   81    Ro16-7083                           Ro16-7083                                 0.1588
+   82    Ro16-6127                           Ro16-6127                                 5.0923
+   83    Ro16-0071                           Ro16-0071                                 0.2211
+   84    Ro16-3774                           Ro16-3774                                 0.1841
+   85    Ro16-6048                           Ro16-6048                                 5.1636
+   86    Ro16-5824                           Ro16-5824                                 0.1888
+   87    Ro16-6654                           Ro16-6654                                 0.1724
+   88    Ro17-1302                           Ro17-1302                                 0.1655
+   89    Ro16-8912                           Ro16-8912                                 0.1923
+   90    Ro16-7082                           Ro16-7082                                 0.1491
+   91    Ro14-5974                           Ro14-5974                                 0.1296
+   92    Ro16-4261                           Ro16-4261                                 0.1150
+   93    Ro16-6624                           Ro16-6624                                 0.1891
+   94    Ro16-3607                           Ro16-3607                                 0.1781
+   95    Ro14-5975                           Ro14-5975                                 0.1169
+   96    Ro15-3505                           Ro15-3505                                 0.3384
+   97    Ro14-7437                           Ro14-7437                                 0.3154
+   98    Ro17-9741                           Ro17-9741                                 0.1794
+   99    Lorazepam                           Lorazepam                                 0.0813
+  100    Ro14-3074                           Ro14-3074                                 0.0904
+  101    Ro11-6896                           Ro11-6896                                 0.0851
+  102    Nitrazepam                          Nitrazepam                                0.0923
+  103    Bromazepam                          Bromazepam                                0.1253
+  104    Ro20-3053                           Ro20-3053                                 0.0916
+  105    Ro20-2541                           Ro20-2541                                 0.0850
+  106    Tetrazepam                          Tetrazepam                                0.0890
+  107    Ro05-2750                           Ro05-2750                                 0.0984
+  108    Clorazepate                         Clorazepate                               0.0896
+  109    Ro05-3328                           Ro05-3328                                 0.1584
+  110    Prazepam                            Prazepam                                  0.0735
+  111    Ro10-3580                           Ro10-3580                                 0.0921
+  112    Ro13-0882                           Ro13-0882                                 0.1011
+  113    Ro22-4683                           Ro22-4683                                 0.1324
+  114    Ro06-9098                           Ro06-9098                                 0.0864
+  115    Ro12-6377                           Ro12-6377                                 0.0875
+  116    Ro20-1310                           Ro20-1310                                 0.1505
+  117    Clobazam                            Clobazam                                  0.1964
+  118    Ro11-5073                           Ro11-5073                                 0.0626
+  119    alpha-hydroxytriazolam              alpha-hydroxytriazolam                    0.0605
+  120    Ro11-1465                           Ro11-1465                                 0.3268
+  121    alpha-Hydroxymidazolam              alpha-Hydroxymidazolam                    0.0714
+  122    Ro22-1892                           Ro22-1892                                 0.0474
+  123    Ro16-0529                           Ro16-0529                                 0.0847
+  124    Ro21-8482                           Ro21-8482                                 0.0808
+  125    Ro14-1359                           Ro14-1359                                 0.0854
+  126    Ro15-9270                           Ro15-9270                                 0.0884
+  127    Ro14-2652                           Ro14-2652                                 0.0610
+  128    Ro14-7187                           Ro14-7187                                 0.0605
+  129    Ro14-0609                           Ro14-0609                                 0.1061
+  130    Ro08-9212                           Ro08-9212                                 0.1338
+  131    Ro15-2201                           Ro15-2201                                 0.0690
+  132    Ro14-3930                           Ro14-3930                                 0.0798
+  133    Ro14-5568                           Ro14-5568                                 0.0743
+  134    Ro22-1274                           Ro22-1274                                 0.0470
+  135    Ro22-2038                           Ro22-2038                                 0.1065
+  136    Ro22-2466                           Ro22-2466                                 0.2002
+  137    Ro15-4941                           Ro15-4941                                 0.1444
+  138    Ro16-9906                           Ro16-9906                                 0.1426
+  139    Ro16-6950                           Ro16-6950                                 4.3111
+  140    Ro16-4234                           Ro16-4234                                 0.1331
+  141    Ro15-1310                           Ro15-1310                                 0.3307
+  142    Ro10-2643                           Ro10-2643                                 0.0932
+  143    Premazepam                          Premazepam                                0.2414
+  144    Ro15-8852                           Ro15-8852                                 0.1337
+  145    Chlordiazepoxide                    Chlordiazepoxide                          0.3525
+  146    Demoxepam                           Demoxepam                                 0.0912
+  147    Medazepam                           Medazepam                                 0.0813
+  148    Ro05-3308                           Ro05-3308                                 0.1032
+  149    Ro05-3343                           Ro05-3343                                 0.1010
+  150    Ro05-3663                           Ro05-3663                                 0.0992
+  151    Ro05-7094                           Ro05-7094                                 0.0922
+  152    Ro05-9090                           Ro05-9090                                 0.0842
+  153    Ro07-4532                           Ro07-4532                                 0.0778
+  154    Ro07-5096                           Ro07-5096                                 0.0809
+  155    Ro14-2312                           Ro14-2312                                 0.0943
+  156    Ro14-7181                           Ro14-7181                                 0.0966
+  157    Ro15-1746                           Ro15-1746                                 0.3231
+  158    Ro15-2427                           Ro15-2427                                 0.2578
+  159    Ro15-3237                           Ro15-3237                                 0.3314
+  160    Ro05-2181                           Ro05-2181                                 0.1327
+  161    Ro05-2881                           Ro05-2881                                 0.1106
+  162    Ro05-3395                           Ro05-3395                                 0.1384
+  163    Ro05-3636                           Ro05-3636                                 0.1032
 ---------------------------------------------------------------------------------------------
-                                             Average                                   0.3367
+                                             Average                                   0.2079
 ---------------------------------------------------------------------------------------------
 
-Elapsed time: 1.9886 seconds.
+Elapsed time: 2.5243 seconds.
 
 END COMMAND #00.0007 - COMPARE tool succeeded.
 BGN COMMAND #00.0008 - COMPARE tool was invoked as follows:
@@ -672,178 +672,178 @@ Number of objects:   163
 ---------------------------------------------------------------------------------------------
     N    Reference name                      Name                                        RMSD
 ---------------------------------------------------------------------------------------------
-    1    Meclonazepam                        Meclonazepam                              0.1419
-    2    Ro05-4435                           Ro05-4435                                 0.1886
-    3    Ro07-3953                           Ro07-3953                                 0.2659
-    4    Clonazepam                          Clonazepam                                0.1394
-    5    Delorazepam                         Delorazepam                               0.1692
-    6    Ro05-3590                           Ro05-3590                                 0.1482
-    7    Ro11-4878                           Ro11-4878                                 0.1808
-    8    Ro20-8065                           Ro20-8065                                 0.2734
-    9    Flunitrazepam                       Flunitrazepam                             0.1691
-   10    Ro07-4065                           Ro07-4065                                 0.2101
-   11    Ro05-6822                           Ro05-6822                                 0.1223
-   12    Ro20-7078                           Ro20-7078                                 0.1491
-   13    Ro05-6820                           Ro05-6820                                 0.1874
-   14    Diazepam                            Diazepam                                  0.1545
-   15    Ro07-1986                           Ro07-1986                                 0.1382
-   16    Nordazepam                          Nordazepam                                0.1780
-   17    Ro05-2904                           Ro05-2904                                 0.1844
-   18    Ro05-4520                           Ro05-4520                                 0.1561
-   19    Ro20-8552                           Ro20-8552                                 0.2665
-   20    Temazepam                           Temazepam                                 0.1665
-   21    Ro05-4865                           Ro05-4865                                 0.1421
-   22    Oxazepam                            Oxazepam                                  0.1891
-   23    Ro07-4419                           Ro07-4419                                 0.3144
-   24    Ro20-8895                           Ro20-8895                                 0.3165
-   25    Ro05-4336                           Ro05-4336                                 0.2294
-   26    Ro20-5747                           Ro20-5747                                 0.1859
-   27    Ro07-2750                           Ro07-2750                                 0.1354
-   28    Ro07-6198                           Ro07-6198                                 0.3576
-   29    Desmethyltetrazepam                 Desmethyltetrazepam                       0.2027
-   30    Ro20-2533                           Ro20-2533                                 0.1732
-   31    Ro05-3061                           Ro05-3061                                 0.1933
-   32    Ro22-6762                           Ro22-6762                                 0.3185
-   33    Ro20-5397                           Ro20-5397                                 0.1847
-   34    Ro06-7263                           Ro06-7263                                 0.1542
-   35    Ro20-1815                           Ro20-1815                                 0.1712
-   36    Ro13-0593                           Ro13-0593                                 0.7686
-   37    Ro05-4619                           Ro05-4619                                 0.1502
-   38    Halazepam                           Halazepam                                 0.1744
-   39    Pinazepam                           Pinazepam                                 0.1734
-   40    Ro20-7736                           Ro20-7736                                 0.1712
-   41    Ro13-0699                           Ro13-0699                                 0.1849
-   42    Ro17-2221                           Ro17-2221                                 0.2117
-   43    Ro05-3546                           Ro05-3546                                 0.2647
-   44    Ro05-2921                           Ro05-2921                                 0.2209
-   45    Ro05-4528                           Ro05-4528                                 0.1626
-   46    Ro05-3072                           Ro05-3072                                 0.1829
-   47    Ro05-4318                           Ro05-4318                                 0.1761
-   48    Desmethylclobazam                   Desmethylclobazam                         0.5249
-   49    Ro11-6679                           Ro11-6679                                 0.1568
-   50    Triazolam                           Triazolam                                 0.1084
-   51    U-35005                             U-35005                                   0.1359
-   52    Estazolam                           Estazolam                                 0.1362
-   53    Alprazolam                          Alprazolam                                0.1554
-   54    Adinazolam                          Adinazolam                                0.1469
-   55    Ro11-7800                           Ro11-7800                                 0.1886
-   56    Etizolam                            Etizolam                                  0.1927
-   57    Ro17-4582                           Ro17-4582                                 0.1900
-   58    Ro21-8137                           Ro21-8137                                 0.1531
-   59    Midazolam                           Midazolam                                 0.1709
-   60    Ro21-5205                           Ro21-5205                                 0.1545
-   61    Ro22-0992                           Ro22-0992                                 0.1181
-   62    Ro15-8670                           Ro15-8670                                 0.1572
-   63    Ro15-8867                           Ro15-8867                                 0.1472
-   64    Ro14-0304                           Ro14-0304                                 0.0562
-   65    Ro14-5921                           Ro14-5921                                 0.0783
-   66    Ro13-9868                           Ro13-9868                                 0.1307
-   67    Ro11-8125                           Ro11-8125                                 0.3143
-   68    Ro08-6739                           Ro08-6739                                 0.2430
-   69    Ro15-0791                           Ro15-0791                                 0.1735
-   70    Ro15-2200                           Ro15-2200                                 0.1094
-   71    Ro15-3929                           Ro15-3929                                 0.0961
-   72    Ro22-3245                           Ro22-3245                                 0.1684
-   73    Ro22-1366                           Ro22-1366                                 0.2317
-   74    Ro22-1251                           Ro22-1251                                 0.2559
-   75    Ro22-3147                           Ro22-3147                                 0.2837
-   76    Ro22-0780                           Ro22-0780                                 0.2213
-   77    Ro22-3148                           Ro22-3148                                 0.2675
-   78    Ro16-4019                           Ro16-4019                                 0.1968
-   79    Ro16-9918                           Ro16-9918                                 0.1844
-   80    Ro16-3031                           Ro16-3031                                 0.2030
-   81    Ro16-7083                           Ro16-7083                                 0.2112
-   82    Ro16-6127                           Ro16-6127                                 0.2332
-   83    Ro16-0071                           Ro16-0071                                 0.3473
-   84    Ro16-3774                           Ro16-3774                                 0.2301
-   85    Ro16-6048                           Ro16-6048                                 0.2089
-   86    Ro16-5824                           Ro16-5824                                 6.6602
-   87    Ro16-6654                           Ro16-6654                                 0.2097
-   88    Ro17-1302                           Ro17-1302                                 6.4600
-   89    Ro16-8912                           Ro16-8912                                 6.3704
+    1    Meclonazepam                        Meclonazepam                              0.1925
+    2    Ro05-4435                           Ro05-4435                                 0.2474
+    3    Ro07-3953                           Ro07-3953                                 0.3388
+    4    Clonazepam                          Clonazepam                                0.1887
+    5    Delorazepam                         Delorazepam                               0.2319
+    6    Ro05-3590                           Ro05-3590                                 0.1948
+    7    Ro11-4878                           Ro11-4878                                 0.2488
+    8    Ro20-8065                           Ro20-8065                                 0.2114
+    9    Flunitrazepam                       Flunitrazepam                             0.2356
+   10    Ro07-4065                           Ro07-4065                                 0.2607
+   11    Ro05-6822                           Ro05-6822                                 0.1993
+   12    Ro20-7078                           Ro20-7078                                 0.2161
+   13    Ro05-6820                           Ro05-6820                                 0.2684
+   14    Diazepam                            Diazepam                                  0.2172
+   15    Ro07-1986                           Ro07-1986                                 0.2091
+   16    Nordazepam                          Nordazepam                                0.2546
+   17    Ro05-2904                           Ro05-2904                                 0.2614
+   18    Ro05-4520                           Ro05-4520                                 0.2295
+   19    Ro20-8552                           Ro20-8552                                 0.3279
+   20    Temazepam                           Temazepam                                 0.2349
+   21    Ro05-4865                           Ro05-4865                                 0.2064
+   22    Oxazepam                            Oxazepam                                  0.2579
+   23    Ro07-4419                           Ro07-4419                                 0.3943
+   24    Ro20-8895                           Ro20-8895                                 0.3923
+   25    Ro05-4336                           Ro05-4336                                 0.3063
+   26    Ro20-5747                           Ro20-5747                                 0.2596
+   27    Ro07-2750                           Ro07-2750                                 0.2082
+   28    Ro07-6198                           Ro07-6198                                 0.4430
+   29    Desmethyltetrazepam                 Desmethyltetrazepam                       0.2735
+   30    Ro20-2533                           Ro20-2533                                 0.2435
+   31    Ro05-3061                           Ro05-3061                                 0.2601
+   32    Ro22-6762                           Ro22-6762                                 0.3621
+   33    Ro20-5397                           Ro20-5397                                 0.2468
+   34    Ro06-7263                           Ro06-7263                                 0.2234
+   35    Ro20-1815                           Ro20-1815                                 0.2374
+   36    Ro13-0593                           Ro13-0593                                 0.7609
+   37    Ro05-4619                           Ro05-4619                                 0.1982
+   38    Halazepam                           Halazepam                                 0.2358
+   39    Pinazepam                           Pinazepam                                 0.2347
+   40    Ro20-7736                           Ro20-7736                                 0.2391
+   41    Ro13-0699                           Ro13-0699                                 0.2291
+   42    Ro17-2221                           Ro17-2221                                 0.2710
+   43    Ro05-3546                           Ro05-3546                                 0.4100
+   44    Ro05-2921                           Ro05-2921                                 0.2936
+   45    Ro05-4528                           Ro05-4528                                 0.2268
+   46    Ro05-3072                           Ro05-3072                                 0.2417
+   47    Ro05-4318                           Ro05-4318                                 0.2321
+   48    Desmethylclobazam                   Desmethylclobazam                         0.5817
+   49    Ro11-6679                           Ro11-6679                                 0.2131
+   50    Triazolam                           Triazolam                                 0.1735
+   51    U-35005                             U-35005                                   0.2046
+   52    Estazolam                           Estazolam                                 0.2085
+   53    Alprazolam                          Alprazolam                                0.2149
+   54    Adinazolam                          Adinazolam                                0.2033
+   55    Ro11-7800                           Ro11-7800                                 0.1941
+   56    Etizolam                            Etizolam                                  0.2096
+   57    Ro17-4582                           Ro17-4582                                 0.2164
+   58    Ro21-8137                           Ro21-8137                                 0.2069
+   59    Midazolam                           Midazolam                                 0.2124
+   60    Ro21-5205                           Ro21-5205                                 0.1989
+   61    Ro22-0992                           Ro22-0992                                 0.1880
+   62    Ro15-8670                           Ro15-8670                                 0.2231
+   63    Ro15-8867                           Ro15-8867                                 0.1701
+   64    Ro14-0304                           Ro14-0304                                 0.1150
+   65    Ro14-5921                           Ro14-5921                                 0.1198
+   66    Ro13-9868                           Ro13-9868                                 0.1976
+   67    Ro11-8125                           Ro11-8125                                 0.3655
+   68    Ro08-6739                           Ro08-6739                                 0.2872
+   69    Ro15-0791                           Ro15-0791                                 0.2386
+   70    Ro15-2200                           Ro15-2200                                 0.1940
+   71    Ro15-3929                           Ro15-3929                                 0.1421
+   72    Ro22-3245                           Ro22-3245                                 0.1922
+   73    Ro22-1366                           Ro22-1366                                 0.1994
+   74    Ro22-1251                           Ro22-1251                                 0.2596
+   75    Ro22-3147                           Ro22-3147                                 0.3242
+   76    Ro22-0780                           Ro22-0780                                 0.2776
+   77    Ro22-3148                           Ro22-3148                                 0.3296
+   78    Ro16-4019                           Ro16-4019                                 0.1985
+   79    Ro16-9918                           Ro16-9918                                 0.1917
+   80    Ro16-3031                           Ro16-3031                                 0.2060
+   81    Ro16-7083                           Ro16-7083                                 0.2103
+   82    Ro16-6127                           Ro16-6127                                 0.2233
+   83    Ro16-0071                           Ro16-0071                                 6.1556
+   84    Ro16-3774                           Ro16-3774                                 0.2318
+   85    Ro16-6048                           Ro16-6048                                 6.7504
+   86    Ro16-5824                           Ro16-5824                                 8.0291
+   87    Ro16-6654                           Ro16-6654                                 0.2063
+   88    Ro17-1302                           Ro17-1302                                 6.3651
+   89    Ro16-8912                           Ro16-8912                                 6.3134
    90    Ro16-7082                           Ro16-7082                                 0.2046
-   91    Ro14-5974                           Ro14-5974                                 0.2382
-   92    Ro16-4261                           Ro16-4261                                 6.4229
-   93    Ro16-6624                           Ro16-6624                                 0.2615
-   94    Ro16-3607                           Ro16-3607                                 0.2737
-   95    Ro14-5975                           Ro14-5975                                 0.1796
-   96    Ro15-3505                           Ro15-3505                                 0.3209
-   97    Ro14-7437                           Ro14-7437                                 0.4988
-   98    Ro17-9741                           Ro17-9741                                 0.1884
-   99    Lorazepam                           Lorazepam                                 0.1740
-  100    Ro14-3074                           Ro14-3074                                 0.1723
-  101    Ro11-6896                           Ro11-6896                                 0.1328
-  102    Nitrazepam                          Nitrazepam                                0.1903
-  103    Bromazepam                          Bromazepam                                0.2107
-  104    Ro20-3053                           Ro20-3053                                 0.2844
-  105    Ro20-2541                           Ro20-2541                                 0.1403
-  106    Tetrazepam                          Tetrazepam                                0.1801
-  107    Ro05-2750                           Ro05-2750                                 0.1675
-  108    Clorazepate                         Clorazepate                               0.1933
-  109    Ro05-3328                           Ro05-3328                                 0.7718
-  110    Prazepam                            Prazepam                                  0.1317
-  111    Ro10-3580                           Ro10-3580                                 0.1347
-  112    Ro13-0882                           Ro13-0882                                 0.1598
-  113    Ro22-4683                           Ro22-4683                                 0.2507
-  114    Ro06-9098                           Ro06-9098                                 0.1833
-  115    Ro12-6377                           Ro12-6377                                 0.1844
-  116    Ro20-1310                           Ro20-1310                                 0.2401
-  117    Clobazam                            Clobazam                                  0.3504
-  118    Ro11-5073                           Ro11-5073                                 0.1572
-  119    alpha-hydroxytriazolam              alpha-hydroxytriazolam                    0.1398
-  120    Ro11-1465                           Ro11-1465                                 0.2723
-  121    alpha-Hydroxymidazolam              alpha-Hydroxymidazolam                    0.1362
-  122    Ro22-1892                           Ro22-1892                                 0.2215
-  123    Ro16-0529                           Ro16-0529                                 0.2070
-  124    Ro21-8482                           Ro21-8482                                 0.1655
-  125    Ro14-1359                           Ro14-1359                                 0.1810
-  126    Ro15-9270                           Ro15-9270                                 0.0755
-  127    Ro14-2652                           Ro14-2652                                 0.0575
-  128    Ro14-7187                           Ro14-7187                                 0.1309
-  129    Ro14-0609                           Ro14-0609                                 0.2735
-  130    Ro08-9212                           Ro08-9212                                 0.2261
-  131    Ro15-2201                           Ro15-2201                                 0.1695
-  132    Ro14-3930                           Ro14-3930                                 0.0968
-  133    Ro14-5568                           Ro14-5568                                 0.0827
-  134    Ro22-1274                           Ro22-1274                                 0.1495
-  135    Ro22-2038                           Ro22-2038                                 0.2237
-  136    Ro22-2466                           Ro22-2466                                 0.2210
-  137    Ro15-4941                           Ro15-4941                                 0.2172
-  138    Ro16-9906                           Ro16-9906                                 0.1946
-  139    Ro16-6950                           Ro16-6950                                 4.9432
-  140    Ro16-4234                           Ro16-4234                                 0.2028
-  141    Ro15-1310                           Ro15-1310                                 0.3477
-  142    Ro10-2643                           Ro10-2643                                 0.3263
-  143    Premazepam                          Premazepam                                0.3714
-  144    Ro15-8852                           Ro15-8852                                 0.2385
-  145    Chlordiazepoxide                    Chlordiazepoxide                          0.9512
-  146    Demoxepam                           Demoxepam                                 0.2451
-  147    Medazepam                           Medazepam                                 0.2173
-  148    Ro05-3308                           Ro05-3308                                 0.1911
-  149    Ro05-3343                           Ro05-3343                                 0.2113
-  150    Ro05-3663                           Ro05-3663                                 0.1999
-  151    Ro05-7094                           Ro05-7094                                 0.2584
-  152    Ro05-9090                           Ro05-9090                                 0.1821
-  153    Ro07-4532                           Ro07-4532                                 0.1476
-  154    Ro07-5096                           Ro07-5096                                 0.1252
-  155    Ro14-2312                           Ro14-2312                                 0.1675
-  156    Ro14-7181                           Ro14-7181                                 0.2399
-  157    Ro15-1746                           Ro15-1746                                 0.7077
-  158    Ro15-2427                           Ro15-2427                                 0.4059
-  159    Ro15-3237                           Ro15-3237                                 0.8679
-  160    Ro05-2181                           Ro05-2181                                 0.2872
-  161    Ro05-2881                           Ro05-2881                                 0.2463
-  162    Ro05-3395                           Ro05-3395                                 0.2989
-  163    Ro05-3636                           Ro05-3636                                 0.2950
+   91    Ro14-5974                           Ro14-5974                                 0.2615
+   92    Ro16-4261                           Ro16-4261                                 6.3563
+   93    Ro16-6624                           Ro16-6624                                 0.2632
+   94    Ro16-3607                           Ro16-3607                                 0.2766
+   95    Ro14-5975                           Ro14-5975                                 0.1703
+   96    Ro15-3505                           Ro15-3505                                 0.3391
+   97    Ro14-7437                           Ro14-7437                                 0.4944
+   98    Ro17-9741                           Ro17-9741                                 0.1919
+   99    Lorazepam                           Lorazepam                                 0.2511
+  100    Ro14-3074                           Ro14-3074                                 0.2517
+  101    Ro11-6896                           Ro11-6896                                 0.1990
+  102    Nitrazepam                          Nitrazepam                                0.2488
+  103    Bromazepam                          Bromazepam                                0.2955
+  104    Ro20-3053                           Ro20-3053                                 0.3370
+  105    Ro20-2541                           Ro20-2541                                 0.2214
+  106    Tetrazepam                          Tetrazepam                                0.2741
+  107    Ro05-2750                           Ro05-2750                                 0.2336
+  108    Clorazepate                         Clorazepate                               0.2660
+  109    Ro05-3328                           Ro05-3328                                 0.7866
+  110    Prazepam                            Prazepam                                  0.2152
+  111    Ro10-3580                           Ro10-3580                                 0.2116
+  112    Ro13-0882                           Ro13-0882                                 0.2241
+  113    Ro22-4683                           Ro22-4683                                 0.2372
+  114    Ro06-9098                           Ro06-9098                                 0.2365
+  115    Ro12-6377                           Ro12-6377                                 0.2647
+  116    Ro20-1310                           Ro20-1310                                 0.2658
+  117    Clobazam                            Clobazam                                  0.4029
+  118    Ro11-5073                           Ro11-5073                                 0.2082
+  119    alpha-hydroxytriazolam              alpha-hydroxytriazolam                    0.2017
+  120    Ro11-1465                           Ro11-1465                                 0.2693
+  121    alpha-Hydroxymidazolam              alpha-Hydroxymidazolam                    0.1821
+  122    Ro22-1892                           Ro22-1892                                 0.2941
+  123    Ro16-0529                           Ro16-0529                                 0.2854
+  124    Ro21-8482                           Ro21-8482                                 0.1885
+  125    Ro14-1359                           Ro14-1359                                 0.2481
+  126    Ro15-9270                           Ro15-9270                                 0.1055
+  127    Ro14-2652                           Ro14-2652                                 0.1080
+  128    Ro14-7187                           Ro14-7187                                 0.2096
+  129    Ro14-0609                           Ro14-0609                                 0.3370
+  130    Ro08-9212                           Ro08-9212                                 0.2536
+  131    Ro15-2201                           Ro15-2201                                 0.2327
+  132    Ro14-3930                           Ro14-3930                                 0.1355
+  133    Ro14-5568                           Ro14-5568                                 0.1338
+  134    Ro22-1274                           Ro22-1274                                 0.2181
+  135    Ro22-2038                           Ro22-2038                                 0.2033
+  136    Ro22-2466                           Ro22-2466                                 0.2817
+  137    Ro15-4941                           Ro15-4941                                 0.2206
+  138    Ro16-9906                           Ro16-9906                                 0.1994
+  139    Ro16-6950                           Ro16-6950                                 4.9168
+  140    Ro16-4234                           Ro16-4234                                 0.2149
+  141    Ro15-1310                           Ro15-1310                                 0.3208
+  142    Ro10-2643                           Ro10-2643                                 0.3654
+  143    Premazepam                          Premazepam                                0.4078
+  144    Ro15-8852                           Ro15-8852                                 0.3022
+  145    Chlordiazepoxide                    Chlordiazepoxide                          0.6071
+  146    Demoxepam                           Demoxepam                                 0.3130
+  147    Medazepam                           Medazepam                                 0.2623
+  148    Ro05-3308                           Ro05-3308                                 0.2594
+  149    Ro05-3343                           Ro05-3343                                 0.2695
+  150    Ro05-3663                           Ro05-3663                                 0.2550
+  151    Ro05-7094                           Ro05-7094                                 0.2800
+  152    Ro05-9090                           Ro05-9090                                 0.2405
+  153    Ro07-4532                           Ro07-4532                                 0.2150
+  154    Ro07-5096                           Ro07-5096                                 0.1992
+  155    Ro14-2312                           Ro14-2312                                 0.2421
+  156    Ro14-7181                           Ro14-7181                                 0.2526
+  157    Ro15-1746                           Ro15-1746                                 5.5003
+  158    Ro15-2427                           Ro15-2427                                 0.4019
+  159    Ro15-3237                           Ro15-3237                                 0.9022
+  160    Ro05-2181                           Ro05-2181                                 0.3715
+  161    Ro05-2881                           Ro05-2881                                 0.3124
+  162    Ro05-3395                           Ro05-3395                                 0.3880
+  163    Ro05-3636                           Ro05-3636                                 0.3616
 ---------------------------------------------------------------------------------------------
-                                             Average                                   0.4037
+                                             Average                                   0.5599
 ---------------------------------------------------------------------------------------------
 
-Elapsed time: 1.9400 seconds.
+Elapsed time: 2.5032 seconds.
 
 END COMMAND #00.0008 - COMPARE tool succeeded.
 
 
-Job finished on Sat Sep  8 14:09:08 2012
+Job finished on Wed Jun 25 12:12:27 2014
 
 Successful completion.

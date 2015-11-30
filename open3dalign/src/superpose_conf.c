@@ -9,7 +9,7 @@ Open3DALIGN
 
 An open-source software aimed at unsupervised molecular alignment
 
-Copyright (C) 2010-2014 Paolo Tosco, Thomas Balle
+Copyright (C) 2010-2015 Paolo Tosco, Thomas Balle
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -292,7 +292,7 @@ int superpose_conf_syst(ConfInfo *moved_conf, ConfInfo *template_conf, ConfInfo 
 }
 
 
-int rms_algorithm(int options, AtomPair *sdm, int pairs, ConfInfo *moved_conf,
+int rms_algorithm(int coeff, AtomPair *sdm, int pairs, ConfInfo *moved_conf,
   ConfInfo *template_conf, ConfInfo *fitted_conf, double *rt_mat,
   double *heavy_msd, double *original_heavy_msd)
 {
@@ -321,7 +321,10 @@ int rms_algorithm(int options, AtomPair *sdm, int pairs, ConfInfo *moved_conf,
   double t_vec1[RT_VEC_SIZE];
   double t_vec2[RT_VEC_SIZE];
   double z[16];
-  double weight = 1.0;
+  double min_weight;
+  double sum_weight;
+  double td;
+  double md;
   
   
   #ifndef HAVE_LIBSUNPERF
@@ -335,13 +338,31 @@ int rms_algorithm(int options, AtomPair *sdm, int pairs, ConfInfo *moved_conf,
   compute centroids taking into account only
   atom pairs used for the superposition
   */
-  for (x = 0; x < 3; ++x) {
-    for (i = 0; i < pairs; ++i) {
-      template_pairs_centroid[x] += template_conf->coord[sdm[i].a[0] * 3 + x];
-      moved_pairs_centroid[x] += moved_conf->coord[sdm[i].a[1] * 3 + x];
+  for (i = 0, min_weight = 1.0; i < pairs; ++i) {
+    sdm[i].weight = 1.0;
+    if (coeff >= 0) {
+      corr = mmff_corr_matrix[template_conf->atom[sdm[i].a[0]]->atom_type - 1]
+        [moved_conf->atom[sdm[i].a[1]]->atom_type - 1];
+      sdm[i].weight = (double)(5 - coeff) * (1.0 + O3_CHARGE_COEFF
+        * fabs(template_conf->atom[sdm[i].a[0]]->charge + moved_conf->atom[sdm[i].a[1]]->charge))
+        / (1.0 + fabs(template_conf->atom[sdm[i].a[0]]->charge - moved_conf->atom[sdm[i].a[1]]->charge))
+        + (double)coeff / (double)corr;
+      if ((!i) || (sdm[i].weight < min_weight)) {
+        min_weight = sdm[i].weight;
+      }
     }
-    template_pairs_centroid[x] /= (double)pairs;
-    moved_pairs_centroid[x] /= (double)pairs;
+  }
+  for (i = 0, sum_weight = 0.0; i < pairs; ++i) {
+    sdm[i].weight /= min_weight;
+    sum_weight += sdm[i].weight;
+    for (x = 0; x < 3; ++x) {
+      template_pairs_centroid[x] += sdm[i].weight * template_conf->coord[sdm[i].a[0] * 3 + x];
+      moved_pairs_centroid[x] += sdm[i].weight * moved_conf->coord[sdm[i].a[1] * 3 + x];
+    }
+  }
+  for (x = 0; x < 3; ++x) {
+    template_pairs_centroid[x] /= sum_weight;
+    moved_pairs_centroid[x] /= sum_weight;
   }
   memset(t_vec1, 0, RT_VEC_SIZE * sizeof(double));
   t_vec1[3] = 1.0;
@@ -356,32 +377,22 @@ int rms_algorithm(int options, AtomPair *sdm, int pairs, ConfInfo *moved_conf,
   find the best rotation matrix
   */
   for (i = 0; i < pairs; ++i) {
-    weight = 1.0;
-    if (options & USE_CHARGE_WEIGHTS) {
-      weight = (1.0 + O3_CHARGE_COEFF * fabs(template_conf->atom[sdm[i].a[0]]->charge + moved_conf->atom[sdm[i].a[1]]->charge))
-        / (1.0 + fabs(template_conf->atom[sdm[i].a[0]]->charge - moved_conf->atom[sdm[i].a[1]]->charge));
-    }
-    else if (options & USE_MMFF_WEIGHTS) {
-      corr = mmff_corr_matrix[template_conf->atom[sdm[i].a[0]]->atom_type - 1]
-        [moved_conf->atom[sdm[i].a[1]]->atom_type - 1];
-      weight = 1.0 / (1.0 + (double)(corr - 1));
-    }
     for (x = 0; x < 3; ++x) {
-      m[x] = (template_conf->coord[sdm[i].a[0] * 3 + x] - template_pairs_centroid[x])
-        - (moved_conf->coord[sdm[i].a[1] * 3 + x] - moved_pairs_centroid[x]);
-      p[x] = (template_conf->coord[sdm[i].a[0] * 3 + x] - template_pairs_centroid[x])
-        + (moved_conf->coord[sdm[i].a[1] * 3 + x] - moved_pairs_centroid[x]);
+      td = (template_conf->coord[sdm[i].a[0] * 3 + x] - template_pairs_centroid[x]);
+      md = (moved_conf->coord[sdm[i].a[1] * 3 + x] - moved_pairs_centroid[x]);
+      m[x] = sdm[i].weight * (td - md);
+      p[x] = sdm[i].weight * (td + md);
     }
-    z[0]  += weight * (square(m[0]) + square(m[1]) + square(m[2]));
-    z[4]  += weight * (p[1] * m[2] - m[1] * p[2]);
-    z[5]  += weight * (square(p[1]) + square(p[2]) + square(m[0]));
-    z[8]  += weight * (m[0] * p[2] - p[0] * m[2]);
-    z[9]  += weight * (m[0] * m[1] - p[0] * p[1]);
-    z[10] += weight * (square(p[0]) + square(p[2]) + square(m[1]));
-    z[12] += weight * (p[0] * m[1] - m[0] * p[1]);
-    z[13] += weight * (m[0] * m[2] - p[0] * p[2]);
-    z[14] += weight * (m[1] * m[2] - p[1] * p[2]);
-    z[15] += weight * (square(p[0]) + square(p[1]) + square(m[2]));
+    z[0]  += (square(m[0]) + square(m[1]) + square(m[2]));
+    z[4]  += (p[1] * m[2] - m[1] * p[2]);
+    z[5]  += (square(p[1]) + square(p[2]) + square(m[0]));
+    z[8]  += (m[0] * p[2] - p[0] * m[2]);
+    z[9]  += (m[0] * m[1] - p[0] * p[1]);
+    z[10] += (square(p[0]) + square(p[2]) + square(m[1]));
+    z[12] += (p[0] * m[1] - m[0] * p[1]);
+    z[13] += (m[0] * m[2] - p[0] * p[2]);
+    z[14] += (m[1] * m[2] - p[1] * p[2]);
+    z[15] += (square(p[0]) + square(p[1]) + square(m[2]));
   }
   n = 4;
   #ifdef HAVE_LIBMKL
@@ -1114,7 +1125,10 @@ int compute_cost_matrix(LAPInfo *li, ConfInfo *moved_conf, ConfInfo *template_co
       if (!strcmp(moved_conf->atom[j]->element, "H")) {
         continue;
       }
-      for (k = 0, h_sum = 0.0; (k < n_bins) && (template_conf->h[y][k] + moved_conf->h[x][k]); ++k) {
+      for (k = 0, h_sum = 0.0; k < n_bins; ++k) {
+        if (!(template_conf->h[y][k] + moved_conf->h[x][k])) {
+          continue;
+        }
         h_sum += ((double)square(template_conf->h[y][k] - moved_conf->h[x][k])
           / (double)(template_conf->h[y][k] + moved_conf->h[x][k]));
       }
@@ -1159,17 +1173,10 @@ int filter_sol_vector(LAPInfo *li, ConfInfo *moved_conf, ConfInfo *template_conf
     if (li->cost[i][li->array[O3_LI_ROWSOL][i]] >= DUMMY_COST) {
       continue;
     }
-    temp_sdm[n_equiv].a[0] = i;
-    temp_sdm[n_equiv].a[1] = li->array[O3_LI_ROWSOL][i];
-    temp_sdm[n_equiv].cost = li->cost[i][li->array[O3_LI_ROWSOL][i]];
+    sdm[n_equiv].a[0] = i;
+    sdm[n_equiv].a[1] = li->array[O3_LI_ROWSOL][i];
+    sdm[n_equiv].cost = li->cost[i][li->array[O3_LI_ROWSOL][i]];
     ++n_equiv;
-  }
-  for (i = 0, k = 0; i < n_equiv; ++i) {
-    if (temp_sdm[i].a[0] == -1) {
-      continue;
-    }
-    memcpy(&sdm[k], &temp_sdm[i], sizeof(AtomPair));
-    ++k;
   }
   /*
   find out correspondences between heavy atom indexes
@@ -1177,7 +1184,6 @@ int filter_sol_vector(LAPInfo *li, ConfInfo *moved_conf, ConfInfo *template_conf
   (the sdm matrix is rebuilt using original molecule
   heavy atom indexes)
   */
-  n_equiv = k;
   for (n = 0; n < 2; ++n) {
     for (i = 0; i < n_equiv; ++i) {
       j = 0;
