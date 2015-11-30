@@ -9,7 +9,7 @@ Open3DALIGN
 
 An open-source software aimed at unsupervised molecular alignment
 
-Copyright (C) 2010-2014 Paolo Tosco, Thomas Balle
+Copyright (C) 2010-2015 Paolo Tosco, Thomas Balle
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -176,6 +176,10 @@ O3KeywordData keyword_data[] =
           NULL
         }
       }, {
+        O3_PARAM_NUMERIC, "x_nodes", {
+          NULL
+        }
+      }, {
         O3_PARAM_NUMERIC, "y_start", {
           NULL
         }
@@ -184,11 +188,19 @@ O3KeywordData keyword_data[] =
           NULL
         }
       }, {
+        O3_PARAM_NUMERIC, "y_nodes", {
+          NULL
+        }
+      }, {
         O3_PARAM_NUMERIC, "z_start", {
           NULL
         }
       }, {
         O3_PARAM_NUMERIC, "z_end", {
+          NULL
+        }
+      }, {
+        O3_PARAM_NUMERIC, "z_nodes", {
           NULL
         }
       }, {
@@ -719,6 +731,27 @@ O3KeywordData keyword_data[] =
     {
       {
         O3_PARAM_FILE, "file", {
+          NULL
+        }
+      }, {  // this is the terminator
+        0, NULL, {
+          NULL
+        }
+      }
+    }
+  }, {
+    "system",
+    {
+      {
+        O3_PARAM_STRING, "cmd", {
+          NULL
+        }
+      }, {
+        O3_PARAM_DIRECTORY, "exedir", {
+          NULL
+        }
+      }, {
+        O3_PARAM_STRING, "shell", {
           NULL
         }
       }, {  // this is the terminator
