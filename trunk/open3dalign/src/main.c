@@ -9,7 +9,7 @@ Open3DALIGN
 
 An open-source software aimed at unsupervised molecular alignment
 
-Copyright (C) 2010-2015 Paolo Tosco, Thomas Balle
+Copyright (C) 2010-2018 Paolo Tosco, Thomas Balle
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -667,9 +667,9 @@ int main(int argc, char **argv)
     "\n"
     PACKAGE_NAME" version " VERSION "\n"
     #ifdef O3Q
-    "Copyright (C) 2009-2015 Paolo Tosco, Thomas Balle\n"
+    "Copyright (C) 2009-2018 Paolo Tosco, Thomas Balle\n"
     #else
-    "Copyright (C) 2010-2015 Paolo Tosco, Thomas Balle\n"
+    "Copyright (C) 2010-2018 Paolo Tosco, Thomas Balle\n"
     #endif
     "Licensed under the terms of GPLv3\n"
     "Report bugs to " PACKAGE_BUGREPORT "\n"
@@ -694,9 +694,9 @@ int main(int argc, char **argv)
     "\n"
     "Version " VERSION "\n"
     #ifdef O3Q
-    "Copyright (C) 2009-2015 Paolo Tosco, Thomas Balle\n"
+    "Copyright (C) 2009-2018 Paolo Tosco, Thomas Balle\n"
     #else
-    "Copyright (C) 2010-2015 Paolo Tosco, Thomas Balle\n"
+    "Copyright (C) 2010-2018 Paolo Tosco, Thomas Balle\n"
     #endif
     "\n"
     "\n"
